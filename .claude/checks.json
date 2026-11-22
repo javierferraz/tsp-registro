@@ -1,0 +1,5 @@
+{
+  "checks": [
+    {"name": "tests de org", "cmd": ["python", "-m", "unittest", "discover", "-s", "tests"], "cwd": ".", "timeout_s": 300}
+  ]
+}

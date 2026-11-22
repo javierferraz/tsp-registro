@@ -1,0 +1,8 @@
+# Desechables: se recalculan desde eventos/ (org recalcular)
+.indice/
+estado/
+eventos/**/*.tmp
+__pycache__/
+.pytest_cache/
+.env
+semaforo.txt
