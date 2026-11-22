@@ -1,0 +1,42 @@
+{
+ "id": "28fd4788bbc88d90",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.942812Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-301"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-301",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-09-18T14:04:41Z",
+  "actualizada": "2026-09-19T07:39:57Z",
+  "huella_texto": "09e79e509d4b4234",
+  "notas": 5,
+  "app": "Tappy Woodpecker",
+  "etiquetas": [
+   "release"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-18T22:29:52Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-19T07:39:57Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

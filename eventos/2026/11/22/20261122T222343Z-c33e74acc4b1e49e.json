@@ -1,0 +1,44 @@
+{
+ "id": "c33e74acc4b1e49e",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.388800Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-653"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-653",
+ "datos": {
+  "estado": "validar",
+  "revision": 14,
+  "creada": "2026-10-14T20:42:29Z",
+  "actualizada": "2026-11-22T21:03:35Z",
+  "huella_texto": "cde074b39c7029ab",
+  "notas": 15,
+  "app": "Mighty Bison",
+  "check": "ojos",
+  "commits": [
+   "cf80b70a000b",
+   "8f1976d936e7",
+   "4310c00390d8",
+   "e352f60d8ad0",
+   "bd233ab7fac2",
+   "5bb7f30fcdec",
+   "403cf8b035d8",
+   "f715376ce865"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-10T14:38:38Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

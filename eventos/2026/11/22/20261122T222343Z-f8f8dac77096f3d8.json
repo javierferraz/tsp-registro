@@ -1,0 +1,50 @@
+{
+ "id": "f8f8dac77096f3d8",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.499897Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-709"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-709",
+ "datos": {
+  "estado": "hecha",
+  "revision": 12,
+  "creada": "2026-10-15T23:33:58Z",
+  "actualizada": "2026-10-17T16:46:25Z",
+  "huella_texto": "7f39be2d3dbbbf14",
+  "notas": 7,
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "adelante",
+    "fecha": "2026-10-15T23:34:29Z",
+    "por": "javier"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-10-17T16:42:13Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-17T16:42:54Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-17T16:46:25Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

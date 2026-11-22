@@ -1,0 +1,45 @@
+{
+ "id": "38495236812de60c",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.727978Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1202"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1202",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-11-15T19:48:21Z",
+  "actualizada": "2026-11-16T23:26:58Z",
+  "huella_texto": "466408d5ab9eda9e",
+  "notas": 6,
+  "app": "Animal Tools",
+  "etiquetas": [
+   "site"
+  ],
+  "commits": [
+   "21596330bc3b"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-16T08:06:49Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-16T23:26:58Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

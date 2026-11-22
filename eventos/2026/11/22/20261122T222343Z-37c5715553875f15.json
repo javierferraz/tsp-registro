@@ -1,0 +1,39 @@
+{
+ "id": "37c5715553875f15",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.346746Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-621"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-621",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-10-13T23:17:24Z",
+  "actualizada": "2026-10-13T23:34:47Z",
+  "huella_texto": "c1b707c3052ced6e",
+  "notas": 5,
+  "app": "Clear Parrot",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-13T23:21:05Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-13T23:34:47Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

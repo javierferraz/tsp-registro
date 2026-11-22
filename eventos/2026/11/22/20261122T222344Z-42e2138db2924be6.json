@@ -1,0 +1,46 @@
+{
+ "id": "42e2138db2924be6",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.266822Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1050"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1050",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-29T19:32:16Z",
+  "actualizada": "2026-10-29T21:41:55Z",
+  "huella_texto": "e9e3ee494107b19b",
+  "notas": 7,
+  "app": "Brave Tiger",
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-29T19:35:32Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-29T19:53:15Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:41:55Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

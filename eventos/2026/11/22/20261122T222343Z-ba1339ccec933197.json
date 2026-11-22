@@ -1,0 +1,40 @@
+{
+ "id": "ba1339ccec933197",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.950275Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-906"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-906",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-22T13:37:34Z",
+  "actualizada": "2026-10-29T21:40:52Z",
+  "huella_texto": "14fc3a0f8f506955",
+  "notas": 6,
+  "app": "Funiagentes",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-22T13:39:39Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:40:52Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

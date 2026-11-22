@@ -1,0 +1,50 @@
+{
+ "id": "830692df78b7fb68",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.641530Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-082"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-082",
+ "datos": {
+  "estado": "hecha",
+  "revision": 1,
+  "creada": "2026-09-07T08:43:44Z",
+  "actualizada": "2026-09-07T11:31:15.766Z",
+  "huella_texto": "0dea1da85af07c62",
+  "notas": 7,
+  "app": "Handy Raccoon",
+  "etiquetas": [
+   "Handy Raccoon",
+   "seguridad"
+  ],
+  "prioridad": "alta",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "adelante",
+    "fecha": "2026-09-07T10:49:45.775Z",
+    "por": "javier"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-09-07T10:56:23Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-07T11:14:18Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

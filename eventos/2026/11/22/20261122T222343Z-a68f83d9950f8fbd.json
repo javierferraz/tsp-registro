@@ -1,0 +1,33 @@
+{
+ "id": "a68f83d9950f8fbd",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.133294Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-460"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-460",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-10-01T11:33:40Z",
+  "actualizada": "2026-10-01T20:36:12Z",
+  "huella_texto": "b05c23db89b7c700",
+  "notas": 3,
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-01T20:36:12Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

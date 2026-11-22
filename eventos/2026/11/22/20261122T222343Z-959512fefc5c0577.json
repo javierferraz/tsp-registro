@@ -1,0 +1,53 @@
+{
+ "id": "959512fefc5c0577",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.233872Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-536"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-536",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-10-03T06:52:33Z",
+  "actualizada": "2026-10-04T12:02:01Z",
+  "huella_texto": "f54e3fb85ff01c7e",
+  "notas": 8,
+  "app": "Clear Parrot",
+  "prioridad": "baja",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "adelante",
+    "fecha": "2026-10-04T09:55:12Z",
+    "por": "claude"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-10-04T10:39:00Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-04T10:51:31Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-04T12:02:01Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

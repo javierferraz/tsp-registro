@@ -1,0 +1,40 @@
+{
+ "id": "96f747f0546f7b9e",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.029190Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-375"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-375",
+ "datos": {
+  "estado": "hecha",
+  "revision": 10,
+  "creada": "2026-09-26T07:57:19Z",
+  "actualizada": "2026-10-01T20:36:05Z",
+  "huella_texto": "9cbe2231fe982809",
+  "notas": 10,
+  "app": "Happy Walrus",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-26T09:36:34Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-01T20:36:05Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

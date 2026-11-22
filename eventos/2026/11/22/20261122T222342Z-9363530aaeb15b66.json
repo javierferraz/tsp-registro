@@ -1,0 +1,33 @@
+{
+ "id": "9363530aaeb15b66",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.821901Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-223"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-223",
+ "datos": {
+  "estado": "descartada",
+  "revision": 3,
+  "creada": "2026-09-13T20:18:27Z",
+  "actualizada": "2026-09-13T21:57:17Z",
+  "huella_texto": "fffbfdb858a47a88",
+  "notas": 3,
+  "app": "Handy Raccoon",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "descartada",
+    "fecha": "2026-09-13T21:57:17Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

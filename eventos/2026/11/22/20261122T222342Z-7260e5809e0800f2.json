@@ -1,0 +1,63 @@
+{
+ "id": "7260e5809e0800f2",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.607293Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-050"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-050",
+ "datos": {
+  "estado": "hecha",
+  "revision": 1,
+  "creada": "2026-09-06T16:51:46Z",
+  "actualizada": "2026-09-07T17:53:43.522Z",
+  "huella_texto": "fc5e6eec205aa55e",
+  "notas": 9,
+  "app": "Tiny Chicken",
+  "etiquetas": [
+   "Tiny Chicken",
+   "release",
+   "seguridad"
+  ],
+  "prioridad": "alta",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "adelante",
+    "fecha": "2026-09-07T12:21:50.655Z",
+    "por": "javier"
+   },
+   {
+    "de": "adelante",
+    "a": "pedida",
+    "fecha": "2026-09-07T13:03:44.569Z",
+    "por": "javier"
+   },
+   {
+    "de": "pedida",
+    "a": "adelante",
+    "fecha": "2026-09-07T14:35:59.749Z",
+    "por": "javier"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-09-07T16:43:25Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-07T17:37:49Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

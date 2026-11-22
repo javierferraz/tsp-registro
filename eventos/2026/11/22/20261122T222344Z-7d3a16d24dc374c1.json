@@ -1,0 +1,47 @@
+{
+ "id": "7d3a16d24dc374c1",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.082631Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-967"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-967",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-10-24T15:38:46Z",
+  "actualizada": "2026-11-02T14:08:50Z",
+  "huella_texto": "ed4a9eff397c0b5a",
+  "notas": 8,
+  "app": "Sneaky Spider",
+  "prioridad": "media",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-24T15:54:04Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-24T16:28:02Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-02T14:08:50Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

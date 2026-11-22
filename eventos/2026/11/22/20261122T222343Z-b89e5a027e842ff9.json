@@ -1,0 +1,26 @@
+{
+ "id": "b89e5a027e842ff9",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.214552Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-521"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-521",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-10-02T11:17:21Z",
+  "actualizada": "2026-10-02T11:17:21Z",
+  "huella_texto": "a5e8760b4448ee88",
+  "notas": 1,
+  "app": "Handy Raccoon",
+  "prioridad": "baja"
+ }
+}

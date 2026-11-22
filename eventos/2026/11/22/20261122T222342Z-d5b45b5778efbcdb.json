@@ -1,0 +1,92 @@
+{
+ "id": "d5b45b5778efbcdb",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.568004Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-013"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-013",
+ "datos": {
+  "estado": "hecha",
+  "revision": 1,
+  "creada": "2026-09-06T08:44:07Z",
+  "actualizada": "2026-09-06T15:20:17.565Z",
+  "huella_texto": "f804c4ee24d5f335",
+  "notas": 30,
+  "app": "Clever Cat",
+  "etiquetas": [
+   "Clever Cat",
+   "app",
+   "fallo"
+  ],
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "adelante",
+    "fecha": "2026-09-06T08:46:02.279Z",
+    "por": "javier"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-09-06T08:46:43Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-06T08:54:28Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "curso",
+    "fecha": "2026-09-06T11:32:42Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "info",
+    "fecha": "2026-09-06T11:42:54Z",
+    "por": "claude"
+   },
+   {
+    "de": "info",
+    "a": "curso",
+    "fecha": "2026-09-06T11:50:55Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-06T11:53:18Z",
+    "por": "claude"
+   },
+   {
+    "de": "adelante",
+    "a": "info",
+    "fecha": "2026-09-06T13:48:51Z",
+    "por": "claude"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-09-06T13:52:37Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-06T14:44:39Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

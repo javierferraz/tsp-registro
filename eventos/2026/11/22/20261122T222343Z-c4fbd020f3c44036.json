@@ -1,0 +1,109 @@
+{
+ "id": "c4fbd020f3c44036",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.067549Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-405"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-405",
+ "datos": {
+  "estado": "hecha",
+  "revision": 43,
+  "creada": "2026-09-26T19:28:13Z",
+  "actualizada": "2026-10-01T20:36:27Z",
+  "huella_texto": "34c2482cbe2bf6c0",
+  "notas": 26,
+  "app": "Clever Cat",
+  "etiquetas": [
+   "Clever Cat",
+   "app"
+  ],
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "adelante",
+    "fecha": "2026-09-26T19:30:16Z",
+    "por": "javier"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-10-01T11:32:40Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "info",
+    "fecha": "2026-10-01T11:34:56Z",
+    "por": "claude"
+   },
+   {
+    "de": "info",
+    "a": "adelante",
+    "fecha": "2026-10-01T18:54:31Z",
+    "por": "javier"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-10-01T18:54:57Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-01T18:56:52Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "curso",
+    "fecha": "2026-10-01T19:28:38Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-01T19:29:47Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "curso",
+    "fecha": "2026-10-01T19:31:23Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-01T19:32:20Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "curso",
+    "fecha": "2026-10-01T19:38:29Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-01T19:41:27Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-01T20:36:27Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

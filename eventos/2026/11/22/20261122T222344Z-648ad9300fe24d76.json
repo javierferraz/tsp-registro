@@ -1,0 +1,29 @@
+{
+ "id": "648ad9300fe24d76",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.254374Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1044"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1044",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 7,
+  "creada": "2026-10-28T21:53:28Z",
+  "actualizada": "2026-11-22T10:53:37Z",
+  "huella_texto": "cfc66c43b435efca",
+  "notas": 12,
+  "app": "Smart Greenjay",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "media"
+ }
+}

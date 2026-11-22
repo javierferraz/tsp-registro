@@ -1,0 +1,40 @@
+{
+ "id": "15602d5c63864a78",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.981940Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-918"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-918",
+ "datos": {
+  "estado": "hecha",
+  "revision": 7,
+  "creada": "2026-10-22T19:17:50Z",
+  "actualizada": "2026-10-29T21:41:01Z",
+  "huella_texto": "6f13928894399354",
+  "notas": 6,
+  "app": "Orderly Owl",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-22T19:28:00Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:41:01Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

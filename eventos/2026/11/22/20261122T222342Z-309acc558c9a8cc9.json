@@ -1,0 +1,34 @@
+{
+ "id": "309acc558c9a8cc9",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.972330Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-327"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-327",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 2,
+  "creada": "2026-09-20T15:39:25Z",
+  "actualizada": "2026-10-01T19:38:18Z",
+  "huella_texto": "29a092b6e0f2c849",
+  "notas": 2,
+  "app": "Clever Cat",
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "propuesta",
+    "fecha": "2026-10-01T19:38:18Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

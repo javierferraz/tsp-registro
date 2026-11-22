@@ -1,0 +1,57 @@
+{
+ "id": "dfbb90537ca6767f",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.350705Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-624"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-624",
+ "datos": {
+  "estado": "validar",
+  "revision": 21,
+  "creada": "2026-10-13T23:23:18Z",
+  "actualizada": "2026-11-22T21:03:35Z",
+  "huella_texto": "d61e31ce93ccfa93",
+  "notas": 34,
+  "app": "Tiny Chicken",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "media",
+  "check": "decision",
+  "commits": [
+   "93fb428fc024",
+   "c016bc5150a9",
+   "01affe71b8f3",
+   "7bd177556596",
+   "95dc6ebc3ff2",
+   "1f97c7c06d2e",
+   "bbf5bd4c0742",
+   "feaacf982bf9",
+   "ab0204906b7f",
+   "88c9fb9570f4",
+   "4d7f02ee502a"
+  ],
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-11-14T15:06:39Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-15T18:48:50Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

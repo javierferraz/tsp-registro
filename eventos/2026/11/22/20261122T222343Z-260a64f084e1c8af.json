@@ -1,0 +1,29 @@
+{
+ "id": "260a64f084e1c8af",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.399965Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-662"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-662",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 11,
+  "creada": "2026-10-14T21:16:02Z",
+  "actualizada": "2026-11-22T10:54:34Z",
+  "huella_texto": "897a685f444ebe12",
+  "notas": 17,
+  "app": "Tappy Woodpecker",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "baja"
+ }
+}

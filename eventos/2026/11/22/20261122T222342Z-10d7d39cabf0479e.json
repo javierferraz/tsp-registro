@@ -1,0 +1,37 @@
+{
+ "id": "10d7d39cabf0479e",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.934516Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-296"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-296",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-09-18T10:37:09Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "7009ca628a7b42f3",
+  "notas": 3,
+  "etiquetas": [
+   "distribucion",
+   "fallo",
+   "seguridad"
+  ],
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "hecha",
+    "fecha": "2026-09-18T10:39:07Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

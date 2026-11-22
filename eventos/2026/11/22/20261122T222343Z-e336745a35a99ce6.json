@@ -1,0 +1,39 @@
+{
+ "id": "e336745a35a99ce6",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.341068Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-617"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-617",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-10-13T23:04:22Z",
+  "actualizada": "2026-10-14T09:37:44Z",
+  "huella_texto": "88f1f84ed52ddd12",
+  "notas": 5,
+  "app": "Silent Frog",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-13T23:19:31Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T09:37:44Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

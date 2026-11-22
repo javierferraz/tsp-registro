@@ -1,0 +1,39 @@
+{
+ "id": "9a6a46b0e41acdad",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.829291Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-229"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-229",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-09-14T14:00:18Z",
+  "actualizada": "2026-09-14T21:01:55Z",
+  "huella_texto": "87d84b1164e49e38",
+  "notas": 4,
+  "app": "Handy Raccoon",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-14T14:33:08Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-14T21:01:55Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

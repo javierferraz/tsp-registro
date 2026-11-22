@@ -1,0 +1,40 @@
+{
+ "id": "1a0ca754bed70c9a",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.862334Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-870"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-870",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-21T10:03:12Z",
+  "actualizada": "2026-10-29T21:40:54Z",
+  "huella_texto": "590fddcffd323d0d",
+  "notas": 6,
+  "app": "Helios",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-21T10:04:15Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:40:54Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

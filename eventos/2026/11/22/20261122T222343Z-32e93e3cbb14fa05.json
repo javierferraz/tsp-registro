@@ -1,0 +1,39 @@
+{
+ "id": "32e93e3cbb14fa05",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.386253Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-651"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-651",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-14T20:02:50Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "9241887a240faa21",
+  "notas": 5,
+  "app": "Suite",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-14T20:57:16Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T21:12:14Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

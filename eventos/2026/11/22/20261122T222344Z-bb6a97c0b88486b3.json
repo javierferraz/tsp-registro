@@ -1,0 +1,40 @@
+{
+ "id": "bb6a97c0b88486b3",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.565497Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1170"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1170",
+ "datos": {
+  "estado": "validar",
+  "revision": 7,
+  "creada": "2026-11-10T18:01:14Z",
+  "actualizada": "2026-11-22T21:03:35Z",
+  "huella_texto": "deb7be0ee631d67c",
+  "notas": 9,
+  "etiquetas": [
+   "tablero"
+  ],
+  "check": "decision",
+  "commits": [
+   "03ff5909779b",
+   "8898675a5681"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-10T18:10:12Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

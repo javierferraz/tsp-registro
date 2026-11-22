@@ -1,0 +1,43 @@
+{
+ "id": "80b376bd9aa08a0e",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.078841Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-965"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-965",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-24T15:36:14Z",
+  "actualizada": "2026-10-29T21:40:53Z",
+  "huella_texto": "6d3902713c08fecc",
+  "notas": 5,
+  "app": "Handy Raccoon",
+  "etiquetas": [
+   "site"
+  ],
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-24T15:39:50Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:40:53Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

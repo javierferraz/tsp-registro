@@ -1,0 +1,40 @@
+{
+ "id": "240f3ee04ff4853a",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.162248Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1001"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1001",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-25T19:48:30Z",
+  "actualizada": "2026-11-09T21:02:04Z",
+  "huella_texto": "2146f24043dc3424",
+  "notas": 6,
+  "app": "Bright Cardinal",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-26T06:17:22Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-09T21:02:04Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

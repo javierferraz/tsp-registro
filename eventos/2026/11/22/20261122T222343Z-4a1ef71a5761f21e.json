@@ -1,0 +1,58 @@
+{
+ "id": "4a1ef71a5761f21e",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.446531Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-687"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-687",
+ "datos": {
+  "estado": "hecha",
+  "revision": 11,
+  "creada": "2026-10-15T16:11:50Z",
+  "actualizada": "2026-11-16T21:46:04Z",
+  "huella_texto": "ca0dfb4c280ab1ce",
+  "notas": 15,
+  "app": "Roaring Lion",
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-15T16:48:39Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-15T16:58:33Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "curso",
+    "fecha": "2026-10-15T17:23:14Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-15T17:50:21Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-16T21:46:04Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

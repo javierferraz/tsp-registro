@@ -1,0 +1,39 @@
+{
+ "id": "290c0ce89da165e7",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.840905Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-239"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-239",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-09-15T11:02:54Z",
+  "actualizada": "2026-09-20T13:09:39Z",
+  "huella_texto": "281e761d8f1e4031",
+  "notas": 5,
+  "app": "Silent Frog",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-15T11:07:29Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-20T13:09:39Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

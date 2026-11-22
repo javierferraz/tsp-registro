@@ -1,0 +1,38 @@
+{
+ "id": "155c3856fdd4875a",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.722295Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-153"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-153",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-09-09T18:52:03Z",
+  "actualizada": "2026-09-10T09:50:43Z",
+  "huella_texto": "77e4884c58a9fa48",
+  "notas": 4,
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-09T19:10:19Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-10T09:50:43Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

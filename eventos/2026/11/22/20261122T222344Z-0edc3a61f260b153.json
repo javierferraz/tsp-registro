@@ -1,0 +1,26 @@
+{
+ "id": "0edc3a61f260b153",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.148410Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-995"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-995",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-10-25T15:04:01Z",
+  "actualizada": "2026-10-25T15:04:01Z",
+  "huella_texto": "7710ed9b766940a3",
+  "notas": 1,
+  "app": "Agile Ant",
+  "prioridad": "baja"
+ }
+}

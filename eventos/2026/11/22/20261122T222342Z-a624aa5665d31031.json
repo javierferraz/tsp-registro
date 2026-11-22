@@ -1,0 +1,39 @@
+{
+ "id": "a624aa5665d31031",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.967797Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-323"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-323",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-09-20T16:32:38Z",
+  "actualizada": "2026-09-24T17:53:52Z",
+  "huella_texto": "82b8b44c062c75d5",
+  "notas": 5,
+  "app": "Snappy Wasp",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-20T16:38:58Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-24T17:53:52Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

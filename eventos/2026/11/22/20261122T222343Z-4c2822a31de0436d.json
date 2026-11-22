@@ -1,0 +1,33 @@
+{
+ "id": "4c2822a31de0436d",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.705667Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-801"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-801",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-10-18T06:49:37Z",
+  "actualizada": "2026-11-16T10:08:16Z",
+  "huella_texto": "fcd11f9a3e02ae51",
+  "notas": 6,
+  "app": "Roaring Lion",
+  "movimientos": [
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-16T10:08:16Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

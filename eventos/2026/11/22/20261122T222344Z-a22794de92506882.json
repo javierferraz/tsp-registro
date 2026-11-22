@@ -1,0 +1,40 @@
+{
+ "id": "a22794de92506882",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.101991Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-975"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-975",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-24T18:38:11Z",
+  "actualizada": "2026-10-29T21:40:49Z",
+  "huella_texto": "669ce9e2e1fd08eb",
+  "notas": 6,
+  "app": "Clear Parrot",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-24T21:52:33Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:40:49Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

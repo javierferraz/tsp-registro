@@ -1,0 +1,43 @@
+{
+ "id": "85f8ede6268b5015",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.930341Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-899"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-899",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-10-21T21:30:37Z",
+  "actualizada": "2026-11-10T23:45:27Z",
+  "huella_texto": "3ce11647ea2d9591",
+  "notas": 6,
+  "app": "Sneaky Spider",
+  "prioridad": "media",
+  "commits": [
+   "b890c76116a9"
+  ],
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "validar",
+    "fecha": "2026-11-10T14:37:09Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-10T23:45:27Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

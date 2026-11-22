@@ -1,0 +1,25 @@
+{
+ "id": "4f4df5bfdb244793",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.631934Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-769"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-769",
+ "datos": {
+  "estado": "curso",
+  "revision": 2,
+  "creada": "2026-10-17T14:41:22Z",
+  "actualizada": "2026-11-10T14:40:11Z",
+  "huella_texto": "1ca90b391af89478",
+  "notas": 2,
+  "prioridad": "media"
+ }
+}

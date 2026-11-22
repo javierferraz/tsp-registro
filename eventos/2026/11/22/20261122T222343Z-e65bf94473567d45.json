@@ -1,0 +1,30 @@
+{
+ "id": "e65bf94473567d45",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.459153Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-692"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-692",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 2,
+  "creada": "2026-10-15T17:16:59Z",
+  "actualizada": "2026-10-15T17:40:00Z",
+  "huella_texto": "1ff3277587f6ded8",
+  "notas": 2,
+  "app": "Rousing Rooster",
+  "etiquetas": [
+   "Rousing Rooster",
+   "seguridad"
+  ],
+  "prioridad": "baja"
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "id": "1e9eecf35226f794",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.207602Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-516"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-516",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-02T10:15:22Z",
+  "actualizada": "2026-10-14T22:52:00Z",
+  "huella_texto": "2d5eb37b4390ae7a",
+  "notas": 6,
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-02T10:54:51Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T22:52:00Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

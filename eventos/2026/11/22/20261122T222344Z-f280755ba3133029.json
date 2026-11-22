@@ -1,0 +1,29 @@
+{
+ "id": "f280755ba3133029",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.855157Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1225"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1225",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-11-16T23:26:55Z",
+  "actualizada": "2026-11-16T23:26:55Z",
+  "huella_texto": "d8366c1145fc1a46",
+  "notas": 1,
+  "app": "Neat Bluejay",
+  "etiquetas": [
+   "linux"
+  ],
+  "prioridad": "media"
+ }
+}

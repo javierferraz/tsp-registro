@@ -1,0 +1,44 @@
+{
+ "id": "1bd0d3673db977ce",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.584006Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-029"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-029",
+ "datos": {
+  "estado": "hecha",
+  "revision": 1,
+  "creada": "2026-09-06T14:40:11.746Z",
+  "actualizada": "2026-09-06T16:41:23.406Z",
+  "huella_texto": "7f0745f235fffeb3",
+  "notas": 7,
+  "app": "Tidy Koala",
+  "etiquetas": [
+   "Tidy Koala",
+   "app",
+   "fallo"
+  ],
+  "movimientos": [
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-09-06T16:24:42Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-06T16:37:06Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

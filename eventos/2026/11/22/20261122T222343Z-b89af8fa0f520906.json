@@ -1,0 +1,42 @@
+{
+ "id": "b89af8fa0f520906",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.708268Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-802"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-802",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-18T06:53:52Z",
+  "actualizada": "2026-11-02T14:08:55Z",
+  "huella_texto": "7c69dbd76e850982",
+  "notas": 5,
+  "etiquetas": [
+   "tablero"
+  ],
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-18T06:54:48Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-02T14:08:55Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

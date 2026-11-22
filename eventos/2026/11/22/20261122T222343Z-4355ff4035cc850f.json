@@ -1,0 +1,29 @@
+{
+ "id": "4355ff4035cc850f",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.891782Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-883"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-883",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 10,
+  "creada": "2026-10-21T22:49:51Z",
+  "actualizada": "2026-11-22T10:53:30Z",
+  "huella_texto": "7b1519e0bb73d53d",
+  "notas": 17,
+  "app": "Clever Cat",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "baja"
+ }
+}

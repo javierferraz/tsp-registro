@@ -1,0 +1,35 @@
+{
+ "id": "ebfca1d559089580",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.993665Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-923"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-923",
+ "datos": {
+  "estado": "descartada",
+  "revision": 2,
+  "creada": "2026-10-22T19:53:21Z",
+  "actualizada": "2026-10-22T19:53:40Z",
+  "huella_texto": "73cb3858a687a849",
+  "notas": 2,
+  "etiquetas": [
+   "site"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "descartada",
+    "fecha": "2026-10-22T19:53:40Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

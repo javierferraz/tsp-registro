@@ -1,0 +1,51 @@
+{
+ "id": "4eb2baa44b3b18bb",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.886616Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-881"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-881",
+ "datos": {
+  "estado": "hecha",
+  "revision": 9,
+  "creada": "2026-10-21T22:12:29Z",
+  "actualizada": "2026-11-02T14:08:55Z",
+  "huella_texto": "7808f25df88d1411",
+  "notas": 11,
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-21T22:28:03Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "curso",
+    "fecha": "2026-10-22T17:16:26Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-22T17:24:16Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-02T14:08:55Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

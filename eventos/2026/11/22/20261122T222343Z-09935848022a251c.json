@@ -1,0 +1,39 @@
+{
+ "id": "09935848022a251c",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.905045Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-889"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-889",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-22T05:01:15Z",
+  "actualizada": "2026-11-02T14:08:56Z",
+  "huella_texto": "b79082b04dc34f50",
+  "notas": 6,
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-22T05:13:34Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-02T14:08:56Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

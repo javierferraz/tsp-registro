@@ -1,0 +1,69 @@
+{
+ "id": "3a2221d153606168",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.039456Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-384"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-384",
+ "datos": {
+  "estado": "hecha",
+  "revision": 9,
+  "creada": "2026-09-26T08:54:32Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "bcd0e6fe1e037e57",
+  "notas": 15,
+  "app": "Suite",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "curso",
+    "fecha": "2026-09-26T09:07:14Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "pedida",
+    "fecha": "2026-09-26T09:09:41Z",
+    "por": "claude"
+   },
+   {
+    "de": "pedida",
+    "a": "curso",
+    "fecha": "2026-09-27T10:06:51Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "pedida",
+    "fecha": "2026-09-27T10:06:52Z",
+    "por": "claude"
+   },
+   {
+    "de": "pedida",
+    "a": "curso",
+    "fecha": "2026-09-28T09:35:23Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-28T09:49:58Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-28T09:58:22Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

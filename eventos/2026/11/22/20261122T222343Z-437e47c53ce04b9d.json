@@ -1,0 +1,41 @@
+{
+ "id": "437e47c53ce04b9d",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.363319Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-633"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-633",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-14T08:54:04Z",
+  "actualizada": "2026-10-14T22:53:29Z",
+  "huella_texto": "c356d748a9af6123",
+  "notas": 6,
+  "etiquetas": [
+   "investigacion"
+  ],
+  "movimientos": [
+   {
+    "de": "info",
+    "a": "validar",
+    "fecha": "2026-10-14T09:37:06Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T22:53:29Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "id": "d5fa005d4407f0e6",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.730764Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-160"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-160",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-09-10T05:43:44Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "ead6d8816abf6412",
+  "notas": 4,
+  "etiquetas": [
+   "release",
+   "skills"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-10T05:46:05Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-10T09:46:02Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

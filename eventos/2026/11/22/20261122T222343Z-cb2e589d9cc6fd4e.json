@@ -1,0 +1,25 @@
+{
+ "id": "cb2e589d9cc6fd4e",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.867248Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-872"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-872",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-10-21T10:39:29Z",
+  "actualizada": "2026-10-21T10:39:29Z",
+  "huella_texto": "39b111d3a412e0cf",
+  "notas": 1,
+  "prioridad": "media"
+ }
+}

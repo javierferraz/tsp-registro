@@ -1,0 +1,46 @@
+{
+ "id": "2432d9f6167d45c4",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.083867Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-420"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-420",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-09-27T10:06:13Z",
+  "actualizada": "2026-10-01T20:36:08Z",
+  "huella_texto": "f16a4b510a0c5344",
+  "notas": 7,
+  "app": "Silent Frog",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "curso",
+    "fecha": "2026-10-01T17:32:28Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-01T17:46:10Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-01T20:36:08Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

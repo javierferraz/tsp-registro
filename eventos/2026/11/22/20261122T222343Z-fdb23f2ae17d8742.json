@@ -1,0 +1,39 @@
+{
+ "id": "fdb23f2ae17d8742",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.668547Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-784"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-784",
+ "datos": {
+  "estado": "hecha",
+  "revision": 7,
+  "creada": "2026-10-17T17:33:04Z",
+  "actualizada": "2026-11-16T22:59:56Z",
+  "huella_texto": "bc3ac73300ad2204",
+  "notas": 9,
+  "app": "Tablero",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-17T20:46:06Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-16T22:59:56Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

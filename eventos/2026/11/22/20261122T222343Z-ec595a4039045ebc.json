@@ -1,0 +1,25 @@
+{
+ "id": "ec595a4039045ebc",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.310587Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-594"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-594",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-10-12T21:31:39Z",
+  "actualizada": "2026-10-12T21:31:39Z",
+  "huella_texto": "20f99a53e550b5db",
+  "notas": 1,
+  "prioridad": "baja"
+ }
+}

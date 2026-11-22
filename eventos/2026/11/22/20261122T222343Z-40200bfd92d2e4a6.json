@@ -1,0 +1,41 @@
+{
+ "id": "40200bfd92d2e4a6",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.318214Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-600"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-600",
+ "datos": {
+  "estado": "hecha",
+  "revision": 11,
+  "creada": "2026-10-13T07:55:36Z",
+  "actualizada": "2026-11-16T22:59:50Z",
+  "huella_texto": "b70f7935d5b7ae1d",
+  "notas": 11,
+  "etiquetas": [
+   "site"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-13T07:59:08Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-16T22:59:50Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

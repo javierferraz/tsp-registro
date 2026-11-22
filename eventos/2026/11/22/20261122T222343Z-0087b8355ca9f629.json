@@ -1,0 +1,40 @@
+{
+ "id": "0087b8355ca9f629",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.273688Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-564"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-564",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-10-04T15:57:00Z",
+  "actualizada": "2026-10-08T23:21:31Z",
+  "huella_texto": "3832c64339fd3a1b",
+  "notas": 4,
+  "app": "Suite",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-04T16:01:15Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-08T23:21:31Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

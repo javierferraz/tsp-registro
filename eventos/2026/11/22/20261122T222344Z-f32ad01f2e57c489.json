@@ -1,0 +1,47 @@
+{
+ "id": "f32ad01f2e57c489",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.233156Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1031"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1031",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-27T18:09:43Z",
+  "actualizada": "2026-10-29T21:40:47Z",
+  "huella_texto": "f5db1330ebfde96a",
+  "notas": 5,
+  "app": "Bright Cardinal",
+  "prioridad": "alta",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-28T23:04:07Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-28T23:35:52Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:40:47Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

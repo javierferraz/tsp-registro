@@ -1,0 +1,56 @@
+{
+ "id": "e501c6c881eea2d8",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.400747Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1107"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1107",
+ "datos": {
+  "estado": "hecha",
+  "revision": 8,
+  "creada": "2026-11-04T00:59:20Z",
+  "actualizada": "2026-11-21T20:52:39Z",
+  "huella_texto": "f2ad446d6371ba5a",
+  "notas": 11,
+  "app": "Sneaky Spider",
+  "etiquetas": [
+   "Trusty Pigeon",
+   "barrido"
+  ],
+  "prioridad": "alta",
+  "commits": [
+   "49756a736f76",
+   "3bf158056cb6",
+   "7cf26bcc64fc",
+   "1491184fffff"
+  ],
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-11-12T11:56:46Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-12T23:58:11Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-21T20:20:20Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

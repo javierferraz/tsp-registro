@@ -1,0 +1,42 @@
+{
+ "id": "f7cd95a9b53bafa5",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.940370Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-300"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-300",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-09-18T14:04:41Z",
+  "actualizada": "2026-09-19T07:39:57Z",
+  "huella_texto": "f72a433b9384a500",
+  "notas": 5,
+  "app": "Diligent Beaver",
+  "etiquetas": [
+   "release"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-18T18:29:30Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-19T07:39:57Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

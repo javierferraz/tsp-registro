@@ -1,0 +1,42 @@
+{
+ "id": "7586d89498186ebb",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.985018Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-337"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-337",
+ "datos": {
+  "estado": "pedida",
+  "revision": 11,
+  "creada": "2026-09-21T09:25:34Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "f169d6f21b210efb",
+  "notas": 2,
+  "etiquetas": [
+   "distribucion",
+   "skills"
+  ],
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "adelante",
+    "fecha": "2026-09-21T09:26:14Z",
+    "por": "javier"
+   },
+   {
+    "de": "adelante",
+    "a": "pedida",
+    "fecha": "2026-09-21T09:26:17Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

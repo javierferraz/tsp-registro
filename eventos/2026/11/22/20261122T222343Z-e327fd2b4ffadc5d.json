@@ -1,0 +1,43 @@
+{
+ "id": "e327fd2b4ffadc5d",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.304771Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-590"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-590",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-12T20:08:09Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "a7ca6e7d6422e78a",
+  "notas": 5,
+  "etiquetas": [
+   "site"
+  ],
+  "prioridad": "alta",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-12T21:05:22Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T22:51:53Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "id": "3c693f2b6ea1c441",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.451744Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-689"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-689",
+ "datos": {
+  "estado": "validar",
+  "revision": 9,
+  "creada": "2026-10-15T17:12:49Z",
+  "actualizada": "2026-11-22T21:03:35Z",
+  "huella_texto": "c62468b654e8900c",
+  "notas": 15,
+  "app": "Snappy Wasp",
+  "etiquetas": [
+   "Snappy Wasp",
+   "release"
+  ],
+  "prioridad": "media",
+  "check": "ojos",
+  "commits": [
+   "880a8f801a43",
+   "56ae166779e1",
+   "1e8f9db5161b",
+   "1871cddf8394",
+   "0cda202a0ae3"
+  ],
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "validar",
+    "fecha": "2026-11-16T23:01:34Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

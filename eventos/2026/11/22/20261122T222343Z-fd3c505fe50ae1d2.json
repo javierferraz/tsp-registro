@@ -1,0 +1,29 @@
+{
+ "id": "fd3c505fe50ae1d2",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.403732Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-665"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-665",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 10,
+  "creada": "2026-10-14T21:22:09Z",
+  "actualizada": "2026-11-22T10:53:32Z",
+  "huella_texto": "62c24d386a44fb75",
+  "notas": 15,
+  "app": "Neat Bluejay",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "baja"
+ }
+}

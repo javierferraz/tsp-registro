@@ -1,0 +1,55 @@
+{
+ "id": "f71ac625ba0d1fc7",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.121094Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-982"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-982",
+ "datos": {
+  "estado": "hecha",
+  "revision": 8,
+  "creada": "2026-10-25T07:00:16Z",
+  "actualizada": "2026-10-29T21:41:01Z",
+  "huella_texto": "553107fe6aa85d9d",
+  "notas": 10,
+  "app": "Neat Bluejay",
+  "etiquetas": [
+   "linux"
+  ],
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-25T07:42:43Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "curso",
+    "fecha": "2026-10-25T09:19:20Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-25T10:09:13Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:41:01Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

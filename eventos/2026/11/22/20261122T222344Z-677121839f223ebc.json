@@ -1,0 +1,40 @@
+{
+ "id": "677121839f223ebc",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.047775Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-950"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-950",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-23T17:04:37Z",
+  "actualizada": "2026-10-29T21:40:58Z",
+  "huella_texto": "668c475e1d6649bb",
+  "notas": 6,
+  "app": "Helios",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-23T17:37:35Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:40:58Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

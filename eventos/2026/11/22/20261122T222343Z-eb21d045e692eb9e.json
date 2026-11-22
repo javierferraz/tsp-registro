@@ -1,0 +1,33 @@
+{
+ "id": "eb21d045e692eb9e",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.075372Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-412"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-412",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 2,
+  "creada": "2026-09-26T21:26:50Z",
+  "actualizada": "2026-10-01T19:38:18Z",
+  "huella_texto": "99577d5185a8d1d2",
+  "notas": 2,
+  "prioridad": "alta",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "propuesta",
+    "fecha": "2026-10-01T19:38:18Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

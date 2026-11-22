@@ -1,0 +1,31 @@
+{
+ "id": "dbf1bd98ab4e9108",
+ "tipo": "informe.importado",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:45.204665Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "informe",
+  "id": "tablero-2026-11-18"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "informe.importado:tablero-2026-11-18",
+ "datos": {
+  "vigia": "tablero",
+  "fecha": "2026-11-18",
+  "ruta": "tablero/vigilante/ultimo.json",
+  "sha256": "1aa8ccc62c73afd8542d79617b88468d52304ef8d9e3fc2327d9199addb78db6",
+  "cifras": {
+   "nivel": 0,
+   "tarjetas": 1232,
+   "duplicados": 27,
+   "estancadas": 71,
+   "sin_evidencia": 6,
+   "problemas_integridad": 0,
+   "excesos_wip": 2
+  }
+ }
+}

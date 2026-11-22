@@ -1,0 +1,31 @@
+{
+ "id": "cfe4752e173c5ae6",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.562204Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-007"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-007",
+ "datos": {
+  "estado": "hecha",
+  "revision": 1,
+  "creada": "2026-09-06T07:38:00Z",
+  "actualizada": "2026-09-06T14:53:00Z",
+  "huella_texto": "97a898f8e8443f54",
+  "notas": 2,
+  "app": "Clever Cat",
+  "etiquetas": [
+   "Clever Cat",
+   "app",
+   "release",
+   "seguridad"
+  ]
+ }
+}

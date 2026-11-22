@@ -1,0 +1,38 @@
+{
+ "id": "7ead39dbdda2e92a",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.833111Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-232"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-232",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-09-14T14:43:29Z",
+  "actualizada": "2026-09-14T15:28:57Z",
+  "huella_texto": "cecb84d9462bd0f5",
+  "notas": 5,
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-14T15:09:48Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-14T15:28:57Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

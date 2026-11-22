@@ -1,0 +1,46 @@
+{
+ "id": "0be2b75cb9eaab63",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.767675Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-180"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-180",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-09-10T17:39:45Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "a51cc1bbfcdb45b4",
+  "notas": 6,
+  "app": "Writer Tiger",
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "curso",
+    "fecha": "2026-09-16T20:35:56Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-16T20:47:06Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-17T20:13:00Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

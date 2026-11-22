@@ -1,0 +1,34 @@
+{
+ "id": "e08b79626dd7ac07",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.293810Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1060"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1060",
+ "datos": {
+  "estado": "validar",
+  "revision": 7,
+  "creada": "2026-10-31T09:52:15Z",
+  "actualizada": "2026-11-22T21:03:35Z",
+  "huella_texto": "2ff96881328fbb56",
+  "notas": 7,
+  "app": "Roaring Lion",
+  "check": "ojos",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-31T11:07:43Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

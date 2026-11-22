@@ -1,0 +1,26 @@
+{
+ "id": "e12def4e53aaeda9",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.516220Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1152"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1152",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-11-08T13:06:14Z",
+  "actualizada": "2026-11-08T13:06:14Z",
+  "huella_texto": "1de13cc5e930a3dc",
+  "notas": 1,
+  "app": "Diligent Beaver",
+  "prioridad": "media"
+ }
+}

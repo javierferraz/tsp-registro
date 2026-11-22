@@ -1,0 +1,52 @@
+{
+ "id": "d549ad7f553a2a57",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.761744Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-824"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-824",
+ "datos": {
+  "estado": "hecha",
+  "revision": 7,
+  "creada": "2026-10-18T21:15:57Z",
+  "actualizada": "2026-10-19T00:52:52Z",
+  "huella_texto": "05ed2fd12ab5b802",
+  "notas": 11,
+  "app": "Keen Eagle",
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "adelante",
+    "fecha": "2026-10-18T22:56:30Z",
+    "por": "claude"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-10-19T00:19:25Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-19T00:29:04Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-19T00:52:52Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

@@ -1,0 +1,41 @@
+{
+ "id": "346a3e3742f353b5",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.465638Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-695"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-695",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-10-15T17:20:05Z",
+  "actualizada": "2026-11-10T14:41:42Z",
+  "huella_texto": "91eac0c78a174932",
+  "notas": 7,
+  "etiquetas": [
+   "site"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-10T14:41:35Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-10T14:41:42Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

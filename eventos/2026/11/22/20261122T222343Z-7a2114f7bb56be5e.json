@@ -1,0 +1,48 @@
+{
+ "id": "7a2114f7bb56be5e",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.135104Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-461"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-461",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-10-01T11:54:59Z",
+  "actualizada": "2026-10-04T09:54:19Z",
+  "huella_texto": "aff197a4fe4d13d5",
+  "notas": 7,
+  "etiquetas": [
+   "release"
+  ],
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "propuesta",
+    "fecha": "2026-10-01T19:38:18Z",
+    "por": "claude"
+   },
+   {
+    "de": "propuesta",
+    "a": "validar",
+    "fecha": "2026-10-04T09:30:47Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-04T09:54:19Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

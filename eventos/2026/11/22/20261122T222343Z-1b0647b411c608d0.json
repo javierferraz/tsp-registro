@@ -1,0 +1,44 @@
+{
+ "id": "1b0647b411c608d0",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.971781Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-914"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-914",
+ "datos": {
+  "estado": "hecha",
+  "revision": 7,
+  "creada": "2026-10-22T17:56:16Z",
+  "actualizada": "2026-11-02T14:08:52Z",
+  "huella_texto": "e017882e9c561a4a",
+  "notas": 6,
+  "app": "Tappy Woodpecker",
+  "etiquetas": [
+   "distribucion",
+   "linux"
+  ],
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-22T17:59:21Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-02T14:08:52Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

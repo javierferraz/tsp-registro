@@ -1,0 +1,25 @@
+{
+ "id": "7b5bcb5775b22e62",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.952165Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-315"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-315",
+ "datos": {
+  "estado": "hecha",
+  "revision": 1,
+  "creada": "2026-09-20T08:42:46Z",
+  "actualizada": "2026-09-20T08:42:46Z",
+  "huella_texto": "539bc46e9d79b998",
+  "notas": 1,
+  "app": "Tiny Chicken"
+ }
+}

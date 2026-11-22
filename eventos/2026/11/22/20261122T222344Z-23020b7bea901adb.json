@@ -1,0 +1,37 @@
+{
+ "id": "23020b7bea901adb",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.646955Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1185"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1185",
+ "datos": {
+  "estado": "adelante",
+  "revision": 2,
+  "creada": "2026-11-12T12:39:44Z",
+  "actualizada": "2026-11-13T13:08:48Z",
+  "huella_texto": "8680c5d0354b2843",
+  "notas": 3,
+  "app": "Crafty Fox",
+  "etiquetas": [
+   "app"
+  ],
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "adelante",
+    "fecha": "2026-11-13T13:08:48Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

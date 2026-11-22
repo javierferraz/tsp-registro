@@ -1,0 +1,51 @@
+{
+ "id": "cee139121db02721",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.100597Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-974"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-974",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-10-24T18:16:06Z",
+  "actualizada": "2026-11-02T14:08:48Z",
+  "huella_texto": "b8f92b0aa2f6d4df",
+  "notas": 8,
+  "app": "Roaring Lion",
+  "etiquetas": [
+   "fallo",
+   "linux"
+  ],
+  "prioridad": "media",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-24T18:35:58Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-24T21:52:37Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-02T14:08:48Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

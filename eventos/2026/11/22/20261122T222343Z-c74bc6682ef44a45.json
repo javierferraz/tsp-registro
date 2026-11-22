@@ -1,0 +1,39 @@
+{
+ "id": "c74bc6682ef44a45",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.351959Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-625"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-625",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-10-13T23:26:15Z",
+  "actualizada": "2026-10-14T09:37:43Z",
+  "huella_texto": "be71d1471816d786",
+  "notas": 8,
+  "app": "Clever Cat",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-14T00:30:32Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T09:37:43Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

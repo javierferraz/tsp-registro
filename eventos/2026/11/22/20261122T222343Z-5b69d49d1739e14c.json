@@ -1,0 +1,26 @@
+{
+ "id": "5b69d49d1739e14c",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.082564Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-419"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-419",
+ "datos": {
+  "estado": "pedida",
+  "revision": 1,
+  "creada": "2026-09-27T08:52:23Z",
+  "actualizada": "2026-09-27T08:52:23Z",
+  "huella_texto": "b69a7192467196ed",
+  "notas": 0,
+  "app": "Sneaky Spider",
+  "prioridad": "media"
+ }
+}

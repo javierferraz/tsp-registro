@@ -1,0 +1,32 @@
+{
+ "id": "025bbda705046a00",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.848609Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-246"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-246",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 3,
+  "creada": "2026-09-16T07:16:43Z",
+  "actualizada": "2026-10-01T19:38:18Z",
+  "huella_texto": "5c1f3290ddbd09eb",
+  "notas": 4,
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "propuesta",
+    "fecha": "2026-10-01T19:38:18Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

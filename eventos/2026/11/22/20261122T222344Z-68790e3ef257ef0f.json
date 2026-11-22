@@ -1,0 +1,29 @@
+{
+ "id": "68790e3ef257ef0f",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.321511Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1071"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1071",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 6,
+  "creada": "2026-11-01T17:48:55Z",
+  "actualizada": "2026-11-22T10:53:49Z",
+  "huella_texto": "4933ca6c33dd7323",
+  "notas": 11,
+  "app": "Handy Raccoon",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "baja"
+ }
+}

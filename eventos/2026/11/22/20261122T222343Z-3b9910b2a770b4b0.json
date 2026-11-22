@@ -1,0 +1,46 @@
+{
+ "id": "3b9910b2a770b4b0",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.364474Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-634"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-634",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-14T09:30:52Z",
+  "actualizada": "2026-10-14T21:22:49Z",
+  "huella_texto": "251f65d81423305f",
+  "notas": 7,
+  "app": "Orderly Owl",
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-14T09:35:31Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-14T12:26:53Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T21:22:49Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

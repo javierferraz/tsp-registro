@@ -1,0 +1,46 @@
+{
+ "id": "a05284c13424a692",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.372725Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-640"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-640",
+ "datos": {
+  "estado": "hecha",
+  "revision": 7,
+  "creada": "2026-10-14T15:40:50Z",
+  "actualizada": "2026-10-14T18:47:41Z",
+  "huella_texto": "68cfc7d5ce5d9716",
+  "notas": 9,
+  "app": "Suite",
+  "prioridad": "baja",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-14T15:55:45Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-14T16:30:57Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T18:47:41Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

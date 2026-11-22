@@ -1,0 +1,36 @@
+{
+ "id": "583e9d29afa2345a",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.323971Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-604"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-604",
+ "datos": {
+  "estado": "validar",
+  "revision": 13,
+  "creada": "2026-10-13T10:40:35Z",
+  "actualizada": "2026-11-22T21:03:35Z",
+  "huella_texto": "3562fad5444e7099",
+  "notas": 13,
+  "etiquetas": [
+   "site"
+  ],
+  "check": "ojos",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-13T10:44:28Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

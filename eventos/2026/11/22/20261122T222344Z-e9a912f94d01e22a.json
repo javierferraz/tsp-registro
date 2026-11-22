@@ -1,0 +1,29 @@
+{
+ "id": "e9a912f94d01e22a",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.436782Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1121"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1121",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 2,
+  "creada": "2026-11-04T22:05:12Z",
+  "actualizada": "2026-11-04T22:33:17Z",
+  "huella_texto": "750d1c33610e04b4",
+  "notas": 2,
+  "app": "Bright Cardinal",
+  "etiquetas": [
+   "linux"
+  ],
+  "prioridad": "media"
+ }
+}

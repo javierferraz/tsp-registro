@@ -1,0 +1,42 @@
+{
+ "id": "6d3142840e880e18",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.108820Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-978"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-978",
+ "datos": {
+  "estado": "hecha",
+  "revision": 7,
+  "creada": "2026-10-24T21:56:00Z",
+  "actualizada": "2026-11-02T14:08:58Z",
+  "huella_texto": "19be92185177d70f",
+  "notas": 8,
+  "etiquetas": [
+   "site"
+  ],
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-25T10:23:03Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-02T14:08:58Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

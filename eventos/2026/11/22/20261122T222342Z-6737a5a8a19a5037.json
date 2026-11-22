@@ -1,0 +1,46 @@
+{
+ "id": "6737a5a8a19a5037",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.778865Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-189"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-189",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-09-11T11:34:52Z",
+  "actualizada": "2026-09-23T11:56:34Z",
+  "huella_texto": "a83b566ce616abd7",
+  "notas": 6,
+  "app": "Writer Tiger",
+  "prioridad": "alta",
+  "movimientos": [
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-09-20T14:26:36Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-20T14:36:27Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-23T11:56:34Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

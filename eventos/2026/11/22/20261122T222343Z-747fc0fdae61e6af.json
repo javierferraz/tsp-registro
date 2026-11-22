@@ -1,0 +1,47 @@
+{
+ "id": "747fc0fdae61e6af",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.267472Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-559"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-559",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-04T12:47:43Z",
+  "actualizada": "2026-10-08T23:21:31Z",
+  "huella_texto": "f61d589ab7775fdc",
+  "notas": 5,
+  "app": "Tappy Woodpecker",
+  "prioridad": "baja",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-04T15:25:37Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-04T15:42:32Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-08T23:21:31Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

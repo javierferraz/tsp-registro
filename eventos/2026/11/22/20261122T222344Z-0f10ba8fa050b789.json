@@ -1,0 +1,42 @@
+{
+ "id": "0f10ba8fa050b789",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.426992Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1117"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1117",
+ "datos": {
+  "estado": "hecha",
+  "revision": 9,
+  "creada": "2026-10-28T23:27:04Z",
+  "actualizada": "2026-11-16T23:26:47Z",
+  "huella_texto": "f847e7e4f8717699",
+  "notas": 11,
+  "app": "Neat Bluejay",
+  "etiquetas": [
+   "linux"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-28T23:58:12Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-16T23:26:47Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

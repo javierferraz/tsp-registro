@@ -1,0 +1,29 @@
+{
+ "id": "75e76ef10e4c4a64",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.951182Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1248"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1248",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-11-22T10:53:39Z",
+  "actualizada": "2026-11-22T10:53:39Z",
+  "huella_texto": "7e15ff0a7d9cdd51",
+  "notas": 1,
+  "app": "Keen Eagle",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "media"
+ }
+}

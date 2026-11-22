@@ -1,0 +1,29 @@
+{
+ "id": "f0e1904b43368cd0",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.849956Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1223"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1223",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 2,
+  "creada": "2026-11-16T23:22:43Z",
+  "actualizada": "2026-11-22T10:53:45Z",
+  "huella_texto": "5b2f347d4d08f6e0",
+  "notas": 3,
+  "app": "Crafty Fox",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "media"
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "id": "387e4f278fba0043",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.288704Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-577"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-577",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-10T23:20:43Z",
+  "actualizada": "2026-10-14T22:52:03Z",
+  "huella_texto": "07bf9feef7654429",
+  "notas": 6,
+  "etiquetas": [
+   "linux"
+  ],
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-10T23:40:30Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T22:52:03Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

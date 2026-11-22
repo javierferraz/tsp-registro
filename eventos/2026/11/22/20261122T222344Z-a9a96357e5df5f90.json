@@ -1,0 +1,42 @@
+{
+ "id": "a9a96357e5df5f90",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.123645Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-983"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-983",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-25T07:02:52Z",
+  "actualizada": "2026-11-02T14:08:58Z",
+  "huella_texto": "7bc7740e42f51564",
+  "notas": 5,
+  "etiquetas": [
+   "linux"
+  ],
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "validar",
+    "fecha": "2026-10-25T07:08:27Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-02T14:08:58Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

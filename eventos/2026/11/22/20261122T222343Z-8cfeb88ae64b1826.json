@@ -1,0 +1,39 @@
+{
+ "id": "8cfeb88ae64b1826",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.262014Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-555"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-555",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-10-04T09:37:26Z",
+  "actualizada": "2026-10-04T12:02:06Z",
+  "huella_texto": "f3af4ffbe4d673fc",
+  "notas": 4,
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-04T09:40:41Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-04T12:02:06Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

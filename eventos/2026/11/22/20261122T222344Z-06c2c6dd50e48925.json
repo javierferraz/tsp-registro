@@ -1,0 +1,29 @@
+{
+ "id": "06c2c6dd50e48925",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.116084Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-984"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-984",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 9,
+  "creada": "2026-10-25T06:43:31Z",
+  "actualizada": "2026-11-22T10:54:36Z",
+  "huella_texto": "a497447b1b730083",
+  "notas": 13,
+  "app": "Agile Ant",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "media"
+ }
+}

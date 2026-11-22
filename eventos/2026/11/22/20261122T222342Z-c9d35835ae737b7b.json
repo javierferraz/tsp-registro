@@ -1,0 +1,46 @@
+{
+ "id": "c9d35835ae737b7b",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.958857Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-314"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-314",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-09-20T12:48:04Z",
+  "actualizada": "2026-10-01T20:36:05Z",
+  "huella_texto": "1687fdc4150d4258",
+  "notas": 7,
+  "prioridad": "media",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "curso",
+    "fecha": "2026-09-20T14:06:59Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-20T14:08:56Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-01T20:36:05Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

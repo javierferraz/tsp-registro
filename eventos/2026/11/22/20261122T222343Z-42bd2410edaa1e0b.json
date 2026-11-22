@@ -1,0 +1,29 @@
+{
+ "id": "42bd2410edaa1e0b",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.253187Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-549"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-549",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 3,
+  "creada": "2026-10-03T14:57:12Z",
+  "actualizada": "2026-11-13T17:07:41Z",
+  "huella_texto": "08a1f0bd8e26b523",
+  "notas": 3,
+  "app": "Tiny Chicken",
+  "etiquetas": [
+   "desarrollo"
+  ],
+  "prioridad": "media"
+ }
+}

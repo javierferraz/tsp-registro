@@ -1,0 +1,26 @@
+{
+ "id": "63decee4fe7572ca",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.090545Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-970"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-970",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-10-24T16:27:56Z",
+  "actualizada": "2026-10-24T16:27:56Z",
+  "huella_texto": "cc4c046e9a5cbb62",
+  "notas": 1,
+  "app": "Sneaky Spider",
+  "prioridad": "media"
+ }
+}

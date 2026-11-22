@@ -1,0 +1,51 @@
+{
+ "id": "57fd7c2c555d3cfe",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.634024Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-075"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-075",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-09-06T16:51:46Z",
+  "actualizada": "2026-09-09T11:43:27Z",
+  "huella_texto": "43ebd58388690bb2",
+  "notas": 6,
+  "app": "Silent Frog",
+  "etiquetas": [
+   "Silent Frog",
+   "distribucion",
+   "release"
+  ],
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "curso",
+    "fecha": "2026-09-09T11:38:58Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-09T11:42:07Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-09T11:43:27Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

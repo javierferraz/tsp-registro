@@ -1,0 +1,35 @@
+{
+ "id": "17f35466838a1275",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.136386Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-462"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-462",
+ "datos": {
+  "estado": "curso",
+  "revision": 6,
+  "creada": "2026-10-01T11:55:07Z",
+  "actualizada": "2026-11-14T19:01:25Z",
+  "huella_texto": "a547b2eb63c8ba24",
+  "notas": 8,
+  "etiquetas": [
+   "distribucion"
+  ],
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "curso",
+    "fecha": "2026-10-01T14:01:38Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

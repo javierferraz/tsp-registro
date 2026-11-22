@@ -1,0 +1,46 @@
+{
+ "id": "ed0235d941b26c9d",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.008225Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-356"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-356",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-09-23T16:06:02Z",
+  "actualizada": "2026-09-28T10:24:54Z",
+  "huella_texto": "aa183346a686c105",
+  "notas": 7,
+  "app": "Neat Jellyfish",
+  "prioridad": "baja",
+  "movimientos": [
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-09-26T09:16:26Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-26T09:35:23Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-28T10:24:54Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

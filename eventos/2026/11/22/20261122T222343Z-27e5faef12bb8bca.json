@@ -1,0 +1,40 @@
+{
+ "id": "27e5faef12bb8bca",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.955449Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-908"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-908",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-22T14:39:23Z",
+  "actualizada": "2026-10-29T21:40:45Z",
+  "huella_texto": "fc95c34ae98338c5",
+  "notas": 6,
+  "app": "Apolo",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-22T14:40:49Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:40:45Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

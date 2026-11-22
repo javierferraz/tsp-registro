@@ -1,0 +1,32 @@
+{
+ "id": "07f6b0fa12f92be7",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.263737Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-556"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-556",
+ "datos": {
+  "estado": "descartada",
+  "revision": 3,
+  "creada": "2026-10-04T09:54:47Z",
+  "actualizada": "2026-10-14T08:44:35Z",
+  "huella_texto": "6e8fdf3ac397f121",
+  "notas": 4,
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "descartada",
+    "fecha": "2026-10-14T08:44:35Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

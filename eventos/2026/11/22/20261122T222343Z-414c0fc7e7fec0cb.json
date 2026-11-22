@@ -1,0 +1,55 @@
+{
+ "id": "414c0fc7e7fec0cb",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.121269Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-450"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-450",
+ "datos": {
+  "estado": "hecha",
+  "revision": 9,
+  "creada": "2026-09-29T19:03:14Z",
+  "actualizada": "2026-10-02T08:22:51Z",
+  "huella_texto": "3f6259ef0a2b4c9c",
+  "notas": 11,
+  "app": "Neat Bluejay",
+  "etiquetas": [
+   "Neat Bluejay",
+   "release"
+  ],
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "propuesta",
+    "fecha": "2026-10-01T19:38:18Z",
+    "por": "claude"
+   },
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-02T06:55:10Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-02T07:19:04Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-02T08:22:51Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

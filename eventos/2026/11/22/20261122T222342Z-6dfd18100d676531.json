@@ -1,0 +1,54 @@
+{
+ "id": "6dfd18100d676531",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.924095Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-288"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-288",
+ "datos": {
+  "estado": "hecha",
+  "revision": 17,
+  "creada": "2026-09-17T20:08:51Z",
+  "actualizada": "2026-09-21T23:06:44Z",
+  "huella_texto": "68943aa9092124c7",
+  "notas": 8,
+  "app": "Tidy Koala",
+  "etiquetas": [
+   "Handy Raccoon"
+  ],
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "adelante",
+    "fecha": "2026-09-17T20:09:30Z",
+    "por": "javier"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-09-21T22:10:15Z",
+    "por": "javier"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-21T22:35:29Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-21T23:06:44Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

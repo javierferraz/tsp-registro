@@ -1,0 +1,41 @@
+{
+ "id": "5165a986e4d66298",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.609810Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1182"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1182",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-11-12T12:31:22Z",
+  "actualizada": "2026-11-13T13:08:43Z",
+  "huella_texto": "6ce6862017d6c531",
+  "notas": 5,
+  "commits": [
+   "7c8e47ac4e5e"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-12T12:50:30Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-13T13:08:43Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

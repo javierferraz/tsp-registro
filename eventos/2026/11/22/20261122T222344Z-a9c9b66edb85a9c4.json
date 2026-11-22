@@ -1,0 +1,58 @@
+{
+ "id": "a9c9b66edb85a9c4",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.651409Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1187"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1187",
+ "datos": {
+  "estado": "validar",
+  "revision": 8,
+  "creada": "2026-11-12T15:01:40Z",
+  "actualizada": "2026-11-22T21:03:35Z",
+  "huella_texto": "1e2a8bf7a14190bd",
+  "notas": 13,
+  "app": "Funky Monkey",
+  "etiquetas": [
+   "app"
+  ],
+  "prioridad": "media",
+  "check": "ojos",
+  "commits": [
+   "b4a58170bd94",
+   "f4d7280595eb",
+   "ada1b6e8681c",
+   "7a2592a56c83",
+   "da65d60de606",
+   "c64553637820"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-12T21:17:10Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "curso",
+    "fecha": "2026-11-12T23:27:41Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-13T00:31:22Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

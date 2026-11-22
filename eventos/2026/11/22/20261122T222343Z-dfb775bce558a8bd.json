@@ -1,0 +1,47 @@
+{
+ "id": "dfb775bce558a8bd",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.081590Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-418"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-418",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-09-27T07:34:21Z",
+  "actualizada": "2026-10-01T20:36:03Z",
+  "huella_texto": "8dfb05f22f048290",
+  "notas": 8,
+  "app": "Sneaky Spider",
+  "prioridad": "baja",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "curso",
+    "fecha": "2026-09-27T08:16:52Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-27T10:16:51Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-01T20:36:03Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

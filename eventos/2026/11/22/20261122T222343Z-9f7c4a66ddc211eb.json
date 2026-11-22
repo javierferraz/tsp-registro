@@ -1,0 +1,41 @@
+{
+ "id": "9f7c4a66ddc211eb",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.387657Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-652"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-652",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-14T20:27:26Z",
+  "actualizada": "2026-10-14T22:51:43Z",
+  "huella_texto": "172eff3a47c62697",
+  "notas": 4,
+  "app": "Mighty Bison",
+  "prioridad": "media",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "validar",
+    "fecha": "2026-10-14T22:09:14Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T22:51:43Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

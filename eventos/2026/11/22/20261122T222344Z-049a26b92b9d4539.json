@@ -1,0 +1,37 @@
+{
+ "id": "049a26b92b9d4539",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.141670Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-992"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-992",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-25T11:55:39Z",
+  "actualizada": "2026-10-29T21:41:00Z",
+  "huella_texto": "92c15ba534dcc891",
+  "notas": 4,
+  "app": "Mighty Bison",
+  "etiquetas": [
+   "release"
+  ],
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:41:00Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

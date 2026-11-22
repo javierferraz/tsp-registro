@@ -1,0 +1,37 @@
+{
+ "id": "7ebb0dc13adf2bd4",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.579385Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-024"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-024",
+ "datos": {
+  "estado": "hecha",
+  "revision": 1,
+  "creada": "2026-09-06T13:36:36Z",
+  "actualizada": "2026-09-06T14:53:00Z",
+  "huella_texto": "3cd48585edf8c00c",
+  "notas": 4,
+  "etiquetas": [
+   "skills",
+   "tablero"
+  ],
+  "modelo": "auto",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-06T13:41:44Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

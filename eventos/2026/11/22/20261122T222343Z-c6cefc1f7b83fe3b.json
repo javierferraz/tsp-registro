@@ -1,0 +1,40 @@
+{
+ "id": "c6cefc1f7b83fe3b",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.895900Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-885"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-885",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-21T23:13:42Z",
+  "actualizada": "2026-10-29T21:40:52Z",
+  "huella_texto": "d85727a3fcf3be9e",
+  "notas": 6,
+  "app": "Funiagentes",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-21T23:35:57Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:40:52Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

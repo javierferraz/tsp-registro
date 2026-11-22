@@ -1,0 +1,45 @@
+{
+ "id": "a0debb90f5d8aeb8",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.973887Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-328"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-328",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-09-20T17:16:51Z",
+  "actualizada": "2026-09-27T10:24:03Z",
+  "huella_texto": "f82126e86cfe992c",
+  "notas": 7,
+  "app": "Tidy Koala",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "curso",
+    "fecha": "2026-09-27T07:31:49Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-27T10:05:56Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-27T10:24:03Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

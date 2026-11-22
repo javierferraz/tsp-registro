@@ -1,0 +1,56 @@
+{
+ "id": "9c8f766dc295406e",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.170102Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-488"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-488",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-10-01T18:51:39Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "693ebbbb1f113c10",
+  "notas": 7,
+  "app": "Sneaky Spider",
+  "etiquetas": [
+   "app"
+  ],
+  "prioridad": "baja",
+  "check": "ojos",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "propuesta",
+    "fecha": "2026-10-01T19:38:18Z",
+    "por": "claude"
+   },
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-02T06:29:46Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-02T07:22:52Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-03T06:32:08Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

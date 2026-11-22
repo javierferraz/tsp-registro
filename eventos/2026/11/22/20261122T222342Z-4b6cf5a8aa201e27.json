@@ -1,0 +1,48 @@
+{
+ "id": "4b6cf5a8aa201e27",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.680547Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-121"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-121",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-09-08T11:31:02Z",
+  "actualizada": "2026-09-08T22:08:22Z",
+  "huella_texto": "4a7b1ab9230b4b9e",
+  "notas": 7,
+  "etiquetas": [
+   "distribucion",
+   "release"
+  ],
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "curso",
+    "fecha": "2026-09-08T18:31:09Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-08T22:00:23Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-08T22:08:22Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

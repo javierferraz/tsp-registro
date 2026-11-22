@@ -1,0 +1,40 @@
+{
+ "id": "e765139a256fc606",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.313101Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-596"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-596",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-10-13T00:07:48Z",
+  "actualizada": "2026-10-14T20:02:16Z",
+  "huella_texto": "2fec54d759f8172e",
+  "notas": 4,
+  "app": "Happy Walrus",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-13T00:10:03Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T20:02:16Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

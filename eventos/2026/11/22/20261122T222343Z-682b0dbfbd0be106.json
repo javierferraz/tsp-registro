@@ -1,0 +1,47 @@
+{
+ "id": "682b0dbfbd0be106",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.279719Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-569"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-569",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-04T23:08:41Z",
+  "actualizada": "2026-10-14T23:23:47Z",
+  "huella_texto": "e6e28fb013c2ff07",
+  "notas": 6,
+  "app": "Snappy Wasp",
+  "prioridad": "media",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-14T22:53:30Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-14T23:12:37Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T23:23:47Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

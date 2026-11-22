@@ -1,0 +1,626 @@
+{
+ "cartera": {
+  "cartera": {
+   "apps": 23,
+   "en_desarrollo": 3,
+   "publicadas": 18,
+   "puentes": [
+    "happy-walrus",
+    "writer-tiger"
+   ]
+  },
+  "fichas": {
+   "agile-ant": {
+    "canal": "stable",
+    "estado": "publicada",
+    "fecha_release": "2026-10-25",
+    "linux": null,
+    "linux_estado": "planned",
+    "nombre": "Agile Ant",
+    "repo": "2610-agile-ant",
+    "stack": "pyside6",
+    "version": "1.0.0",
+    "windows": "1.0.0"
+   },
+   "bright-cardinal": {
+    "canal": "stable",
+    "estado": "publicada",
+    "fecha_release": "2026-11-21",
+    "linux": "1.0.1",
+    "linux_estado": "experimental",
+    "nombre": "Bright Cardinal",
+    "repo": "2610-bright-cardinal",
+    "stack": "tauri",
+    "version": "1.0.1",
+    "windows": "1.0.1"
+   },
+   "clear-parrot": {
+    "canal": "stable",
+    "estado": "publicada",
+    "fecha_release": "2026-10-04",
+    "linux": "1.3.2",
+    "linux_estado": "experimental",
+    "nombre": "Clear Parrot",
+    "repo": "2606-clear-parrot",
+    "stack": "tauri",
+    "version": "1.3.2",
+    "windows": "1.3.2"
+   },
+   "clever-cat": {
+    "canal": "stable",
+    "estado": "publicada",
+    "fecha_release": "2026-10-25",
+    "linux": "1.8.5",
+    "linux_estado": "experimental",
+    "nombre": "Clever Cat",
+    "repo": "2606-clever-cat",
+    "stack": "tauri",
+    "version": "1.8.6",
+    "windows": "1.8.6"
+   },
+   "diligent-beaver": {
+    "canal": "stable",
+    "estado": "publicada",
+    "fecha_release": "2026-10-08",
+    "linux": "1.3.1",
+    "linux_estado": "experimental",
+    "nombre": "Diligent Beaver",
+    "repo": "2606-diligent-beaver",
+    "stack": "pyside6",
+    "version": "1.3.1",
+    "windows": "1.3.1"
+   },
+   "fearless-tiger": {
+    "canal": "stable",
+    "estado": "publicada",
+    "fecha_release": "2026-11-16",
+    "linux": null,
+    "linux_estado": "planned",
+    "nombre": "Fearless Tiger",
+    "repo": "2610-fearless-tiger",
+    "stack": "tauri",
+    "version": "1.2.0",
+    "windows": "1.2.0"
+   },
+   "funky-monkey": {
+    "canal": "stable",
+    "estado": "publicada",
+    "fecha_release": "2026-11-22",
+    "linux": null,
+    "linux_estado": "planned",
+    "nombre": "Funky Monkey",
+    "repo": "2611-funky-monkey",
+    "stack": "pyside6",
+    "version": "1.1.2",
+    "windows": "1.1.2"
+   },
+   "handy-raccoon": {
+    "canal": "stable",
+    "estado": "publicada",
+    "fecha_release": "2026-11-14",
+    "linux": "1.8.7",
+    "linux_estado": "experimental",
+    "nombre": "Handy Raccoon",
+    "repo": "2606-handy-raccoon",
+    "stack": "pyside6",
+    "version": "1.8.9",
+    "windows": "1.8.9"
+   },
+   "happy-walrus": {
+    "canal": "stable",
+    "estado": "puente",
+    "fecha_release": "2026-09-28",
+    "linux": null,
+    "linux_estado": "planned",
+    "nombre": "Happy Walrus",
+    "renombrada_a": "clear-parrot",
+    "repo": "2606-clear-parrot",
+    "stack": "tauri",
+    "version": "1.2.1",
+    "windows": "1.2.1"
+   },
+   "mighty-bison": {
+    "canal": "stable",
+    "estado": "publicada",
+    "fecha_release": "2026-10-25",
+    "linux": "1.0.1",
+    "linux_estado": "experimental",
+    "nombre": "Mighty Bison",
+    "repo": "2606-mighty-bison",
+    "stack": "pyside6",
+    "version": "1.0.0",
+    "windows": "1.0.0"
+   },
+   "neat-bluejay": {
+    "canal": "stable",
+    "estado": "publicada",
+    "fecha_release": "2026-11-15",
+    "linux": null,
+    "linux_estado": null,
+    "nombre": "Neat Bluejay",
+    "repo": "2606-neat-bluejay",
+    "stack": "tauri",
+    "version": "1.6.0",
+    "windows": "1.6.0"
+   },
+   "orderly-owl": {
+    "canal": "stable",
+    "estado": "publicada",
+    "fecha_release": "2026-10-14",
+    "linux": "1.0.0",
+    "linux_estado": "experimental",
+    "nombre": "Orderly Owl",
+    "repo": "2610-orderly-owl",
+    "stack": "pyside6",
+    "version": "1.0.0",
+    "windows": "1.0.0"
+   },
+   "quiet-panda": {
+    "canal": "dev",
+    "estado": "en_desarrollo",
+    "fecha_release": null,
+    "linux": null,
+    "linux_estado": "planned",
+    "nombre": "Quiet Panda",
+    "repo": null,
+    "version": "0.1.0",
+    "windows": null
+   },
+   "sharp-crab": {
+    "canal": "dev",
+    "estado": "en_desarrollo",
+    "fecha_release": null,
+    "linux": null,
+    "linux_estado": "planned",
+    "nombre": "Sharp Crab",
+    "repo": null,
+    "version": "0.1.0",
+    "windows": null
+   },
+   "silent-frog": {
+    "canal": "stable",
+    "estado": "publicada",
+    "fecha_release": "2026-10-14",
+    "linux": "1.5.12",
+    "linux_estado": "experimental",
+    "nombre": "Silent Frog",
+    "repo": "2606-silent-frog",
+    "stack": "pyside6",
+    "version": "1.5.12",
+    "windows": "1.5.12"
+   },
+   "smart-greenjay": {
+    "canal": "stable",
+    "estado": "publicada",
+    "fecha_release": "2026-11-14",
+    "linux": "1.3.0",
+    "linux_estado": "experimental",
+    "nombre": "Smart Greenjay",
+    "repo": "2610-smart-greenjay",
+    "stack": "tauri",
+    "version": "1.3.0",
+    "windows": "1.3.0"
+   },
+   "snappy-wasp": {
+    "canal": "stable",
+    "estado": "publicada",
+    "fecha_release": "2026-11-21",
+    "linux": "1.7.0",
+    "linux_estado": "experimental",
+    "nombre": "Snappy Wasp",
+    "repo": "2606-snappy-wasp",
+    "stack": "pyside6",
+    "version": "1.7.0",
+    "windows": "1.7.0"
+   },
+   "sneaky-spider": {
+    "canal": "stable",
+    "estado": "publicada",
+    "fecha_release": "2026-11-14",
+    "linux": "1.2.2",
+    "linux_estado": "experimental",
+    "nombre": "Sneaky Spider",
+    "repo": null,
+    "version": "1.3.0",
+    "windows": "1.3.0"
+   },
+   "tappy-woodpecker": {
+    "canal": "stable",
+    "estado": "publicada",
+    "fecha_release": "2026-10-25",
+    "linux": "1.4.2",
+    "linux_estado": "experimental",
+    "nombre": "Tappy Woodpecker",
+    "repo": "2607-tappy-woodpecker",
+    "stack": "pyside6",
+    "version": "1.5.0",
+    "windows": "1.5.0"
+   },
+   "tidy-koala": {
+    "canal": "stable",
+    "estado": "publicada",
+    "fecha_release": "2026-11-22",
+    "linux": null,
+    "linux_estado": "planned",
+    "nombre": "Tidy Koala",
+    "repo": "2608-tidy-koala",
+    "stack": "pyside6",
+    "version": "1.7.1",
+    "windows": "1.7.1"
+   },
+   "tiny-chicken": {
+    "canal": "stable",
+    "estado": "publicada",
+    "fecha_release": "2026-11-15",
+    "linux": "1.7.4",
+    "linux_estado": "experimental",
+    "nombre": "Tiny Chicken",
+    "repo": "2606-tiny-chicken",
+    "stack": "tauri",
+    "version": "1.8.0",
+    "windows": "1.8.0"
+   },
+   "vivid-butterfly": {
+    "canal": "dev",
+    "estado": "en_desarrollo",
+    "fecha_release": null,
+    "linux": null,
+    "linux_estado": "planned",
+    "nombre": "Vivid Butterfly",
+    "repo": null,
+    "version": "0.1.0",
+    "windows": null
+   },
+   "writer-tiger": {
+    "canal": "stable",
+    "estado": "puente",
+    "fecha_release": "2026-10-02",
+    "linux": null,
+    "linux_estado": null,
+    "nombre": "Writer Tiger",
+    "renombrada_a": "neat-bluejay",
+    "repo": "2606-neat-bluejay",
+    "stack": "tauri",
+    "version": "1.2.4",
+    "windows": "1.2.4"
+   }
+  },
+  "listas": {
+   "CONTEXT.md §8": {
+    "apps": 28,
+    "dice_publicadas": null,
+    "hallazgos": [
+     {
+      "app": "bright-cardinal",
+      "lista": "1.0.0",
+      "manifest": "1.0.1",
+      "que": "versión windows"
+     },
+     {
+      "app": "fearless-tiger",
+      "lista": "1.0.0",
+      "manifest": "1.2.0",
+      "que": "versión windows"
+     },
+     {
+      "app": "funky-monkey",
+      "lista": "1.0.1",
+      "manifest": "1.1.2",
+      "que": "versión windows"
+     },
+     {
+      "app": "handy-raccoon",
+      "lista": "1.8.5",
+      "manifest": "1.8.9",
+      "que": "versión windows"
+     },
+     {
+      "app": "smart-greenjay",
+      "lista": "1.0.0",
+      "manifest": "1.3.0",
+      "que": "versión windows"
+     },
+     {
+      "app": "snappy-wasp",
+      "lista": "1.6.2",
+      "manifest": "1.7.0",
+      "que": "versión windows"
+     },
+     {
+      "app": "snappy-wasp",
+      "lista": "1.6.2",
+      "manifest": "1.7.0",
+      "que": "versión linux"
+     },
+     {
+      "app": "sneaky-spider",
+      "lista": "1.2.2",
+      "manifest": "1.3.0",
+      "que": "versión windows"
+     },
+     {
+      "app": "tidy-koala",
+      "lista": "1.5.1",
+      "manifest": "1.7.1",
+      "que": "versión windows"
+     }
+    ],
+    "no_estan_en_el_manifest": [
+     "crafty-fox",
+     "keen-eagle",
+     "roaring-lion",
+     "rousing-rooster",
+     "steady-turtle",
+     "trusty-pigeon",
+     "watchful-elephant"
+    ]
+   },
+   "app-matrix.md": {
+    "apps": 28,
+    "dice_publicadas": null,
+    "hallazgos": [
+     {
+      "app": "bright-cardinal",
+      "lista": "0.1.0",
+      "manifest": "1.0.1",
+      "que": "versión windows"
+     },
+     {
+      "app": "clever-cat",
+      "lista": "1.5.0",
+      "manifest": "1.8.6",
+      "que": "versión windows"
+     },
+     {
+      "app": "diligent-beaver",
+      "lista": "1.1.0",
+      "manifest": "1.3.1",
+      "que": "versión windows"
+     },
+     {
+      "app": "funky-monkey",
+      "lista": "0.1.0",
+      "manifest": "1.1.2",
+      "que": "versión windows"
+     },
+     {
+      "app": "handy-raccoon",
+      "lista": "1.7.6",
+      "manifest": "1.8.9",
+      "que": "versión windows"
+     },
+     {
+      "app": "neat-bluejay",
+      "lista": "1.1.0",
+      "manifest": "1.6.0",
+      "que": "versión windows"
+     },
+     {
+      "app": "silent-frog",
+      "lista": "1.4.1",
+      "manifest": "1.5.12",
+      "que": "versión windows"
+     },
+     {
+      "app": "smart-greenjay",
+      "lista": "1.0.0",
+      "manifest": "1.3.0",
+      "que": "versión windows"
+     },
+     {
+      "app": "smart-greenjay",
+      "lista": "1.0.0",
+      "manifest": "1.3.0",
+      "que": "versión linux"
+     },
+     {
+      "app": "snappy-wasp",
+      "lista": "1.4.3",
+      "manifest": "1.7.0",
+      "que": "versión windows"
+     },
+     {
+      "app": "snappy-wasp",
+      "lista": "1.6.2",
+      "manifest": "1.7.0",
+      "que": "versión linux"
+     },
+     {
+      "app": "tappy-woodpecker",
+      "lista": "1.4.2",
+      "manifest": "1.5.0",
+      "que": "versión windows"
+     },
+     {
+      "app": "tidy-koala",
+      "lista": "1.2.0",
+      "manifest": "1.7.1",
+      "que": "versión windows"
+     },
+     {
+      "app": "tiny-chicken",
+      "lista": "1.6.4",
+      "manifest": "1.8.0",
+      "que": "versión windows"
+     }
+    ],
+    "no_estan_en_el_manifest": [
+     "crafty-fox",
+     "keen-eagle",
+     "roaring-lion",
+     "rousing-rooster",
+     "steady-turtle",
+     "trusty-pigeon",
+     "watchful-elephant"
+    ]
+   },
+   "catalog.js": {
+    "apps": 29,
+    "dice_publicadas": 18,
+    "hallazgos": [],
+    "no_estan_en_el_manifest": [
+     "crafty-fox",
+     "keen-lizard",
+     "mindful-meerkat",
+     "proud-peacock",
+     "quick-mouse",
+     "swift-otter",
+     "trusty-pigeon",
+     "watchful-elephant"
+    ]
+   },
+   "catalogo-apps.json": {
+    "apps": 37,
+    "dice_publicadas": 11,
+    "hallazgos": [
+     {
+      "app": "agile-ant",
+      "lista": "seccion=desarrollo",
+      "que": "publicada en el manifest y la lista no la da por publicada"
+     },
+     {
+      "app": "bright-cardinal",
+      "lista": "seccion=desarrollo",
+      "que": "publicada en el manifest y la lista no la da por publicada"
+     },
+     {
+      "app": "fearless-tiger",
+      "lista": "seccion=desarrollo",
+      "que": "publicada en el manifest y la lista no la da por publicada"
+     },
+     {
+      "app": "funky-monkey",
+      "lista": "seccion=desarrollo",
+      "que": "publicada en el manifest y la lista no la da por publicada"
+     },
+     {
+      "app": "mighty-bison",
+      "lista": "seccion=desarrollo",
+      "que": "publicada en el manifest y la lista no la da por publicada"
+     },
+     {
+      "app": "orderly-owl",
+      "lista": "seccion=desarrollo",
+      "que": "publicada en el manifest y la lista no la da por publicada"
+     },
+     {
+      "app": "smart-greenjay",
+      "lista": "seccion=desarrollo",
+      "que": "publicada en el manifest y la lista no la da por publicada"
+     }
+    ],
+    "no_estan_en_el_manifest": [
+     "crafty-fox",
+     "gestor-tareas",
+     "keen-eagle",
+     "keen-lizard",
+     "measuring-mole",
+     "mindful-meerkat",
+     "proud-peacock",
+     "quick-mouse",
+     "quick-squirrel",
+     "roaring-lion",
+     "rousing-rooster",
+     "shifty-chameleon",
+     "steady-turtle",
+     "swift-otter",
+     "trusty-pigeon",
+     "watchful-elephant"
+    ]
+   }
+  }
+ },
+ "comparacion": {
+  "anomalias": {
+   "conocidas": 11,
+   "desde": "2026-11-21",
+   "historico_por_clase": {
+    "cerrada sin pasar por validar": 35,
+    "en curso sin pasar por Empezar": 270,
+    "otro salto fuera del ciclo": 105,
+    "reabierta": 16
+   },
+   "recientes": [
+    {
+     "clase": "otro salto fuera del ciclo",
+     "detalle": "curso → propuesta (claude)",
+     "fecha": "2026-11-21T19:00:06Z",
+     "id": "S-1244"
+    },
+    {
+     "clase": "otro salto fuera del ciclo",
+     "detalle": "propuesta → validar (claude)",
+     "fecha": "2026-11-21T20:11:32Z",
+     "id": "S-1244"
+    }
+   ]
+  },
+  "fidelidad_lion": {
+   "distintas": [],
+   "faltan_en_registro": [],
+   "sobran_en_registro": []
+  },
+  "fidelidad_tablero": {
+   "distintas": [],
+   "faltan_en_registro": [],
+   "sobran_en_registro": []
+  },
+  "lion_frente_a_tablero": [],
+  "tablero": {
+   "por_columna": {
+    "adelante": 10,
+    "curso": 7,
+    "descartada": 45,
+    "hecha": 961,
+    "info": 3,
+    "pedida": 6,
+    "propuesta": 179,
+    "validar": 70
+   },
+   "tarjetas": 1281
+  },
+  "vigias": [
+   {
+    "callado": false,
+    "dias": 0,
+    "esperado": 2,
+    "ultimo": "2026-11-22",
+    "vigia": "soporte"
+   },
+   {
+    "callado": false,
+    "dias": 2,
+    "esperado": 8,
+    "ultimo": "2026-11-20",
+    "vigia": "contenidos"
+   },
+   {
+    "callado": false,
+    "dias": 5,
+    "esperado": 8,
+    "ultimo": "2026-11-17",
+    "vigia": "fichas"
+   },
+   {
+    "callado": false,
+    "dias": 4,
+    "esperado": 8,
+    "ultimo": "2026-11-18",
+    "vigia": "tablero"
+   },
+   {
+    "callado": false,
+    "dias": 1,
+    "esperado": 5,
+    "ultimo": "2026-11-21",
+    "vigia": "releases"
+   }
+  ]
+ },
+ "fecha": "2026-11-22",
+ "importado": {
+  "eventos": 0,
+  "por_tipo": {},
+  "rechazados": []
+ }
+}

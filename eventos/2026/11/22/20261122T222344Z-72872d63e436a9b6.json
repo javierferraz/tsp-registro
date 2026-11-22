@@ -1,0 +1,52 @@
+{
+ "id": "72872d63e436a9b6",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.155510Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-987"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-987",
+ "datos": {
+  "estado": "hecha",
+  "revision": 7,
+  "creada": "2026-10-25T15:13:02Z",
+  "actualizada": "2026-11-09T21:02:24Z",
+  "huella_texto": "a1f4f8b9a9d01eac",
+  "notas": 10,
+  "app": "Smart Greenjay",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-25T15:27:20Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "curso",
+    "fecha": "2026-10-25T16:43:33Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-25T16:45:15Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-09T21:02:24Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

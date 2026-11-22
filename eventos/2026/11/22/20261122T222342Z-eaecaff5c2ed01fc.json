@@ -1,0 +1,32 @@
+{
+ "id": "eaecaff5c2ed01fc",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.677467Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-118"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-118",
+ "datos": {
+  "estado": "hecha",
+  "revision": 2,
+  "creada": "2026-09-08T10:40:32Z",
+  "actualizada": "2026-09-08T11:00:59Z",
+  "huella_texto": "f0d2672b6b5564dd",
+  "notas": 3,
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "hecha",
+    "fecha": "2026-09-08T11:00:59Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

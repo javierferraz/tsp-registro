@@ -1,0 +1,39 @@
+{
+ "id": "d8a3191eb287918f",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.878078Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-263"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-263",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-09-16T16:14:48Z",
+  "actualizada": "2026-09-17T17:13:40Z",
+  "huella_texto": "e2c1e69e31a86c96",
+  "notas": 5,
+  "app": "Watchful Elephant",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "validar",
+    "fecha": "2026-09-16T16:23:21Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-17T17:13:40Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

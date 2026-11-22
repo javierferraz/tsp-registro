@@ -1,0 +1,39 @@
+{
+ "id": "4614c65c3677c04d",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.421738Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1115"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1115",
+ "datos": {
+  "estado": "hecha",
+  "revision": 8,
+  "creada": "2026-11-04T22:31:48Z",
+  "actualizada": "2026-11-10T23:45:27Z",
+  "huella_texto": "3019e422fba9f61e",
+  "notas": 9,
+  "app": "Roaring Lion",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-04T22:41:52Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-10T23:45:27Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

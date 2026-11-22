@@ -1,0 +1,40 @@
+{
+ "id": "ed459f5e86806238",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.079604Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-416"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-416",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-09-27T07:20:58Z",
+  "actualizada": "2026-10-01T20:36:03Z",
+  "huella_texto": "6c1cc81135f5b52c",
+  "notas": 7,
+  "app": "Snappy Wasp",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-27T07:32:09Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-01T20:36:03Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

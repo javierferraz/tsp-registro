@@ -1,0 +1,29 @@
+{
+ "id": "8cbef233a0816966",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.960726Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1251"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1251",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-11-22T10:54:12Z",
+  "actualizada": "2026-11-22T10:54:12Z",
+  "huella_texto": "6c3f30eb76b910e0",
+  "notas": 1,
+  "app": "Trusty Pigeon",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "media"
+ }
+}

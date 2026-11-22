@@ -1,0 +1,70 @@
+{
+ "id": "83bf1bc661f3a1a2",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.166701Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1003"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1003",
+ "datos": {
+  "estado": "validar",
+  "revision": 24,
+  "creada": "2026-10-26T06:18:37Z",
+  "actualizada": "2026-11-22T21:03:35Z",
+  "huella_texto": "5664f70788a5fba9",
+  "notas": 29,
+  "app": "Bright Cardinal",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "media",
+  "check": "decision",
+  "commits": [
+   "8baa7085dcec",
+   "d2192b20daba",
+   "40a242d59bb3",
+   "6a7a09971ea0",
+   "b18693d79a71",
+   "b974068b0a44",
+   "92f2e94a749e",
+   "0043c1fbe005",
+   "6318eb4624f2",
+   "cf06c041852f",
+   "9545b265997c",
+   "0a8a91698169",
+   "1ec6856ccb74",
+   "1a2be8d4a807",
+   "7c645da62088",
+   "1c3fdaaa52d2",
+   "e6503854adeb",
+   "7d56dc995942",
+   "90a1291e6672",
+   "bb92409f9b2f",
+   "074df2b62c08",
+   "546c2471dfa2",
+   "5a9d94a803df",
+   "c3203b3f8a96"
+  ],
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-29T13:04:41Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-16T23:00:36Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

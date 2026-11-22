@@ -1,0 +1,49 @@
+{
+ "id": "de796fb5703350bc",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.378350Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1096"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1096",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-11-03T07:04:14Z",
+  "actualizada": "2026-11-09T21:02:08Z",
+  "huella_texto": "f9c2ced690d60c9f",
+  "notas": 6,
+  "app": "Mighty Bison",
+  "etiquetas": [
+   "site"
+  ],
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-11-08T14:51:54Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-08T15:03:42Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-09T21:02:08Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

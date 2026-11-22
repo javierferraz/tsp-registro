@@ -1,0 +1,26 @@
+{
+ "id": "b6fad362c029b308",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.410148Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-670"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-670",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-10-14T22:20:51Z",
+  "actualizada": "2026-10-14T22:20:51Z",
+  "huella_texto": "50c33cf4f7e82a29",
+  "notas": 1,
+  "app": "Orderly Owl",
+  "prioridad": "baja"
+ }
+}

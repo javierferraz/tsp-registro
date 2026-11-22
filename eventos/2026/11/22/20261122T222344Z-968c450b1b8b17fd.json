@@ -1,0 +1,52 @@
+{
+ "id": "968c450b1b8b17fd",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.157557Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-988"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-988",
+ "datos": {
+  "estado": "hecha",
+  "revision": 8,
+  "creada": "2026-10-25T15:21:56Z",
+  "actualizada": "2026-10-29T21:40:48Z",
+  "huella_texto": "a85b1ec5257fef09",
+  "notas": 11,
+  "app": "Bright Cardinal",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-25T16:39:28Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "curso",
+    "fecha": "2026-10-25T16:46:26Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-25T17:17:27Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:40:48Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

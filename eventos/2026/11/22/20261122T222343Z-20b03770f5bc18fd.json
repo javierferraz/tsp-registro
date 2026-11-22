@@ -1,0 +1,56 @@
+{
+ "id": "20b03770f5bc18fd",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.167346Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-486"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-486",
+ "datos": {
+  "estado": "hecha",
+  "revision": 8,
+  "creada": "2026-10-01T18:51:12Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "3b9fd8a9630d8d78",
+  "notas": 9,
+  "app": "Tidy Koala",
+  "etiquetas": [
+   "app"
+  ],
+  "prioridad": "baja",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "propuesta",
+    "fecha": "2026-10-01T19:38:18Z",
+    "por": "claude"
+   },
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-03T07:49:40Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-03T15:31:24Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T22:51:51Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

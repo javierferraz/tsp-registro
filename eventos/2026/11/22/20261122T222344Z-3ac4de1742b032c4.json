@@ -1,0 +1,43 @@
+{
+ "id": "3ac4de1742b032c4",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.106016Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-977"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-977",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-24T21:52:52Z",
+  "actualizada": "2026-10-29T21:40:49Z",
+  "huella_texto": "a635e0902ddc564c",
+  "notas": 6,
+  "app": "Clear Parrot",
+  "etiquetas": [
+   "fallo"
+  ],
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-25T06:43:10Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:40:49Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

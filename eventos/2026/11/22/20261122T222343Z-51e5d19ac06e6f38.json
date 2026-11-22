@@ -1,0 +1,53 @@
+{
+ "id": "51e5d19ac06e6f38",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.232272Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-535"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-535",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-10-03T06:52:31Z",
+  "actualizada": "2026-10-04T12:02:06Z",
+  "huella_texto": "bd47a031299fefe1",
+  "notas": 8,
+  "app": "Tidy Koala",
+  "prioridad": "baja",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "adelante",
+    "fecha": "2026-10-04T09:55:11Z",
+    "por": "claude"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-10-04T10:33:15Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-04T10:44:57Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-04T12:02:06Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "id": "a3cdac38f974940e",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.329359Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1074"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1074",
+ "datos": {
+  "estado": "hecha",
+  "revision": 7,
+  "creada": "2026-11-02T07:52:30Z",
+  "actualizada": "2026-11-10T14:38:20Z",
+  "huella_texto": "fb1f463a16d52d92",
+  "notas": 9,
+  "app": "Roaring Lion",
+  "etiquetas": [
+   "fallo",
+   "seguridad"
+  ],
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-11-05T06:01:40Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-05T06:35:55Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-10T14:38:20Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

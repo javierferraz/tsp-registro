@@ -1,0 +1,43 @@
+{
+ "id": "d6fa016e73cecd2f",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.701550Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-138"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-138",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-09-08T19:29:05Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "2c817f4bc1bc7be3",
+  "notas": 6,
+  "app": "Suite",
+  "etiquetas": [
+   "linux",
+   "release"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-09T11:46:42Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-09T11:47:47Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

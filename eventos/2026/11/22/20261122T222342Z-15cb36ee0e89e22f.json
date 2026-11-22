@@ -1,0 +1,37 @@
+{
+ "id": "15cb36ee0e89e22f",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.609419Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-052"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-052",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 2,
+  "creada": "2026-09-06T16:51:46Z",
+  "actualizada": "2026-10-01T19:38:18Z",
+  "huella_texto": "ff5612637a9a11c4",
+  "notas": 2,
+  "etiquetas": [
+   "seguridad",
+   "skills"
+  ],
+  "prioridad": "baja",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "propuesta",
+    "fecha": "2026-10-01T19:38:18Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

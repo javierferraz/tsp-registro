@@ -1,0 +1,40 @@
+{
+ "id": "3bbc7bd93190a29e",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.193953Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-507"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-507",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-02T08:30:44Z",
+  "actualizada": "2026-10-14T22:51:48Z",
+  "huella_texto": "57408804d739790e",
+  "notas": 6,
+  "app": "Snappy Wasp",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-02T08:57:34Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T22:51:48Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

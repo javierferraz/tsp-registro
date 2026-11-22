@@ -1,0 +1,39 @@
+{
+ "id": "6a68c04e77e13cb3",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.854320Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-251"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-251",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-09-16T11:51:45Z",
+  "actualizada": "2026-09-17T16:21:02Z",
+  "huella_texto": "f717092d7ef7301d",
+  "notas": 6,
+  "app": "Tidy Koala",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-16T15:28:32Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-17T16:21:02Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

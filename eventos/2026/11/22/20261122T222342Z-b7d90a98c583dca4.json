@@ -1,0 +1,38 @@
+{
+ "id": "b7d90a98c583dca4",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.882776Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-266"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-266",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-09-16T16:24:31Z",
+  "actualizada": "2026-09-20T20:17:08Z",
+  "huella_texto": "ebf1e76ca4975c71",
+  "notas": 13,
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-16T17:28:44Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-20T20:17:08Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

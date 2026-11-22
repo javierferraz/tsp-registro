@@ -1,0 +1,53 @@
+{
+ "id": "6d35b94e372d8ad5",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.483043Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-702"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-702",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-15T21:32:32Z",
+  "actualizada": "2026-10-15T23:44:33Z",
+  "huella_texto": "01bd0200e42d6cd0",
+  "notas": 7,
+  "app": "Roaring Lion",
+  "prioridad": "alta",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "adelante",
+    "fecha": "2026-10-15T21:33:18Z",
+    "por": "javier"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-10-15T21:54:32Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-15T21:56:17Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-15T23:44:33Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

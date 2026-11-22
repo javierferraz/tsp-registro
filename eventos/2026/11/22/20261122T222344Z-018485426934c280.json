@@ -1,0 +1,29 @@
+{
+ "id": "018485426934c280",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.973232Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1255"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1255",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-11-22T10:54:43Z",
+  "actualizada": "2026-11-22T10:54:43Z",
+  "huella_texto": "ef3ff82429eb1fb8",
+  "notas": 1,
+  "app": "Sturdy Pangolin",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "media"
+ }
+}

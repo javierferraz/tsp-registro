@@ -1,0 +1,40 @@
+{
+ "id": "c01b4c5ac98388f7",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.785632Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-835"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-835",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-19T13:36:04Z",
+  "actualizada": "2026-11-09T21:02:20Z",
+  "huella_texto": "51acfe1970831818",
+  "notas": 6,
+  "app": "Roaring Lion",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-19T14:52:11Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-09T21:02:20Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

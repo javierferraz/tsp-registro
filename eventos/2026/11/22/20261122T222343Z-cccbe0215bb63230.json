@@ -1,0 +1,46 @@
+{
+ "id": "cccbe0215bb63230",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.315714Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-598"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-598",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-13T00:12:07Z",
+  "actualizada": "2026-10-13T07:53:36Z",
+  "huella_texto": "af4ab9b850729617",
+  "notas": 7,
+  "app": "Neat Bluejay",
+  "prioridad": "baja",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-13T07:43:08Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-13T07:52:05Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-13T07:53:36Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

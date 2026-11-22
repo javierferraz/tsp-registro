@@ -1,0 +1,39 @@
+{
+ "id": "d719257921a6731c",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.598930Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-042"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-042",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 2,
+  "creada": "2026-09-06T16:51:46Z",
+  "actualizada": "2026-10-01T19:38:18Z",
+  "huella_texto": "76f1c16849d3ce04",
+  "notas": 2,
+  "app": "Watchful Elephant",
+  "etiquetas": [
+   "Watchful Elephant",
+   "app",
+   "seguridad"
+  ],
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "propuesta",
+    "fecha": "2026-10-01T19:38:18Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

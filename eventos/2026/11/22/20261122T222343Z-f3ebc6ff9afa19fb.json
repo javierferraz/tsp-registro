@@ -1,0 +1,40 @@
+{
+ "id": "f3ebc6ff9afa19fb",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.382879Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-648"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-648",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-14T18:55:15Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "5cff06bf4decce16",
+  "notas": 4,
+  "app": "Suite",
+  "check": "ojos",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-14T19:15:04Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T21:23:50Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

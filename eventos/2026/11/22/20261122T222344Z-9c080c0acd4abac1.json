@@ -1,0 +1,35 @@
+{
+ "id": "9c080c0acd4abac1",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.230330Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1029"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1029",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-27T12:07:01Z",
+  "actualizada": "2026-11-16T23:34:02Z",
+  "huella_texto": "1ded8686f6832615",
+  "notas": 5,
+  "etiquetas": [
+   "desarrollo"
+  ],
+  "movimientos": [
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-16T23:34:02Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

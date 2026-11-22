@@ -1,0 +1,34 @@
+{
+ "id": "5fd920bcdde48a44",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.419359Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-676"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-676",
+ "datos": {
+  "estado": "descartada",
+  "revision": 3,
+  "creada": "2026-10-14T23:05:47Z",
+  "actualizada": "2026-10-15T16:52:46Z",
+  "huella_texto": "272e46ea3cfd916d",
+  "notas": 3,
+  "app": "Suite",
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "descartada",
+    "fecha": "2026-10-15T16:52:46Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

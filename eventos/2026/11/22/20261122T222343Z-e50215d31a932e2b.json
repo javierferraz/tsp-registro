@@ -1,0 +1,44 @@
+{
+ "id": "e50215d31a932e2b",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.051209Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-392"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-392",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-09-26T13:11:58Z",
+  "actualizada": "2026-10-01T15:44:41Z",
+  "huella_texto": "3797568eac06eacd",
+  "notas": 6,
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "curso",
+    "fecha": "2026-09-26T13:20:19Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-26T18:04:06Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-01T15:44:41Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

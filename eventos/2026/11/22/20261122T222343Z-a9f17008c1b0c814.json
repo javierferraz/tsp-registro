@@ -1,0 +1,42 @@
+{
+ "id": "a9f17008c1b0c814",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.147481Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-470"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-470",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-01T17:32:19Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "daa2650e8e91e17f",
+  "notas": 4,
+  "app": "Site",
+  "etiquetas": [
+   "site"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-01T17:34:40Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-01T18:10:46Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

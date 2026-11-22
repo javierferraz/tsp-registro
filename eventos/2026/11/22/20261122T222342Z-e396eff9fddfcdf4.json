@@ -1,0 +1,46 @@
+{
+ "id": "e396eff9fddfcdf4",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.993615Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-344"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-344",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-09-22T14:22:22Z",
+  "actualizada": "2026-10-01T20:48:36Z",
+  "huella_texto": "5214af03250f34a6",
+  "notas": 7,
+  "app": "Silent Frog",
+  "check": "ojos",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "info",
+    "fecha": "2026-09-22T14:36:09Z",
+    "por": "claude"
+   },
+   {
+    "de": "info",
+    "a": "validar",
+    "fecha": "2026-09-22T15:07:49Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-01T20:48:36Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

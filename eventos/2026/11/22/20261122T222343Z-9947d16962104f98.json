@@ -1,0 +1,47 @@
+{
+ "id": "9947d16962104f98",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.378928Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-645"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-645",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-14T16:30:45Z",
+  "actualizada": "2026-10-14T22:51:47Z",
+  "huella_texto": "c7d13c624a9ad77b",
+  "notas": 7,
+  "app": "Silent Frog",
+  "prioridad": "media",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-14T18:47:41Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-14T19:03:38Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T22:51:47Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

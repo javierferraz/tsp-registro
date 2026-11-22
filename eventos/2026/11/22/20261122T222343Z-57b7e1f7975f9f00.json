@@ -1,0 +1,40 @@
+{
+ "id": "57b7e1f7975f9f00",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.307955Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-592"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-592",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-12T21:24:59Z",
+  "actualizada": "2026-10-14T22:51:46Z",
+  "huella_texto": "b8e06a90323ddab0",
+  "notas": 5,
+  "app": "Neat Bluejay",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-12T21:28:45Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T22:51:46Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

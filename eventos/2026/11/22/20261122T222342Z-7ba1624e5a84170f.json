@@ -1,0 +1,55 @@
+{
+ "id": "7ba1624e5a84170f",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.725355Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-155"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-155",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-09-09T22:01:02Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "e8d8f3b2656b4cf1",
+  "notas": 8,
+  "app": "Clever Cat",
+  "etiquetas": [
+   "Clever Cat",
+   "desarrollo"
+  ],
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "validar",
+    "fecha": "2026-09-10T05:36:14Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "curso",
+    "fecha": "2026-09-10T06:38:25Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-10T07:02:34Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-10T09:45:14Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

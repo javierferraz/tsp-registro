@@ -1,0 +1,40 @@
+{
+ "id": "b71bc9dcaff1c1a6",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.293655Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-580"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-580",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-10-12T09:00:40Z",
+  "actualizada": "2026-10-14T20:02:15Z",
+  "huella_texto": "5967f611009db58b",
+  "notas": 4,
+  "app": "Handy Raccoon",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-12T09:04:48Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T20:02:15Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "id": "6ca18c45ca9150c5",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.818656Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-220"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-220",
+ "datos": {
+  "estado": "descartada",
+  "revision": 3,
+  "creada": "2026-09-11T14:40:40Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "b7cc2e9db9c376db",
+  "notas": 2,
+  "app": "Tidy Koala",
+  "etiquetas": [
+   "Handy Raccoon",
+   "Silent Frog"
+  ],
+  "prioridad": "baja",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "descartada",
+    "fecha": "2026-09-27T07:29:57Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

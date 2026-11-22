@@ -1,0 +1,40 @@
+{
+ "id": "557a2ef840a2b175",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.385090Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-650"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-650",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-10-14T19:21:00Z",
+  "actualizada": "2026-10-14T20:24:46Z",
+  "huella_texto": "0694377da365943f",
+  "notas": 4,
+  "app": "Orderly Owl",
+  "check": "decision",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-14T20:04:11Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T20:24:46Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

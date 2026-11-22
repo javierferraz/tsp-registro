@@ -1,0 +1,51 @@
+{
+ "id": "9f598dfb625da290",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.064024Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-402"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-402",
+ "datos": {
+  "estado": "descartada",
+  "revision": 5,
+  "creada": "2026-09-26T18:44:08Z",
+  "actualizada": "2026-10-02T10:46:42Z",
+  "huella_texto": "d02cc5ac596724b1",
+  "notas": 8,
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "propuesta",
+    "fecha": "2026-10-01T19:38:18Z",
+    "por": "claude"
+   },
+   {
+    "de": "propuesta",
+    "a": "adelante",
+    "fecha": "2026-10-02T10:13:41Z",
+    "por": "javier"
+   },
+   {
+    "de": "adelante",
+    "a": "info",
+    "fecha": "2026-10-02T10:14:42Z",
+    "por": "claude"
+   },
+   {
+    "de": "info",
+    "a": "descartada",
+    "fecha": "2026-10-02T10:46:42Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

@@ -1,0 +1,40 @@
+{
+ "id": "0d21f71cc134c1a0",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.831635Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-856"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-856",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-20T04:47:30Z",
+  "actualizada": "2026-10-29T21:41:09Z",
+  "huella_texto": "99d66f9cf5d5a73a",
+  "notas": 6,
+  "app": "Roaring Lion",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-20T04:49:39Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:41:09Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "id": "7b97e50e470ef75b",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.589318Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1177"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1177",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-11-10T23:45:42Z",
+  "actualizada": "2026-11-10T23:45:42Z",
+  "huella_texto": "f3118568a52e81a0",
+  "notas": 1,
+  "app": "Roaring Lion",
+  "prioridad": "media"
+ }
+}

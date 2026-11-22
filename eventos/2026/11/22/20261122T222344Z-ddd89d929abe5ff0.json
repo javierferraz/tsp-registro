@@ -1,0 +1,29 @@
+{
+ "id": "ddd89d929abe5ff0",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.482665Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1140"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1140",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 3,
+  "creada": "2026-11-05T06:32:21Z",
+  "actualizada": "2026-11-05T10:55:23Z",
+  "huella_texto": "fd8ae243c678955b",
+  "notas": 1,
+  "app": "Clear Parrot",
+  "etiquetas": [
+   "fallo"
+  ],
+  "prioridad": "media"
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "id": "e0abae7ed2126777",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.927630Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-291"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-291",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-09-17T20:46:33Z",
+  "actualizada": "2026-09-20T13:12:08Z",
+  "huella_texto": "ed682c4f89d6c807",
+  "notas": 5,
+  "app": "Snappy Wasp",
+  "etiquetas": [
+   "release"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-17T22:24:29Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-20T13:12:08Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

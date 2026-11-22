@@ -1,0 +1,33 @@
+{
+ "id": "6b20e85d47be0783",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.140834Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-465"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-465",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 4,
+  "creada": "2026-10-01T13:09:56Z",
+  "actualizada": "2026-10-01T19:38:18Z",
+  "huella_texto": "5a6ca3d00874ffa6",
+  "notas": 3,
+  "app": "Suite",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "propuesta",
+    "fecha": "2026-10-01T19:38:18Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

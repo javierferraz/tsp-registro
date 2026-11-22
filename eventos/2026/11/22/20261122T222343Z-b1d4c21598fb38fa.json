@@ -1,0 +1,40 @@
+{
+ "id": "b1d4c21598fb38fa",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.961284Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-910"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-910",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-10-22T15:49:17Z",
+  "actualizada": "2026-10-29T21:40:56Z",
+  "huella_texto": "29c768c9396bf51b",
+  "notas": 7,
+  "app": "Helios",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-22T15:49:58Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:40:56Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

@@ -1,0 +1,53 @@
+{
+ "id": "db03c77917493f24",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.398753Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1106"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1106",
+ "datos": {
+  "estado": "hecha",
+  "revision": 7,
+  "creada": "2026-11-04T00:59:18Z",
+  "actualizada": "2026-11-21T20:13:00Z",
+  "huella_texto": "dc61311135b761de",
+  "notas": 9,
+  "app": "Handy Raccoon",
+  "etiquetas": [
+   "desarrollo"
+  ],
+  "prioridad": "alta",
+  "commits": [
+   "dbd8a2eac4d0",
+   "e6097f15ad3a"
+  ],
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-11-12T11:56:45Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-12T23:58:07Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-21T20:13:00Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

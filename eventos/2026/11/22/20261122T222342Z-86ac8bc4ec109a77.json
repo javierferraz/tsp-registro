@@ -1,0 +1,39 @@
+{
+ "id": "86ac8bc4ec109a77",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.992247Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-343"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-343",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-09-22T14:15:53Z",
+  "actualizada": "2026-09-24T17:54:58Z",
+  "huella_texto": "0da5d6b65e64a5d3",
+  "notas": 6,
+  "app": "Silent Frog",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-22T14:21:06Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-24T17:54:58Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

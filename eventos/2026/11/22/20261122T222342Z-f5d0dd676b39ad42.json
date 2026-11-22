@@ -1,0 +1,33 @@
+{
+ "id": "f5d0dd676b39ad42",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.824649Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-225"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-225",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-09-13T22:46:04Z",
+  "actualizada": "2026-09-21T17:35:03Z",
+  "huella_texto": "a81536df2f564e73",
+  "notas": 5,
+  "app": "Tidy Koala",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "hecha",
+    "fecha": "2026-09-21T17:35:03Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

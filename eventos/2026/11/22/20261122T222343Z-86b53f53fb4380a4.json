@@ -1,0 +1,41 @@
+{
+ "id": "86b53f53fb4380a4",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.107114Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-439"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-439",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-09-28T16:17:06Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "f215b497d716127c",
+  "notas": 5,
+  "etiquetas": [
+   "app"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-28T16:21:55Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-28T17:02:01Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

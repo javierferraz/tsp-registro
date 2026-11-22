@@ -1,0 +1,46 @@
+{
+ "id": "c52e47ad1ef177b0",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.342892Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-618"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-618",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-10-13T23:13:23Z",
+  "actualizada": "2026-10-14T20:02:19Z",
+  "huella_texto": "8dfed2019ee2ab93",
+  "notas": 8,
+  "prioridad": "alta",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-14T09:46:43Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-14T09:49:04Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T20:02:19Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

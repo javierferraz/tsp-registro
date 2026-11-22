@@ -1,0 +1,37 @@
+{
+ "id": "118924057dac8ac7",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.407740Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-668"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-668",
+ "datos": {
+  "estado": "descartada",
+  "revision": 2,
+  "creada": "2026-10-14T21:51:15Z",
+  "actualizada": "2026-10-14T21:51:33Z",
+  "huella_texto": "77604a1d28bb7a4e",
+  "notas": 2,
+  "app": "Orderly Owl",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "baja",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "descartada",
+    "fecha": "2026-10-14T21:51:33Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

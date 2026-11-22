@@ -1,0 +1,26 @@
+{
+ "id": "17b8e61e3c3b2b4b",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.058338Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-955"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-955",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-10-22T22:52:28Z",
+  "actualizada": "2026-10-24T09:09:56+02:00",
+  "huella_texto": "8419158c71311fb7",
+  "notas": 2,
+  "app": "Tiny Chicken",
+  "prioridad": "baja"
+ }
+}

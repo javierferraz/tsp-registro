@@ -1,0 +1,49 @@
+{
+ "id": "ea7c875eeb809da0",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.368098Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1090"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1090",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-11-03T07:03:59Z",
+  "actualizada": "2026-11-09T21:02:05Z",
+  "huella_texto": "2130dc66a077e721",
+  "notas": 6,
+  "app": "Diligent Beaver",
+  "etiquetas": [
+   "site"
+  ],
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-11-08T14:51:36Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-08T15:03:29Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-09T21:02:05Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

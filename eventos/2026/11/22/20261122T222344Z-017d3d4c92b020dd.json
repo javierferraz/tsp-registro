@@ -1,0 +1,48 @@
+{
+ "id": "017d3d4c92b020dd",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.358631Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1086"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1086",
+ "datos": {
+  "estado": "hecha",
+  "revision": 8,
+  "creada": "2026-11-03T07:03:48Z",
+  "actualizada": "2026-11-16T23:00:08Z",
+  "huella_texto": "dd07f735376b166b",
+  "notas": 11,
+  "app": "Snappy Wasp",
+  "etiquetas": [
+   "site"
+  ],
+  "movimientos": [
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-11-03T07:04:33Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-03T07:05:05Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-16T23:00:08Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

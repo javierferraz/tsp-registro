@@ -1,0 +1,41 @@
+{
+ "id": "76437339ae3d6a8a",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.920586Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-285"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-285",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-09-17T15:22:21Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "8cdc4bbe82dbc3df",
+  "notas": 5,
+  "etiquetas": [
+   "site"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-17T15:23:45Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-17T16:09:49Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

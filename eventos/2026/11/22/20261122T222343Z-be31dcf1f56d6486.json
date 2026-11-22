@@ -1,0 +1,39 @@
+{
+ "id": "be31dcf1f56d6486",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.345599Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-620"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-620",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-13T23:13:25Z",
+  "actualizada": "2026-10-14T09:46:32Z",
+  "huella_texto": "3f4169d0e7d345c7",
+  "notas": 6,
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "validar",
+    "fecha": "2026-10-14T09:32:53Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T09:46:32Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

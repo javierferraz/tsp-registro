@@ -1,0 +1,76 @@
+{
+ "id": "468c22d7946c924c",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.838271Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-237"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-237",
+ "datos": {
+  "estado": "hecha",
+  "revision": 12,
+  "creada": "2026-09-14T20:45:17Z",
+  "actualizada": "2026-09-23T22:32:50Z",
+  "huella_texto": "12265084f20b1943",
+  "notas": 19,
+  "app": "Happy Walrus",
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "curso",
+    "fecha": "2026-09-14T21:01:10Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-14T21:07:31Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "adelante",
+    "fecha": "2026-09-14T22:25:45Z",
+    "por": "javier"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-09-15T12:23:51Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "info",
+    "fecha": "2026-09-15T12:31:05Z",
+    "por": "claude"
+   },
+   {
+    "de": "info",
+    "a": "curso",
+    "fecha": "2026-09-15T14:54:42Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-15T15:00:14Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-23T22:32:50Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

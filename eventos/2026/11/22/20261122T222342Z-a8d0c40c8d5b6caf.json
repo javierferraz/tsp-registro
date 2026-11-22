@@ -1,0 +1,35 @@
+{
+ "id": "a8d0c40c8d5b6caf",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.909257Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-280"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-280",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-09-17T13:03:59Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "7c21f22dc6926bdd",
+  "notas": 3,
+  "etiquetas": [
+   "site"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "hecha",
+    "fecha": "2026-09-17T13:15:55Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

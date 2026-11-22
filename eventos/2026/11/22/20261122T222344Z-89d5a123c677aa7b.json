@@ -1,0 +1,38 @@
+{
+ "id": "89d5a123c677aa7b",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.334173Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1076"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1076",
+ "datos": {
+  "estado": "validar",
+  "revision": 9,
+  "creada": "2026-11-02T15:57:22Z",
+  "actualizada": "2026-11-22T21:03:35Z",
+  "huella_texto": "b59fa70ed12a9ba8",
+  "notas": 9,
+  "app": "Cronos",
+  "etiquetas": [
+   "desarrollo"
+  ],
+  "prioridad": "baja",
+  "check": "ojos",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "validar",
+    "fecha": "2026-11-02T23:05:29Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

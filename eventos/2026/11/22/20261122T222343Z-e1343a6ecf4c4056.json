@@ -1,0 +1,49 @@
+{
+ "id": "e1343a6ecf4c4056",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.017963Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-365"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-365",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-09-25T19:22:39Z",
+  "actualizada": "2026-09-25T21:19:52Z",
+  "huella_texto": "074bed769d4fc331",
+  "notas": 7,
+  "app": "Clever Cat",
+  "etiquetas": [
+   "Clever Cat",
+   "deuda"
+  ],
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "curso",
+    "fecha": "2026-09-25T19:25:49Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-25T19:27:40Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-25T21:19:52Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

@@ -1,0 +1,40 @@
+{
+ "id": "49812657c08d73ed",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.925177Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-897"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-897",
+ "datos": {
+  "estado": "hecha",
+  "revision": 8,
+  "creada": "2026-10-22T06:12:46Z",
+  "actualizada": "2026-10-29T21:40:55Z",
+  "huella_texto": "3e898fedf3ae1a59",
+  "notas": 9,
+  "app": "Helios",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-22T07:42:50Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:40:55Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

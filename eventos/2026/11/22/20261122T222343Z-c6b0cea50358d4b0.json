@@ -1,0 +1,40 @@
+{
+ "id": "c6b0cea50358d4b0",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.242241Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-542"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-542",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-03T14:49:19Z",
+  "actualizada": "2026-10-14T22:51:49Z",
+  "huella_texto": "5024b4ddd07035c7",
+  "notas": 5,
+  "app": "Suite",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-03T14:57:24Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T22:51:49Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

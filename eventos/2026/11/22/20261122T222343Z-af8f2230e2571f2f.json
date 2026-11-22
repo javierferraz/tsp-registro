@@ -1,0 +1,39 @@
+{
+ "id": "af8f2230e2571f2f",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.278573Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-568"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-568",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-04T22:48:41Z",
+  "actualizada": "2026-10-14T22:53:29Z",
+  "huella_texto": "b13ddac9bb82c22d",
+  "notas": 7,
+  "app": "Snappy Wasp",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-04T23:08:43Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T22:53:29Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

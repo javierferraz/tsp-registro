@@ -1,0 +1,47 @@
+{
+ "id": "408b36f6de9e5fa8",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.022434Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-938"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-938",
+ "datos": {
+  "estado": "hecha",
+  "revision": 7,
+  "creada": "2026-10-22T18:52:49Z",
+  "actualizada": "2026-10-29T21:40:57Z",
+  "huella_texto": "9d41c47d5179a7c4",
+  "notas": 8,
+  "app": "Helios",
+  "prioridad": "media",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-22T23:07:32Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-22T23:07:37Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:40:57Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

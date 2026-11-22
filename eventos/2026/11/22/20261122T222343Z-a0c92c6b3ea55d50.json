@@ -1,0 +1,40 @@
+{
+ "id": "a0c92c6b3ea55d50",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.423762Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-678"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-678",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-10-15T08:23:57Z",
+  "actualizada": "2026-10-15T10:42:29Z",
+  "huella_texto": "07b7eb4d0ebd16d9",
+  "notas": 5,
+  "app": "Agile Ant",
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-15T10:31:31Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-15T10:42:29Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

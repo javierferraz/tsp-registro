@@ -1,0 +1,57 @@
+{
+ "id": "c02b4c3335df25f0",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.091478Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-426"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-426",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-09-28T09:05:20Z",
+  "actualizada": "2026-10-03T06:31:02Z",
+  "huella_texto": "91c5ccd2399c1bc2",
+  "notas": 9,
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "propuesta",
+    "fecha": "2026-10-01T19:38:18Z",
+    "por": "claude"
+   },
+   {
+    "de": "propuesta",
+    "a": "adelante",
+    "fecha": "2026-10-02T10:13:41Z",
+    "por": "javier"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-10-02T10:16:35Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-02T10:31:54Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-03T06:31:02Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

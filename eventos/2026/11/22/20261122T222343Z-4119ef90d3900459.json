@@ -1,0 +1,40 @@
+{
+ "id": "4119ef90d3900459",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.922431Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-896"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-896",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-10-22T06:09:43Z",
+  "actualizada": "2026-10-29T21:40:45Z",
+  "huella_texto": "074c7152281d712c",
+  "notas": 7,
+  "app": "Apolo",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-22T06:27:55Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:40:45Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

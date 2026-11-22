@@ -1,0 +1,34 @@
+{
+ "id": "7242128d58e021ab",
+ "tipo": "ejecucion.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:45.136904Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "ejecucion",
+  "id": "T-2026-11-20-07"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "ejecucion.importada:T-2026-11-20-07",
+ "datos": {
+  "estado": "done",
+  "creada": "2026-11-20T16:41:06Z",
+  "actualizada": "2026-11-20T16:44:34Z",
+  "repo": "1_Proyectos",
+  "tamano": "S",
+  "modelo": "sonnet",
+  "esfuerzo": "high",
+  "intentos": 1,
+  "minutos": 3,
+  "verificacion": "unverifiable",
+  "criterios": {
+   "pass": 4
+  },
+  "commits": 0,
+  "subida": false,
+  "con_informe": true
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "id": "46640fce6e6b4749",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.703923Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-140"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-140",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-09-08T22:32:17Z",
+  "actualizada": "2026-09-09T11:37:39Z",
+  "huella_texto": "e6148b8cc08b91e4",
+  "notas": 4,
+  "etiquetas": [
+   "skills",
+   "tablero"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-08T22:32:25Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-09T11:37:39Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

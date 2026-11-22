@@ -1,0 +1,39 @@
+{
+ "id": "b2540101c6e459f5",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.462458Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1132"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1132",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-11-05T06:01:30Z",
+  "actualizada": "2026-11-09T21:02:31Z",
+  "huella_texto": "1c4b4c9f2792e619",
+  "notas": 6,
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-05T06:06:58Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-09T21:02:31Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

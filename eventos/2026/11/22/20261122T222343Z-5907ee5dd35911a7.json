@@ -1,0 +1,58 @@
+{
+ "id": "5907ee5dd35911a7",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.643960Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-774"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-774",
+ "datos": {
+  "estado": "validar",
+  "revision": 12,
+  "creada": "2026-10-17T15:52:28Z",
+  "actualizada": "2026-11-22T21:03:35Z",
+  "huella_texto": "451b0782fb2ba0f3",
+  "notas": 18,
+  "app": "Roaring Lion",
+  "check": "ojos",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-17T15:52:53Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "curso",
+    "fecha": "2026-10-17T15:59:55Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-17T16:00:24Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "curso",
+    "fecha": "2026-10-17T16:08:54Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-17T16:11:23Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

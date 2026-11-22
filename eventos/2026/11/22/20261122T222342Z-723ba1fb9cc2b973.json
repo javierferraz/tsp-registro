@@ -1,0 +1,42 @@
+{
+ "id": "723ba1fb9cc2b973",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.930422Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-293"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-293",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-09-18T06:21:04Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "c94e78787e5b50f4",
+  "notas": 6,
+  "etiquetas": [
+   "desarrollo",
+   "distribucion"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "info",
+    "fecha": "2026-09-18T06:29:39Z",
+    "por": "claude"
+   },
+   {
+    "de": "info",
+    "a": "hecha",
+    "fecha": "2026-10-01T18:49:23Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

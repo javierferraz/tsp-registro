@@ -1,0 +1,32 @@
+{
+ "id": "6032cd907873316b",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.888871Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-270"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-270",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-09-16T20:58:51Z",
+  "actualizada": "2026-09-20T14:36:14Z",
+  "huella_texto": "078f99dec5938f29",
+  "notas": 4,
+  "movimientos": [
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-20T14:36:14Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

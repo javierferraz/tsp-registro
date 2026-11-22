@@ -1,0 +1,29 @@
+{
+ "id": "96265a18cdf46a8f",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.396209Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-659"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-659",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 7,
+  "creada": "2026-10-14T21:16:00Z",
+  "actualizada": "2026-11-22T10:54:35Z",
+  "huella_texto": "a534363cf1d37591",
+  "notas": 10,
+  "app": "Tidy Koala",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "baja"
+ }
+}

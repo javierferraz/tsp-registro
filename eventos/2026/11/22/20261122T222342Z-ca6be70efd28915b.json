@@ -1,0 +1,27 @@
+{
+ "id": "ca6be70efd28915b",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.559264Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-003"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-003",
+ "datos": {
+  "estado": "hecha",
+  "revision": 1,
+  "creada": "2026-09-06T06:33:54Z",
+  "actualizada": "2026-09-06T14:53:00Z",
+  "huella_texto": "1cb4eccac69cc382",
+  "notas": 3,
+  "etiquetas": [
+   "distribucion"
+  ]
+ }
+}

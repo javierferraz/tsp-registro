@@ -1,0 +1,41 @@
+{
+ "id": "14b95c5f25544256",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.793705Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-839"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-839",
+ "datos": {
+  "estado": "hecha",
+  "revision": 7,
+  "creada": "2026-10-19T16:57:12Z",
+  "actualizada": "2026-11-16T23:26:48Z",
+  "huella_texto": "6edcc04ce010ec4a",
+  "notas": 8,
+  "etiquetas": [
+   "site"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-19T17:01:14Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-16T23:26:48Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

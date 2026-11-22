@@ -1,0 +1,26 @@
+{
+ "id": "5707915c530f42e0",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.984085Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-919"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-919",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-10-22T19:27:42Z",
+  "actualizada": "2026-10-22T19:27:42Z",
+  "huella_texto": "d25164603877d792",
+  "notas": 1,
+  "app": "Orderly Owl",
+  "prioridad": "baja"
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "id": "913184d9c7faf9c5",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.080604Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-417"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-417",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-09-27T07:28:41Z",
+  "actualizada": "2026-09-27T08:05:28Z",
+  "huella_texto": "d484014a8f3a23d1",
+  "notas": 6,
+  "app": "Sneaky Spider",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-27T07:33:53Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-27T08:05:28Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

@@ -1,0 +1,54 @@
+{
+ "id": "28792f08755d360c",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.128625Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-990"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-990",
+ "datos": {
+  "estado": "hecha",
+  "revision": 10,
+  "creada": "2026-10-25T07:38:54Z",
+  "actualizada": "2026-11-16T22:59:59Z",
+  "huella_texto": "07e800c170a713aa",
+  "notas": 13,
+  "app": "Mighty Bison",
+  "etiquetas": [
+   "linux"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-25T08:35:49Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "curso",
+    "fecha": "2026-10-26T13:15:56Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-26T16:13:56Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-16T22:59:59Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

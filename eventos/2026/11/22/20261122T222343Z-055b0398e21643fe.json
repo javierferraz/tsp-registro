@@ -1,0 +1,47 @@
+{
+ "id": "055b0398e21643fe",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.213197Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-520"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-520",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-02T11:09:05Z",
+  "actualizada": "2026-10-03T06:30:26Z",
+  "huella_texto": "aa912f049ebd8879",
+  "notas": 5,
+  "app": "Diligent Beaver",
+  "prioridad": "media",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-02T12:15:38Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-02T12:24:40Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-03T06:30:26Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

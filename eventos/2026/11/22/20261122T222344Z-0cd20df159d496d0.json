@@ -1,0 +1,40 @@
+{
+ "id": "0cd20df159d496d0",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.237664Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1034"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1034",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-28T14:59:30Z",
+  "actualizada": "2026-11-05T06:23:30Z",
+  "huella_texto": "42661cca8b4c3c16",
+  "notas": 4,
+  "app": "Roaring Lion",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-28T15:52:37Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-05T06:23:30Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

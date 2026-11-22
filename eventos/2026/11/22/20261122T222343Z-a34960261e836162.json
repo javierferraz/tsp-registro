@@ -1,0 +1,39 @@
+{
+ "id": "a34960261e836162",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.968756Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-913"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-913",
+ "datos": {
+  "estado": "descartada",
+  "revision": 2,
+  "creada": "2026-10-22T17:51:21Z",
+  "actualizada": "2026-11-10T14:36:39Z",
+  "huella_texto": "335004e3e460e95c",
+  "notas": 3,
+  "app": "Tablero",
+  "etiquetas": [
+   "fallo",
+   "linux",
+   "tablero"
+  ],
+  "prioridad": "baja",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "descartada",
+    "fecha": "2026-11-10T14:36:39Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

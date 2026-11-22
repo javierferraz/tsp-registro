@@ -1,0 +1,50 @@
+{
+ "id": "ef9d157fa201d557",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.851676Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-249"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-249",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-09-16T07:26:32Z",
+  "actualizada": "2026-09-16T15:13:01Z",
+  "huella_texto": "3733739fd5be02f4",
+  "notas": 10,
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-16T07:32:08Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "curso",
+    "fecha": "2026-09-16T13:44:51Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-16T13:47:06Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-16T15:13:01Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

@@ -1,0 +1,44 @@
+{
+ "id": "682dd34fbeaa5dcd",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.748394Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1206"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1206",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 3,
+  "creada": "2026-11-16T07:45:16Z",
+  "actualizada": "2026-11-16T08:10:04Z",
+  "huella_texto": "f61e49cffe8dcc97",
+  "notas": 4,
+  "app": "Fearless Tiger",
+  "prioridad": "alta",
+  "commits": [
+   "465410ade56a",
+   "83ea81c20cf1"
+  ],
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-11-16T07:59:15Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "propuesta",
+    "fecha": "2026-11-16T08:10:04Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

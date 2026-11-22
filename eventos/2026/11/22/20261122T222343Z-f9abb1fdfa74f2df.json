@@ -1,0 +1,25 @@
+{
+ "id": "f9abb1fdfa74f2df",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.240855Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-541"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-541",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 2,
+  "creada": "2026-10-03T12:38:51Z",
+  "actualizada": "2026-10-03T12:38:51Z",
+  "huella_texto": "672dfd851e20e484",
+  "notas": 1,
+  "prioridad": "alta"
+ }
+}

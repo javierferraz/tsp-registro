@@ -1,0 +1,47 @@
+{
+ "id": "c6929c3b9e5cf464",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.268863Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-560"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-560",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-04T12:47:43Z",
+  "actualizada": "2026-10-08T23:21:28Z",
+  "huella_texto": "b54e609e6abd8c8f",
+  "notas": 5,
+  "app": "Clever Cat",
+  "prioridad": "baja",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-04T15:25:38Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-04T15:46:42Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-08T23:21:28Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

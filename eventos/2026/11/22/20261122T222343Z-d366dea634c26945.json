@@ -1,0 +1,30 @@
+{
+ "id": "d366dea634c26945",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.454001Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-690"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-690",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 6,
+  "creada": "2026-10-15T17:12:50Z",
+  "actualizada": "2026-11-22T10:54:39Z",
+  "huella_texto": "9ef589879a15f414",
+  "notas": 10,
+  "app": "Orderly Owl",
+  "etiquetas": [
+   "Orderly Owl",
+   "release"
+  ],
+  "prioridad": "media"
+ }
+}

@@ -1,0 +1,40 @@
+{
+ "id": "f67ece163d6bf0b6",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.251164Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1042"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1042",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-28T21:32:19Z",
+  "actualizada": "2026-11-05T06:24:08Z",
+  "huella_texto": "e002b3752608a28a",
+  "notas": 5,
+  "app": "Smart Greenjay",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-28T21:53:31Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-05T06:24:08Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

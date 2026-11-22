@@ -1,0 +1,40 @@
+{
+ "id": "d05ef5f1d362f86a",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.762272Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-175"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-175",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-09-10T12:35:20Z",
+  "actualizada": "2026-09-11T11:29:56Z",
+  "huella_texto": "e63fc881363ebf0d",
+  "notas": 5,
+  "app": "Writer Tiger",
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-10T12:35:30Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-11T11:29:56Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

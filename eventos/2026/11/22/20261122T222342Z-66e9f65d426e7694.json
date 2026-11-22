@@ -1,0 +1,35 @@
+{
+ "id": "66e9f65d426e7694",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.660412Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-101"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-101",
+ "datos": {
+  "estado": "hecha",
+  "revision": 1,
+  "creada": "2026-09-07T11:36:28Z",
+  "actualizada": "2026-09-07T12:02:50.932Z",
+  "huella_texto": "1a2f2ce95abb7aac",
+  "notas": 4,
+  "etiquetas": [
+   "tablero"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-07T11:38:28Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

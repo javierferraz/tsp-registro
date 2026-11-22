@@ -1,0 +1,39 @@
+{
+ "id": "427d585d80922ddb",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.264905Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1049"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1049",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-10-29T18:30:20Z",
+  "actualizada": "2026-10-29T19:35:31Z",
+  "huella_texto": "8628ff7a31746810",
+  "notas": 5,
+  "app": "Brave Tiger",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-29T19:32:28Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T19:35:31Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

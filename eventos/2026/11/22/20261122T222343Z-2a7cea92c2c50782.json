@@ -1,0 +1,37 @@
+{
+ "id": "2a7cea92c2c50782",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.062884Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-401"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-401",
+ "datos": {
+  "estado": "hecha",
+  "revision": 2,
+  "creada": "2026-09-26T17:52:31Z",
+  "actualizada": "2026-09-26T18:29:05Z",
+  "huella_texto": "460dadd274ff069b",
+  "notas": 2,
+  "app": "Clever Cat",
+  "etiquetas": [
+   "Clever Cat",
+   "diseño"
+  ],
+  "movimientos": [
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-26T18:29:05Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

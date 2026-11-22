@@ -1,0 +1,46 @@
+{
+ "id": "71e14b0a4b0ec86f",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.191787Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-505"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-505",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-02T07:22:51Z",
+  "actualizada": "2026-10-02T10:31:24Z",
+  "huella_texto": "b02a08dba66c0f33",
+  "notas": 7,
+  "app": "Sneaky Spider",
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-02T09:34:42Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-02T10:05:07Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-02T10:31:24Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

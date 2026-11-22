@@ -1,0 +1,38 @@
+{
+ "id": "c0b06de979fadfa8",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.347867Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-622"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-622",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-13T23:17:40Z",
+  "actualizada": "2026-10-14T09:46:33Z",
+  "huella_texto": "8a313bf6efa05ef9",
+  "notas": 6,
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-14T07:25:46Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T09:46:33Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

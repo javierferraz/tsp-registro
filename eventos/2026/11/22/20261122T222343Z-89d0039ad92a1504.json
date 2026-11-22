@@ -1,0 +1,51 @@
+{
+ "id": "89d0039ad92a1504",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.235225Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-537"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-537",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-03T07:47:20Z",
+  "actualizada": "2026-10-04T09:54:20Z",
+  "huella_texto": "867ac2b471f78b5a",
+  "notas": 8,
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "info",
+    "fecha": "2026-10-03T07:47:47Z",
+    "por": "claude"
+   },
+   {
+    "de": "info",
+    "a": "curso",
+    "fecha": "2026-10-03T11:46:59Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-03T11:51:01Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-04T09:54:20Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

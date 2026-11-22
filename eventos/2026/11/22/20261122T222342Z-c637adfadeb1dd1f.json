@@ -1,0 +1,38 @@
+{
+ "id": "c637adfadeb1dd1f",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.861853Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-255"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-255",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-09-16T15:16:24Z",
+  "actualizada": "2026-09-16T16:14:20Z",
+  "huella_texto": "368751031899c93d",
+  "notas": 5,
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-16T15:18:37Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-16T16:14:20Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

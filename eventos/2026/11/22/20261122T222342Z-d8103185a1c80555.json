@@ -1,0 +1,45 @@
+{
+ "id": "d8103185a1c80555",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.842119Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-240"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-240",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-09-15T12:31:18Z",
+  "actualizada": "2026-10-01T20:36:04Z",
+  "huella_texto": "9901e17ec0e15f4c",
+  "notas": 7,
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "curso",
+    "fecha": "2026-09-27T07:31:49Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-27T08:27:53Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-01T20:36:04Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

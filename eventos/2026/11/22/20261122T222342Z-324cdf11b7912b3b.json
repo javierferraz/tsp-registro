@@ -1,0 +1,55 @@
+{
+ "id": "324cdf11b7912b3b",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.608380Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-051"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-051",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-09-06T16:51:46Z",
+  "actualizada": "2026-09-11T11:51:02Z",
+  "huella_texto": "8f6c1166df307d4c",
+  "notas": 11,
+  "etiquetas": [
+   "seguridad",
+   "skills"
+  ],
+  "prioridad": "baja",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "adelante",
+    "fecha": "2026-09-10T15:49:10Z",
+    "por": "javier"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-09-10T21:22:04Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-10T21:26:45Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-11T11:51:02Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

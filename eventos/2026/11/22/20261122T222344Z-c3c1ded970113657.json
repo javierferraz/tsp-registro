@@ -1,0 +1,47 @@
+{
+ "id": "c3c1ded970113657",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.214320Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1022"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1022",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-27T07:31:24Z",
+  "actualizada": "2026-11-16T23:00:02Z",
+  "huella_texto": "3556d07260ed7e08",
+  "notas": 6,
+  "app": "Smart Greenjay",
+  "prioridad": "baja",
+  "commits": [
+   "288caff6314e",
+   "6f73b0cbdf37",
+   "7f31fbbffb49",
+   "adc5fc86fc67",
+   "078312387a9f"
+  ],
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "validar",
+    "fecha": "2026-11-10T14:37:21Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-16T23:00:02Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

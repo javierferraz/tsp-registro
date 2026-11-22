@@ -1,0 +1,45 @@
+{
+ "id": "79f0f002418d5d0f",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.887538Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-269"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-269",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-09-16T17:25:54Z",
+  "actualizada": "2026-09-20T15:13:21Z",
+  "huella_texto": "94a3080a14c0abc3",
+  "notas": 14,
+  "app": "Clever Cat",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "curso",
+    "fecha": "2026-09-16T19:43:11Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-16T19:45:21Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-20T15:13:21Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

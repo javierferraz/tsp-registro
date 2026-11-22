@@ -1,0 +1,40 @@
+{
+ "id": "e1daccbd26e24a0b",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.093377Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-971"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-971",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-24T17:26:07Z",
+  "actualizada": "2026-11-02T14:08:50Z",
+  "huella_texto": "4cfa6f4f14ab6eff",
+  "notas": 6,
+  "app": "Snappy Wasp",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-24T17:57:00Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-02T14:08:50Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

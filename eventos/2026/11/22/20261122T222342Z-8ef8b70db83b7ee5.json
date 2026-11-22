@@ -1,0 +1,39 @@
+{
+ "id": "8ef8b70db83b7ee5",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.602522Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-046"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-046",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 2,
+  "creada": "2026-09-06T16:51:46Z",
+  "actualizada": "2026-10-01T19:38:18Z",
+  "huella_texto": "2301e18224df9adc",
+  "notas": 2,
+  "app": "Rousing Rooster",
+  "etiquetas": [
+   "Rousing Rooster",
+   "app",
+   "seguridad"
+  ],
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "propuesta",
+    "fecha": "2026-10-01T19:38:18Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "id": "4ff46003b9ec7fa0",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.185470Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-500"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-500",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-10-02T05:58:23Z",
+  "actualizada": "2026-10-02T06:55:08Z",
+  "huella_texto": "bdf31bed257f47a0",
+  "notas": 5,
+  "etiquetas": [
+   "tablero"
+  ],
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-02T06:29:07Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-02T06:55:08Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

@@ -1,0 +1,53 @@
+{
+ "id": "4c677ff7a1996ab5",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.687244Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-793"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-793",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-10-17T23:28:55Z",
+  "actualizada": "2026-11-02T14:08:51Z",
+  "huella_texto": "45dfea7134958a30",
+  "notas": 9,
+  "app": "Tablero",
+  "prioridad": "media",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "adelante",
+    "fecha": "2026-10-17T23:30:21Z",
+    "por": "claude"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-10-17T23:30:45Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-17T23:31:42Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-02T14:08:51Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

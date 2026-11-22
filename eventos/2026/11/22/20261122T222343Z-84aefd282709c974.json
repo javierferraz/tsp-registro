@@ -1,0 +1,44 @@
+{
+ "id": "84aefd282709c974",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.986108Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-920"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-920",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-22T19:36:19Z",
+  "actualizada": "2026-11-02T14:08:51Z",
+  "huella_texto": "0af6486dd0a4156e",
+  "notas": 6,
+  "app": "Suite",
+  "etiquetas": [
+   "distribucion",
+   "linux"
+  ],
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-22T22:13:32Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-02T14:08:51Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

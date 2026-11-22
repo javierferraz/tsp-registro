@@ -1,0 +1,39 @@
+{
+ "id": "3c6079fd97d64cdb",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.281964Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-571"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-571",
+ "datos": {
+  "estado": "hecha",
+  "revision": 7,
+  "creada": "2026-10-05T17:23:19Z",
+  "actualizada": "2026-11-09T21:02:33Z",
+  "huella_texto": "269e971152e3ce94",
+  "notas": 7,
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-05T17:44:58Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-09T21:02:33Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

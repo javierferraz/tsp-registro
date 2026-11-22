@@ -1,0 +1,50 @@
+{
+ "id": "44b4ef249c236e3f",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.510625Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1150"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1150",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-11-08T08:14:11Z",
+  "actualizada": "2026-11-09T21:02:05Z",
+  "huella_texto": "21bcc709f038f816",
+  "notas": 8,
+  "app": "Bright Cardinal",
+  "etiquetas": [
+   "app"
+  ],
+  "prioridad": "media",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-11-08T08:33:21Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-08T09:48:56Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-09T21:02:05Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

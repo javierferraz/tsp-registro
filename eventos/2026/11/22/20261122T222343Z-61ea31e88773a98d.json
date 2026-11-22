@@ -1,0 +1,46 @@
+{
+ "id": "61ea31e88773a98d",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.359142Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-630"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-630",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-14T07:00:24Z",
+  "actualizada": "2026-10-14T21:22:48Z",
+  "huella_texto": "3b6866a383264ff0",
+  "notas": 7,
+  "app": "Orderly Owl",
+  "prioridad": "baja",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-14T08:42:13Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-14T09:30:52Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T21:22:48Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

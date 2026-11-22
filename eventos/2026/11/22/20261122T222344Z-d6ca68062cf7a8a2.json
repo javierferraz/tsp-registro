@@ -1,0 +1,29 @@
+{
+ "id": "d6ca68062cf7a8a2",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.654484Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1188"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1188",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 20,
+  "creada": "2026-11-13T00:31:14Z",
+  "actualizada": "2026-11-22T10:54:41Z",
+  "huella_texto": "9d3ad9f702121849",
+  "notas": 39,
+  "app": "Funky Monkey",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "media"
+ }
+}

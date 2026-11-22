@@ -1,0 +1,26 @@
+{
+ "id": "73f4677999cd268a",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.092688Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-427"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-427",
+ "datos": {
+  "estado": "pedida",
+  "revision": 2,
+  "creada": "2026-09-28T10:25:25Z",
+  "actualizada": "2026-10-02T10:14:43Z",
+  "huella_texto": "31d974c544b2f98d",
+  "notas": 1,
+  "app": "Neat Bluejay",
+  "prioridad": "media"
+ }
+}

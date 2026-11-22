@@ -1,0 +1,42 @@
+{
+ "id": "f7acd0f6a087b9bb",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.702810Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-139"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-139",
+ "datos": {
+  "estado": "descartada",
+  "revision": 5,
+  "creada": "2026-09-08T20:26:47Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "69b0ff7dcab575cb",
+  "notas": 6,
+  "app": "Shifty Chameleon",
+  "etiquetas": [
+   "scouting"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "info",
+    "fecha": "2026-09-08T20:30:40Z",
+    "por": "claude"
+   },
+   {
+    "de": "info",
+    "a": "descartada",
+    "fecha": "2026-09-08T22:02:12Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

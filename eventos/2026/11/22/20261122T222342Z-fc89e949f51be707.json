@@ -1,0 +1,61 @@
+{
+ "id": "fc89e949f51be707",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.935812Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-297"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-297",
+ "datos": {
+  "estado": "hecha",
+  "revision": 8,
+  "creada": "2026-09-18T10:53:38Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "3ea2405cf83ed8a2",
+  "notas": 11,
+  "etiquetas": [
+   "desarrollo",
+   "distribucion"
+  ],
+  "check": "ojos",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "info",
+    "fecha": "2026-09-18T10:57:29Z",
+    "por": "claude"
+   },
+   {
+    "de": "info",
+    "a": "validar",
+    "fecha": "2026-09-18T14:03:26Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-20T17:18:41Z",
+    "por": "javier"
+   },
+   {
+    "de": "hecha",
+    "a": "validar",
+    "fecha": "2026-09-20T17:19:16Z",
+    "por": "javier"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-01T20:45:46Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

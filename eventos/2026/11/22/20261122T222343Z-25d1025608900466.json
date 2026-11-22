@@ -1,0 +1,40 @@
+{
+ "id": "25d1025608900466",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.501942Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-710"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-710",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-15T23:36:14Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "c3d11ec384f6ec22",
+  "notas": 5,
+  "app": "Suite",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-15T23:39:06Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-16T09:46:28Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

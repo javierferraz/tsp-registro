@@ -1,0 +1,29 @@
+{
+ "id": "240bc8872f86b8c6",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.953882Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1249"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1249",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-11-22T10:53:52Z",
+  "actualizada": "2026-11-22T10:53:52Z",
+  "huella_texto": "c463e4de5b2dcfe6",
+  "notas": 1,
+  "app": "Quiet Panda",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "media"
+ }
+}

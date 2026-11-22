@@ -1,0 +1,37 @@
+{
+ "id": "7b1e878d1681031b",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.633150Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-074"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-074",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 2,
+  "creada": "2026-09-06T16:51:46Z",
+  "actualizada": "2026-10-01T19:38:18Z",
+  "huella_texto": "211dc9cd6d891cc5",
+  "notas": 2,
+  "etiquetas": [
+   "distribucion",
+   "owner"
+  ],
+  "prioridad": "baja",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "propuesta",
+    "fecha": "2026-10-01T19:38:18Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

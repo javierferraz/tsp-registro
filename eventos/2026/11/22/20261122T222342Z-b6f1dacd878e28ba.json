@@ -1,0 +1,37 @@
+{
+ "id": "b6f1dacd878e28ba",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.836183Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-235"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-235",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-09-14T19:42:34Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "57eba3c05d259832",
+  "notas": 4,
+  "etiquetas": [
+   "owner",
+   "site"
+  ],
+  "prioridad": "alta",
+  "movimientos": [
+   {
+    "de": "adelante",
+    "a": "hecha",
+    "fecha": "2026-09-16T06:46:57Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "id": "fe20ac81917029d5",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.160435Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-480"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-480",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-01T18:50:29Z",
+  "actualizada": "2026-10-01T20:36:12Z",
+  "huella_texto": "3c6d25ebb2a1439b",
+  "notas": 5,
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-01T18:51:07Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-01T20:36:12Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

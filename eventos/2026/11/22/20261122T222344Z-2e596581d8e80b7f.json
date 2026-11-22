@@ -1,0 +1,65 @@
+{
+ "id": "2e596581d8e80b7f",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.607784Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1181"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1181",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-11-12T12:05:50Z",
+  "actualizada": "2026-11-16T07:41:50Z",
+  "huella_texto": "b0da51e01df1d717",
+  "notas": 8,
+  "prioridad": "alta",
+  "commits": [
+   "a6b04c66cdd3",
+   "af5a0b342101",
+   "fe9d9dd258d1",
+   "feaacf982bf9",
+   "9678443e2718",
+   "cc40a2880ab6",
+   "b221e7104637",
+   "fb74c5fe5ed9",
+   "0846b8c3dc80",
+   "e0014ed175ff",
+   "72f05d579e7f",
+   "6f3e76fc46a0",
+   "43568800f3c3",
+   "c701b7689fc0",
+   "bb7c6286738c",
+   "2eba2ff1b83e",
+   "1e24cb96da4c",
+   "92a4be316d14"
+  ],
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-11-12T14:37:23Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-13T06:43:39Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-16T07:41:50Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

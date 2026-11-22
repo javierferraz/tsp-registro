@@ -1,0 +1,39 @@
+{
+ "id": "3f164aba39f92e8d",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.922868Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-287"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-287",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-09-17T16:08:29Z",
+  "actualizada": "2026-09-19T21:07:14Z",
+  "huella_texto": "52835b120b350d9b",
+  "notas": 5,
+  "app": "Tiny Chicken",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-17T16:43:53Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-19T21:07:14Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

@@ -1,0 +1,45 @@
+{
+ "id": "af437836127e5789",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.736020Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1205"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1205",
+ "datos": {
+  "estado": "validar",
+  "revision": 7,
+  "creada": "2026-11-16T07:19:00Z",
+  "actualizada": "2026-11-22T21:03:35Z",
+  "huella_texto": "53c090ab420a6b08",
+  "notas": 10,
+  "app": "Mighty Bison",
+  "prioridad": "alta",
+  "check": "ojos",
+  "commits": [
+   "024ad7c239a8",
+   "59617c7e485b"
+  ],
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-11-16T07:31:41Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-16T07:31:42Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

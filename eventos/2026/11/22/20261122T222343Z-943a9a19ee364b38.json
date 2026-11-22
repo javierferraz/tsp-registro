@@ -1,0 +1,47 @@
+{
+ "id": "943a9a19ee364b38",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.285303Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-574"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-574",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-08T16:11:02Z",
+  "actualizada": "2026-10-14T22:51:42Z",
+  "huella_texto": "a653b25cdf1deb3b",
+  "notas": 7,
+  "app": "Handy Raccoon",
+  "prioridad": "alta",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-08T16:23:55Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-08T17:04:50Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T22:51:42Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

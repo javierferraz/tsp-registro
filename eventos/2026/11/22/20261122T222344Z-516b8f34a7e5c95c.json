@@ -1,0 +1,29 @@
+{
+ "id": "516b8f34a7e5c95c",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.386210Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1100"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1100",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 2,
+  "creada": "2026-11-03T13:03:00Z",
+  "actualizada": "2026-11-10T14:37:42Z",
+  "huella_texto": "98753ffa0cd8c8b4",
+  "notas": 2,
+  "app": "Smart Greenjay",
+  "etiquetas": [
+   "desarrollo"
+  ],
+  "prioridad": "baja"
+ }
+}

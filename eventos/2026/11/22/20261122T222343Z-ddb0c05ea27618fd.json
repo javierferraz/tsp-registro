@@ -1,0 +1,50 @@
+{
+ "id": "ddb0c05ea27618fd",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.504362Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-711"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-711",
+ "datos": {
+  "estado": "hecha",
+  "revision": 8,
+  "creada": "2026-10-15T23:38:32Z",
+  "actualizada": "2026-10-29T21:40:49Z",
+  "huella_texto": "3463a03e5a0bb562",
+  "notas": 10,
+  "app": "Clever Cat",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "baja",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-21T22:35:36Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-21T23:04:40Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:40:49Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "id": "060949f272c3193a",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.371245Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-639"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-639",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-10-14T15:34:37Z",
+  "actualizada": "2026-10-14T21:22:50Z",
+  "huella_texto": "e6191f8600f155d7",
+  "notas": 5,
+  "app": "Orderly Owl",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-14T15:36:13Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T21:22:50Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

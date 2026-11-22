@@ -1,0 +1,45 @@
+{
+ "id": "d762a0cfeab6faf2",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.101771Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-435"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-435",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-09-28T15:09:50Z",
+  "actualizada": "2026-10-01T20:36:09Z",
+  "huella_texto": "b89da737f05f9279",
+  "notas": 7,
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "curso",
+    "fecha": "2026-09-28T15:46:34Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-28T16:51:00Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-01T20:36:09Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

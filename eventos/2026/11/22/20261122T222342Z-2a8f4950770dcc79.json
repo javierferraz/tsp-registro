@@ -1,0 +1,49 @@
+{
+ "id": "2a8f4950770dcc79",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.669389Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-110"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-110",
+ "datos": {
+  "estado": "hecha",
+  "revision": 1,
+  "creada": "2026-09-07T16:42:46Z",
+  "actualizada": "2026-09-07T21:11:20.554Z",
+  "huella_texto": "2ab1ef1d4d679c2c",
+  "notas": 7,
+  "app": "Handy Raccoon",
+  "etiquetas": [
+   "release",
+   "seguridad"
+  ],
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "adelante",
+    "fecha": "2026-09-07T16:56:03.810Z",
+    "por": "javier"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-09-07T17:55:26Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-07T18:27:19Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "id": "c3adf28f291c709c",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.487942Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-704"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-704",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-10-15T20:12:33Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "42dce94a7eb7d2c2",
+  "notas": 6,
+  "etiquetas": [
+   "site"
+  ],
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-15T20:23:39Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-16T09:46:28Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

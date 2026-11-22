@@ -1,0 +1,38 @@
+{
+ "id": "e4afe5dcfb4fbcce",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.871430Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-260"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-260",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-09-16T15:55:39Z",
+  "actualizada": "2026-09-16T16:14:21Z",
+  "huella_texto": "7cf408cf9f12b8cb",
+  "notas": 5,
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-16T15:55:48Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-16T16:14:21Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

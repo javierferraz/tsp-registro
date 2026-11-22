@@ -1,0 +1,47 @@
+{
+ "id": "b42ae13344db85c4",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.509335Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-713"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-713",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-15T23:39:27Z",
+  "actualizada": "2026-10-16T00:21:50Z",
+  "huella_texto": "9a3830cf1a4e31bb",
+  "notas": 6,
+  "app": "Handy Raccoon",
+  "prioridad": "media",
+  "check": "decision",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-15T23:43:51Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-16T00:19:42Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-16T00:21:50Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

@@ -1,0 +1,53 @@
+{
+ "id": "9578037cf8d552c4",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.195270Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-508"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-508",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-10-02T08:32:37Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "dbf469c62dd77f2f",
+  "notas": 6,
+  "app": "Silent Frog",
+  "prioridad": "alta",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "adelante",
+    "fecha": "2026-10-02T10:00:48Z",
+    "por": "javier"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-10-02T10:01:24Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-02T10:06:24Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-02T10:51:40Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

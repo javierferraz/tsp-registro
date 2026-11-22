@@ -1,0 +1,43 @@
+{
+ "id": "30fde0b0447faf5b",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.651030Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-092"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-092",
+ "datos": {
+  "estado": "hecha",
+  "revision": 1,
+  "creada": "2026-09-07T10:13:18.816Z",
+  "actualizada": "2026-09-07T10:45:41.677Z",
+  "huella_texto": "ad4c0aa3b723ca4c",
+  "notas": 6,
+  "etiquetas": [
+   "app",
+   "tablero"
+  ],
+  "modelo": "sonnet",
+  "movimientos": [
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-09-07T10:16:14Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-07T10:42:15Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "id": "30b7e96f82d18335",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.661522Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1190"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1190",
+ "datos": {
+  "estado": "adelante",
+  "revision": 1,
+  "creada": "2026-11-13T13:15:55Z",
+  "actualizada": "2026-11-13T13:15:55Z",
+  "huella_texto": "13ac552673621929",
+  "notas": 2,
+  "app": "Site",
+  "etiquetas": [
+   "site"
+  ],
+  "prioridad": "media"
+ }
+}

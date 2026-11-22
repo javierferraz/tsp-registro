@@ -1,0 +1,29 @@
+{
+ "id": "5c0e28fce0e8b361",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.393882Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-657"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-657",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 9,
+  "creada": "2026-10-14T21:15:58Z",
+  "actualizada": "2026-11-22T10:54:50Z",
+  "huella_texto": "d8f705a46f87dd67",
+  "notas": 13,
+  "app": "Silent Frog",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "baja"
+ }
+}

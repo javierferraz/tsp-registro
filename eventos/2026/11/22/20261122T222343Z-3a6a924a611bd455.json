@@ -1,0 +1,47 @@
+{
+ "id": "3a6a924a611bd455",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.429282Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-680"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-680",
+ "datos": {
+  "estado": "hecha",
+  "revision": 8,
+  "creada": "2026-10-15T10:31:31Z",
+  "actualizada": "2026-10-29T21:40:44Z",
+  "huella_texto": "4ec20d48fbe3eb8e",
+  "notas": 10,
+  "app": "Agile Ant",
+  "prioridad": "media",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-15T10:50:21Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-15T12:31:45Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:40:44Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

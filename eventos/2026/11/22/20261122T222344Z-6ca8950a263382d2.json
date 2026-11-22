@@ -1,0 +1,29 @@
+{
+ "id": "6ca8950a263382d2",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.175111Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1006"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1006",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 9,
+  "creada": "2026-10-26T16:22:09Z",
+  "actualizada": "2026-11-22T09:42:27Z",
+  "huella_texto": "b7233da0727635a2",
+  "notas": 16,
+  "app": "Mighty Bison",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "baja"
+ }
+}

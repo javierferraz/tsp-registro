@@ -1,0 +1,43 @@
+{
+ "id": "6f5744894fe0dc95",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.095653Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-972"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-972",
+ "datos": {
+  "estado": "hecha",
+  "revision": 8,
+  "creada": "2026-10-24T17:51:09Z",
+  "actualizada": "2026-11-02T14:08:48Z",
+  "huella_texto": "b4436fc0f69e9fd8",
+  "notas": 9,
+  "app": "Roaring Lion",
+  "etiquetas": [
+   "linux"
+  ],
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-25T07:28:14Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-02T14:08:48Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

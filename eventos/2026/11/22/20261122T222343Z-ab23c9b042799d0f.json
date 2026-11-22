@@ -1,0 +1,32 @@
+{
+ "id": "ab23c9b042799d0f",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.158057Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-478"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-478",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 3,
+  "creada": "2026-10-01T18:47:07Z",
+  "actualizada": "2026-10-01T19:38:18Z",
+  "huella_texto": "f1067c64d491e657",
+  "notas": 2,
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "propuesta",
+    "fecha": "2026-10-01T19:38:18Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

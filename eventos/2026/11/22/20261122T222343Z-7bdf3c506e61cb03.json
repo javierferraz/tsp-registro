@@ -1,0 +1,33 @@
+{
+ "id": "7bdf3c506e61cb03",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.390074Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-654"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-654",
+ "datos": {
+  "estado": "hecha",
+  "revision": 2,
+  "creada": "2026-10-14T21:02:11Z",
+  "actualizada": "2026-10-14T21:22:52Z",
+  "huella_texto": "61190093c6c887b5",
+  "notas": 3,
+  "app": "Orderly Owl",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "hecha",
+    "fecha": "2026-10-14T21:22:52Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

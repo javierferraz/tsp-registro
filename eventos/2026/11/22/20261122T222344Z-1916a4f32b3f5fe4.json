@@ -1,0 +1,46 @@
+{
+ "id": "1916a4f32b3f5fe4",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.172039Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1005"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1005",
+ "datos": {
+  "estado": "hecha",
+  "revision": 11,
+  "creada": "2026-10-26T16:13:47Z",
+  "actualizada": "2026-11-22T21:04:09Z",
+  "huella_texto": "28d502ec6e3b4452",
+  "notas": 12,
+  "app": "Mighty Bison",
+  "prioridad": "baja",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-26T16:16:48Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-26T16:22:10Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-22T21:04:09Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

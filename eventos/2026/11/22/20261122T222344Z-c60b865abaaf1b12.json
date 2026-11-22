@@ -1,0 +1,29 @@
+{
+ "id": "c60b865abaaf1b12",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.301927Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1063"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1063",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-10-31T11:08:45Z",
+  "actualizada": "2026-10-31T11:08:45Z",
+  "huella_texto": "191c216a3bff4fce",
+  "notas": 0,
+  "app": "Palantir",
+  "etiquetas": [
+   "desarrollo"
+  ],
+  "prioridad": "alta"
+ }
+}

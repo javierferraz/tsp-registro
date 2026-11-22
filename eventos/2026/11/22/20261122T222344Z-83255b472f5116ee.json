@@ -1,0 +1,59 @@
+{
+ "id": "83255b472f5116ee",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.765942Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1212"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1212",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-11-16T10:04:26Z",
+  "actualizada": "2026-11-16T23:29:34Z",
+  "huella_texto": "e194d18edda83e1a",
+  "notas": 10,
+  "etiquetas": [
+   "diseño"
+  ],
+  "prioridad": "alta",
+  "commits": [
+   "8aa39ec8e1be",
+   "984f01e064d6",
+   "ffd244325fbf",
+   "579f23e1766e",
+   "c3203b3f8a96",
+   "04c88af24f0b",
+   "0cda202a0ae3",
+   "cbedb719b0e7",
+   "2ff9ea5693e9"
+  ],
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-11-16T11:21:43Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-16T11:37:16Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-16T23:29:34Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

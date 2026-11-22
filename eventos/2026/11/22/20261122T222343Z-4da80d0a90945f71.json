@@ -1,0 +1,47 @@
+{
+ "id": "4da80d0a90945f71",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.320481Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-602"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-602",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-10-13T09:16:50Z",
+  "actualizada": "2026-10-14T20:02:15Z",
+  "huella_texto": "8b8b961fad7b36c9",
+  "notas": 8,
+  "app": "Clever Cat",
+  "prioridad": "baja",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-13T13:25:53Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-13T13:53:21Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T20:02:15Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

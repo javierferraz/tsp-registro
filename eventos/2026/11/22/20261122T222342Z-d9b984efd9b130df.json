@@ -1,0 +1,39 @@
+{
+ "id": "d9b984efd9b130df",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.765491Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-178"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-178",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-09-10T14:40:59Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "410c9710036c519a",
+  "notas": 5,
+  "app": "Writer Tiger",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-10T17:39:55Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-11T11:45:56Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

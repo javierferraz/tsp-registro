@@ -1,0 +1,49 @@
+{
+ "id": "faf76caad1c6b845",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.766545Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-179"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-179",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-09-10T17:27:17Z",
+  "actualizada": "2026-10-01T09:49:38Z",
+  "huella_texto": "d70c3458f9e3a0fe",
+  "notas": 6,
+  "app": "Snappy Wasp",
+  "etiquetas": [
+   "Snappy Wasp",
+   "fallo"
+  ],
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "curso",
+    "fecha": "2026-09-26T08:49:14Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-26T08:54:13Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-01T09:49:38Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "id": "c7ecf080476b2f32",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.216830Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-523"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-523",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-10-02T12:16:53Z",
+  "actualizada": "2026-10-02T13:32:23Z",
+  "huella_texto": "120c78a0477ceb49",
+  "notas": 5,
+  "app": "Suite",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-02T12:25:10Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-02T13:32:23Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

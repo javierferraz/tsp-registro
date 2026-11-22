@@ -1,0 +1,37 @@
+{
+ "id": "74644d15a7aa76ad",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.988290Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-921"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-921",
+ "datos": {
+  "estado": "descartada",
+  "revision": 2,
+  "creada": "2026-10-22T19:47:59Z",
+  "actualizada": "2026-10-22T22:13:04Z",
+  "huella_texto": "7b0c07d74f27391b",
+  "notas": 3,
+  "app": "Clever Cat",
+  "etiquetas": [
+   "distribucion",
+   "linux"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "descartada",
+    "fecha": "2026-10-22T22:13:04Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

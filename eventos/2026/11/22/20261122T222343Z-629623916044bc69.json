@@ -1,0 +1,39 @@
+{
+ "id": "629623916044bc69",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.611664Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-760"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-760",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-16T22:11:23Z",
+  "actualizada": "2026-10-17T23:30:22Z",
+  "huella_texto": "658b801f65d5307b",
+  "notas": 5,
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-16T22:26:23Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-17T23:30:22Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

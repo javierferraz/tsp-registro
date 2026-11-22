@@ -1,0 +1,52 @@
+{
+ "id": "106c1b70e9171d51",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.560379Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-004"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-004",
+ "datos": {
+  "estado": "hecha",
+  "revision": 2,
+  "creada": "2026-09-06T06:33:54Z",
+  "actualizada": "2026-09-14T06:05:34Z",
+  "huella_texto": "91ebbefdcf870e3a",
+  "notas": 8,
+  "etiquetas": [
+   "Clever Cat",
+   "Handy Raccoon",
+   "Silent Frog",
+   "linux",
+   "release"
+  ],
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "adelante",
+    "a": "info",
+    "fecha": "2026-09-06T08:29:57Z",
+    "por": "claude"
+   },
+   {
+    "de": "info",
+    "a": "pedida",
+    "fecha": "2026-09-06T11:31:11.450Z",
+    "por": "javier"
+   },
+   {
+    "de": "pedida",
+    "a": "hecha",
+    "fecha": "2026-09-14T06:05:34Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

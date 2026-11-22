@@ -1,0 +1,39 @@
+{
+ "id": "333ec5b836c76efe",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.971002Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-326"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-326",
+ "datos": {
+  "estado": "descartada",
+  "revision": 3,
+  "creada": "2026-09-20T15:38:31Z",
+  "actualizada": "2026-09-20T16:27:19Z",
+  "huella_texto": "c72eae5c8f4637a4",
+  "notas": 5,
+  "app": "Clever Cat",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-20T15:39:48Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "descartada",
+    "fecha": "2026-09-20T16:27:19Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

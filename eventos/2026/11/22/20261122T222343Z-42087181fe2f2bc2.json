@@ -1,0 +1,37 @@
+{
+ "id": "42087181fe2f2bc2",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.713657Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-804"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-804",
+ "datos": {
+  "estado": "adelante",
+  "revision": 4,
+  "creada": "2026-10-18T07:00:11Z",
+  "actualizada": "2026-11-16T23:36:16Z",
+  "huella_texto": "6705843c79a72745",
+  "notas": 5,
+  "app": "Roaring Lion",
+  "etiquetas": [
+   "app"
+  ],
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "adelante",
+    "fecha": "2026-11-10T14:37:53Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

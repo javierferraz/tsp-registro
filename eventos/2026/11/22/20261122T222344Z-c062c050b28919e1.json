@@ -1,0 +1,29 @@
+{
+ "id": "c062c050b28919e1",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.970241Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1254"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1254",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-11-22T10:54:28Z",
+  "actualizada": "2026-11-22T10:54:28Z",
+  "huella_texto": "2351009f938f191c",
+  "notas": 1,
+  "app": "Rousing Rooster",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "media"
+ }
+}

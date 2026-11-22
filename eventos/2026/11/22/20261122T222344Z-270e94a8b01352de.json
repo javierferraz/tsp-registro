@@ -1,0 +1,46 @@
+{
+ "id": "270e94a8b01352de",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.135716Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-998"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-998",
+ "datos": {
+  "estado": "hecha",
+  "revision": 10,
+  "creada": "2026-10-25T09:49:42Z",
+  "actualizada": "2026-11-16T23:26:53Z",
+  "huella_texto": "6ed80fc0c7823f8a",
+  "notas": 14,
+  "app": "Neat Bluejay",
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-28T23:27:05Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-28T23:58:11Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-16T23:26:53Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

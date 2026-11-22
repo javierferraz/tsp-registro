@@ -1,0 +1,59 @@
+{
+ "id": "173f95070ef65409",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.302673Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-588"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-588",
+ "datos": {
+  "estado": "hecha",
+  "revision": 7,
+  "creada": "2026-10-12T19:59:09Z",
+  "actualizada": "2026-10-14T22:51:45Z",
+  "huella_texto": "063d8ec3ae87b5ec",
+  "notas": 11,
+  "app": "Neat Bluejay",
+  "prioridad": "media",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-12T20:02:04Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-12T20:17:55Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "curso",
+    "fecha": "2026-10-12T21:16:50Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-12T21:17:47Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T22:51:45Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

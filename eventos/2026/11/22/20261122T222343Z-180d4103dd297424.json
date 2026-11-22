@@ -1,0 +1,35 @@
+{
+ "id": "180d4103dd297424",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.325507Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-605"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-605",
+ "datos": {
+  "estado": "hecha",
+  "revision": 7,
+  "creada": "2026-10-13T14:03:43Z",
+  "actualizada": "2026-11-16T22:59:53Z",
+  "huella_texto": "304fb13b2b36cd3b",
+  "notas": 7,
+  "etiquetas": [
+   "site"
+  ],
+  "movimientos": [
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-16T22:59:53Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

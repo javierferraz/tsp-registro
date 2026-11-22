@@ -1,0 +1,43 @@
+{
+ "id": "9b07448eb9e5084c",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.146356Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-994"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-994",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-25T14:57:06Z",
+  "actualizada": "2026-10-29T21:40:45Z",
+  "huella_texto": "1a7e6c7e8bb58c64",
+  "notas": 6,
+  "app": "Agile Ant",
+  "etiquetas": [
+   "linux"
+  ],
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-25T15:13:52Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:40:45Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

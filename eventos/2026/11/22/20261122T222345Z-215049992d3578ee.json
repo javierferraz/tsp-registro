@@ -1,0 +1,31 @@
+{
+ "id": "215049992d3578ee",
+ "tipo": "informe.importado",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:45.201719Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "informe",
+  "id": "fichas-2026-11-17"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "informe.importado:fichas-2026-11-17",
+ "datos": {
+  "vigia": "fichas",
+  "fecha": "2026-11-17",
+  "ruta": "docs/web/vigia-fichas/ultimo.md",
+  "sha256": "23b530e66ae39d6a38a403020e71b84e7f71d453e003d6f96a509c30f2163fb1",
+  "cifras": {
+   "funcionalidades_no_mencionadas": 0,
+   "textos_obsoletos": 0,
+   "promesas_de_mas": 0,
+   "app_revisadas": 0,
+   "sin_revisar_por_error": 9,
+   "sin_cambios": 9,
+   "fuera_del_chequeo": 7
+  }
+ }
+}

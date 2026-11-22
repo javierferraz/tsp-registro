@@ -1,0 +1,39 @@
+{
+ "id": "7b76a3755df4b2be",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.130287Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-458"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-458",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-09-30T15:40:50Z",
+  "actualizada": "2026-10-01T20:36:11Z",
+  "huella_texto": "d57685f054d738e0",
+  "notas": 5,
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-30T15:42:08Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-01T20:36:11Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

@@ -1,0 +1,33 @@
+{
+ "id": "c249e914d5ac6050",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.062380Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-957"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-957",
+ "datos": {
+  "estado": "info",
+  "revision": 2,
+  "creada": "2026-10-23T05:20:02Z",
+  "actualizada": "2026-10-24T09:09:56+02:00",
+  "huella_texto": "50879ad5903ebe4f",
+  "notas": 4,
+  "app": "Silent Frog",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "info",
+    "fecha": "2026-10-23T19:25:16Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

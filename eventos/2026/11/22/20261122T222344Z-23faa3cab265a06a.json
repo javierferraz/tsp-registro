@@ -1,0 +1,43 @@
+{
+ "id": "23faa3cab265a06a",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.527362Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1156"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1156",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-11-08T13:32:09Z",
+  "actualizada": "2026-11-10T14:38:15Z",
+  "huella_texto": "736624be95848c9d",
+  "notas": 5,
+  "app": "Diligent Beaver",
+  "etiquetas": [
+   "linux"
+  ],
+  "prioridad": "alta",
+  "movimientos": [
+   {
+    "de": "adelante",
+    "a": "validar",
+    "fecha": "2026-11-09T14:31:34Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-10T14:38:15Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

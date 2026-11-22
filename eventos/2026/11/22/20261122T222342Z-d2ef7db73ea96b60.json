@@ -1,0 +1,79 @@
+{
+ "id": "d2ef7db73ea96b60",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.570776Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-016"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-016",
+ "datos": {
+  "estado": "hecha",
+  "revision": 1,
+  "creada": "2026-09-06T11:43:20Z",
+  "actualizada": "2026-09-07T10:48:36.259Z",
+  "huella_texto": "f860c0e14793784b",
+  "notas": 25,
+  "etiquetas": [
+   "desarrollo",
+   "tablero"
+  ],
+  "modelo": "sonnet",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-06T11:50:31Z",
+    "por": "claude"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-09-06T13:42:53Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-06T13:46:49Z",
+    "por": "claude"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-09-06T13:48:07Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-06T13:48:51Z",
+    "por": "claude"
+   },
+   {
+    "de": "hecha",
+    "a": "adelante",
+    "fecha": "2026-09-07T10:17:54.609Z",
+    "por": "javier"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-09-07T10:21:08Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-07T10:42:15Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

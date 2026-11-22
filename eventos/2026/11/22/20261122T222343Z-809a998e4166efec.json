@@ -1,0 +1,36 @@
+{
+ "id": "809a998e4166efec",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.014847Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-362"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-362",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-09-25T10:35:40Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "7df67239d330f5c4",
+  "notas": 4,
+  "app": "Snappy Wasp",
+  "etiquetas": [
+   "Silent Frog"
+  ],
+  "movimientos": [
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-25T10:48:20Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

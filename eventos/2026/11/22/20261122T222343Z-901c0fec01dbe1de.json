@@ -1,0 +1,43 @@
+{
+ "id": "901c0fec01dbe1de",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.057393Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-397"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-397",
+ "datos": {
+  "estado": "descartada",
+  "revision": 3,
+  "creada": "2026-09-26T15:40:45Z",
+  "actualizada": "2026-10-02T10:13:36Z",
+  "huella_texto": "90697b996e9f81f4",
+  "notas": 4,
+  "app": "Neat Jellyfish",
+  "etiquetas": [
+   "Neat Jellyfish",
+   "release"
+  ],
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "propuesta",
+    "fecha": "2026-10-01T19:38:18Z",
+    "por": "claude"
+   },
+   {
+    "de": "propuesta",
+    "a": "descartada",
+    "fecha": "2026-10-02T10:13:36Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

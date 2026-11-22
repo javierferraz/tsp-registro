@@ -1,0 +1,32 @@
+{
+ "id": "8852649855c6bcf6",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.090187Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-425"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-425",
+ "datos": {
+  "estado": "hecha",
+  "revision": 2,
+  "creada": "2026-09-28T09:05:12Z",
+  "actualizada": "2026-09-28T09:32:17Z",
+  "huella_texto": "b261cc5276a73f2d",
+  "notas": 3,
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "hecha",
+    "fecha": "2026-09-28T09:32:17Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

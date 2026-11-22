@@ -1,0 +1,42 @@
+{
+ "id": "21ee3f4a64c1ee6e",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.703424Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-800"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-800",
+ "datos": {
+  "estado": "hecha",
+  "revision": 7,
+  "creada": "2026-10-18T06:08:29Z",
+  "actualizada": "2026-11-16T22:59:57Z",
+  "huella_texto": "3cb888eaa11eb78b",
+  "notas": 8,
+  "app": "Clever Cat",
+  "etiquetas": [
+   "app"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-18T06:10:28Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-16T22:59:57Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

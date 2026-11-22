@@ -1,0 +1,58 @@
+{
+ "id": "b99ea2e3f4af0d67",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.415164Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-674"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-674",
+ "datos": {
+  "estado": "hecha",
+  "revision": 7,
+  "creada": "2026-10-14T22:56:03Z",
+  "actualizada": "2026-10-15T21:32:56Z",
+  "huella_texto": "49fe2d3d72ecec61",
+  "notas": 11,
+  "prioridad": "media",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-14T23:00:56Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-14T23:04:38Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T23:18:42Z",
+    "por": "claude"
+   },
+   {
+    "de": "hecha",
+    "a": "validar",
+    "fecha": "2026-10-15T21:30:46Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-15T21:32:56Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

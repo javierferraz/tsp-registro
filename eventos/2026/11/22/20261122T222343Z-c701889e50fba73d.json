@@ -1,0 +1,39 @@
+{
+ "id": "c701889e50fba73d",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.319357Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-601"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-601",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-13T08:14:28Z",
+  "actualizada": "2026-10-13T13:53:22Z",
+  "huella_texto": "df5493292162800a",
+  "notas": 6,
+  "app": "Clever Cat",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-13T08:15:43Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-13T13:53:22Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

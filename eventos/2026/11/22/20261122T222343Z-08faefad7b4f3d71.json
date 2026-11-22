@@ -1,0 +1,50 @@
+{
+ "id": "08faefad7b4f3d71",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.717726Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-806"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-806",
+ "datos": {
+  "estado": "hecha",
+  "revision": 9,
+  "creada": "2026-10-18T07:08:43Z",
+  "actualizada": "2026-10-29T21:41:03Z",
+  "huella_texto": "210d31668d5cee4c",
+  "notas": 14,
+  "app": "Roaring Lion",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "media",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-18T09:09:42Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-18T09:24:00Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:41:03Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

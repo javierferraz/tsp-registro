@@ -1,0 +1,90 @@
+{
+ "id": "69a46525230b3122",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.686491Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-126"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-126",
+ "datos": {
+  "estado": "hecha",
+  "revision": 14,
+  "creada": "2026-09-08T13:39:21Z",
+  "actualizada": "2026-09-09T11:20:11Z",
+  "huella_texto": "25aa132bd6b3a523",
+  "notas": 21,
+  "app": "Tidy Koala",
+  "etiquetas": [
+   "Tidy Koala",
+   "app",
+   "desarrollo"
+  ],
+  "prioridad": "alta",
+  "bloqueada_por": [
+   "S-125"
+  ],
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "adelante",
+    "fecha": "2026-09-08T13:48:54Z",
+    "por": "javier"
+   },
+   {
+    "de": "adelante",
+    "a": "pedida",
+    "fecha": "2026-09-08T13:49:39Z",
+    "por": "javier"
+   },
+   {
+    "de": "pedida",
+    "a": "adelante",
+    "fecha": "2026-09-08T14:02:36Z",
+    "por": "claude"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-09-08T14:03:23Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "info",
+    "fecha": "2026-09-08T14:17:54Z",
+    "por": "claude"
+   },
+   {
+    "de": "info",
+    "a": "adelante",
+    "fecha": "2026-09-08T17:35:00Z",
+    "por": "javier"
+   },
+   {
+    "de": "adelante",
+    "a": "info",
+    "fecha": "2026-09-08T17:36:30Z",
+    "por": "javier"
+   },
+   {
+    "de": "info",
+    "a": "validar",
+    "fecha": "2026-09-08T20:09:38Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-08T22:06:35Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

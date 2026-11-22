@@ -1,0 +1,49 @@
+{
+ "id": "e9785ef44510fc3e",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.697453Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-135"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-135",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-09-08T14:56:38Z",
+  "actualizada": "2026-10-04T09:54:15Z",
+  "huella_texto": "1f8fb663b892c43c",
+  "notas": 5,
+  "etiquetas": [
+   "distribucion",
+   "release"
+  ],
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "propuesta",
+    "fecha": "2026-10-01T19:38:18Z",
+    "por": "claude"
+   },
+   {
+    "de": "propuesta",
+    "a": "validar",
+    "fecha": "2026-10-04T09:30:43Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-04T09:54:15Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

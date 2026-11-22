@@ -1,0 +1,40 @@
+{
+ "id": "f46293979cf53af5",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.912335Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-892"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-892",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-22T05:14:32Z",
+  "actualizada": "2026-10-29T21:40:55Z",
+  "huella_texto": "0d278924e937faf8",
+  "notas": 6,
+  "app": "Helios",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-22T06:01:01Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:40:55Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

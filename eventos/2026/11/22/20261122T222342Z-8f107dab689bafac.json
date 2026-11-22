@@ -1,0 +1,38 @@
+{
+ "id": "8f107dab689bafac",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.954201Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-309"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-309",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-09-20T12:14:51Z",
+  "actualizada": "2026-09-24T17:51:13Z",
+  "huella_texto": "d3ac1d86bca6134f",
+  "notas": 5,
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-20T12:48:22Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-24T17:51:13Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

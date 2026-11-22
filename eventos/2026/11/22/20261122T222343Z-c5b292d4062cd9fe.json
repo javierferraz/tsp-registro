@@ -1,0 +1,42 @@
+{
+ "id": "c5b292d4062cd9fe",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.470966Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-697"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-697",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-15T17:54:24Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "312500e143b7e56c",
+  "notas": 3,
+  "etiquetas": [
+   "site"
+  ],
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-15T17:55:48Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-15T20:57:25Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

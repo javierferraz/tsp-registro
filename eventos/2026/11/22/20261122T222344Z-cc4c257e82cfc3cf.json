@@ -1,0 +1,40 @@
+{
+ "id": "cc4c257e82cfc3cf",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.222324Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1026"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1026",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-10-27T11:08:22Z",
+  "actualizada": "2026-11-02T14:08:52Z",
+  "huella_texto": "788313921e4e56ba",
+  "notas": 3,
+  "app": "The Stromboli Project",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-27T11:40:03Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-02T14:08:52Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

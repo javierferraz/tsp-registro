@@ -1,0 +1,26 @@
+{
+ "id": "b8180e8858c7975f",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.285466Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1057"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1057",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 2,
+  "creada": "2026-10-30T23:07:50Z",
+  "actualizada": "2026-11-13T17:07:42Z",
+  "huella_texto": "fba0e428af215587",
+  "notas": 3,
+  "app": "Fearless Tiger",
+  "prioridad": "media"
+ }
+}

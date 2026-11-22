@@ -1,0 +1,26 @@
+{
+ "id": "a5e907a3d2b7ca1a",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.412647Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-672"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-672",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-10-14T22:27:56Z",
+  "actualizada": "2026-10-14T22:27:56Z",
+  "huella_texto": "12181fad65f0d727",
+  "notas": 1,
+  "app": "Suite",
+  "prioridad": "baja"
+ }
+}

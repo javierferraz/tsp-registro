@@ -1,0 +1,37 @@
+{
+ "id": "055d4ce36c797a7c",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.299219Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1062"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1062",
+ "datos": {
+  "estado": "descartada",
+  "revision": 2,
+  "creada": "2026-10-31T11:08:41Z",
+  "actualizada": "2026-11-10T14:40:49Z",
+  "huella_texto": "ebb46d31d1c25630",
+  "notas": 2,
+  "app": "Palantir",
+  "etiquetas": [
+   "desarrollo"
+  ],
+  "prioridad": "alta",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "descartada",
+    "fecha": "2026-11-10T14:40:49Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

@@ -1,0 +1,53 @@
+{
+ "id": "5202a6add938df4b",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.222857Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-528"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-528",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-10-02T20:01:35Z",
+  "actualizada": "2026-10-04T12:02:04Z",
+  "huella_texto": "3ed2c8e98627d754",
+  "notas": 9,
+  "app": "Snappy Wasp",
+  "prioridad": "baja",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "adelante",
+    "fecha": "2026-10-04T09:55:09Z",
+    "por": "claude"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-10-04T10:17:58Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-04T10:26:38Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-04T12:02:04Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

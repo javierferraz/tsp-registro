@@ -1,0 +1,54 @@
+{
+ "id": "9fa0f30fd354ca70",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.991458Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-922"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-922",
+ "datos": {
+  "estado": "hecha",
+  "revision": 7,
+  "creada": "2026-10-22T19:53:17Z",
+  "actualizada": "2026-11-02T14:08:56Z",
+  "huella_texto": "a3dc7130bcffbf5b",
+  "notas": 10,
+  "etiquetas": [
+   "site"
+  ],
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-22T20:14:46Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "curso",
+    "fecha": "2026-10-22T20:17:04Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-22T20:21:36Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-02T14:08:56Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

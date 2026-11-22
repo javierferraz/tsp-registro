@@ -1,0 +1,40 @@
+{
+ "id": "951d748b71c2460b",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.108513Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-440"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-440",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-09-28T18:24:56Z",
+  "actualizada": "2026-10-01T20:36:10Z",
+  "huella_texto": "61e62a5c442acb6b",
+  "notas": 5,
+  "app": "Neat Bluejay",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-28T19:24:16Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-01T20:36:10Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

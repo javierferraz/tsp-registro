@@ -1,0 +1,37 @@
+{
+ "id": "184053fb71ab5a58",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.814058Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-216"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-216",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 3,
+  "creada": "2026-09-11T14:05:10Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "d2e0a372650e33b4",
+  "notas": 2,
+  "app": "Suite",
+  "etiquetas": [
+   "fallo"
+  ],
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "propuesta",
+    "fecha": "2026-10-01T19:38:18Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

@@ -1,0 +1,45 @@
+{
+ "id": "35b6a95e4a163f39",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.597095Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-040"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-040",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-09-06T16:51:46Z",
+  "actualizada": "2026-09-09T22:00:05Z",
+  "huella_texto": "974434d2afb985fa",
+  "notas": 5,
+  "app": "Trusty Pigeon",
+  "etiquetas": [
+   "Trusty Pigeon",
+   "app",
+   "seguridad"
+  ],
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "curso",
+    "fecha": "2026-09-09T14:27:37Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "hecha",
+    "fecha": "2026-09-09T22:00:05Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

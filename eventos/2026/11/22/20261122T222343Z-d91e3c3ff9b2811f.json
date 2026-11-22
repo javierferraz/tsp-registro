@@ -1,0 +1,52 @@
+{
+ "id": "d91e3c3ff9b2811f",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.280869Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-570"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-570",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-10-05T09:21:23Z",
+  "actualizada": "2026-10-14T22:51:41Z",
+  "huella_texto": "74814a150cd9d451",
+  "notas": 9,
+  "app": "Handy Raccoon",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-05T09:24:13Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "curso",
+    "fecha": "2026-10-05T10:25:17Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-05T10:30:19Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T22:51:41Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

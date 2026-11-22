@@ -1,0 +1,39 @@
+{
+ "id": "4390e0a2ba7cface",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.603494Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-047"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-047",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 2,
+  "creada": "2026-09-06T16:51:46Z",
+  "actualizada": "2026-10-01T19:38:18Z",
+  "huella_texto": "3f9cfa144840ecce",
+  "notas": 2,
+  "app": "Quiet Panda",
+  "etiquetas": [
+   "Quiet Panda",
+   "app",
+   "seguridad"
+  ],
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "propuesta",
+    "fecha": "2026-10-01T19:38:18Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

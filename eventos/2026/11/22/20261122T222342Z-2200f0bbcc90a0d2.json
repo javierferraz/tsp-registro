@@ -1,0 +1,39 @@
+{
+ "id": "2200f0bbcc90a0d2",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.760159Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-173"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-173",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-09-10T10:36:16Z",
+  "actualizada": "2026-10-02T10:13:34Z",
+  "huella_texto": "94ea0fa025a0937a",
+  "notas": 5,
+  "app": "Writer Tiger",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "info",
+    "fecha": "2026-09-20T14:31:45Z",
+    "por": "claude"
+   },
+   {
+    "de": "info",
+    "a": "hecha",
+    "fecha": "2026-10-02T10:13:34Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

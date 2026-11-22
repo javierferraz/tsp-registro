@@ -1,0 +1,48 @@
+{
+ "id": "ff3b612f06a4f580",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.696216Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-134"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-134",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-09-08T14:26:02Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "28e033acc10a460e",
+  "notas": 7,
+  "app": "Suite",
+  "etiquetas": [
+   "seguridad"
+  ],
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "curso",
+    "fecha": "2026-09-08T16:21:13Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-08T16:31:24Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-08T22:21:43Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

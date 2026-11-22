@@ -1,0 +1,47 @@
+{
+ "id": "7b90671d5c561ac5",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.450552Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1127"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1127",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-11-04T22:42:36Z",
+  "actualizada": "2026-11-04T23:03:09Z",
+  "huella_texto": "6789ea2d1cb20e3c",
+  "notas": 7,
+  "etiquetas": [
+   "linux"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "info",
+    "fecha": "2026-11-04T22:45:18Z",
+    "por": "claude"
+   },
+   {
+    "de": "info",
+    "a": "validar",
+    "fecha": "2026-11-04T23:01:00Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-04T23:03:09Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

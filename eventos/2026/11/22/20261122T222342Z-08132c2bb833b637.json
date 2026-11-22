@@ -1,0 +1,39 @@
+{
+ "id": "08132c2bb833b637",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.835168Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-234"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-234",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-09-14T15:34:38Z",
+  "actualizada": "2026-09-14T22:24:18Z",
+  "huella_texto": "141c51f3c6843b10",
+  "notas": 4,
+  "app": "Cozy Koala",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-14T20:45:36Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-14T22:24:18Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

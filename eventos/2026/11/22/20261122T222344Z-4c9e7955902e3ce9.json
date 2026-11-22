@@ -1,0 +1,40 @@
+{
+ "id": "4c9e7955902e3ce9",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.144069Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-993"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-993",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-10-25T14:46:04Z",
+  "actualizada": "2026-11-02T14:08:52Z",
+  "huella_texto": "55fd9836d0c5f6b0",
+  "notas": 7,
+  "app": "Tappy Woodpecker",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-25T15:14:51Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-02T14:08:52Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

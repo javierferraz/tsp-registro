@@ -1,0 +1,29 @@
+{
+ "id": "d45b019c6a4a9e86",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.725472Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1201"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1201",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-11-15T19:20:18Z",
+  "actualizada": "2026-11-15T19:20:18Z",
+  "huella_texto": "65621b96002526ef",
+  "notas": 1,
+  "app": "Tappy Woodpecker",
+  "etiquetas": [
+   "fallo"
+  ],
+  "prioridad": "baja"
+ }
+}

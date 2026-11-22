@@ -1,0 +1,26 @@
+{
+ "id": "044d02ad260878cf",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.137795Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-999"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-999",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 3,
+  "creada": "2026-10-25T09:49:42Z",
+  "actualizada": "2026-10-25T17:33:39Z",
+  "huella_texto": "e45e264d11437b1c",
+  "notas": 3,
+  "app": "Neat Bluejay",
+  "prioridad": "baja"
+ }
+}

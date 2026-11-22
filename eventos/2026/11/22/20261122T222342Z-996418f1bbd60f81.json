@@ -1,0 +1,48 @@
+{
+ "id": "996418f1bbd60f81",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.699500Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-137"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-137",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-09-08T16:31:04Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "a4f8e501468c8e74",
+  "notas": 6,
+  "app": "Suite",
+  "etiquetas": [
+   "seguridad"
+  ],
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "curso",
+    "fecha": "2026-09-08T18:31:09Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-08T22:00:22Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-08T22:21:51Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

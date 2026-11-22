@@ -1,0 +1,39 @@
+{
+ "id": "9aa6f88ae1b5d703",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.426293Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-679"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-679",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-15T10:21:13Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "9f3c9fe47cf1fdc6",
+  "notas": 5,
+  "app": "Suite",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-15T10:24:49Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-15T10:36:13Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

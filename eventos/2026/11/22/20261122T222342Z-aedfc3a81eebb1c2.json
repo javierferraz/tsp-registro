@@ -1,0 +1,36 @@
+{
+ "id": "aedfc3a81eebb1c2",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.804529Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-210"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-210",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-09-11T11:59:47Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "dd6338cc0a0cf8e2",
+  "notas": 6,
+  "etiquetas": [
+   "site",
+   "tablero"
+  ],
+  "movimientos": [
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-11T14:00:33Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

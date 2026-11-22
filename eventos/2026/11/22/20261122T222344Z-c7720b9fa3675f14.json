@@ -1,0 +1,43 @@
+{
+ "id": "c7720b9fa3675f14",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.935382Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1243"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1243",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-11-21T11:01:25Z",
+  "actualizada": "2026-11-22T08:35:29Z",
+  "huella_texto": "7ae4b16eeb336072",
+  "notas": 4,
+  "app": "Clear Parrot",
+  "check": "maquina",
+  "commits": [
+   "bf4eb9831d29"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-21T11:02:50Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-22T08:35:29Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

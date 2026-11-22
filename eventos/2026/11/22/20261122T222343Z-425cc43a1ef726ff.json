@@ -1,0 +1,37 @@
+{
+ "id": "425cc43a1ef726ff",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.394985Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-658"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-658",
+ "datos": {
+  "estado": "adelante",
+  "revision": 12,
+  "creada": "2026-10-14T21:15:59Z",
+  "actualizada": "2026-11-22T10:54:09Z",
+  "huella_texto": "23cc1abe87682e83",
+  "notas": 19,
+  "app": "Sneaky Spider",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "baja",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "adelante",
+    "fecha": "2026-10-22T17:44:57Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

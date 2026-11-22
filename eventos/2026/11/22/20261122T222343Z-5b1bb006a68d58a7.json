@@ -1,0 +1,40 @@
+{
+ "id": "5b1bb006a68d58a7",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.124416Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-453"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-453",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-09-30T08:40:36Z",
+  "actualizada": "2026-10-01T20:48:46Z",
+  "huella_texto": "0c406b57f766bd39",
+  "notas": 5,
+  "app": "Sneaky Spider",
+  "check": "ojos",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-30T08:55:45Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-01T20:48:46Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

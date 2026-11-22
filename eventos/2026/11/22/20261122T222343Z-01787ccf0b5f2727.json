@@ -1,0 +1,47 @@
+{
+ "id": "01787ccf0b5f2727",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.272188Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-563"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-563",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-04T12:47:45Z",
+  "actualizada": "2026-10-08T23:21:29Z",
+  "huella_texto": "634ae9c592134d44",
+  "notas": 5,
+  "app": "Neat Bluejay",
+  "prioridad": "baja",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-04T15:25:40Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-04T15:49:05Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-08T23:21:29Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

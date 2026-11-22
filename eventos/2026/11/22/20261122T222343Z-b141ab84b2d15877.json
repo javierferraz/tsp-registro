@@ -1,0 +1,25 @@
+{
+ "id": "b141ab84b2d15877",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.362116Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-632"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-632",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 2,
+  "creada": "2026-10-14T07:43:05Z",
+  "actualizada": "2026-10-14T09:32:54Z",
+  "huella_texto": "97ea678fd346d9b4",
+  "notas": 2,
+  "prioridad": "baja"
+ }
+}

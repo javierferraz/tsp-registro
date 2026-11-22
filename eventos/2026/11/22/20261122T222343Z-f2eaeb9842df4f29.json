@@ -1,0 +1,33 @@
+{
+ "id": "f2eaeb9842df4f29",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.237565Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-539"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-539",
+ "datos": {
+  "estado": "validar",
+  "revision": 9,
+  "creada": "2026-10-03T11:59:11Z",
+  "actualizada": "2026-11-22T21:03:35Z",
+  "huella_texto": "5b697a605aa63cc1",
+  "notas": 11,
+  "check": "ojos",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-03T12:11:34Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

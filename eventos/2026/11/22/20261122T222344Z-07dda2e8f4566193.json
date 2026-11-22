@@ -1,0 +1,26 @@
+{
+ "id": "07dda2e8f4566193",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:44.323886Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1072"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1072",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-11-02T07:24:21Z",
+  "actualizada": "2026-11-02T07:24:21Z",
+  "huella_texto": "23b67bd234ac125f",
+  "notas": 1,
+  "app": "Snappy Wasp",
+  "prioridad": "baja"
+ }
+}

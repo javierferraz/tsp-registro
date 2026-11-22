@@ -1,0 +1,39 @@
+{
+ "id": "873871db9d4ad893",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.116301Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-446"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-446",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-09-29T10:33:50Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "3c7edd893bef4c58",
+  "notas": 4,
+  "app": "Sneaky Spider",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-09-29T11:17:50Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-09-29T14:50:29Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "id": "66c132c3c4c1f0b2",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.243982Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-543"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-543",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-10-03T14:51:45Z",
+  "actualizada": "2026-10-04T09:54:20Z",
+  "huella_texto": "50af144a29d8cf1a",
+  "notas": 4,
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-03T14:54:24Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-04T09:54:20Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

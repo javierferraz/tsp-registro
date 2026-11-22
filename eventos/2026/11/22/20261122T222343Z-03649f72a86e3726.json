@@ -1,0 +1,37 @@
+{
+ "id": "03649f72a86e3726",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.995905Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-924"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-924",
+ "datos": {
+  "estado": "descartada",
+  "revision": 3,
+  "creada": "2026-10-22T19:53:50Z",
+  "actualizada": "2026-11-10T14:37:00Z",
+  "huella_texto": "3ea1b9791880ff3c",
+  "notas": 3,
+  "etiquetas": [
+   "linux",
+   "tablero"
+  ],
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "descartada",
+    "fecha": "2026-11-10T14:37:00Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

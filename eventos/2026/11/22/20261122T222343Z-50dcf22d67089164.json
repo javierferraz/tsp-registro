@@ -1,0 +1,36 @@
+{
+ "id": "50dcf22d67089164",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.013827Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-361"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-361",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 3,
+  "creada": "2026-09-24T17:52:50Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "ed4bea612339f905",
+  "notas": 2,
+  "etiquetas": [
+   "site"
+  ],
+  "prioridad": "baja",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "propuesta",
+    "fecha": "2026-10-01T19:38:18Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

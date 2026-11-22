@@ -1,0 +1,47 @@
+{
+ "id": "47718f79957a229e",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.254448Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-550"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-550",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-03T16:20:58Z",
+  "actualizada": "2026-10-14T21:24:39Z",
+  "huella_texto": "dc199ea0314c2199",
+  "notas": 7,
+  "app": "Clever Cat",
+  "prioridad": "baja",
+  "check": "ojos",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-03T17:32:43Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-03T17:34:31Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-14T21:24:39Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

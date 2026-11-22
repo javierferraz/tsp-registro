@@ -1,0 +1,40 @@
+{
+ "id": "8d334a350d33659b",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.932367Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-900"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-900",
+ "datos": {
+  "estado": "hecha",
+  "revision": 5,
+  "creada": "2026-10-22T09:20:59Z",
+  "actualizada": "2026-10-29T21:41:28Z",
+  "huella_texto": "95ab360d98de7984",
+  "notas": 6,
+  "app": "Roaring Lion",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-22T10:07:57Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:41:28Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

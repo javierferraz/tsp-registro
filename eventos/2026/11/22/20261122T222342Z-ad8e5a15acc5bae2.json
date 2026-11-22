@@ -1,0 +1,41 @@
+{
+ "id": "ad8e5a15acc5bae2",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.994812Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-345"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-345",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-09-22T14:36:24Z",
+  "actualizada": "2026-10-01T20:36:00Z",
+  "huella_texto": "5b0605faaf3a05c0",
+  "notas": 5,
+  "app": "Silent Frog",
+  "prioridad": "media",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "validar",
+    "fecha": "2026-09-22T15:07:50Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-01T20:36:00Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

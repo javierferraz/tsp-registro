@@ -1,0 +1,52 @@
+{
+ "id": "da028e2e5023d9ac",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:42.773264Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-184"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-184",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-09-11T09:56:42Z",
+  "actualizada": "2026-10-04T09:54:11Z",
+  "huella_texto": "f60f992572bd44c6",
+  "notas": 8,
+  "app": "Tappy Woodpecker",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "pedida",
+    "a": "propuesta",
+    "fecha": "2026-10-01T19:38:18Z",
+    "por": "claude"
+   },
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-10-04T09:31:05Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-04T09:37:40Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-04T09:54:11Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

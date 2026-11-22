@@ -1,0 +1,53 @@
+{
+ "id": "63360d92041af1a7",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.200633Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-512"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-512",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-10-02T10:06:25Z",
+  "actualizada": "2026-10-16T09:49:42Z",
+  "huella_texto": "ec3380fa514626b7",
+  "notas": 7,
+  "app": "Silent Frog",
+  "prioridad": "media",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "adelante",
+    "fecha": "2026-10-04T09:55:07Z",
+    "por": "claude"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-10-04T10:05:04Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-04T10:19:46Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-04T12:02:04Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

@@ -1,0 +1,40 @@
+{
+ "id": "7ae934ea780083e4",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.908098Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-890"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-890",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-22T05:09:22Z",
+  "actualizada": "2026-10-29T21:41:26Z",
+  "huella_texto": "df34bfd28e21b28c",
+  "notas": 5,
+  "app": "Roaring Lion",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-22T05:15:05Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:41:26Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

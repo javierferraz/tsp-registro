@@ -1,0 +1,26 @@
+{
+ "id": "5aa0b0f966031de4",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.742417Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-816"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-816",
+ "datos": {
+  "estado": "validar",
+  "revision": 9,
+  "creada": "2026-10-18T16:44:49Z",
+  "actualizada": "2026-11-22T21:03:35Z",
+  "huella_texto": "0e3f2589a1550fb7",
+  "notas": 11,
+  "app": "Roaring Lion",
+  "check": "decision"
+ }
+}

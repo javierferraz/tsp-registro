@@ -1,0 +1,34 @@
+{
+ "id": "b81c7ffe436f4e82",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.958020Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-909"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-909",
+ "datos": {
+  "estado": "hecha",
+  "revision": 4,
+  "creada": "2026-10-22T15:24:29Z",
+  "actualizada": "2026-10-29T21:41:30Z",
+  "huella_texto": "d444d91f6022285a",
+  "notas": 4,
+  "app": "Roaring Lion",
+  "check": "maquina",
+  "movimientos": [
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-29T21:41:30Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

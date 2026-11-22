@@ -1,0 +1,39 @@
+{
+ "id": "4b43d5ce16f2c205",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.290696Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-578"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-578",
+ "datos": {
+  "estado": "hecha",
+  "revision": 3,
+  "creada": "2026-10-10T23:21:22Z",
+  "actualizada": "2026-10-10T23:51:08Z",
+  "huella_texto": "96ae7061e4c14ba3",
+  "notas": 5,
+  "app": "Silent Frog",
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-10-10T23:28:47Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-10-10T23:51:08Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

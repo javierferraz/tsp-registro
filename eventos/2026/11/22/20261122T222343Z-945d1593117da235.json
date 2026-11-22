@@ -1,0 +1,26 @@
+{
+ "id": "945d1593117da235",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-22T22:23:43.182083Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-498"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-498",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-10-02T05:36:06Z",
+  "actualizada": "2026-10-02T05:36:06Z",
+  "huella_texto": "50f122820afad36b",
+  "notas": 1,
+  "app": "Clear Parrot",
+  "prioridad": "media"
+ }
+}
