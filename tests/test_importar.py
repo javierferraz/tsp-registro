@@ -381,6 +381,16 @@ class TestDiario(Base):
         self.assertIn("informes/2026-11-23.md",
                       self.git(self.raiz, "ls-tree", "-r", "--name-only", "HEAD").stdout)
 
+    def test_subir_miles_de_eventos(self):
+        """La primera importación sube ~1.300 eventos de golpe (WinError 206 en Windows)."""
+        b = copy.deepcopy(BOARD)
+        b["cards"] = [tarjeta(f"S-{i}", "hecha") for i in range(1, 1501)]
+        self.poner_board(b)
+        self.assertEqual(self.importar()["eventos"], 1500)
+        self.assertIn("1500 evento(s)", self.reg.subir())
+        en_git = self.git(self.raiz, "ls-tree", "-r", "--name-only", "HEAD").stdout.split()
+        self.assertEqual(len(en_git), 1500)
+
     def test_comparar_no_escribe_eventos(self):
         code, out, _ = self.org("comparar", *self.comunes())
         self.assertEqual(code, 0)

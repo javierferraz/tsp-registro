@@ -329,9 +329,9 @@ class Registro:
     def subir(self, reintentos: int = 2) -> str:
         """Commit de los eventos nuevos (solo esos ficheros) y de los informes diarios
         (`informes/`, generados por `org diario`), y push con pull --rebase si choca."""
-        def git(*args, check=True):
+        def git(*args, check=True, entrada=None):
             r = subprocess.run(["git", "-C", str(self.raiz), *args], capture_output=True,
-                               text=True, encoding="utf-8")
+                               text=True, encoding="utf-8", input=entrada)
             if check and r.returncode:
                 raise Rechazo(f"git {' '.join(args)}: {(r.stderr or r.stdout).strip()}")
             return r
@@ -348,10 +348,14 @@ class Registro:
         if malos:
             raise Rechazo(f"no se suben eventos mal formados: {sorted(malos)}")
         if nuevos:
-            git("add", "--", *nuevos)
+            # Las rutas van por la entrada estándar: con miles de eventos (la primera
+            # importación) la línea de órdenes pasa del límite de Windows (WinError 206).
+            lista = "\n".join(nuevos) + "\n"
+            git("add", "--pathspec-from-file=-", entrada=lista)
             n_ev = sum(1 for n in nuevos if n.startswith("eventos/"))
             extra = f" y {len(nuevos) - n_ev} informe(s)" if len(nuevos) > n_ev else ""
-            git("commit", "-m", f"org: {n_ev} evento(s){extra}", "--", *nuevos)
+            git("commit", "-m", f"org: {n_ev} evento(s){extra}", "--pathspec-from-file=-",
+                entrada=lista)
         if not git("remote", check=False).stdout.strip():
             return f"{len(nuevos)} evento(s) en commit local; sin remoto"
         for intento in range(reintentos + 1):
