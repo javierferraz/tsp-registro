@@ -393,5 +393,65 @@ class TestDiario(Base):
         self.assertIn("faltan en el registro (3)", informe_md("2026-11-22", None, comp, None))
 
 
+class TestRevision(Base):
+    """Hallazgos de la revisión en frío (S-1265)."""
+
+    def test_texto_libre_en_campos_cortos_se_descarta(self):
+        b = copy.deepcopy(BOARD)
+        b["cards"][0]["labels"] = ["site", "Esto es una frase larga que no es etiqueta ninguna"]
+        b["cards"][0]["notes"].append(nota_mov("hecha", "validar", "2026-11-21T10:00:00Z",
+                                               "cliente@ejemplo.com"))
+        self.poner_board(b)
+        t = leer_tablero(self.board)["S-1"]
+        self.assertEqual(t["etiquetas"], ["site"])
+        self.assertEqual(t["movimientos"][-1]["por"], "otro")
+        d = self.dir / "tasks" / "T-1"
+        d.mkdir(parents=True)
+        (d / "task.json").write_text(json.dumps({"id": "T-1", "status": "done",
+                                                 "repo": "C:/x/2610-roaring-lion"}), "utf-8")
+        (d / "report.json").write_text(json.dumps({"git": {
+            "branch": "s1235 (fusionada en main y borrada, dos veces)"}}), "utf-8")
+        lion = leer_lion(self.dir / "tasks")["T-1"]
+        self.assertNotIn("rama", lion)
+        self.assertEqual(lion["repo"], "2610-roaring-lion")
+
+    def poner_s2(self, rev, col):
+        b = copy.deepcopy(BOARD)
+        b["cards"][1] = tarjeta("S-2", col, rev, f"2026-11-2{rev % 10}T10:00:00Z")
+        self.poner_board(b)
+        return self.importar()
+
+    def test_copia_vieja_y_vuelta_se_importan(self):
+        self.poner_s2(5, "curso")
+        self.poner_s2(6, "validar")
+        self.poner_s2(5, "curso")          # copia vieja pisa el tablero
+        r = self.poner_s2(6, "validar")    # y se arregla
+        self.assertEqual(r["por_tipo"], {"tarjeta.cambiada": 1})
+        self.assertEqual(self.reg.ver("tarjeta", "S-2")["estado"], "validar")
+        clases = [a["clase"] for a in anomalias(self.reg.eventos_de("tarjeta"))]
+        self.assertIn("revisión que baja", clases)
+
+    def test_desaparece_y_vuelve_dos_veces(self):
+        self.importar()
+        for _ in range(2):
+            b = copy.deepcopy(BOARD)
+            b["cards"] = b["cards"][:2]
+            self.poner_board(b)
+            self.assertEqual(self.importar()["por_tipo"], {"tarjeta.desaparecida": 1})
+            self.poner_board(BOARD)
+            self.assertEqual(self.importar()["por_tipo"], {"tarjeta.cambiada": 1})
+            self.assertEqual(self.reg.ver("tarjeta", "S-3")["estado"], "propuesta")
+
+    def test_ruido_conocido_aparte(self):
+        b = copy.deepcopy(BOARD)
+        b["cards"].append(tarjeta("S-6", "curso", notes=[
+            nota_mov("propuesta", "curso", "2026-11-21T10:00:00Z")]))
+        self.poner_board(b)
+        self.importar()
+        an = comparar(self.reg, leer_tablero(self.board), {}, date(2026, 11, 22),
+                      "2026-11-21")["anomalias"]
+        self.assertEqual((an["recientes"], an["conocidas"]), ([], 1))
+
+
 if __name__ == "__main__":
     unittest.main()

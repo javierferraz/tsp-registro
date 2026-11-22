@@ -31,6 +31,9 @@ PERMITIDOS = {  # estado → estados a los que puede ir en el ciclo comprimido
     "cerrada": set(), "descartada": set(),
 }
 # Días que puede pasar un vigía sin informe nuevo antes de contarlo como callado.
+# Clases que casi siempre son legítimas hoy: PAA M6 deja arrancar desde Propuestas lo evidente y
+# un prompt lanzado por Javier es su orden de empezar. Se cuentan aparte para no tapar lo demás.
+RUIDO_CONOCIDO = {"en curso sin pasar por Empezar"}
 CADENCIA_DIAS = {"soporte": 2, "contenidos": 8, "fichas": 8, "tablero": 8, "releases": 5}
 
 
@@ -141,7 +144,8 @@ def comparar(reg, tarjetas: dict, ejecuciones: dict, hoy: date,
     ents_t = reg.entidades("tarjeta")
     ents_e = reg.entidades("ejecucion")
     todas = anomalias(reg.eventos_de("tarjeta"))
-    recientes = [a for a in todas if a["fecha"][:10] >= desde] if desde else todas
+    periodo = [a for a in todas if a["fecha"][:10] >= desde] if desde else todas
+    recientes = [a for a in periodo if a["clase"] not in RUIDO_CONOCIDO]
     por_clase: dict[str, int] = {}
     for a in todas:
         por_clase[a["clase"]] = por_clase.get(a["clase"], 0) + 1
@@ -153,6 +157,7 @@ def comparar(reg, tarjetas: dict, ejecuciones: dict, hoy: date,
         "fidelidad_tablero": fidelidad(ents_t, tarjetas),
         "fidelidad_lion": fidelidad(ents_e, ejecuciones),
         "anomalias": {"desde": desde, "recientes": recientes,
+                      "conocidas": len(periodo) - len(recientes),
                       "historico_por_clase": dict(sorted(por_clase.items(),
                                                          key=lambda x: -x[1]))},
         "lion_frente_a_tablero": lion_frente_a_tablero(ents_e, tarjetas),
@@ -190,7 +195,8 @@ def informe_md(fecha: str, importado: dict | None, comp: dict, cartera: dict | N
           f"Lion: {len(fid_l['faltan_en_registro'])} / {len(fid_l['sobran_en_registro'])} / "
           f"{len(fid_l['distintas'])}.",
           f"- **Anomalías** {'desde ' + an['desde'] if an['desde'] else 'en toda la historia'}: "
-          f"{len(an['recientes'])}. Histórico: "
+          f"{len(an['recientes'])} (más {an.get('conocidas', 0)} de ruido conocido: "
+          "Propuestas → En curso). Histórico: "
           + (", ".join(f"{k} {v}" for k, v in an["historico_por_clase"].items()) or "ninguna")
           + ".",
           f"- **Lion frente al tablero:** {len(comp['lion_frente_a_tablero'])} desacuerdo(s).",
@@ -228,6 +234,9 @@ def informe_md(fecha: str, importado: dict | None, comp: dict, cartera: dict | N
         filas += [f"| {a['fecha'][:16]} | {a['id']} | {a['clase']} | {a['detalle']} |"
                   for a in an["recientes"][-_MAX:]]
         l += _cortar(filas, len(an["recientes"]) + 2)
+    if an.get("conocidas"):
+        l += ["", f"Además, {an['conocidas']} paso(s) de Propuestas a En curso sin Empezar: casi "
+                  "siempre legítimos (PAA M6, o un prompt lanzado por Javier). No se listan."]
     else:
         l.append("Ninguna en el periodo.")
 

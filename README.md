@@ -50,7 +50,8 @@ py -m org cartera                 # cartera desde el manifest frente a las cuatr
 - **Fuentes, todas solo lectura:** `tablero/board.json` del disco del repo central (es el fichero
   vivo); las carpetas de tarea de Roaring Lion (`%LOCALAPPDATA%\RoaringLion\tasks`); y, desde
   `origin/main` del repo central tras un `git fetch`, los informes de los vigías, el manifest y las
-  cuatro listas (la copia local puede ir atrasada, 01 a4). Opciones: `--central`, `--lion`, `--ref`,
+  cuatro listas (la copia local puede ir atrasada, 01 a4). El `fetch` solo pone al día las
+  referencias remotas del central: no toca su carpeta de trabajo ni sus ramas. Opciones: `--central`, `--lion`, `--ref`,
   `--sin-fetch`, `--sin-subir`, `--fecha`.
 - **Qué compara:** fidelidad (registro ↔ tablero y Lion, campo a campo), anomalías de la historia
   (saltos fuera del ciclo de 02 §3.3, revisiones que bajan, cambios de columna sin nota, tarjetas
@@ -120,6 +121,8 @@ Tarea: `propuesta → aprobada → lista → en_curso → entregada → verifica
 | D-12 | Columnas del tablero a estados de 02 §3.3: Backlog y Propuestas → propuesta, Empezar → aprobada, En curso → en_curso, Pendiente → bloqueada, Por validar → entregada, Terminada → cerrada | Mapa más fino | El tablero no distingue lista, verificada ni integrada |
 | D-13 | Los informes diarios van a `informes/` (en git) | Dejarlos en `estado/` | `recalcular` borra `estado/` |
 | D-14 | Cadencia esperada de los vigías: soporte 2 días, releases 5, contenidos, fichas y tablero 8 | Un plazo único | Cada vigía corre con su propio ritmo (diario, lunes y jueves, semanal) |
+| D-15 | Lista blanca por patrón: un campo de texto solo entra si parece un identificador corto (estado, app, etiqueta, carpeta, rama); el autor de un movimiento, solo `claude`, `javier` u `otro` | Confiar en que hoy los valores son benignos | Una rama de Lion ya llevaba prosa del agente (revisión en frío) |
+| D-16 | Propuestas → En curso sin Empezar se cuenta aparte como ruido conocido | Listarlo con las demás anomalías | PAA M6 y los prompts lanzados por Javier lo hacen legítimo; tapaba lo demás (270 de 426) |
 
 Pendiente de llevar a `02-arquitectura.md` cuando se toque (lo lleva la sesión que lo edite).
 

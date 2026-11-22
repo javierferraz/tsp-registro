@@ -32,6 +32,20 @@ def _limpio(d: dict) -> dict:
     return {k: v for k, v in d.items() if v is not None and v != ""}
 
 
+# Lista blanca por patrón (D-8, D-15): un campo de texto solo entra si parece un identificador
+# corto; si no casa (prosa, frases, correos), se descarta. Así ningún texto libre llega al registro
+# aunque la fuente cambie de forma.
+_RE_TOKEN = re.compile(r"^[a-z0-9._-]{1,32}$")                       # estados, modelos, esfuerzo
+_RE_NOMBRE = re.compile(r"^[A-Za-z0-9ÁÉÍÓÚÑáéíóúñ][A-Za-z0-9ÁÉÍÓÚÑáéíóúñ ._-]{0,31}$")  # app, etiqueta
+_RE_CARPETA = re.compile(r"^[\w.-]{1,64}$")                          # carpeta de un repo
+_RE_RAMA = re.compile(r"^[\w./-]{1,64}$")                            # nombre de rama de git
+AUTORES = ("claude", "javier")  # papeles del tablero (Javier = papel «javier» de 02), no personas
+
+
+def _si(valor, patron):
+    return valor if isinstance(valor, str) and patron.match(valor) else None
+
+
 def sin_movimientos(datos: dict) -> dict:
     return {k: v for k, v in datos.items() if k != "movimientos"}
 
@@ -48,23 +62,23 @@ def leer_tablero(ruta: str | Path) -> dict[str, dict]:
             continue
         notas = c.get("notes") or []
         movs = [{"de": n["from"], "a": n["to"], "fecha": n.get("at", ""),
-                 "por": str(n.get("by") or "")}
+                 "por": n.get("by") if n.get("by") in AUTORES else "otro"}
                 for n in notas if n.get("kind") == "transition" and n.get("from") and n.get("to")]
         commits = [str(e["sha"])[:12] for e in ((c.get("evidence") or {}).get("commits") or [])
                    if isinstance(e, dict) and e.get("sha")]
         out[cid] = _limpio({
-            "estado": c.get("col") or "?",
+            "estado": _si(c.get("col"), _RE_TOKEN) or "?",
             "revision": int(c.get("revision") or 0),
             "creada": c.get("created") or "?",
             "actualizada": c.get("updated") or c.get("created") or "?",
             "huella_texto": _sha(f"{c.get('title', '')}\n{c.get('body', '')}")[:16],
             "notas": len(notas),
-            "app": c.get("app"),
-            "etiquetas": sorted(str(x) for x in (c.get("labels") or [])) or None,
-            "prioridad": c.get("priority"),
-            "check": c.get("check"),
-            "modelo": c.get("model"),
-            "bloqueada_por": [str(x) for x in (c.get("blockedBy") or [])] or None,
+            "app": _si(c.get("app"), _RE_NOMBRE),
+            "etiquetas": sorted(x for x in (c.get("labels") or []) if _si(x, _RE_NOMBRE)) or None,
+            "prioridad": _si(c.get("priority"), _RE_TOKEN),
+            "check": _si(c.get("check"), _RE_TOKEN),
+            "modelo": _si(c.get("model"), _RE_TOKEN),
+            "bloqueada_por": [x for x in (c.get("blockedBy") or []) if _si(x, _RE_TARJETA)] or None,
             "commits": commits or None,
             "movimientos": movs or None,
         })
@@ -111,20 +125,21 @@ def leer_lion(carpeta: str | Path) -> dict[str, dict]:
         if isinstance(t.get("created"), (int, float)) and isinstance(t.get("updated"), (int, float)):
             minutos = max(0, round((t["updated"] - t["created"]) / 60000))
         out[tid] = _limpio({
-            "estado": t.get("status") or "?",
+            "estado": _si(t.get("status"), _RE_TOKEN) or "?",
             "creada": creada or "?",
             "actualizada": act or creada or "?",
             "tarjeta": tarjeta if isinstance(tarjeta, str) and _RE_TARJETA.match(tarjeta) else None,
-            "repo": Path(str(t["repo"]).replace("\\", "/")).name if t.get("repo") else None,
+            "repo": _si(Path(str(t["repo"]).replace("\\", "/")).name, _RE_CARPETA) if t.get("repo")
+            else None,
             "tamano": t.get("size") if t.get("size") in ("S", "M", "L") else None,
-            "modelo": t.get("model"),
-            "esfuerzo": t.get("effort"),
+            "modelo": _si(t.get("model"), _RE_TOKEN),
+            "esfuerzo": _si(t.get("effort"), _RE_TOKEN),
             "intentos": t.get("attempts") if type(t.get("attempts")) is int else None,
             "minutos": minutos,
-            "verificacion": (t.get("verified") or {}).get("outcome"),
+            "verificacion": _si((t.get("verified") or {}).get("outcome"), _RE_TOKEN),
             "criterios": criterios or None,
             "commits": len(git.get("commits") or []) if r else None,
-            "rama": git.get("branch"),
+            "rama": _si(git.get("branch"), _RE_RAMA),
             "subida": git.get("pushed") if isinstance(git.get("pushed"), bool) else None,
             "con_informe": r is not None,
         })
@@ -168,6 +183,10 @@ _RE_FICHAS_FECHA = re.compile(r"^# Vig[ií]a Fichas\s+[—-]\s+(\d{4}-\d{2}-\d{2
 _RE_FICHAS_CIFRA = re.compile(r"\*{0,2}(\d+)\*{0,2}\s+([a-záéíóúñ() ]+?)\s*(?=·|$)", re.M)
 
 
+CIFRAS_FICHAS = {"funcionalidades_no_mencionadas", "textos_obsoletos", "promesas_de_mas",
+                 "app_revisadas", "sin_revisar_por_error", "sin_cambios", "fuera_del_chequeo"}
+
+
 def _cifras_fichas(texto: str):
     """El Vigía Fichas solo deja Markdown: se leen las dos líneas de cifras de la cabecera."""
     m = _RE_FICHAS_FECHA.search(texto)
@@ -177,7 +196,7 @@ def _cifras_fichas(texto: str):
             for n, nombre in _RE_FICHAS_CIFRA.findall(linea[2:]):
                 clave = re.sub(r"[^a-z0-9]+", "_", nombre.replace("(s)", "").strip()
                                .translate(str.maketrans("áéíóúñ", "aeioun"))).strip("_")
-                if clave:
+                if clave in CIFRAS_FICHAS:
                     cifras[clave] = int(n)
     return (m.group(1) if m else None), cifras
 
@@ -262,12 +281,12 @@ def planear(reg, tarjetas: dict, ejecuciones: dict, informes: dict) -> list[dict
         d = sin_movimientos(datos) | ({"movimientos": nuevos} if nuevos else {})
         lote.append({"tipo": "tarjeta.cambiada", "entidad": ("tarjeta", cid),
                      "clave": clave("tarjeta.cambiada", cid, d,
-                                    f"r{anterior.get('revision', '?')}-"), "datos": d})
+                                    f"n{len(prev['historial'])}-"), "datos": d})
     for cid, prev in previas.items():
         if cid not in tarjetas and prev["estado"] != "desaparecida":
             rev = int((prev.get("datos") or {}).get("revision", 0))
             lote.append({"tipo": "tarjeta.desaparecida", "entidad": ("tarjeta", cid),
-                         "clave": f"tarjeta.desaparecida:{cid}:r{rev}:{prev['actualizada']}",
+                         "clave": f"tarjeta.desaparecida:{cid}:n{len(prev['historial'])}",
                          "datos": {"revision": rev}})
 
     for tipo_ent, fuente, nuevo, cambio in (
@@ -281,7 +300,7 @@ def planear(reg, tarjetas: dict, ejecuciones: dict, informes: dict) -> list[dict
                              "clave": f"{nuevo}:{eid}", "datos": datos})
             elif (prev.get("datos") or {}) != datos:
                 lote.append({"tipo": cambio, "entidad": (tipo_ent, eid),
-                             "clave": clave(cambio, eid, datos, f"{prev['actualizada']}-"),
+                             "clave": clave(cambio, eid, datos, f"n{len(prev['historial'])}-"),
                              "datos": datos})
     return lote
 
