@@ -35,6 +35,35 @@ py -m org subir                               # commit de los eventos nuevos y p
   `ORG_RAIZ` (por defecto, este repo).
 - Salida: 0 aceptado (o repetido sin cambios: `"nuevo": false`), 1 rechazado, 2 error.
 
+## Importador y comparación diaria (S-1265)
+
+El registro copia lo que dicen las fuentes de hoy, **sin cambiarlas ni sustituirlas**: el tablero
+sigue mandando.
+
+```
+py -m org diario                  # importar + comparar + cartera; deja informes/AAAA-MM-DD.md y .json y sube
+py -m org importar                # solo copiar en el registro lo que ha cambiado
+py -m org comparar [--md] [--desde AAAA-MM-DD]   # registro frente a tablero, sin escribir nada
+py -m org cartera                 # cartera desde el manifest frente a las cuatro listas
+```
+
+- **Fuentes, todas solo lectura:** `tablero/board.json` del disco del repo central (es el fichero
+  vivo); las carpetas de tarea de Roaring Lion (`%LOCALAPPDATA%\RoaringLion\tasks`); y, desde
+  `origin/main` del repo central tras un `git fetch`, los informes de los vigías, el manifest y las
+  cuatro listas (la copia local puede ir atrasada, 01 a4). Opciones: `--central`, `--lion`, `--ref`,
+  `--sin-fetch`, `--sin-subir`, `--fecha`.
+- **Qué compara:** fidelidad (registro ↔ tablero y Lion, campo a campo), anomalías de la historia
+  (saltos fuera del ciclo de 02 §3.3, revisiones que bajan, cambios de columna sin nota, tarjetas
+  que desaparecen), tareas de Lion que no casan con la columna de su tarjeta y vigías sin informe
+  nuevo a tiempo. Más la cartera del manifest frente a `catalog.js`, `catalogo-apps.json`,
+  `app-matrix.md` y `CONTEXT.md` §8.
+- **Tarea programada** `TSP registro diario` (cada día a las 07:15, y al encender si se pasó):
+  `wscript.exe ejecutar-oculto.vbs py -m org diario`, sin ventana. Registro de pasadas en
+  `.indice/diario.log`.
+- **Privacidad:** nunca entran títulos, cuerpos, notas, prompts ni correos. De una tarjeta, solo
+  columna, fechas, revisión, etiquetas, app, número de notas, commits y una huella del texto (16
+  caracteres de un sha256) que dice *que* cambió, no *qué*. Del soporte, solo cuántos correos.
+
 ## Cabecera de un evento
 
 `id` (16 hex) · `tipo` · `version_esquema` · `fecha` (UTC, microsegundos) · `autor {papel,
@@ -84,6 +113,13 @@ Tarea: `propuesta → aprobada → lista → en_curso → entregada → verifica
 | D-5 | `en_pausa`, `bloqueada`, `caducada` y `devuelta` vuelven por `tarea.lista` | Un `tarea.reanudada` | Menos tipos; el planificador decide cuándo sigue |
 | D-6 | Además del diagrama de 02 §3.3: devuelta desde verificada (02 §8.4), bloqueada desde entregada por el validador (02 §9 ter, devoluciones antes de bloquear), descartada desde lista | Ceñirse al diagrama | Casos que el propio 02 describe en otras secciones |
 | D-7 | Conflictos se suben; mal formados no | Bloquear toda subida con rechazados | Un conflicto no se puede «arreglar» sin borrar historia |
+| D-8 | Del tablero y de Lion solo estructura, fechas, cifras y una huella del texto | Copiar títulos | Pueden llevar nombres o textos de clientes (prompt P2-2) |
+| D-9 | Papel nuevo `importador`, que solo escribe tipos espejo (`tarjeta.*`, `ejecucion.*`, `informe.*`) | Importar como `tarea.*` | El ciclo de tareas lo escribirá la organización nueva; mezclarlo falsearía la comparación |
+| D-10 | El estado del espejo es la columna (o el estado de Lion) tal cual, y cualquier cambio vale | Validar el ciclo al importar | El tablero manda: un salto raro se informa como anomalía, no se rechaza |
+| D-11 | Primera pasada: una foto por tarjeta con todas sus notas de transición dentro; después, solo los movimientos nuevos | Un evento por nota histórica | 9.000 eventos de golpe frente a 1.328; la historia queda igual de completa |
+| D-12 | Columnas del tablero a estados de 02 §3.3: Backlog y Propuestas → propuesta, Empezar → aprobada, En curso → en_curso, Pendiente → bloqueada, Por validar → entregada, Terminada → cerrada | Mapa más fino | El tablero no distingue lista, verificada ni integrada |
+| D-13 | Los informes diarios van a `informes/` (en git) | Dejarlos en `estado/` | `recalcular` borra `estado/` |
+| D-14 | Cadencia esperada de los vigías: soporte 2 días, releases 5, contenidos, fichas y tablero 8 | Un plazo único | Cada vigía corre con su propio ritmo (diario, lunes y jueves, semanal) |
 
 Pendiente de llevar a `02-arquitectura.md` cuando se toque (lo lleva la sesión que lo edite).
 
@@ -93,7 +129,14 @@ Pendiente de llevar a `02-arquitectura.md` cuando se toque (lo lleva la sesión 
   comprueba el papel que se declara, no quién es de verdad. La separación fuerte (credencial por
   papel, rama principal protegida y paso de entrada que revalida cada evento) es de la fase 4.
 - Cada escritura recorre `eventos/` para ver si hay ficheros nuevos; con cientos de miles de
-  eventos habrá que cambiarlo.
+  eventos habrá que cambiarlo. El importador escribe en lote (`escribir_lote`): un recorrido por
+  pasada.
+- **Lectores de las cuatro listas por patrón de texto.** Si cambia el formato de una tabla, salen
+  hallazgos falsos o la lista sale vacía; en `CONTEXT.md` §8 la «versión» es la primera que aparece
+  en la fila, que puede ser una antigua citada.
+- **Coste por ejecución:** Lion no guarda coste ni tokens en sus carpetas de tarea; solo se apuntan
+  los minutos entre creación y última actualización.
+- **Enlace Lion ↔ tablero débil:** pocas tareas de Lion llevan su tarjeta.
 
 ## Tests
 

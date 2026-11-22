@@ -16,6 +16,66 @@ from .esquemas import TIPOS, Rechazo
 from .registro import Registro
 
 RAIZ_REPO = Path(__file__).resolve().parent.parent
+CENTRAL = "C:/xampp/htdocs/2606-thestromboliproject"
+LION = str(Path(os.environ.get("LOCALAPPDATA", "")) / "RoaringLion" / "tasks")
+
+
+def _fase2(reg: Registro, a) -> int:
+    from datetime import datetime, timedelta, timezone
+
+    from . import cartera as cart
+    from .comparar import comparar, informe_md
+    from .importar import Central, importar, leer_lion, leer_tablero, leer_vigias
+
+    central = Central(a.central, a.ref)
+    if not a.sin_fetch:
+        central.actualizar()
+    tarjetas = leer_tablero(Path(a.central) / "tablero" / "board.json")
+    lion = leer_lion(a.lion)
+
+    def la_cartera():
+        manifest = json.loads(central.leer("updates/manifest.json"))
+        c = cart.generar(manifest, Path(a.central).parent)
+        return {"fichas": c, **cart.comparar_listas(c, cart.leer_listas(central.leer))}
+
+    if a.orden == "cartera":
+        _salida(la_cartera())
+        return 0
+    if a.orden == "comparar":
+        hoy = datetime.now(timezone.utc).date()
+        comp = comparar(reg, tarjetas, lion, hoy, a.desde)
+        if a.md:
+            print(informe_md(hoy.isoformat(), None, comp, None), end="")
+        else:
+            _salida(comp)
+        return 0
+    imp = importar(reg, tarjetas, lion, leer_vigias(central), a.identidad)
+    if a.orden == "importar":
+        _salida(imp)
+        return 1 if imp["rechazados"] else 0
+    # diario
+    fecha = a.fecha or datetime.now(timezone.utc).date().isoformat()
+    hoy = datetime.strptime(fecha, "%Y-%m-%d").date()
+    desde = (hoy - timedelta(days=1)).isoformat()
+    comp = comparar(reg, tarjetas, lion, hoy, desde)
+    c = la_cartera()
+    carpeta = reg.raiz / "informes"
+    carpeta.mkdir(exist_ok=True)
+    (carpeta / f"{fecha}.md").write_text(informe_md(fecha, imp, comp, c), encoding="utf-8",
+                                         newline="\n")
+    (carpeta / f"{fecha}.json").write_text(json.dumps(
+        {"fecha": fecha, "importado": imp, "comparacion": comp, "cartera": c},
+        ensure_ascii=False, indent=1, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
+    reg.volcar_estado()
+    subida = "sin subir" if a.sin_subir else reg.subir()
+    linea = (f"{datetime.now(timezone.utc):%Y-%m-%dT%H:%M:%SZ} diario {fecha}: "
+             f"{imp['eventos']} evento(s), {len(imp['rechazados'])} rechazado(s); {subida}")
+    log = reg.raiz / ".indice" / "diario.log"
+    log.parent.mkdir(exist_ok=True)
+    with log.open("a", encoding="utf-8") as f:
+        f.write(linea + "\n")
+    print(linea)
+    return 1 if imp["rechazados"] else 0
 
 
 def _entidad(texto: str) -> tuple[str, str]:
@@ -72,6 +132,29 @@ def main(argv=None) -> int:
     t.add_argument("--papel")
     sub.add_parser("subir", help="commit de los eventos nuevos y push (pull --rebase si choca)")
 
+    # Fase 2 (S-1265): importador, comparación diaria y cartera. Solo leen las fuentes.
+    for nombre, ayuda in (
+            ("importar", "copia en el registro el tablero, las tareas de Lion y los vigías"),
+            ("comparar", "registro frente a tablero, sin escribir nada (JSON o --md)"),
+            ("cartera", "cartera desde el manifest y su comparación con las cuatro listas"),
+            ("diario", "importar + comparar + cartera; deja informes/AAAA-MM-DD.md y .json "
+                       "y sube")):
+        s = sub.add_parser(nombre, help=ayuda)
+        s.add_argument("--central", default=os.environ.get("ORG_CENTRAL", CENTRAL),
+                       help="repo central (el tablero se lee de su disco; vigías, manifest y "
+                            "listas, de --ref)")
+        s.add_argument("--ref", default="origin/main")
+        s.add_argument("--lion", default=os.environ.get("ORG_LION", LION),
+                       help="carpeta de tareas de Roaring Lion")
+        s.add_argument("--sin-fetch", action="store_true", help="no hace git fetch del central")
+        s.add_argument("--identidad", default=os.environ.get("ORG_IDENTIDAD", "importador-pc"))
+        if nombre == "comparar":
+            s.add_argument("--desde", help="anomalías desde AAAA-MM-DD (por defecto, todas)")
+            s.add_argument("--md", action="store_true")
+        if nombre == "diario":
+            s.add_argument("--sin-subir", action="store_true")
+            s.add_argument("--fecha", help="fecha del informe (por defecto, hoy en UTC)")
+
     a = p.parse_args(argv)
     reg = Registro(a.raiz)
     try:
@@ -100,6 +183,8 @@ def main(argv=None) -> int:
                      for n, d in TIPOS.items() if not a.papel or a.papel in d.papeles})
         elif a.orden == "subir":
             print(reg.subir())
+        elif a.orden in ("importar", "comparar", "cartera", "diario"):
+            return _fase2(reg, a)
     except Rechazo as ex:
         print(f"rechazado: {ex}", file=sys.stderr)
         return 1

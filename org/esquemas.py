@@ -32,7 +32,13 @@ PAPELES = (
     "laboratorio",   # lo mismo que el validador, para pruebas de interfaz
     "fabrica",       # ficha de release (P6-1; aún sin tipos)
     "motor",         # motor de eventos: crea tareas e incidencias por regla
+    "importador",    # fase 2 (S-1265): copia el tablero, Lion y los vigías; solo tipos espejo
 )
+
+# Estado de una entidad espejo: lo dice el origen (columna del tablero, estado de Lion), no
+# una transición del ciclo. «*» en `desde` = vale desde cualquier estado existente.
+ESTADO_EN_DATOS = "=datos.estado"
+CUALQUIERA = "*"
 
 ESTADOS_TAREA = (
     "propuesta", "aprobada", "lista", "en_curso", "en_pausa", "bloqueada", "caducada",
@@ -56,11 +62,12 @@ class Tipo:
     desde: frozenset | None       # estados de origen; None = el evento crea la entidad
     hasta: str | None             # estado nuevo; None = no cambia el estado
     versiones: dict               # {version_esquema: Version}
+    espejo: bool = False          # copia de otra fuente: guarda sus datos en entidad["datos"]
 
 
-def _t(entidad, papeles, desde, hasta, versiones):
+def _t(entidad, papeles, desde, hasta, versiones, espejo=False):
     return Tipo(entidad, frozenset(papeles), None if desde is None else frozenset(desde),
-                hasta, versiones)
+                hasta, versiones, espejo)
 
 
 _TAREA_V1 = Version(
@@ -68,6 +75,22 @@ _TAREA_V1 = Version(
     opcionales={"tipo_trabajo": str, "objetivo": str, "alcance": list, "criterios": list,
                 "no_objetivos": list, "dependencias": list, "tamano": ("S", "M", "L"),
                 "modelo": str, "presupuesto": dict},
+)
+_TARJETA_V1 = Version(  # una tarjeta de tablero/board.json
+    obligatorios={"estado": str, "revision": int, "creada": str, "actualizada": str,
+                  "huella_texto": str, "notas": int},
+    opcionales={"app": str, "etiquetas": list, "prioridad": str, "check": str, "modelo": str,
+                "bloqueada_por": list, "commits": list, "movimientos": list},
+)
+_EJECUCION_V1 = Version(  # una carpeta de tarea de Roaring Lion (task.json y report.json)
+    obligatorios={"estado": str, "creada": str, "actualizada": str},
+    opcionales={"tarjeta": str, "repo": str, "tamano": str, "modelo": str, "esfuerzo": str,
+                "intentos": int, "minutos": int, "verificacion": str, "criterios": dict,
+                "commits": int, "rama": str, "subida": bool, "con_informe": bool},
+)
+_INFORME_V1 = Version(  # el último informe de un vigía: solo cifras
+    obligatorios={"vigia": str, "fecha": str, "ruta": str, "sha256": str},
+    opcionales={"cifras": dict},
 )
 _MOTIVO = Version(obligatorios={"motivo": str})
 _MOTIVO_OPC = Version(obligatorios={}, opcionales={"motivo": str})
@@ -135,6 +158,24 @@ TIPOS: dict[str, Tipo] = {
                                                "descripcion": str},
                                  opcionales={"app": str, "version": str, "huella": str,
                                              "tareas": list})}),
+
+    # --- Espejo de la fase 2 (S-1265): el registro observa, no decide ------------------
+    # Sin texto libre: ni títulos, ni cuerpos, ni notas, ni prompts (pueden llevar datos
+    # personales o textos de clientes). Del texto solo se guarda una huella.
+    "tarjeta.importada": _t("tarjeta", {"importador"}, None, ESTADO_EN_DATOS,
+                            {1: _TARJETA_V1}, espejo=True),
+    "tarjeta.cambiada": _t("tarjeta", {"importador"}, {CUALQUIERA}, ESTADO_EN_DATOS,
+                           {1: _TARJETA_V1}, espejo=True),
+    "tarjeta.desaparecida": _t("tarjeta", {"importador"}, {CUALQUIERA}, "desaparecida",
+                               {1: Version(obligatorios={"revision": int})}),
+    "ejecucion.importada": _t("ejecucion", {"importador"}, None, ESTADO_EN_DATOS,
+                              {1: _EJECUCION_V1}, espejo=True),
+    "ejecucion.cambiada": _t("ejecucion", {"importador"}, {CUALQUIERA}, ESTADO_EN_DATOS,
+                             {1: _EJECUCION_V1}, espejo=True),
+    "informe.importado": _t("informe", {"importador"}, None, "recibido",
+                            {1: _INFORME_V1}, espejo=True),
+    "informe.actualizado": _t("informe", {"importador"}, {CUALQUIERA}, "recibido",
+                              {1: _INFORME_V1}, espejo=True),
 }
 
 # Reglas que dependen de los datos, no solo del tipo.

@@ -167,39 +167,69 @@ class Registro:
     def escribir(self, tipo: str, entidad: tuple[str, str], papel: str, identidad: str,
                  clave: str, datos: dict | None = None, correlacion: str | None = None,
                  version: int = 1, ahora: datetime | None = None) -> Resultado:
-        ev = {"id": secrets.token_hex(8), "tipo": tipo, "version_esquema": version,
-              "fecha": None, "autor": {"papel": papel, "identidad": identidad},
-              "entidad": {"tipo": entidad[0], "id": entidad[1]}, "correlacion": correlacion,
-              "clave_idempotencia": clave, "datos": datos or {}}
         db = self._conectar()
         try:
             db.execute("BEGIN IMMEDIATE")
             self._sincronizar(db)
-            fila = db.execute("SELECT id, huella, fichero FROM eventos WHERE clave=?",
-                              (clave,)).fetchone()
-            if fila:
-                if fila[1] == huella(ev):
-                    db.execute("COMMIT")
-                    return Resultado(False, fila[0], fila[2])
-                raise Rechazo(f"la clave «{clave}» ya la usó otro evento distinto ({fila[0]})")
-            ev["fecha"] = _fmt(self._fecha(db, ev, ahora))
-            tipo_def = validar(ev)
-            if correlacion and not db.execute("SELECT 1 FROM eventos WHERE id=?",
-                                              (correlacion,)).fetchone():
-                raise Rechazo(f"correlación con un evento que no existe: {correlacion}")
-            actual = self._entidad(db, entidad[0], entidad[1])
-            nuevo = aplicar(actual, ev, tipo_def)
-            rel = ruta_relativa(ev)
-            firma = self._escribir_fichero(rel, ev)
-            self._guardar(db, rel, firma, ev, nuevo)
+            r = self._escribir_en(db, tipo, entidad, papel, identidad, clave, datos,
+                                  correlacion, version, ahora)
             db.execute("COMMIT")
-            return Resultado(True, ev["id"], rel)
+            return r
         except BaseException:
             if db.in_transaction:
                 db.execute("ROLLBACK")
             raise
         finally:
             db.close()
+
+    def escribir_lote(self, eventos: list[dict], papel: str, identidad: str,
+                      ahora: datetime | None = None) -> list[Resultado | Rechazo]:
+        """Varios eventos con una sola pasada por eventos/ (el importador escribe cientos).
+        Cada elemento: {tipo, entidad, clave, datos}. Un rechazo no para el lote: se devuelve
+        en su posición y los demás siguen."""
+        db = self._conectar()
+        try:
+            db.execute("BEGIN IMMEDIATE")
+            self._sincronizar(db)
+            out: list[Resultado | Rechazo] = []
+            for e in eventos:
+                try:
+                    out.append(self._escribir_en(db, e["tipo"], e["entidad"], papel, identidad,
+                                                 e["clave"], e.get("datos"), None, 1, ahora))
+                except Rechazo as ex:
+                    out.append(ex)
+            db.execute("COMMIT")
+            return out
+        except BaseException:
+            if db.in_transaction:
+                db.execute("ROLLBACK")
+            raise
+        finally:
+            db.close()
+
+    def _escribir_en(self, db, tipo, entidad, papel, identidad, clave, datos, correlacion,
+                     version, ahora) -> Resultado:
+        ev = {"id": secrets.token_hex(8), "tipo": tipo, "version_esquema": version,
+              "fecha": None, "autor": {"papel": papel, "identidad": identidad},
+              "entidad": {"tipo": entidad[0], "id": entidad[1]}, "correlacion": correlacion,
+              "clave_idempotencia": clave, "datos": datos or {}}
+        fila = db.execute("SELECT id, huella, fichero FROM eventos WHERE clave=?",
+                          (clave,)).fetchone()
+        if fila:
+            if fila[1] == huella(ev):
+                return Resultado(False, fila[0], fila[2])
+            raise Rechazo(f"la clave «{clave}» ya la usó otro evento distinto ({fila[0]})")
+        ev["fecha"] = _fmt(self._fecha(db, ev, ahora))
+        tipo_def = validar(ev)
+        if correlacion and not db.execute("SELECT 1 FROM eventos WHERE id=?",
+                                          (correlacion,)).fetchone():
+            raise Rechazo(f"correlación con un evento que no existe: {correlacion}")
+        actual = self._entidad(db, entidad[0], entidad[1])
+        nuevo = aplicar(actual, ev, tipo_def)
+        rel = ruta_relativa(ev)
+        firma = self._escribir_fichero(rel, ev)
+        self._guardar(db, rel, firma, ev, nuevo)
+        return Resultado(True, ev["id"], rel)
 
     def _fecha(self, db, ev, ahora) -> datetime:
         """Ahora, pero nunca antes que el último evento de la entidad ni que el correlacionado:
@@ -246,6 +276,17 @@ class Registro:
     def rechazados(self) -> list[dict]:
         return self._leer(self._lista_rechazados)
 
+    def entidades(self, tipo: str) -> dict[str, dict]:
+        """{id: estado calculado} de todas las entidades de un tipo."""
+        return self._leer(lambda db: {i: json.loads(js) for i, js in db.execute(
+            "SELECT id, json FROM entidades WHERE tipo=? ORDER BY id", (tipo,))})
+
+    def eventos_de(self, entidad_tipo: str) -> list[dict]:
+        """Eventos aceptados sobre un tipo de entidad, en orden (fecha, id)."""
+        return self._leer(lambda db: [json.loads(js) for (js,) in db.execute(
+            "SELECT json FROM eventos WHERE entidad_tipo=? ORDER BY fecha, id",
+            (entidad_tipo,))])
+
     @staticmethod
     def _lista_rechazados(db) -> list[dict]:
         return [{"fichero": f, "clase": c, "motivo": m} for f, c, m in db.execute(
@@ -286,16 +327,18 @@ class Registro:
 
     # --- git ----------------------------------------------------------------------------
     def subir(self, reintentos: int = 2) -> str:
-        """Commit de los eventos nuevos (solo esos ficheros) y push con pull --rebase si choca."""
+        """Commit de los eventos nuevos (solo esos ficheros) y de los informes diarios
+        (`informes/`, generados por `org diario`), y push con pull --rebase si choca."""
         def git(*args, check=True):
             r = subprocess.run(["git", "-C", str(self.raiz), *args], capture_output=True,
                                text=True, encoding="utf-8")
             if check and r.returncode:
                 raise Rechazo(f"git {' '.join(args)}: {(r.stderr or r.stdout).strip()}")
             return r
-        lineas = git("status", "--porcelain", "--untracked-files=all", "--", "eventos"
-                     ).stdout.splitlines()
-        tocados = [l[3:] for l in lineas if l[:2] not in ("??", "A ")]
+        lineas = git("status", "--porcelain", "--untracked-files=all", "--", "eventos",
+                     "informes").stdout.splitlines()
+        tocados = [l[3:] for l in lineas
+                   if l[3:].startswith("eventos/") and l[:2] not in ("??", "A ")]
         if tocados:
             raise Rechazo(f"eventos ya registrados modificados o borrados: {tocados}")
         nuevos = [l[3:] for l in lineas]
@@ -306,7 +349,9 @@ class Registro:
             raise Rechazo(f"no se suben eventos mal formados: {sorted(malos)}")
         if nuevos:
             git("add", "--", *nuevos)
-            git("commit", "-m", f"org: {len(nuevos)} evento(s)", "--", *nuevos)
+            n_ev = sum(1 for n in nuevos if n.startswith("eventos/"))
+            extra = f" y {len(nuevos) - n_ev} informe(s)" if len(nuevos) > n_ev else ""
+            git("commit", "-m", f"org: {n_ev} evento(s){extra}", "--", *nuevos)
         if not git("remote", check=False).stdout.strip():
             return f"{len(nuevos)} evento(s) en commit local; sin remoto"
         for intento in range(reintentos + 1):
