@@ -44,7 +44,8 @@ def main(argv: list[str]) -> int:
     secreto = secrets.token_urlsafe(48)  # solo A-Z a-z 0-9 _ -, como pide Telegram
     npx = shutil.which("npx") or "npx"
     r = subprocess.run([npx, "wrangler", "secret", "put", "WEBHOOK_SECRET"], cwd=AQUI,
-                       input=secreto + "\n", text=True, capture_output=True)
+                       input=secreto + "\n", text=True, capture_output=True,
+                       encoding="utf-8", errors="replace")  # wrangler escribe emojis
     if r.returncode:
         print("wrangler secret put falló; no se ha tocado Telegram:\n" + (r.stderr or r.stdout))
         return 1
