@@ -1,0 +1,19 @@
+{
+ "id": "a6d09b6385c46315",
+ "tipo": "tarea.lista",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T23:38:30.751271Z",
+ "autor": {
+  "papel": "planificador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1274"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1274:S-1274-note-2:1:tarea.lista",
+ "datos": {
+  "motivo": "tablero: propuesta -> curso (claude)"
+ }
+}
