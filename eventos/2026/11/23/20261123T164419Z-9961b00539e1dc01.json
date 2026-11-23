@@ -1,0 +1,19 @@
+{
+ "id": "9961b00539e1dc01",
+ "tipo": "tarea.descartada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T16:44:19.549751Z",
+ "autor": {
+  "papel": "direccion",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1289"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1289:S-1289-note-1:0:tarea.descartada",
+ "datos": {
+  "motivo": "tablero: propuesta -> descartada (claude)"
+ }
+}
