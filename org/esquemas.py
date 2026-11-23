@@ -159,6 +159,14 @@ TIPOS: dict[str, Tipo] = {
                                  opcionales={"app": str, "version": str, "huella": str,
                                              "tareas": list})}),
 
+    # --- Interruptor de pausa (02 §9, S-1268) --------------------------------------------
+    # Cada pausa es su propia entidad (pausa:<id>): se activa y se retira una vez. La
+    # organización está en pausa mientras quede alguna «activa». Quién la respeta: P5-2.
+    "pausa.activada": _t("pausa", {"javier"}, None, "activa", {1: Version(
+        obligatorios={"nivel": ("suave", "dura", "emergencia"), "origen": str},
+        opcionales={"ambito": str, "motivo": str})}),
+    "pausa.retirada": _t("pausa", {"javier"}, {"activa"}, "retirada", {1: _MOTIVO_OPC}),
+
     # --- Espejo de la fase 2 (S-1265): el registro observa, no decide ------------------
     # Sin texto libre: ni títulos, ni cuerpos, ni notas, ni prompts (pueden llevar datos
     # personales o textos de clientes). Del texto solo se guarda una huella.

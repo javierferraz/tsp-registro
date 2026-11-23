@@ -1,0 +1,9 @@
+# Worker de los botones de Telegram (S-1268). Despliegue: npx wrangler deploy (desde esta carpeta).
+# Secretos, con `npx wrangler secret put <NOMBRE>`: WEBHOOK_SECRET, JAVIER_ID, GITHUB_TOKEN.
+name = "tsp-registro-telegram"
+main = "worker.mjs"
+compatibility_date = "2026-11-01"
+workers_dev = true
+
+[vars]
+REPO = "javierferraz/tsp-registro"

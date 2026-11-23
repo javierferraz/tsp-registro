@@ -88,6 +88,57 @@ lado del parte de Telegram, que no cambia**, hasta que Javier prefiera uno de lo
 | D-19 | Ventana fija de 24 h | «Desde tu última visita» | El parte no sabe cuándo lo abrió Javier; queda para la puerta (P3-2) |
 | D-20 | `estado/parte.html`, fuera de git | `informes/` en git | Se regenera entero cada día; en git solo sumaría ruido |
 
+## Botones de Telegram que deciden (S-1268, PAA2 P3-3)
+
+Un botón de TSPBot que se pulsa acaba como evento del registro. **Lista cerrada, sin texto
+libre:** pausar (`p:suave|dura|emergencia`), reanudar (`r`), aprobar o rechazar una tarea
+propuesta (`a:<id>`, `x:<id>`) y ver su detalle (`d:<id>`). **Nada publica**: publicar una tanda
+sigue pidiendo la sesión de GitHub de Javier.
+
+```
+Telegram ──POST──▶ Worker de Cloudflare ──repository_dispatch──▶ workflow telegram.yml ──▶ org telegram ──▶ evento + aviso
+               (secreto, quién pulsa, lista)                       (vuelve a validar la acción)
+```
+
+- **Worker** (`telegram/worker.mjs`): sin estado. Si el secreto del webhook no es el nuestro,
+  responde 401; si quien pulsa no es `JAVIER_ID`, «No autorizado.»; si la acción no es de la lista,
+  «Acción no válida.». En los tres casos no sale nada hacia GitHub. Contesta a Telegram en el
+  cuerpo del webhook, así que no lleva el token del bot.
+- **Workflow** (`.github/workflows/telegram.yml`): `org telegram --accion … --pulsacion …
+  --enviar`, que escribe con papel `javier` e identidad `telegram`, y `org subir`. A mano
+  (`workflow_dispatch`) manda el panel: estado de la pausa y su botón.
+- **Pausa:** cada una es una entidad `pausa:tg-<pulsación>` (`pausa.activada` → `activa`,
+  `pausa.retirada` → `retirada`). Hay pausa mientras quede alguna activa; reanudar las retira
+  todas. **Todavía nadie la respeta**: el planificador, los workflows y los hooks la leerán en P5-2.
+- Pruebas: `py -m unittest discover -s tests` y `node --test telegram/`.
+
+**Coste comprobado (2026-11-23):** Workers Free, 0 $, 100 000 peticiones al día y 10 ms de CPU
+por petición; al pasarse, error 1027, no cobro (páginas oficiales *pricing*, *limits* y
+*plans* de Cloudflare). No consta si el alta pide tarjeta. Cada pulsación gasta además un
+minuto de Actions de este repo privado (cupo mensual del plan de GitHub; no lo he comprobado).
+
+**Para encenderlo (lo hace Javier: credenciales y cuenta suyas):**
+
+1. Cuenta gratuita de Cloudflare y `npx wrangler login`.
+2. Token fino de GitHub solo para `javierferraz/tsp-registro`, permiso *Contents: read and
+   write* (el que pide `repository_dispatch` a un token fino, según la tabla de permisos; no
+   verificado).
+3. Desde `telegram/`: `npx wrangler deploy`, luego `npx wrangler secret put GITHUB_TOKEN` y
+   `npx wrangler secret put JAVIER_ID` (su id de usuario de Telegram, no el del canal).
+4. `py telegram/conectar_webhook.py <url del Worker>`: genera el secreto, lo guarda en el
+   Worker y conecta TSPBot sin mostrarlo. `--quitar` lo desconecta.
+5. Secretos `TSPBOT_TOKEN` y `TSPBOT_CHAT_ID` en este repo para los avisos de vuelta.
+6. Lanzar el workflow a mano: llega el panel con «⏸ Pausar».
+
+| N.º | Decisión (S-1268) | Descartada | Por qué |
+|---|---|---|---|
+| D-21 | Cloudflare Worker de intermediario | Cron de GitHub leyendo `getUpdates` | Sin servidor, pero con retrasos de cron y minutos gastados aunque no se pulse nada (a6 §9) |
+| D-22 | La identidad se comprueba en el Worker; el workflow solo revalida la acción | Repetir el id de Javier en GitHub | Solo el Worker ve la pulsación; a `repository_dispatch` solo llega quien tiene token de escritura |
+| D-23 | Una entidad por pausa | Una entidad `pausa:general` que se activa y retira | Un tipo que crea solo vale una vez (`desde` = nada); así no se toca el motor de estados y cada pausa queda con su historia |
+| D-24 | Aprobar y rechazar = `tarea.aprobada` / `tarea.descartada` | Un tipo nuevo de «decisión por botón» | Son las transiciones que ya tiene el papel javier; el ciclo se valida igual |
+| D-25 | Los intentos ajenos no se registran: solo una línea con el motivo en el log del Worker | Evento por intento rechazado | Un desconocido podría llenar el registro a pulsaciones |
+| D-26 | El panel solo ofrece pausa suave y reanudar | Botón de emergencia | Ningún nivel tiene efecto hasta P5-2; un botón de «emergencia» prometería lo que no hace |
+
 ## Cabecera de un evento
 
 `id` (16 hex) · `tipo` · `version_esquema` · `fecha` (UTC, microsegundos) · `autor {papel,
