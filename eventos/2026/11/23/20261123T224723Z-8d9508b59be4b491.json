@@ -1,0 +1,36 @@
+{
+ "id": "8d9508b59be4b491",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T22:47:23.818777Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1276"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1276:n1-ac081f394ed3fba6",
+ "datos": {
+  "estado": "curso",
+  "revision": 2,
+  "creada": "2026-11-22T20:10:38Z",
+  "actualizada": "2026-11-23T22:05:25Z",
+  "huella_texto": "9ea03a3b459d8622",
+  "notas": 3,
+  "etiquetas": [
+   "desarrollo"
+  ],
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-11-23T22:05:25Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

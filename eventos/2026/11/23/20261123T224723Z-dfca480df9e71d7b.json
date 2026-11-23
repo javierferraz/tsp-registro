@@ -1,0 +1,29 @@
+{
+ "id": "dfca480df9e71d7b",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T22:47:23.844118Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1290"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1290",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-11-23T16:59:04Z",
+  "actualizada": "2026-11-23T16:59:04Z",
+  "huella_texto": "4904d18bbac6a739",
+  "notas": 1,
+  "app": "Tiny Chicken",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "media"
+ }
+}

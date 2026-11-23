@@ -1,0 +1,42 @@
+{
+ "id": "78300ce017308620",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T22:47:23.666010Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-589"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-589:n1-9da0d0032246fefa",
+ "datos": {
+  "estado": "info",
+  "revision": 13,
+  "creada": "2026-10-12T20:05:32Z",
+  "actualizada": "2026-11-23T20:51:03Z",
+  "huella_texto": "080e2c06b56350f2",
+  "notas": 15,
+  "etiquetas": [
+   "site"
+  ],
+  "prioridad": "alta",
+  "movimientos": [
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-23T17:02:34Z",
+    "por": "claude"
+   },
+   {
+    "de": "hecha",
+    "a": "info",
+    "fecha": "2026-11-23T20:51:03Z",
+    "por": "otro"
+   }
+  ]
+ }
+}

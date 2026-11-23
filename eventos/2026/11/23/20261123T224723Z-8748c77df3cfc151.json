@@ -1,0 +1,36 @@
+{
+ "id": "8748c77df3cfc151",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T22:47:23.755527Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1258"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1258:n2-1e82f70c5d1723ff",
+ "datos": {
+  "estado": "hecha",
+  "revision": 6,
+  "creada": "2026-11-22T20:09:53Z",
+  "actualizada": "2026-11-23T16:11:23Z",
+  "huella_texto": "2123f43b2be59eab",
+  "notas": 10,
+  "etiquetas": [
+   "desarrollo"
+  ],
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-23T16:11:23Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

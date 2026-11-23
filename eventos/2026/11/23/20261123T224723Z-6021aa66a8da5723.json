@@ -1,0 +1,33 @@
+{
+ "id": "6021aa66a8da5723",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T22:47:23.720921Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1184"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1184:n1-331c8b08a2af3c7f",
+ "datos": {
+  "estado": "validar",
+  "revision": 9,
+  "creada": "2026-11-12T12:39:42Z",
+  "actualizada": "2026-11-23T16:26:55Z",
+  "huella_texto": "1dcbd1162d47e2df",
+  "notas": 14,
+  "etiquetas": [
+   "app"
+  ],
+  "prioridad": "alta",
+  "check": "ojos",
+  "commits": [
+   "8f7de9b51464",
+   "e7c79f533181"
+  ]
+ }
+}

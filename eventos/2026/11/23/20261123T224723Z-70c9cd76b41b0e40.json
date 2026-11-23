@@ -1,0 +1,50 @@
+{
+ "id": "70c9cd76b41b0e40",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T22:47:23.674098Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-624"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-624:n1-bbd60306af1f0a7b",
+ "datos": {
+  "estado": "hecha",
+  "revision": 22,
+  "creada": "2026-10-13T23:23:18Z",
+  "actualizada": "2026-11-23T16:58:53Z",
+  "huella_texto": "d61e31ce93ccfa93",
+  "notas": 36,
+  "app": "Tiny Chicken",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "media",
+  "commits": [
+   "93fb428fc024",
+   "c016bc5150a9",
+   "01affe71b8f3",
+   "7bd177556596",
+   "95dc6ebc3ff2",
+   "1f97c7c06d2e",
+   "bbf5bd4c0742",
+   "feaacf982bf9",
+   "ab0204906b7f",
+   "88c9fb9570f4",
+   "4d7f02ee502a"
+  ],
+  "movimientos": [
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-23T16:58:53Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

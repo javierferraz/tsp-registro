@@ -1,0 +1,26 @@
+{
+ "id": "a1bf898ff9542864",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T22:47:23.683928Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-799"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-799:n1-48beffd90e481276",
+ "datos": {
+  "estado": "validar",
+  "revision": 10,
+  "creada": "2026-10-18T05:53:38Z",
+  "actualizada": "2026-11-23T16:59:20Z",
+  "huella_texto": "6221c2b70c42f07f",
+  "notas": 13,
+  "app": "Roaring Lion",
+  "check": "decision"
+ }
+}

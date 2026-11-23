@@ -1,0 +1,25 @@
+{
+ "id": "0583237760d1d086",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T22:47:23.863236Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1294"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1294",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-11-23T17:17:08Z",
+  "actualizada": "2026-11-23T17:17:08Z",
+  "huella_texto": "5497f717bb4773c0",
+  "notas": 2,
+  "prioridad": "media"
+ }
+}

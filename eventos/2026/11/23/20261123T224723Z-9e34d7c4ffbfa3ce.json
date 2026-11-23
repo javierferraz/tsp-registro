@@ -1,0 +1,40 @@
+{
+ "id": "9e34d7c4ffbfa3ce",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T22:47:23.732131Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1204"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1204:n1-e117e472b7f39da8",
+ "datos": {
+  "estado": "hecha",
+  "revision": 8,
+  "creada": "2026-11-16T07:01:28Z",
+  "actualizada": "2026-11-23T16:59:19Z",
+  "huella_texto": "694255211f5380db",
+  "notas": 14,
+  "etiquetas": [
+   "tablero"
+  ],
+  "prioridad": "alta",
+  "commits": [
+   "7dd07f78b9a3",
+   "9bb365ea6d29"
+  ],
+  "movimientos": [
+   {
+    "de": "validar",
+    "a": "hecha",
+    "fecha": "2026-11-23T16:59:19Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

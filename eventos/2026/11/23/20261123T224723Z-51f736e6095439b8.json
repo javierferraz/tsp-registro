@@ -1,0 +1,26 @@
+{
+ "id": "51f736e6095439b8",
+ "tipo": "informe.importado",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T22:47:23.931577Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "informe",
+  "id": "releases-2026-11-23"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "informe.importado:releases-2026-11-23",
+ "datos": {
+  "vigia": "releases",
+  "fecha": "2026-11-23",
+  "ruta": "docs/distribucion/tandas/2026-11-23.json",
+  "sha256": "a4ee9164ff016692b8d6550c9a34d40713f854a3b94be9a1261c132e48a97934",
+  "cifras": {
+   "apps": 4,
+   "estado": "propuesta"
+  }
+ }
+}

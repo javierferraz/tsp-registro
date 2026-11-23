@@ -1,0 +1,36 @@
+{
+ "id": "17c5d23a76f5caa7",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T22:47:23.728153Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1197"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1197:n1-d6ad0081ea452d25",
+ "datos": {
+  "estado": "descartada",
+  "revision": 2,
+  "creada": "2026-11-14T19:01:14Z",
+  "actualizada": "2026-11-23T10:42:54Z",
+  "huella_texto": "5aa5a4892e239fc3",
+  "notas": 3,
+  "etiquetas": [
+   "distribucion"
+  ],
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "descartada",
+    "fecha": "2026-11-23T10:42:54Z",
+    "por": "claude"
+   }
+  ]
+ }
+}
