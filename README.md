@@ -234,12 +234,16 @@ devoluciones). Cada veredicto lleva la política aplicada y el coste. Salida 0, 
 | D-38 | Contenido y documentación van a bloqueada | Verificarlas sin pruebas | No hay pruebas que repetir; las decide quien las pida hasta que haya un validador para ellas |
 | D-39 | El coste se mide con la API de jobs (`org gasto`) y los segundos en cada veredicto | Estimarlo | La API da el inicio y fin de cada job; es lo que GitHub factura |
 
+**Activo desde el 2026-11-23** (corte en `3b078ad`): las privadas solo están en los secretos
+`ORG_SELLO_VALIDADOR` y `ORG_SELLO_JAVIER`, así que en el PC nadie escribe «verificada» ni
+«aprobado»; eso sale de `validador.yml` y de los botones de Telegram. `sello.yml` (a mano) prueba
+las dos claves sin escribir en el registro.
+
 Límites: en el PC, quien edite `org` o `politica/firmantes` puede saltarse el sello (queda en la
-historia; lo cierra la protección de la rama principal, que activa Javier); en local las pruebas
-corren como el usuario de Javier, sin aislamiento; validar repos de apps privados desde GitHub
-necesita el token de lectura `ORG_LECTOR_REPOS`, y escribir con sello, `ORG_SELLO_VALIDADOR` y
-`ORG_SELLO_JAVIER` (secretos que crea Javier). Hasta entonces el sello está apagado en el registro
-real.
+historia); **la protección de `main` no se aplica**: GitHub crea el ruleset «main protegida» pero
+no lo hace cumplir en un repo privado sin plan Team, así que un force-push podría reescribir la
+historia. En local las pruebas corren como el usuario de Javier, sin aislamiento. Validar repos de
+apps privados desde GitHub necesita el token de lectura `ORG_LECTOR_REPOS`.
 
 ## Cabecera de un evento
 
