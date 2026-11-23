@@ -3,7 +3,8 @@
 Reglas de 06 §5.1: lo que le toca a Javier arriba; cabe en una pantalla; dice lo que no sabe;
 si no ha pasado nada, lo dice en una línea; cada sección tiene un tope.
 
-Solo lee el registro (estado calculado e informe diario de `org diario`). No escribe eventos.
+Solo lee el registro (estado calculado e informe diario de `org diario`) y, del repo central,
+los recordatorios con fecha (`tablero/vigilante-hitos.json`, S-1298). No escribe eventos.
 Sin títulos ni textos: el registro no los guarda (D-8); cada tarjeta enlaza al tablero, que es
 donde está el detalle. Corre al lado del parte de Telegram, que no cambia.
 """
@@ -11,6 +12,7 @@ from __future__ import annotations
 
 import html
 import json
+import os
 from collections import Counter
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -23,6 +25,10 @@ DIAS = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "doming
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
          "septiembre", "octubre", "noviembre", "diciembre"]
 MUESTRA_PEQUENA = 100  # visitantes por debajo de esto: «muestra pequeña»
+TOPE_ARRIBA = 8  # filas de «Necesita tu decisión»: ya van agrupadas y no se pueden perder
+HITOS = "tablero/vigilante-hitos.json"  # recordatorios con fecha (S-1170), en el repo central
+HITOS_ANTES = 2  # días de antelación con que un recordatorio sale en el parte
+PROPUESTAS_NUEVAS = timedelta(days=3)  # «nuevas»: llegadas a Propuestas en estos días
 
 
 def _dt(s: str | None) -> datetime | None:
@@ -81,9 +87,53 @@ def ultimo_informe(raiz: Path) -> tuple[dict | None, datetime | None]:
     return json.loads(fichs[-1].read_text(encoding="utf-8")), hora
 
 
+def leer_hitos(central: Path) -> list | None:
+    """Los recordatorios del repo central: de origin/main (lo que ve el aviso de Telegram,
+    que corre en GitHub) y, si git falla, del disco. None si no se pueden leer."""
+    from .importar import Central
+    try:
+        texto = Central(central).leer(HITOS)
+    except OSError:
+        try:
+            texto = (Path(central) / HITOS).read_text(encoding="utf-8")
+        except OSError:
+            return None
+    try:
+        return list(json.loads(texto).get("hitos") or [])
+    except (ValueError, AttributeError):
+        return None
+
+
+def _recordatorios(hitos: list, hoy) -> list[dict]:
+    """Una fila por recordatorio sin hacer que vence en HITOS_ANTES días o ya ha vencido."""
+    filas = []
+    for h in hitos:
+        try:
+            f = datetime.strptime(str(h.get("fecha")), "%Y-%m-%d").date()
+        except ValueError:
+            continue
+        falta = (f - hoy).days
+        if h.get("hecho") or falta > HITOS_ANTES:
+            continue
+        if falta < 0:
+            cuando = f"Recordatorio del {f:%d-%m}, sin marcar como hecho (hace {_dd(-falta)})"
+        else:
+            cuando = ("Recordatorio para " + ("hoy", "mañana", "pasado mañana")[falta]
+                      + f" ({f:%d-%m})")
+        linea = (str(h.get("texto") or "").strip().splitlines() or [""])[0]
+        if len(linea) > 140:
+            linea = linea[:139] + "…"
+        filas.append({"falta": falta, "nivel": "alto" if falta <= 0 else None,
+                      "texto": f"{cuando}: {linea}"})
+    filas.sort(key=lambda x: x.pop("falta"))
+    return filas
+
+
 def datos(tarjetas: dict, ejecuciones: dict, informes: dict, rechazados: list,
-          informe: dict | None, ahora: datetime, comprobado: datetime | None = None) -> dict:
-    """Las secciones del parte como listas de filas {texto, id?, nivel?}. Puro: testeable."""
+          informe: dict | None, ahora: datetime, comprobado: datetime | None = None,
+          hitos: list | None = ()) -> dict:
+    """Las secciones del parte como listas de filas {texto, id?, nivel?}. Puro: testeable.
+    `hitos`: los recordatorios con fecha; None si no se han podido leer."""
     hoy = ahora.date()
     desde = ahora - VENTANA
     semana = ahora - timedelta(days=7)
@@ -92,13 +142,18 @@ def datos(tarjetas: dict, ejecuciones: dict, informes: dict, rechazados: list,
         return {"id": i, "app": t["datos"].get("app") or "", "texto": texto}
 
     # 1 · Lo que le toca a Javier
-    def grupo(texto, items, lion=False):
-        """Una fila por tipo (06 §5.1, «15 cosas iguales son una línea»), lo más viejo antes."""
-        items.sort(key=lambda x: -(x[1] if x[1] is not None else -1))
+    def grupo(texto, items, lion=False, nuevo_primero=False):
+        """Una fila por tipo (06 §5.1, «15 cosas iguales son una línea»), lo más viejo antes
+        (o lo más nuevo, cuando lo que importa es lo recién llegado)."""
+        items.sort(key=lambda x: (x[1] if x[1] is not None else -1) * (1 if nuevo_primero else -1))
         return {"texto": texto.format(n=len(items), viejo=_dd(items[0][1])), "lion": lion,
                 "enlaces": [(i, _dd(d)) for i, d in items]}
 
-    decide = []
+    decide = _recordatorios(hitos, ahora.astimezone().date()) if hitos else []
+    if hitos is None:
+        decide.append({"texto": "No se han podido leer los recordatorios con fecha del "
+                                "tablero: si toca alguno, solo llega por Telegram.",
+                       "nivel": "alto"})
     preg = [(i, _dias(_ultimo_a(t, "info"), ahora)) for i, t in tarjetas.items()
             if t["estado"] == "info"]
     if preg:
@@ -114,6 +169,19 @@ def datos(tarjetas: dict, ejecuciones: dict, informes: dict, rechazados: list,
         repos = Counter(ejecuciones[i]["datos"].get("repo", "") for i, _ in blq)
         decide.append(grupo("{n} tarea(s) de Lion paradas esperando una decisión tuya ("
                             + _agrupa(repos) + "; la más vieja, {viejo}):", blq, lion=True))
+    nuevas = []
+    for i, t in tarjetas.items():
+        if t["estado"] != "propuesta":
+            continue
+        movida = any(m.get("a") == "propuesta" for m in t["datos"].get("movimientos") or [])
+        llegada = _ultimo_a(t, "propuesta") if movida else _dt(t["datos"].get("creada"))
+        if llegada and llegada > ahora - PROPUESTAS_NUEVAS:
+            nuevas.append((llegada, i))
+    nuevas = [(i, _dias(f, ahora)) for f, i in sorted(nuevas, reverse=True)]  # desempate por hora
+    if nuevas:
+        decide.append(grupo("{n} propuesta(s) nueva(s) de los últimos "
+                            f"{PROPUESTAS_NUEVAS.days} días esperando que las pases a Empezar "
+                            "(la más reciente, {viejo}):", nuevas, nuevo_primero=True))
 
     # 2 · Problemas
     prob = []
@@ -316,9 +384,10 @@ def _fila(f: dict) -> str:
 def _seccion(titulo: str, filas: list, vacio: str, top: bool = False) -> str:
     total = sum(len(f.get("enlaces", [])) or 1 for f in filas)
     n = f" <b>({total})</b>" if filas and top else ""
-    cuerpo = "".join(_fila(f) for f in filas[:TOPE])
-    if len(filas) > TOPE:
-        cuerpo += f"<li>y {len(filas) - TOPE} más.</li>"
+    tope = TOPE_ARRIBA if top else TOPE
+    cuerpo = "".join(_fila(f) for f in filas[:tope])
+    if len(filas) > tope:
+        cuerpo += f"<li>y {len(filas) - tope} más.</li>"
     if not filas:
         cuerpo = f'<li class="vacio">{html.escape(vacio)}</li>'
     cls = ' class="top"' if top else ""
@@ -355,12 +424,18 @@ def render(p: dict) -> str:
         "</footer></main></body></html>\n")
 
 
-def generar(reg, ahora: datetime | None = None) -> Path:
-    """Escribe estado/parte.html (fuera de git, se regenera) y devuelve su ruta."""
+def generar(reg, ahora: datetime | None = None, comprobado: datetime | None = None,
+            central: str | Path | None = None) -> Path:
+    """Escribe estado/parte.html (fuera de git, se regenera) y devuelve su ruta.
+    `comprobado`: cuándo se copió el tablero al registro (por defecto, el último informe).
+    `central`: el repo central, de donde salen los recordatorios con fecha."""
     ahora = ahora or datetime.now(timezone.utc)
-    informe, comprobado = ultimo_informe(reg.raiz)
+    informe, hora_informe = ultimo_informe(reg.raiz)
+    central = Path(central or os.environ.get("ORG_CENTRAL")
+                   or reg.raiz.parent / "2606-thestromboliproject")
     p = datos(reg.entidades("tarjeta"), reg.entidades("ejecucion"),
-              reg.entidades("informe"), reg.rechazados(), informe, ahora, comprobado)
+              reg.entidades("informe"), reg.rechazados(), informe, ahora,
+              max(filter(None, (comprobado, hora_informe)), default=None), leer_hitos(central))
     reg.dir_estado.mkdir(parents=True, exist_ok=True)
     destino = reg.dir_estado / "parte.html"
     tmp = destino.with_suffix(".tmp")

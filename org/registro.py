@@ -388,12 +388,19 @@ class Registro:
         return resumen
 
     def recalcular(self) -> dict:
-        """Borra índice y estado y los vuelve a calcular desde los ficheros de eventos."""
+        """Borra índice y estado y los vuelve a calcular desde los ficheros de eventos.
+        El parte (estado/parte.html) se conserva: no sale de los eventos sino del informe
+        diario y del repo central, y sin él Javier se queda sin parte hasta mañana (S-1298)."""
+        parte = self.dir_estado / "parte.html"
+        guardado = parte.read_bytes() if parte.exists() else None
         if self.ruta_indice.parent.exists():
             shutil.rmtree(self.ruta_indice.parent)
         if self.dir_estado.exists():
             shutil.rmtree(self.dir_estado)
-        return self.volcar_estado()
+        resumen = self.volcar_estado()
+        if guardado is not None:
+            parte.write_bytes(guardado)
+        return resumen
 
     # --- git ----------------------------------------------------------------------------
     def _git(self, *args, check=True, entrada=None):

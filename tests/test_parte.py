@@ -93,6 +93,53 @@ class Parte(unittest.TestCase):
             self.assertEqual(ruta, Path(d) / "estado" / "parte.html")
             self.assertIn("No hay informe diario", ruta.read_text(encoding="utf-8"))
 
+    # S-1298 ---------------------------------------------------------------------------
+    def test_recordatorios_con_fecha_arriba_y_los_vencidos_primero(self):
+        hitos = [{"id": "a", "fecha": "2026-11-24", "hecho": False,
+                  "texto": "Hoy termina la parte 1.\n\nCONTEXTO largo que no sale."},
+                 {"id": "b", "fecha": "2026-11-21", "hecho": False, "texto": "Vencido."},
+                 {"id": "c", "fecha": "2026-11-23", "hecho": True, "texto": "Ya hecho."},
+                 {"id": "d", "fecha": "2026-11-30", "hecho": False, "texto": "Lejano."},
+                 {"id": "e", "fecha": "mal", "texto": "Sin fecha válida."}]
+        dec = datos({}, {}, {}, [], INFORME, AHORA, hitos=hitos)["decide"]
+        textos = [f["texto"] for f in dec]
+        self.assertEqual(len(textos), 2, textos)
+        self.assertTrue(textos[0].startswith("Recordatorio del 21-11, sin marcar como hecho"))
+        self.assertEqual(textos[1], "Recordatorio para mañana (24-11): Hoy termina la parte 1.")
+        self.assertEqual(dec[0]["nivel"], "alto")
+        self.assertNotIn("CONTEXTO", render(datos({}, {}, {}, [], INFORME, AHORA, hitos=hitos)))
+
+    def test_si_no_se_leen_los_recordatorios_lo_dice(self):
+        dec = datos({}, {}, {}, [], INFORME, AHORA, hitos=None)["decide"]
+        self.assertIn("No se han podido leer los recordatorios", dec[0]["texto"])
+
+    def test_propuestas_nuevas_esperando_empezar_lo_mas_reciente_primero(self):
+        def prop(creada, movs=(), estado="propuesta"):
+            t = tarj(estado, movs=movs)
+            t["datos"]["creada"] = creada
+            return t
+        t = {"S-1": prop("2026-11-22T09:00:00Z"),                       # hace 1 día: sale
+             "S-2": prop("2026-11-23T07:00:00Z"),                       # hoy: sale, primera
+             "S-3": prop("2026-11-10T09:00:00Z"),                       # vieja: no sale
+             "S-4": prop("2026-11-01T09:00:00Z",                        # vieja, pero llegó
+                         movs=[("propuesta", "2026-11-21T09:00:00Z")]),  # hace 2 días: sale
+             "S-5": prop("2026-11-23T07:00:00Z", estado="adelante")}     # ya en Empezar
+        dec = datos(t, {}, {}, [], INFORME, AHORA)["decide"]
+        self.assertEqual(len(dec), 1)
+        self.assertTrue(dec[0]["texto"].startswith("3 propuesta(s) nueva(s)"), dec[0]["texto"])
+        self.assertIn("la más reciente, 0 d", dec[0]["texto"])
+        self.assertEqual([i for i, _ in dec[0]["enlaces"]], ["S-2", "S-1", "S-4"])
+
+    def test_recalcular_no_borra_el_parte(self):
+        with tempfile.TemporaryDirectory() as d:
+            reg = Registro(d)
+            ruta = generar(reg, AHORA, central=d)
+            antes = ruta.read_bytes()
+            reg.recalcular()
+            self.assertTrue(ruta.exists())
+            self.assertEqual(ruta.read_bytes(), antes)
+            self.assertTrue((Path(d) / "estado" / "resumen.json").exists())
+
 
 if __name__ == "__main__":
     unittest.main()
