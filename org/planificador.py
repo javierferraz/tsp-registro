@@ -23,6 +23,7 @@ se vuelve a comprobar que la tarea sigue en `lista` (la otra máquina pudo asign
 """
 from __future__ import annotations
 
+import socket
 from datetime import datetime, timedelta, timezone
 
 from . import recursos, trabajo
@@ -317,6 +318,9 @@ def ejecutar(reg, plan: dict, *, identidad=IDENTIDAD, asignar=False, ejecutor=No
         return out
     if not ejecutor:
         raise Rechazo("asignar necesita --ejecutor: quien vaya a trabajar la tarea")
+    # Dos planificadores con el mismo nombre en máquinas distintas no pueden valer por uno solo:
+    # la reserva da por buena a la misma identidad. Se distingue por máquina.
+    identidad = f"{identidad}@{maquina or socket.gethostname().lower()}"
     objetivo = len(plan["arrancar"])
     modelos = {p["tarea"]: p["modelo"] for p in plan["orden"]}
     for tid in plan["elegibles"]:
@@ -345,12 +349,16 @@ def ejecutar(reg, plan: dict, *, identidad=IDENTIDAD, asignar=False, ejecutor=No
         try:
             reg.escribir("tarea.asignada", ("tarea", tid), "planificador", identidad,
                          f"plan:{tid}:asignada:{_n_asignacion(t)}", datos, ahora=ahora)
-            if subir:
-                trabajo._subir(reg)
+            estado_subida = trabajo._subir(reg) if subir else ""
         except Rechazo as e:
             out["perdidas"].append({"tarea": tid, "motivo": str(e)})
             continue
         out["asignadas"].append({"tarea": tid, **datos, "reserva": r["reserva"]})
+        if str(estado_subida).startswith("sin subir"):
+            # Asignada solo aquí: otra máquina la vería en lista al caducar la reserva. No se
+            # asigna nada más hasta que salga la subida.
+            out["error"] = f"{tid} asignada solo en local ({estado_subida}); parado"
+            break
     return out
 
 

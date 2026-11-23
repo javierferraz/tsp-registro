@@ -280,7 +280,7 @@ class Escritura(Cola):
         self.assertEqual(a["ejecucion"]["modelo"], "opus")
         self.assertEqual(r["asignadas"][0]["tarea"], "A")
         self.assertEqual(recursos.titular(self.reg, recursos_tarea("A"), en(62))["titular"],
-                         "planificador")
+                         "planificador@pc")
 
     def test_con_pausa_no_escribe_nada(self):
         self.nueva(tid="A", estado="aprobada")
@@ -423,6 +423,34 @@ class DosSitios(Cola):
         self.reg.subir()
         self.assertEqual(self.asignadas(self.b), {"T0": "lion"})
         self.assertEqual(self.b.rechazados(), [])
+
+    def test_misma_identidad_en_dos_maquinas_tampoco_asigna_dos_veces(self):
+        for i in range(2):
+            self.nueva(tid=f"T{i}", minuto=i, valoracion={"notas": notas()})
+        self.reg.subir()
+        self.b.traer()
+        pa = pl.planificar(self.reg, ahora=en(60), capacidad=1)
+        pb = pl.planificar(self.b, ahora=en(60), capacidad=1)
+        ra = pl.ejecutar(self.reg, pa, asignar=True, ejecutor="lion", maquina="pc", ahora=en(61))
+        rb = pl.ejecutar(self.b, pb, asignar=True, ejecutor="gh", maquina="github", ahora=en(62))
+        self.assertEqual([x["tarea"] for x in ra["asignadas"]], ["T0"])
+        self.assertEqual([x["tarea"] for x in rb["asignadas"]], ["T1"])
+        self.assertEqual(self.asignadas(self.reg), {"T0": "lion", "T1": "gh"})
+
+    def test_si_la_subida_falla_tras_asignar_se_para_y_lo_dice(self):
+        for i in range(2):
+            self.nueva(tid=f"T{i}", minuto=i, valoracion={"notas": notas()})
+        self.reg.subir()
+        p = pl.planificar(self.reg, ahora=en(60), capacidad=2)
+        original = pl.trabajo._subir
+        pl.trabajo._subir = lambda reg: "sin subir: sin red"
+        try:
+            r = pl.ejecutar(self.reg, p, asignar=True, ejecutor="lion", maquina="pc",
+                            ahora=en(61), subir=True)
+        finally:
+            pl.trabajo._subir = original
+        self.assertEqual(len(r["asignadas"]), 1)
+        self.assertIn("solo en local", r["error"])
 
     def test_si_la_otra_ya_la_asigno_y_solto_no_se_vuelve_a_asignar(self):
         self.nueva(tid="T0", valoracion={"notas": notas()})

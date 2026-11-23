@@ -315,6 +315,7 @@ py -m org escribir tarea.valorada tarea:T-1 --papel direccion --identidad dir --
 - **Dónde corre.** El comando es el mismo en los dos sitios. GitHub: `planificador.yml` (a mano y
   una vez al día, en simulación: deja el plan en `informes/planificador/`; solo asignaría
   documentación y contenido). Roaring Lion: **aún no lo llama** (hay que cambiarlo en su repo).
+- **Identidad al asignar:** se añade `@<máquina>` (`--maquina`, o el nombre del equipo), para que dos planificadores con el mismo nombre en máquinas distintas no cuenten como uno. Si la subida falla tras asignar, para y devuelve `error`. Una tarea asignada a un ejecutor que no trabaja caduca a los 20 min y su tarjeta vuelve a Empezar.
 - **Qué no hace:** no aprueba tarjetas (M6, sigue siendo del arrancador y de Javier), no publica,
   no valida ni cierra (eso es el validador), y no asigna a un ejecutor que no existe: sin
   trabajador que lata, la tarea caducaría a los 20 minutos.
