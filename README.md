@@ -65,6 +65,29 @@ py -m org cartera                 # cartera desde el manifest frente a las cuatr
   columna, fechas, revisión, etiquetas, app, número de notas, commits y una huella del texto (16
   caracteres de un sha256) que dice *que* cambió, no *qué*. Del soporte, solo cuántos correos.
 
+## El parte diario (S-1266, PAA2 P3-1)
+
+Una sola página HTML generada del registro: `estado/parte.html` (fuera de git; se rehace cada
+mañana al final de `org diario`, o a mano con `py -m org parte`). Se abre en Helios. **Corre al
+lado del parte de Telegram, que no cambia**, hasta que Javier prefiera uno de los dos.
+
+- **Orden (06 §5.1):** lo que le toca a Javier arriba (preguntas en «Pendiente», tarjetas de «Por
+  validar» con comprobación *decisión*, tareas de Lion paradas), y luego problemas, hecho en las
+  últimas 24 h, en marcha, sin verificar, negocio y gasto.
+- **Dice lo que no sabe:** registro sin informe de hoy, vigía con «sin cambios» falso, muestra
+  pequeña, ventas y coste sin dato. Si una sección está vacía, lo dice en una línea.
+- **Tope:** 5 filas por sección y 8 identificadores por fila agrupada; el resto se cuenta.
+- **Sin títulos ni rutas:** el registro no los guarda (D-8). Cada tarjeta enlaza al tablero
+  local, donde está el detalle; las tareas de Lion salen con su id y su repo, sin enlace.
+- Solo lee: no escribe eventos. Si falla, `org diario` sigue y lo apunta en su línea del log.
+
+| N.º | Decisión (S-1266) | Descartada | Por qué |
+|---|---|---|---|
+| D-17 | Sin títulos de tarjeta: id con enlace al tablero, app y antigüedad | Leer los títulos del tablero al generar | Pueden llevar nombres o textos de clientes (D-8 y prompt P3-1: sin datos personales) |
+| D-18 | «Por validar» con *ojos* o *máquina* va a «Sin verificar», no arriba | Todo «Por validar» arriba | Esas las puede cerrar otro verificador (PAA M5); arriba solo lo que solo decide Javier |
+| D-19 | Ventana fija de 24 h | «Desde tu última visita» | El parte no sabe cuándo lo abrió Javier; queda para la puerta (P3-2) |
+| D-20 | `estado/parte.html`, fuera de git | `informes/` en git | Se regenera entero cada día; en git solo sumaría ruido |
+
 ## Cabecera de un evento
 
 `id` (16 hex) · `tipo` · `version_esquema` · `fecha` (UTC, microsegundos) · `autor {papel,

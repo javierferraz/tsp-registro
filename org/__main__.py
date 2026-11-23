@@ -67,9 +67,16 @@ def _fase2(reg: Registro, a) -> int:
         {"fecha": fecha, "importado": imp, "comparacion": comp, "cartera": c},
         ensure_ascii=False, indent=1, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
     reg.volcar_estado()
+    from .parte import generar
+    try:  # el parte (S-1266): estado/parte.html, fuera de git; si falla, el diario sigue
+        parte = "parte al día"
+        generar(reg)
+    except Exception as ex:  # noqa: BLE001
+        parte = f"parte sin generar ({type(ex).__name__}: {ex})"
     subida = "sin subir" if a.sin_subir else reg.subir()
     linea = (f"{datetime.now(timezone.utc):%Y-%m-%dT%H:%M:%SZ} diario {fecha}: "
-             f"{imp['eventos']} evento(s), {len(imp['rechazados'])} rechazado(s); {subida}")
+             f"{imp['eventos']} evento(s), {len(imp['rechazados'])} rechazado(s); {subida}; "
+             f"{parte}")
     log = reg.raiz / ".indice" / "diario.log"
     log.parent.mkdir(exist_ok=True)
     with log.open("a", encoding="utf-8") as f:
@@ -131,6 +138,7 @@ def main(argv=None) -> int:
     t = sub.add_parser("tipos", help="tipos de evento y quién puede escribirlos")
     t.add_argument("--papel")
     sub.add_parser("subir", help="commit de los eventos nuevos y push (pull --rebase si choca)")
+    sub.add_parser("parte", help="genera estado/parte.html desde el registro, sin importar nada")
 
     # Fase 2 (S-1265): importador, comparación diaria y cartera. Solo leen las fuentes.
     for nombre, ayuda in (
@@ -183,6 +191,9 @@ def main(argv=None) -> int:
                      for n, d in TIPOS.items() if not a.papel or a.papel in d.papeles})
         elif a.orden == "subir":
             print(reg.subir())
+        elif a.orden == "parte":
+            from .parte import generar
+            print(generar(reg))
         elif a.orden in ("importar", "comparar", "cartera", "diario"):
             return _fase2(reg, a)
     except Rechazo as ex:
