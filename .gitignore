@@ -6,3 +6,5 @@ __pycache__/
 .pytest_cache/
 .env
 semaforo.txt
+# caché local de wrangler al desplegar el Worker de telegram/
+.wrangler/
