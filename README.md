@@ -194,6 +194,53 @@ nuevos usan v2, la v1 queda para lo ya escrito); sin red, `reservar` no confirma
 («sin_confirmar»); las reservas por máquina y pantalla dependen de que todos los procesos usen
 `org`, no hay nada que impida usar el recurso sin reservarlo.
 
+## Validador central y sello (S-1270, PAA2 P4-2)
+
+`py -m org validar <tarea>` decide sobre una tarea entregada (informe v2) **sin fiarse del
+informe**: copia limpia del repo, comprueba que los commits existen, están en la cabeza y no en la
+rama principal, que los ficheros declarados son los del diff, **repite las pruebas de
+`.claude/checks.json` de la rama principal** (no las de la rama entregada) sobre la cabeza y con un
+entorno sin secretos, y lee cada evidencia. Una evidencia es `check:<prueba>`, `url:<https…>`,
+`registro:<evento>` o la ruta de un fichero de la cabeza (con `#sha256=` opcional); el texto libre
+no cuenta. Escribe `evidencia.verificada` (la salida de las pruebas, con su hash) y
+`tarea.verificada` v2, `tarea.devuelta` v2 (con la lista de fallos) o `tarea.bloqueada` (sin
+pruebas que repetir, tipo que aún no sabe validar —contenido, documentación— o tras 3
+devoluciones). Cada veredicto lleva la política aplicada y el coste. Salida 0, 1 o 3.
+
+- **Quien implementa no verifica:** ni el ejecutor ni quien entregó pueden escribir verificada,
+  evidencia ni revisión (lo rechaza el estado, no solo el validador).
+- **Interfaz, web, «publica», M y L** necesitan además una `revision.emitida` en «ok» sobre esa
+  misma cabeza (`org revisar`, papel `revisor`, otra ejecución). Interfaz, también la medida visual
+  del laboratorio. La web: cada URL de la tarea responde y contiene lo esperado.
+- **Sello** (`org/sello.py`): con `politica/firmantes` en el registro, los eventos de validador,
+  laboratorio y javier (salvo la pausa) solo cuentan si el commit que añadió su fichero está
+  firmado (SSH) con la clave de ese papel. Declarar `--papel validador` o `--papel javier`, escribir
+  el fichero a mano, firmar con otra clave o copiar y retocar un evento sellado lo deja en
+  rechazados (clase «sello»). La clave privada va en `ORG_SELLO` y `org subir` firma. `desde <sha>`
+  en ese fichero marca el corte: lo que entró antes vale sin firma.
+- **En GitHub** (`.github/workflows/validador.yml`, a mano): un job sin secretos de escritura
+  juzga, con las pruebas corriendo como un usuario sin privilegios que no puede tocar la decisión;
+  otro job, que no ejecuta nada de la entrega, la comprueba y la registra con el sello. Sin tarea,
+  hace la **autoprueba** (valida el último commit de este repo en un registro temporal) para medir.
+- **Minutos:** `py -m org gasto` lee los runs del workflow y suma por job, redondeando al minuto y
+  multiplicando por sistema (Linux 1, Windows 2, macOS 10), como factura GitHub.
+
+| N.º | Decisión (S-1270) | Descartada | Por qué |
+|---|---|---|---|
+| D-34 | Sello por commit firmado con una clave por papel, comprobado al indexar | Fiarse del papel declarado; un token por papel | Con el papel declarado cualquiera escribe «verificada»; el token de GitHub no llega al índice de cada máquina y la firma sí (va en la historia) |
+| D-35 | Se activa con `politica/firmantes`, con corte `desde <sha>` | Activarlo siempre | Sin corte, activar el sello anularía las aprobaciones ya registradas; los registros de prueba no lo necesitan |
+| D-36 | Las pruebas que se repiten son las de la rama principal | Las de la rama entregada | El trabajador podría rebajarlas en su rama |
+| D-37 | Juzgar y registrar en dos jobs; las pruebas, como otro usuario | Un job con la clave | El código entregado se ejecuta: con la clave en el mismo job, podría leerla o reescribir la decisión |
+| D-38 | Contenido y documentación van a bloqueada | Verificarlas sin pruebas | No hay pruebas que repetir; las decide quien las pida hasta que haya un validador para ellas |
+| D-39 | El coste se mide con la API de jobs (`org gasto`) y los segundos en cada veredicto | Estimarlo | La API da el inicio y fin de cada job; es lo que GitHub factura |
+
+Límites: en el PC, quien edite `org` o `politica/firmantes` puede saltarse el sello (queda en la
+historia; lo cierra la protección de la rama principal, que activa Javier); en local las pruebas
+corren como el usuario de Javier, sin aislamiento; validar repos de apps privados desde GitHub
+necesita el token de lectura `ORG_LECTOR_REPOS`, y escribir con sello, `ORG_SELLO_VALIDADOR` y
+`ORG_SELLO_JAVIER` (secretos que crea Javier). Hasta entonces el sello está apagado en el registro
+real.
+
 ## Cabecera de un evento
 
 `id` (16 hex) · `tipo` · `version_esquema` · `fecha` (UTC, microsegundos) · `autor {papel,
@@ -213,7 +260,8 @@ identidad}` · `entidad {tipo, id}` · `correlacion` (id del evento que lo origi
 | Papel | Puede escribir |
 |---|---|
 | trabajador | latido, punto de control, entrega, pausa, bloqueo, decisión A/B, incidencia; pedir, renovar, liberar y retirar su reserva |
-| validador / laboratorio | evidencia verificada, verificada, devuelta, integrada (y cerrada, el validador) |
+| validador / laboratorio | evidencia verificada, verificada, devuelta, integrada (y cerrada, el validador); con sello (S-1270) |
+| revisor | revisión emitida (ok, changes o reject sobre una cabeza); nunca quien hizo la tarea |
 | planificador | aprobada (M6), lista, asignada, caducada, pausa, bloqueo; reservas (también soltar la de otro) |
 | direccion / motor | propuesta de tarea (dirección también descarta); el motor, incidencias |
 | javier | objetivo, propuesta, aprobada, descartada, pausa, cerrada, decisión C |
@@ -231,6 +279,8 @@ Tarea: `propuesta → aprobada → lista → en_curso → entregada → verifica
   y todas las máquinas lo ven en `estado/rechazados.json`. Resolverlo es escribir un evento nuevo.
 - Si un fichero ya indexado cambia o desaparece, el índice se rehace solo; vigilar que nadie toque
   la historia es cosa de git (`org subir` avisa).
+- **sello:** evento de un papel sellado sin la firma de su clave (S-1270). No cuenta y `org subir`
+  se niega a subirlo sin la clave; si después llega firmado, el índice lo vuelve a mirar.
 
 ## Decisiones tomadas (S-1264, revisables)
 
@@ -260,6 +310,7 @@ Pendiente de llevar a `02-arquitectura.md` cuando se toque (lo lleva la sesión 
 - **La identidad es declarada.** En el PC todas las sesiones son el usuario de Javier: `org`
   comprueba el papel que se declara, no quién es de verdad. La separación fuerte (credencial por
   papel, rama principal protegida y paso de entrada que revalida cada evento) es de la fase 4.
+  El sello (S-1270) ya cubre validador, laboratorio y javier cuando se activa.
 - Cada escritura recorre `eventos/` para ver si hay ficheros nuevos; con cientos de miles de
   eventos habrá que cambiarlo. El importador escribe en lote (`escribir_lote`): un recorrido por
   pasada.

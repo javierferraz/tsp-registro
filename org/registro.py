@@ -15,7 +15,8 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from .esquemas import Conflicto, Rechazo, huella, validar
+from . import sello
+from .esquemas import Conflicto, Rechazo, SinSello, huella, validar
 from .estado import aplicar
 
 FMT_FECHA = "%Y-%m-%dT%H:%M:%S.%fZ"
@@ -93,8 +94,24 @@ class Registro:
         en_disco = self._ficheros()
         vistos = dict(db.execute(
             "SELECT fichero, firma FROM eventos UNION ALL SELECT fichero, firma FROM rechazados"))
+        # Sello (S-1270): si cambia la lista de firmantes, o el commit de un evento rechazado
+        # por falta de sello (p. ej. el validador ya lo ha subido firmado), se recalcula todo.
+        politica = sello.huella_politica(self.raiz)
+        fila = db.execute("SELECT v FROM meta WHERE k='politica'").fetchone()
+        if fila and fila[0] != politica:
+            return self._rehacer(db)
+        sin_sello = dict(db.execute("SELECT fichero, firma FROM rechazados WHERE clase='sello'"))
+        if sin_sello:
+            ahora = sello.comprobar(self.raiz, sorted(sin_sello))
+            for rel, firma in sin_sello.items():
+                base, _, senal = firma.partition("|")
+                if rel in en_disco and ahora[rel][0] != senal:
+                    return self._rehacer(db)
+                vistos[rel] = base
         if any(en_disco.get(rel) != firma for rel, firma in vistos.items()):
             return self._rehacer(db)
+        if not fila:
+            db.execute("INSERT OR REPLACE INTO meta VALUES ('politica', ?)", (politica,))
         leidos = []
         for rel, firma in en_disco.items():
             if rel in vistos:
@@ -110,8 +127,11 @@ class Registro:
         fila = db.execute("SELECT v FROM meta WHERE k='ultimo'").fetchone()
         if fila and _orden(leidos[0][2]) <= tuple(json.loads(fila[0])):
             return self._rehacer(db)  # ha llegado algo anterior a lo ya aplicado (otra máquina)
+        sellos = {}
+        if sello.activo(self.raiz):
+            sellos = sello.comprobar(self.raiz, [rel for rel, _, ev in leidos if sello.exige(ev)])
         for rel, firma, ev in leidos:
-            self._incorporar(db, rel, firma, ev)
+            self._incorporar(db, rel, firma, ev, sellos.get(rel))
 
     def _rehacer(self, db) -> None:
         for tabla in ("eventos", "entidades", "rechazados", "meta"):
@@ -120,15 +140,24 @@ class Registro:
 
     @staticmethod
     def _rechazar(db, rel, firma, e: Exception) -> None:
-        clase = "conflicto" if isinstance(e, Conflicto) else "esquema"
+        clase = ("conflicto" if isinstance(e, Conflicto) else
+                 "sello" if isinstance(e, SinSello) else "esquema")
         motivo = str(e) if isinstance(e, Rechazo) else f"evento ilegible ({type(e).__name__}: {e})"
         db.execute("INSERT INTO rechazados VALUES (?, ?, ?, ?)", (rel, clase, motivo, firma))
 
-    def _incorporar(self, db, rel: str, firma: str, ev: dict) -> None:
+    def _incorporar(self, db, rel: str, firma: str, ev: dict, sellado=None) -> None:
         try:
             tipo = validar(ev)
             if rel != ruta_relativa(ev):
                 raise Rechazo(f"el fichero debería llamarse {ruta_relativa(ev)}")
+            if sellado is not None:  # (señal, papel firmante, motivo): sello.comprobar
+                senal, firmante, motivo = sellado
+                papel = ev["autor"]["papel"]
+                if motivo is None and firmante not in (papel, sello.HISTORICO):
+                    motivo = f"firmado por «{firmante}», no por el papel {papel}"
+                if motivo:
+                    firma = f"{firma}|{senal}"
+                    raise SinSello(f"el papel {papel} necesita su sello: {motivo}")
             otro = db.execute("SELECT id FROM eventos WHERE clave=?",
                               (ev["clave_idempotencia"],)).fetchone()
             if otro:
@@ -223,6 +252,13 @@ class Registro:
             raise Rechazo(f"la clave «{clave}» ya la usó otro evento distinto ({fila[0]})")
         ev["fecha"] = _fmt(self._fecha(db, ev, ahora))
         tipo_def = validar(ev)
+        if sello.exige(ev) and sello.activo(self.raiz):
+            tiene = self._papel_sello()
+            if tiene != papel:
+                raise SinSello(
+                    f"el papel {papel} solo escribe con su sello ({sello.VARIABLE_CLAVE} = clave "
+                    f"de ese papel en {sello.RUTA_FIRMANTES}); "
+                    + (f"la clave local es de «{tiene}»" if tiene else "no hay clave local"))
         if correlacion and not db.execute("SELECT 1 FROM eventos WHERE id=?",
                                           (correlacion,)).fetchone():
             raise Rechazo(f"correlación con un evento que no existe: {correlacion}")
@@ -232,6 +268,13 @@ class Registro:
         firma = self._escribir_fichero(rel, ev)
         self._guardar(db, rel, firma, ev, nuevo)
         return Resultado(True, ev["id"], rel)
+
+    def _papel_sello(self) -> str | None:
+        """Papel de la clave de ORG_SELLO según politica/firmantes (una vez por proceso)."""
+        clave = sello.clave_local()
+        if getattr(self, "_sello_cache", (None,))[0] != clave:
+            self._sello_cache = (clave, sello.papel_de_clave(self.raiz, clave))
+        return self._sello_cache[1]
 
     def _fecha(self, db, ev, ahora) -> datetime:
         """Ahora, pero nunca antes que el último evento de la entidad ni que el correlacionado:
@@ -400,6 +443,26 @@ class Registro:
         malos = {r["fichero"] for r in self.rechazados() if r["clase"] == "esquema"} & set(nuevos)
         if malos:
             raise Rechazo(f"no se suben eventos mal formados: {sorted(malos)}")
+        # Sello (S-1270): un evento de papel sellado solo sube firmado con la clave de su papel.
+        firma = []
+        if sello.activo(self.raiz):
+            sellados = set()
+            for n in nuevos:
+                if n.startswith("eventos/"):
+                    try:
+                        ev = json.loads((self.raiz / n).read_text(encoding="utf-8"))
+                    except (OSError, ValueError):
+                        continue
+                    if sello.exige(ev):
+                        sellados.add(ev["autor"]["papel"])
+            tiene = self._papel_sello()
+            if sellados - {tiene}:
+                raise SinSello(f"no se suben eventos de {sorted(sellados - {tiene})} sin su "
+                               f"sello ({sello.VARIABLE_CLAVE})")
+            if tiene:
+                firma = sello.args_firma(sello.clave_local())
+        if firma:
+            git = lambda *a, **k: self._git(*firma, *a, **k)  # noqa: E731
         if nuevos:
             # Las rutas van por la entrada estándar: con miles de eventos (la primera
             # importación) la línea de órdenes pasa del límite de Windows (WinError 206).

@@ -39,7 +39,16 @@ jobs:
           PULSACION: ${{ github.event.client_payload.pulsacion }}
           TSPBOT_TOKEN: ${{ secrets.TSPBOT_TOKEN }}
           TSPBOT_CHAT_ID: ${{ secrets.TSPBOT_CHAT_ID }}
-        run: python -m org telegram --accion "$ACCION" --pulsacion "$PULSACION" --subir --enviar
+          # Sello del papel javier (S-1270): con politica/firmantes, sin esta clave sus
+          # aprobaciones no cuentan. Aquí no se ejecuta código de nadie más.
+          CLAVE: ${{ secrets.ORG_SELLO_JAVIER }}
+        run: |
+          if [ -n "$CLAVE" ]; then
+            umask 077
+            printf '%s\n' "$CLAVE" > "$RUNNER_TEMP/sello"
+            export ORG_SELLO="$RUNNER_TEMP/sello"
+          fi
+          python -m org telegram --accion "$ACCION" --pulsacion "$PULSACION" --subir --enviar
       - name: Panel
         if: github.event_name == 'workflow_dispatch'
         env:

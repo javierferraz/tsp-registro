@@ -1,0 +1,135 @@
+name: Validador central
+
+# PAA2 P4-2 (S-1270). Repite las pruebas de una tarea entregada, lee sus evidencias y decide:
+# verificada, devuelta o bloqueada. Es el único que escribe «verificada».
+#
+# Dos jobs, para que el código entregado nunca comparta job con la clave del sello:
+# - juzgar: sin secretos de escritura. Copia el repo de la tarea, ejecuta sus pruebas como un
+#   usuario sin privilegios (no puede tocar la decisión ni la salida) y deja la decisión como
+#   artefacto. Sin tarea, hace la autoprueba (valida el último commit de este repo en un registro
+#   temporal) para medir cuánto cuesta.
+# - registrar: no ejecuta nada de la entrega. Comprueba la decisión (misma entrega, mismo hash de
+#   la salida) y la escribe con el sello del validador si existe el secreto.
+#
+# Secretos opcionales (los crea Javier):
+# - ORG_LECTOR_REPOS: token de solo lectura de los repos de apps privados.
+# - ORG_SELLO_VALIDADOR: clave SSH privada del papel validador (su pública, en politica/firmantes).
+# Minutos gastados: `python -m org gasto` (API de GitHub, redondeo por job).
+
+on:
+  workflow_dispatch:
+    inputs:
+      tarea:
+        description: "Tarea a validar (vacío: autoprueba, para medir el coste)"
+        required: false
+        default: ""
+      ensayo:
+        description: "Decidir sin escribir en el registro"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  juzgar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Usuario sin privilegios para el código entregado
+        run: sudo useradd --create-home --shell /usr/sbin/nologin org-pruebas
+      - name: Copia del repo de la tarea (solo lectura)
+        if: inputs.tarea != ''
+        env:
+          TAREA: ${{ inputs.tarea }}
+          LECTOR: ${{ secrets.ORG_LECTOR_REPOS }}
+        run: |
+          REPO=$(python -c "import os; from org import Registro; t = Registro('.').ver('tarea', os.environ['TAREA']); print((t or {}).get('repo', ''))")
+          if ! [[ "$REPO" =~ ^[A-Za-z0-9._-]+$ ]]; then echo "tarea sin repo válido: '$REPO'"; exit 1; fi
+          AUTH=()
+          if [ -n "$LECTOR" ]; then
+            AUTH=(-c "http.extraheader=AUTHORIZATION: basic $(printf 'x-access-token:%s' "$LECTOR" | base64 -w0)")
+          fi
+          # -c antes de clone: la cabecera no se guarda en la copia.
+          git "${AUTH[@]}" clone --quiet --no-checkout "https://github.com/javierferraz/$REPO.git" "$RUNNER_TEMP/fuente"
+      - name: Juzgar
+        env:
+          TAREA: ${{ inputs.tarea }}
+          ORG_IDENTIDAD: validador-github
+          ORG_AISLAR_USUARIO: org-pruebas
+        run: |
+          mkdir -p "$RUNNER_TEMP/validacion"
+          set +e
+          if [ -z "$TAREA" ]; then
+            python -m org validar --autoprueba --salida "$RUNNER_TEMP/validacion/decision.json"
+          else
+            python -m org validar "$TAREA" --ensayo --fuente "$RUNNER_TEMP/fuente" \
+              --evidencias "$RUNNER_TEMP/validacion" --salida "$RUNNER_TEMP/validacion/decision.json"
+          fi
+          echo "salida: $?"
+          test -s "$RUNNER_TEMP/validacion/decision.json"
+      - name: Resumen
+        run: |
+          python - >> "$GITHUB_STEP_SUMMARY" <<'EOF'
+          import json, os
+          d = json.load(open(os.path.join(os.environ["RUNNER_TEMP"], "validacion", "decision.json"), encoding="utf-8"))
+          print(f"## {d['tarea']}: {d['veredicto']}\n")
+          print(f"Política {d['politica']} · cabeza `{d['cabeza'][:12]}` · {d['coste']['segundos']} s\n")
+          for c in d["comprobaciones"]:
+              print(f"- {c['resultado']}: {c['nombre']}" + (f" — {c['detalle']}" if c.get("detalle") else ""))
+          if d.get("bloqueo"):
+              print(f"\nBloqueada: {d['bloqueo']}")
+          EOF
+      - uses: actions/upload-artifact@v4
+        with:
+          name: validacion
+          path: ${{ runner.temp }}/validacion/
+          retention-days: 90
+
+  registrar:
+    needs: juzgar
+    if: inputs.tarea != '' && !inputs.ensayo
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: validacion
+          path: ${{ runner.temp }}/validacion
+      - name: Identidad de git
+        run: |
+          git config user.name "tsp-registro validador"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Registrar con el sello
+        env:
+          CLAVE: ${{ secrets.ORG_SELLO_VALIDADOR }}
+          ORG_IDENTIDAD: validador-github
+        run: |
+          if [ -n "$CLAVE" ]; then
+            umask 077
+            printf '%s\n' "$CLAVE" > "$RUNNER_TEMP/sello"
+            export ORG_SELLO="$RUNNER_TEMP/sello"
+          fi
+          V="$RUNNER_TEMP/validacion"
+          LOG=$(python -c "import json, os, sys; d = json.load(open(sys.argv[1], encoding='utf-8')); print(os.path.basename(d.get('log', '')))" "$V/decision.json")
+          if [ -n "$LOG" ]; then
+            python -m org validar --registrar "$V/decision.json" --log "$V/$LOG"
+          else
+            python -m org validar --registrar "$V/decision.json"
+          fi
+          rm -f "$RUNNER_TEMP/sello"

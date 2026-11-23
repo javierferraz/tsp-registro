@@ -117,6 +117,37 @@ def _fase4(reg: Registro, a) -> int:
     return 0
 
 
+def _validador(reg: Registro, a) -> int:
+    from . import validador as val
+
+    if a.orden == "gasto":
+        _salida(val.gasto(a.repo, a.workflow))
+        return 0
+    if not a.identidad:
+        raise Rechazo("falta --identidad (o ORG_IDENTIDAD)")
+    if a.orden == "revisar":
+        _salida(val.revisar(reg, a.tarea, a.identidad, a.veredicto, a.cabeza, a.hallazgos,
+                            a.ruta, subir=not a.sin_subir))
+        return 0
+    if a.registrar:
+        d = json.loads(Path(a.registrar).read_text(encoding="utf-8"))
+        r = val.registrar(reg, d, a.identidad, log=Path(a.log) if a.log else None,
+                          subir=not a.sin_subir)
+    elif a.autoprueba:
+        r = val.autoprueba(RAIZ_REPO, a.identidad)
+    elif not a.tarea:
+        raise Rechazo("falta la tarea (o --autoprueba, o --registrar)")
+    else:
+        r = val.validar(reg, a.tarea, a.identidad, fuente=a.fuente,
+                        evidencias=Path(a.evidencias) if a.evidencias else None,
+                        ensayo=a.ensayo, subir=not a.sin_subir)
+    if a.salida:
+        Path(a.salida).write_text(json.dumps(r, ensure_ascii=False, indent=1),
+                                  encoding="utf-8")
+    _salida(r)
+    return {"verificada": 0, "devuelta": 1}.get(r["veredicto"], 3)
+
+
 def _entidad(texto: str) -> tuple[str, str]:
     tipo, sep, ent_id = texto.partition(":")
     if not sep or not tipo or not ent_id:
@@ -221,6 +252,36 @@ def main(argv=None) -> int:
     sub.add_parser("recursos", help="quién tiene cada recurso ahora")
     sub.add_parser("volumen", help="eventos de hoy frente al presupuesto de 500")
 
+    # Validador central (S-1270, PAA2 P4-2): repite las pruebas, lee las evidencias y decide.
+    s = sub.add_parser("validar", help="valida una tarea entregada: verificada, devuelta o "
+                                       "bloqueada (salida 0, 1 o 3)")
+    s.add_argument("tarea", nargs="?")
+    s.add_argument("--fuente", help="carpeta o URL del repo de la tarea (por defecto, "
+                                    "C:/xampp/htdocs/<repo> o su remoto en GitHub)")
+    s.add_argument("--evidencias", help="carpeta para la salida de las pruebas")
+    s.add_argument("--ensayo", action="store_true", help="decide sin escribir nada")
+    s.add_argument("--autoprueba", action="store_true",
+                   help="valida el último commit de este repo en un registro temporal (medir)")
+    s.add_argument("--salida", help="guarda la decisión en este JSON (con --ensayo, para "
+                                    "registrarla en otro paso con --registrar)")
+    s.add_argument("--registrar", metavar="DECISION_JSON",
+                   help="escribe el veredicto de una decisión ya tomada, sin ejecutar nada")
+    s.add_argument("--log", help="con --registrar: la salida de las pruebas (se comprueba su hash)")
+    s.add_argument("--identidad", default=os.environ.get("ORG_IDENTIDAD"))
+    s.add_argument("--sin-subir", action="store_true")
+    s = sub.add_parser("revisar", help="registra la revisión independiente de una entrega "
+                                       "(papel revisor; nunca quien la hizo)")
+    s.add_argument("tarea")
+    s.add_argument("--veredicto", required=True, choices=("ok", "changes", "reject"))
+    s.add_argument("--cabeza", required=True, help="commit revisado (la cabeza entregada)")
+    s.add_argument("--hallazgos", type=int)
+    s.add_argument("--ruta", help="review.json del revisor (se guarda su hash)")
+    s.add_argument("--identidad", default=os.environ.get("ORG_IDENTIDAD"))
+    s.add_argument("--sin-subir", action="store_true")
+    s = sub.add_parser("gasto", help="minutos de GitHub que ha gastado el validador")
+    s.add_argument("--repo", default="javierferraz/tsp-registro")
+    s.add_argument("--workflow", default="validador.yml")
+
     # Fase 2 (S-1265): importador, comparación diaria y cartera. Solo leen las fuentes.
     for nombre, ayuda in (
             ("importar", "copia en el registro el tablero, las tareas de Lion y los vigías"),
@@ -292,6 +353,8 @@ def main(argv=None) -> int:
             _salida(res)
         elif a.orden in ("importar", "comparar", "cartera", "diario"):
             return _fase2(reg, a)
+        elif a.orden in ("validar", "revisar", "gasto"):
+            return _validador(reg, a)
         else:
             return _fase4(reg, a)
     except Rechazo as ex:

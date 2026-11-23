@@ -9,4 +9,7 @@ Registro central de The Stromboli Project (PAA2). Lee `README.md` antes de tocar
   (`py -m unittest discover -s tests`) antes del commit.
 - Un cambio de esquema añade una versión nueva del tipo; se admiten dos a la vez y la vieja se
   retira con aviso (02 §3.1 ter). Nunca se cambia el significado de una versión publicada.
+- **«verificada» solo la escribe `org validar`** (papel validador, con sello cuando está
+  activo). Un trabajador nunca escribe con papel validador, laboratorio ni javier, ni toca
+  `politica/firmantes` (S-1270).
 - Ni credenciales ni `.env` en el repo.

@@ -40,6 +40,11 @@ def aplicar(actual: dict | None, ev: dict, tipo: Tipo) -> dict:
                                    "autor": ev["autor"], **_resumen(ev["datos"])})
 
     t, d = ev["tipo"], ev["datos"]
+    if t in _DE_OTRO and actual:  # 02 §10 y 03 §10: quien implementa no verifica ni revisa
+        autores = {(actual.get("ejecucion") or {}).get("ejecutor"), actual.get("entregada_por")}
+        if ev["autor"]["identidad"] in autores - {None}:
+            raise Conflicto(f"{t}: {ev['autor']['identidad']} hizo la tarea; quien implementa "
+                            f"no verifica (02 §10)")
     if ev["version_esquema"] >= 2 and t in _DEL_EJECUTOR:
         ejecutor = (actual or {}).get("ejecucion", {}).get("ejecutor")
         if ejecutor and ejecutor != ev["autor"]["identidad"]:
@@ -58,10 +63,18 @@ def aplicar(actual: dict | None, ev: dict, tipo: Tipo) -> dict:
         nuevo["ultimo_latido"] = ev["fecha"]
     elif t == "tarea.entregada":
         nuevo["entrega"] = {"fecha": ev["fecha"], **d}
+        nuevo["entregada_por"] = ev["autor"]["identidad"]
+    elif t == "revision.emitida":
+        nuevo.setdefault("revisiones", []).append(
+            {"fecha": ev["fecha"], "evento": ev["id"], "autor": ev["autor"], **d})
+    elif t in ("tarea.verificada", "tarea.devuelta"):
+        if ev["version_esquema"] >= 2:
+            nuevo["veredicto"] = {"fecha": ev["fecha"], "evento": ev["id"], "tipo": t,
+                                  "autor": ev["autor"], **d}
+        if t == "tarea.devuelta":
+            nuevo["devoluciones"] = nuevo.get("devoluciones", 0) + 1
     elif t.startswith("reserva."):
         _reserva(actual, nuevo, ev)
-    elif t == "tarea.devuelta":
-        nuevo["devoluciones"] = nuevo.get("devoluciones", 0) + 1
     elif t == "decision.tomada":
         nuevo.setdefault("decisiones", []).append(
             {"fecha": ev["fecha"], "evento": ev["id"], "autor": ev["autor"], **d})
@@ -76,6 +89,8 @@ def aplicar(actual: dict | None, ev: dict, tipo: Tipo) -> dict:
 # Con la v2 solo los escribe quien lleva la tarea: un trabajador que vuelve tras caducar no
 # pisa el relevo.
 _DEL_EJECUTOR = ("tarea.latido", "tarea.punto_control", "tarea.entregada")
+# Los escribe otra ejecución: nunca el ejecutor ni quien entregó (S-1270).
+_DE_OTRO = ("tarea.verificada", "evidencia.verificada", "revision.emitida")
 _FMT = "%Y-%m-%dT%H:%M:%S.%fZ"
 
 

@@ -296,8 +296,8 @@ class FicherosRaros(Base):
 
 class Esquema(Base):
     def test_version_no_admitida(self):
-        with self.assertRaisesRegex(Rechazo, "versión de esquema 2 no admitida"):
-            self.esc(*CICLO[0], version=2)
+        with self.assertRaisesRegex(Rechazo, "versión de esquema 3 no admitida"):
+            self.esc(*CICLO[0], version=3)
 
     def test_datos(self):
         malos = [({**TAREA, "inventado": 1}, "campo no previsto"),

@@ -16,6 +16,11 @@ class Rechazo(Exception):
     """El evento no se acepta: esquema, papel o transición."""
 
 
+class SinSello(Rechazo):
+    """El evento es de un papel sellado (validador, laboratorio, javier) y su commit no lleva la
+    firma de ese papel (sello.py). Queda en rechazados con clase «sello»."""
+
+
 class Conflicto(Rechazo):
     """El evento es correcto, pero no encaja en el estado (transición, clave o id repetidos).
     Pasa al juntar eventos de dos máquinas que no se habían visto: queda registrado y a la vista
@@ -33,6 +38,7 @@ PAPELES = (
     "fabrica",       # ficha de release (P6-1; aún sin tipos)
     "motor",         # motor de eventos: crea tareas e incidencias por regla
     "importador",    # fase 2 (S-1265): copia el tablero, Lion y los vigías; solo tipos espejo
+    "revisor",       # revisión independiente (03 §10, S-1270): otra ejecución, nunca el autor
 )
 
 # Estado de una entidad espejo: lo dice el origen (columna del tablero, estado de Lion), no
@@ -129,6 +135,33 @@ _INFORME_V2 = Version(  # el informe de entrega, sin campos libres
 _RESERVA_V1 = Version(obligatorios={"recurso": str, "minutos": int},
                       opcionales={"tarea": str, "maquina": str})
 
+# --- Validador central (02 §10, 03 §2 y §10; S-1270) ------------------------------------
+# Tipos de trabajo que el validador sabe validar hoy: código y web (más interfaz, que es código
+# con medida visual). Contenido y documentación llegarán con sus comprobaciones.
+TIPOS_TRABAJO = ("codigo", "interfaz", "web", "contenido", "documentacion")
+_TAREA_V2 = Version(
+    obligatorios={"titulo": str, "repo": str, "tipo_trabajo": TIPOS_TRABAJO},
+    opcionales={**{k: v for k, v in _TAREA_V1.opcionales.items() if k != "tipo_trabajo"},
+                "toca_interfaz": bool,  # código que cambia lo que se ve
+                "publica": bool,        # la entrega publica algo (web, manifest…)
+                "rama_base": str,       # contra qué se compara (por defecto, la del remoto)
+                "urls": ListaDe(Version(obligatorios={"url": str},
+                                        opcionales={"contiene": str}))})
+_COMPROBACION = Version(obligatorios={"nombre": str,
+                                      "resultado": ("ok", "falla", "no_verificado")},
+                        opcionales={"detalle": str})
+_COSTE_VALIDADOR = Version(obligatorios={"segundos": int},
+                           opcionales={"runner": str, "run": str, "minutos_facturables": int})
+_VEREDICTO = {"politica": str, "cabeza": str, "comprobaciones": ListaDe(_COMPROBACION),
+              "coste": _COSTE_VALIDADOR}
+_VERIFICADA_V2 = Version(obligatorios=_VEREDICTO,
+                         opcionales={"motivo": str, "no_verificado": ListaDe(str)})
+_DEVUELTA_V2 = Version(obligatorios={**_VEREDICTO, "motivo": str},
+                       opcionales={"no_verificado": ListaDe(str)})
+_REVISION_V1 = Version(  # el veredicto de otra ejecución sobre una cabeza concreta
+    obligatorios={"veredicto": ("ok", "changes", "reject"), "cabeza": str},
+    opcionales={"hallazgos": int, "ruta": str, "hash": str})
+
 TIPOS: dict[str, Tipo] = {
     # --- Objetivos -------------------------------------------------------------------
     "objetivo.creado": _t("objetivo", {"javier"}, None, "aprobado", {1: Version(
@@ -137,7 +170,7 @@ TIPOS: dict[str, Tipo] = {
 
     # --- Ciclo de vida de una tarea (02 §3.3) ----------------------------------------
     "tarea.propuesta": _t("tarea", {"javier", "direccion", "planificador", "motor"},
-                          None, "propuesta", {1: _TAREA_V1}),
+                          None, "propuesta", {1: _TAREA_V1, 2: _TAREA_V2}),
     "tarea.aprobada": _t("tarea", {"javier", "planificador"},
                          {"propuesta"}, "aprobada", {1: _MOTIVO_OPC}),
     "tarea.descartada": _t("tarea", {"javier", "direccion"},
@@ -157,9 +190,9 @@ TIPOS: dict[str, Tipo] = {
         obligatorios={"resumen": str},
         opcionales={"rama": str, "commits": list, "evidencias": list}), 2: _INFORME_V2}),
     "tarea.verificada": _t("tarea", {"validador", "laboratorio"},
-                           {"entregada"}, "verificada", {1: _MOTIVO_OPC}),
+                           {"entregada"}, "verificada", {1: _MOTIVO_OPC, 2: _VERIFICADA_V2}),
     "tarea.devuelta": _t("tarea", {"validador", "laboratorio"},
-                         {"entregada", "verificada"}, "devuelta", {1: _MOTIVO}),
+                         {"entregada", "verificada"}, "devuelta", {1: _MOTIVO, 2: _DEVUELTA_V2}),
     "tarea.integrada": _t("tarea", {"validador", "laboratorio"},
                           {"verificada"}, "integrada", {1: Version(
                               obligatorios={}, opcionales={"commit": str, "release": str})}),
@@ -179,6 +212,7 @@ TIPOS: dict[str, Tipo] = {
                                {"entregada", "verificada", "integrada"}, None, {1: Version(
                                    obligatorios={"tipo": str, "ruta": str, "hash": str},
                                    opcionales={"descripcion": str})}),
+    "revision.emitida": _t("tarea", {"revisor"}, {"entregada"}, None, {1: _REVISION_V1}),
 
     # --- Incidencias -------------------------------------------------------------------
     "incidencia.abierta": _t("incidencia",
