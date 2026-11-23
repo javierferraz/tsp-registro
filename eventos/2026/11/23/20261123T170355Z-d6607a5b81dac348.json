@@ -1,0 +1,19 @@
+{
+ "id": "d6607a5b81dac348",
+ "tipo": "tarea.integrada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T17:03:55.235003Z",
+ "autor": {
+  "papel": "validador",
+  "identidad": "validador-github"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1235"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "S-1235:validador:cac0cf269750:0:integrada",
+ "datos": {
+  "commit": "cac0cf269750fc5c50da34a40c1236c6cc01da16"
+ }
+}
