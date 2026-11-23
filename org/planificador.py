@@ -26,7 +26,7 @@ from __future__ import annotations
 import socket
 from datetime import datetime, timedelta, timezone
 
-from . import recursos, trabajo
+from . import pausa as pz, recursos, trabajo
 from .esquemas import NOTAS, Rechazo
 from .puente import IDENTIDAD as PUENTE
 from .estado import _FMT
@@ -150,7 +150,8 @@ def planificar(reg, *, ahora=None, capacidad=3, max_en_curso=MAX_EN_CURSO, sitio
     ahora = _ahora(ahora)
     tareas = reg.entidades("tarea")
     tarjetas = reg.entidades("tarjeta")
-    pausas = sorted(i for i, p in reg.entidades("pausa").items() if p["estado"] == "activa")
+    pausas = pz.activas(reg)  # S-1273: cada una con su nivel y su ámbito
+    generales = [p for p in pausas if p["ambito"] == "general"]
     reservas = recursos.vivas(reg, None, ahora)
     en_curso = {i: t for i, t in tareas.items() if t["estado"] == "en_curso"}
     limite = trabajo.CADUCIDAD
@@ -184,6 +185,7 @@ def planificar(reg, *, ahora=None, capacidad=3, max_en_curso=MAX_EN_CURSO, sitio
                   "alcance": t.get("alcance") or [], "tamano": t.get("tamano"),
                   "publica": bool(t.get("publica")), "modelo": _modelo(t), **val,
                   "dependencias": _dependencias(t, tj)}
+        puesto["pausas"] = [x["id"] for x in pz.aplicables(pausas, pz.que_es(i, t, tj))]
         puesto["puntuacion"] = puntuar(val["notas"])
         puesto["por_que"] = _porque(puesto)
         puestos.append(puesto)
@@ -226,8 +228,8 @@ def planificar(reg, *, ahora=None, capacidad=3, max_en_curso=MAX_EN_CURSO, sitio
         pendientes = [d for d in p["dependencias"] if d not in cerradas | descartadas]
         propia = {r["recurso"] for r in reservas if r.get("tarea") == p["tarea"]}
         ocupado = [x for x in p["recursos"] if x in ocupados and x not in propia]
-        if pausas:
-            motivo = f"hay pausa activa ({', '.join(pausas)})"
+        if p["pausas"]:
+            motivo = f"hay pausa activa ({', '.join(p['pausas'])})"
         elif p["estado"] not in ("lista", "aprobada", "caducada", "devuelta"):
             motivo = f"estado {p['estado']}"
         elif sitio == "github" and p["tipo_trabajo"] not in TIPOS_EN_GITHUB:
@@ -258,7 +260,12 @@ def planificar(reg, *, ahora=None, capacidad=3, max_en_curso=MAX_EN_CURSO, sitio
     return {
         "fecha": ahora.strftime(_FMT), "sitio": sitio, "identidad": identidad,
         "capacidad": capacidad, "max_en_curso": max_en_curso, "en_curso": len(en_curso),
-        "pausas": pausas,
+        "pausas": [f"{p['id']} ({p['nivel']}, {p['ambito']})" for p in pausas],
+        "pausa_general": [p["id"] for p in generales],
+        # Lo que corre y alcanza una pausa dura: su trabajador lo sabe en el próximo latido.
+        "parar": sorted(i for i, t in en_curso.items()
+                        if pz.nivel(pz.aplicables(pausas, pz.que_es(
+                            i, t, _tarjeta(tarjetas, i)))) in pz.PARA_LO_QUE_CORRE),
         "espera_javier": {"n": len(espera), "tope": tope_espera, "frena": frena,
                           "tareas": espera[:10]},
         "caducar": por_caducar,
@@ -295,8 +302,8 @@ def ejecutar(reg, plan: dict, *, identidad=IDENTIDAD, asignar=False, ejecutor=No
     tarea caduca a los 20 min), reserva cada tarea antes de asignarla."""
     ahora = _ahora(ahora)
     out: dict = {"caducadas": [], "a_lista": [], "asignadas": [], "perdidas": [], "omitidas": []}
-    if plan["pausas"]:
-        out["omitidas"].append(f"pausa activa: {', '.join(plan['pausas'])}")
+    if plan["pausa_general"]:  # una pausa de ámbito menor solo quita sus tareas del plan
+        out["omitidas"].append(f"pausa activa: {', '.join(plan['pausa_general'])}")
         return out
     for tid in plan["caducar"]:
         t = reg.ver("tarea", tid)
@@ -371,7 +378,11 @@ def informe_md(plan: dict, hecho: dict | None = None) -> str:
     L.append(f"- Esperando a Javier: {e['n']} (tope {e['tope']}"
              f"{', frena lo que acabará esperándole' if e['frena'] else ''}).")
     if plan["pausas"]:
-        L.append(f"- **Pausa activa** ({', '.join(plan['pausas'])}): no se arranca nada.")
+        L.append(f"- **Pausa activa** ({', '.join(plan['pausas'])}): "
+                 + ("no se arranca nada." if plan["pausa_general"]
+                    else "no arranca lo que alcanza su ámbito."))
+    if plan.get("parar"):
+        L.append(f"- **Tienen que parar** (pausa dura): {', '.join(plan['parar'])}.")
     L += ["", "## Arrancaría" if hecho is None else "## Plan de arranque", ""]
     if plan["arrancar"]:
         L += [f"- **{a['tarea']}** ({a['modelo']})" for a in plan["arrancar"]]

@@ -73,16 +73,47 @@ def _fase2(reg: Registro, a) -> int:
         generar(reg)
     except Exception as ex:  # noqa: BLE001
         parte = f"parte sin generar ({type(ex).__name__}: {ex})"
+    vigia = _vigia_pc(reg, real=not a.sin_avisar)
+    from .latidos import latir
+    latir(reg, "registro-diario", "ok", a.identidad, "importador",
+          f"{imp['eventos']} evento(s), {len(imp['rechazados'])} rechazado(s)")
     subida = "sin subir" if a.sin_subir else reg.subir()
     linea = (f"{datetime.now(timezone.utc):%Y-%m-%dT%H:%M:%SZ} diario {fecha}: "
              f"{imp['eventos']} evento(s), {len(imp['rechazados'])} rechazado(s); {subida}; "
-             f"{parte}")
+             f"{parte}; {vigia}")
     log = reg.raiz / ".indice" / "diario.log"
     log.parent.mkdir(exist_ok=True)
     with log.open("a", encoding="utf-8") as f:
         f.write(linea + "\n")
     print(linea)
     return 1 if imp["rechazados"] else 0
+
+
+def _vigia_pc(reg: Registro, real: bool) -> str:
+    """S-1273, dentro del diario: copia los latidos de GitHub y del Programador de tareas,
+    pasa el centinela (que el vigilante de GitHub siga latiendo) y pone los workflows que
+    publican de acuerdo con la pausa de emergencia. Nada de esto tumba el diario.
+    Sin `real` (pruebas): ni Telegram ni gh workflow."""
+    from . import latidos as lt, pausa as pz
+    procesos = lt.politica(reg.raiz)
+    partes = []
+    pasos = (("latidos", lambda: lt.importar(reg, procesos)),
+             ("centinela", lambda: lt.centinela(reg, procesos, enviar=real)),
+             ("emergencia", lambda: pz.emergencia(reg, hacer=real)))
+    for nombre, paso in pasos:
+        try:
+            r = paso()
+        except Exception as ex:  # noqa: BLE001
+            partes.append(f"{nombre}: {type(ex).__name__}: {ex}")
+            continue
+        if nombre == "latidos":
+            partes.append(f"{len(r['copiados'])} latido(s) copiado(s)"
+                          + (f", {len(r['errores'])} sin leer" if r["errores"] else ""))
+        elif nombre == "centinela" and r["alertas"]:
+            partes.append("centinela: falta el vigilante de GitHub")
+        elif nombre == "emergencia" and (r["hecho"] or r["fallos"]):
+            partes.append(f"emergencia: {len(r['hecho'])} hecho(s), {len(r['fallos'])} fallo(s)")
+    return "; ".join(partes)
 
 
 def _fase4(reg: Registro, a) -> int:
@@ -114,7 +145,7 @@ def _fase4(reg: Registro, a) -> int:
     else:  # renovar
         r = recursos.renovar(reg, a.reserva, a.identidad, a.papel, a.minutos, subir=subir)
     _salida(r)
-    return 0
+    return 4 if a.orden == "latido" and r.get("parar") else 0
 
 
 def _validador(reg: Registro, a) -> int:
@@ -198,6 +229,84 @@ def _puente(reg: Registro, a) -> int:
             out["subida"] = reg.subir()
     for e in plan["eventos"]:  # el JSON no lleva tuplas
         e["entidad"] = list(e["entidad"])
+    _salida(out)
+    return 0
+
+
+def _fase5(reg: Registro, a) -> int:
+    """Motor de eventos, latidos de procesos y pausa (S-1273)."""
+    from . import latidos as lt, motor as mt, pausa as pz
+    from datetime import datetime, timezone
+
+    if a.orden == "motor":
+        if a.utilidad:
+            _salida(mt.utilidad(reg))
+            return 0
+        if not a.sin_traer:
+            reg.traer()
+        r = mt.correr(reg, escribir=a.escribir, enviar=a.avisar,
+                      identidad=a.identidad or mt.IDENTIDAD)
+        if a.escribir and not a.sin_subir and (r["disparos"] or r["paradas"]):
+            r["subida"] = reg.subir()
+        _salida(r)
+        return 0
+    if a.orden == "latido-proceso":
+        r = lt.latir(reg, a.proceso, a.resultado, a.identidad or a.proceso, a.papel, a.detalle)
+        if not a.sin_subir:
+            r["subida"] = reg.subir()
+        _salida(r)
+        return 0
+    if a.orden in ("vigilar", "centinela"):
+        procesos = lt.politica(reg.raiz)
+        if not a.sin_traer:
+            reg.traer()
+        if a.orden == "vigilar":
+            r = lt.vigilar(reg, procesos, escribir=a.escribir, enviar=a.avisar,
+                           identidad=a.identidad or lt.VIGILANTE)
+        else:
+            r = lt.centinela(reg, procesos, enviar=a.avisar)
+        if a.escribir is not False and r["alertas"] and not a.sin_subir:
+            r["subida"] = reg.subir()
+        if a.md:
+            print(lt.informe_md(r), end="")
+        else:
+            _salida(r)
+        return 0
+    # pausa
+    if a.que == "estado":
+        _salida({"activas": pz.activas(reg), "emergencia": pz.emergencia(reg)})
+        return 0
+    if a.que == "comprobar":
+        if not a.sin_traer:
+            reg.traer()
+        r = pz.comprobar(reg, a.tarea, app=a.app, tipo=a.tipo, proyecto=a.proyecto)
+        _salida(r)
+        return r["salida"]
+    if a.que == "emergencia":
+        _salida(pz.emergencia(reg, hacer=a.hacer))
+        return 0
+    if not a.identidad:
+        raise Rechazo("falta --identidad (o ORG_IDENTIDAD)")
+    ahora = datetime.now(timezone.utc)
+    if a.que == "activar":
+        pid = a.id or f"pc-{ahora:%Y%m%dT%H%M%S}"
+        datos = {"nivel": a.nivel, "origen": a.origen, "ambito": a.ambito}
+        if a.motivo:
+            datos["motivo"] = a.motivo
+        r = reg.escribir("pausa.activada", ("pausa", pid), a.papel, a.identidad,
+                         f"pausa:{pid}", datos)
+        out = {"pausa": pid, "nuevo": r.nuevo, **datos}
+    else:  # retirar
+        ids = [p["id"] for p in pz.activas(reg)] if a.todas else a.ids
+        if not ids:
+            raise Rechazo("di qué pausas (ids) o --todas")
+        for pid in ids:
+            reg.escribir("pausa.retirada", ("pausa", pid), "javier", a.identidad,
+                         f"pausa:{pid}:retirada", {"motivo": a.motivo} if a.motivo else {})
+        out = {"retiradas": ids}
+    if not a.sin_subir:
+        out["subida"] = reg.subir()
+    out["emergencia"] = pz.emergencia(reg, hacer=a.aplicar)
     _salida(out)
     return 0
 
@@ -344,6 +453,8 @@ def main(argv=None) -> int:
             s.add_argument("--md", action="store_true")
         if nombre == "diario":
             s.add_argument("--sin-subir", action="store_true")
+            s.add_argument("--sin-avisar", action="store_true",
+                           help="sin Telegram ni gh workflow (pruebas)")
             s.add_argument("--fecha", help="fecha del informe (por defecto, hoy en UTC)")
 
     # Fase 5 (S-1272): el planificador por reglas.
@@ -365,6 +476,65 @@ def main(argv=None) -> int:
     s.add_argument("--sin-traer", action="store_true", help="no hace git pull antes de mirar")
     s.add_argument("--sin-subir", action="store_true")
     s.add_argument("--identidad", default=os.environ.get("ORG_IDENTIDAD"))
+
+    # Fase 5 (S-1273): motor de eventos, latidos de los procesos programados y pausa.
+    s = sub.add_parser("motor", help="motor de eventos: aplica las reglas a los eventos de las "
+                                     "últimas 72 h (sin --escribir, solo dice qué haría)")
+    s.add_argument("--escribir", action="store_true")
+    s.add_argument("--avisar", action="store_true", help="manda los avisos por Telegram")
+    s.add_argument("--utilidad", action="store_true", help="el contador de utilidad por regla")
+    s.add_argument("--identidad", default=os.environ.get("ORG_IDENTIDAD"))
+    s.add_argument("--sin-traer", action="store_true")
+    s.add_argument("--sin-subir", action="store_true")
+    s = sub.add_parser("latido-proceso", help="latido de un proceso programado al acabar")
+    s.add_argument("proceso", help="nombre en politica/procesos.json")
+    s.add_argument("--resultado", required=True, choices=("ok", "falla"))
+    s.add_argument("--detalle")
+    s.add_argument("--papel", default=os.environ.get("ORG_PAPEL", "motor"))
+    s.add_argument("--identidad", default=os.environ.get("ORG_IDENTIDAD"))
+    s.add_argument("--sin-subir", action="store_true")
+    for nombre, ayuda in (("vigilar", "el vigilante: alerta y aviso por cada proceso que falta "
+                                      "o falla (sin --escribir, solo mira)"),
+                          ("centinela", "el segundo vigilante (PC): solo que el de GitHub lata")):
+        s = sub.add_parser(nombre, help=ayuda)
+        if nombre == "vigilar":
+            s.add_argument("--escribir", action="store_true")
+            s.add_argument("--identidad", default=os.environ.get("ORG_IDENTIDAD"))
+        else:
+            s.set_defaults(escribir=True, identidad=None)
+        s.add_argument("--avisar", action="store_true")
+        s.add_argument("--md", action="store_true")
+        s.add_argument("--sin-traer", action="store_true")
+        s.add_argument("--sin-subir", action="store_true")
+    s = sub.add_parser("pausa", help="interruptor de pausa: estado, activar, retirar, comprobar "
+                                     "(salida 0/10/11/12) y emergencia")
+    ps = s.add_subparsers(dest="que", required=True)
+    x = ps.add_parser("estado")
+    x = ps.add_parser("comprobar", help="para workflows, hooks y trabajadores")
+    x.add_argument("--tarea")
+    x.add_argument("--app")
+    x.add_argument("--tipo")
+    x.add_argument("--proyecto")
+    x.add_argument("--sin-traer", action="store_true")
+    x = ps.add_parser("emergencia", help="desactiva (o reactiva) los workflows que publican")
+    x.add_argument("--hacer", action="store_true", help="sin esto, solo dice qué haría")
+    for nombre in ("activar", "retirar"):
+        x = ps.add_parser(nombre)
+        if nombre == "activar":
+            x.add_argument("--nivel", required=True, choices=("suave", "dura", "emergencia"))
+            x.add_argument("--ambito", default="general",
+                           help="general, app:<slug>, proyecto:<id>, tipo:<tipo>, ejecucion:<tarea>")
+            x.add_argument("--origen", default="pc")
+            x.add_argument("--id")
+            x.add_argument("--papel", default=os.environ.get("ORG_PAPEL", "javier"))
+        else:
+            x.add_argument("ids", nargs="*")
+            x.add_argument("--todas", action="store_true")
+        x.add_argument("--motivo")
+        x.add_argument("--identidad", default=os.environ.get("ORG_IDENTIDAD"))
+        x.add_argument("--aplicar", action="store_true",
+                       help="aplica ya la emergencia con gh (desactivar o reactivar workflows)")
+        x.add_argument("--sin-subir", action="store_true")
 
     a = p.parse_args(argv)
     reg = Registro(a.raiz)
@@ -412,12 +582,27 @@ def main(argv=None) -> int:
             if a.enviar:
                 res["enviado"] = tg.enviar(res["texto"], res["botones"])
             _salida(res)
-        elif a.orden in ("importar", "comparar", "cartera", "diario"):
+        elif a.orden in ("importar", "comparar", "cartera"):
             return _fase2(reg, a)
+        elif a.orden == "diario":
+            try:
+                return _fase2(reg, a)
+            except Exception as ex:  # S-1273: un diario que se cae deja su latido de «falla»
+                from .latidos import latir
+                try:
+                    latir(reg, "registro-diario", "falla", a.identidad, "importador",
+                          f"{type(ex).__name__}: {ex}")
+                    if not a.sin_subir:
+                        reg.subir()
+                except Exception:  # noqa: BLE001
+                    pass
+                raise
         elif a.orden in ("validar", "revisar", "gasto"):
             return _validador(reg, a)
         elif a.orden == "puente":
             return _puente(reg, a)
+        elif a.orden in ("motor", "latido-proceso", "vigilar", "centinela", "pausa"):
+            return _fase5(reg, a)
         elif a.orden == "planificar":
             from . import planificador as pl
             ident = a.identidad or f"{pl.IDENTIDAD}-{a.sitio}"

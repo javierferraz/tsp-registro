@@ -88,6 +88,13 @@ def latido(reg, tarea_id: str, identidad: str, ficheros=(), ahora=None, subir=Tr
     out["saturado"] = saturado
     if out["escrito"] and subir:
         out["subida"] = _subir(reg)
+    # Pausa (S-1273): el trabajador se entera en cada latido, se escriba o no. Con dura o
+    # emergencia, guarda punto de control, escribe tarea.pausada y para (la CLI sale con 4).
+    from .pausa import PARA_LO_QUE_CORRE, comprobar
+    p = comprobar(reg, tarea_id)
+    if p["nivel"]:
+        out["pausa"] = p
+    out["parar"] = p["nivel"] in PARA_LO_QUE_CORRE
     return out
 
 
@@ -152,6 +159,9 @@ def contrato(reg, tarea_id: str, ahora=None) -> dict:
                          "caduca": r["caduca"]}
                         for r in vivas(reg, None, _ahora(ahora)) if r.get("tarea") == tarea_id],
            "latir_cada_min": int(LATIR_CADA.total_seconds() // 60),
+           "si_hay_que_parar": ("si `org latido` sale con 4 (pausa dura o emergencia): "
+                                "`org punto-control` y `tarea.pausada`, y para; si sale con 1 "
+                                "porque la tarea ya no está en curso, para sin escribir"),
            "version_esquema": 2,  # latido, punto de control y entrega: v2 (solo del ejecutor)
            "informe_v2": describir(TIPOS["tarea.entregada"].versiones[2])}
     if t.get("ejecuciones_anteriores") or t.get("punto_control"):

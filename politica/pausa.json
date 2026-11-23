@@ -1,0 +1,10 @@
+{
+ "_que_es": "Workflows que publican y que una pausa de nivel emergencia desactiva (02 §9; S-1273). Los aplica `org pausa emergencia --hacer` (o `org pausa activar ... --aplicar`) con gh desde el PC, y los vuelve a activar al retirarse la última emergencia. Solo se reactivan los que desactivó esa máquina (.indice/emergencia.json).",
+ "emergencia_desactiva": [
+  {"repo": "javierferraz/2606-thestromboliproject", "workflow": "tsp-web-deploy.yml", "por_que": "despliega la web"},
+  {"repo": "javierferraz/2606-thestromboliproject", "workflow": "rosetta-automerge-deploy.yml", "por_que": "fusiona y despliega las traducciones"},
+  {"repo": "javierferraz/tsp-release-factory", "workflow": "tanda.yml", "por_que": "construye y publica las releases de las apps"},
+  {"repo": "javierferraz/tsp-release-factory", "workflow": "publish.yml", "por_que": "sube los binarios y el manifest"},
+  {"repo": "javierferraz/2606-thestromboliproject", "workflow": "tsp-cierre-tanda.yml", "por_que": "cierra la tanda tras publicar"}
+ ]
+}

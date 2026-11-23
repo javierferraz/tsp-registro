@@ -1,0 +1,68 @@
+name: Motor de eventos y vigilante de latidos
+
+# PAA2 P5-2 (S-1273). Cada 6 horas, sin modelo:
+# 1. El motor de eventos (org/motor.py): aplica las 5 reglas a los eventos de las últimas 72 h,
+#    con tope de cadena (5 eslabones), una vez por entidad cada 24 h y 10 disparos por regla y
+#    día. Si una regla toca un tope, se para sola y avisa.
+# 2. El vigilante (org/latidos.py): mira el último latido de cada proceso de
+#    politica/procesos.json y avisa por Telegram si falta o ha fallado (una vez por latido).
+# 3. Deja su propio latido (vigilante-github), bien o mal: si deja de latir, lo dice el
+#    centinela del registro diario del PC.
+#
+# No cambia el horario de ningún otro proceso. Secretos opcionales: TSPBOT_TOKEN y
+# TSPBOT_CHAT_ID (sin ellos, el aviso se queda en el log del run).
+
+on:
+  workflow_dispatch:
+    inputs:
+      escribir:
+        description: "Escribir disparos y alertas en el registro (si no, solo mira)"
+        type: boolean
+        default: true
+  schedule:
+    - cron: "20 */6 * * *"   # ~1 min de Actions cada vez
+
+permissions:
+  contents: write
+
+concurrency:
+  group: latidos
+  cancel-in-progress: false
+
+jobs:
+  vigilar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        shell: bash   # -eo pipefail: si motor o vigilar se caen, el tee no lo tapa
+    env:
+      ORG_IDENTIDAD: vigilante-github
+      TSPBOT_TOKEN: ${{ secrets.TSPBOT_TOKEN }}
+      TSPBOT_CHAT_ID: ${{ secrets.TSPBOT_CHAT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Identidad de git
+        run: |
+          git config user.name "tsp-registro vigilante"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Motor de eventos
+        env:
+          ESCRIBIR: ${{ (github.event_name == 'schedule' || inputs.escribir) && '--escribir --avisar' || '' }}
+        run: python -m org motor --identidad motor-github --sin-subir $ESCRIBIR | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Vigilante de latidos
+        env:
+          ESCRIBIR: ${{ (github.event_name == 'schedule' || inputs.escribir) && '--escribir --avisar' || '' }}
+        run: |
+          python -m org vigilar --sin-traer --sin-subir --md $ESCRIBIR | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Latido propio
+        if: always()
+        env:
+          RESULTADO: ${{ job.status == 'success' && 'ok' || 'falla' }}
+        run: |
+          python -m org latido-proceso vigilante-github --resultado "$RESULTADO" \
+            --detalle "run ${{ github.run_id }}" --sin-subir
+          python -m org subir

@@ -43,6 +43,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Pausa (S-1273)
+        env:
+          TAREA: ${{ inputs.tarea }}
+        run: |
+          set +e
+          python -m org pausa comprobar --sin-traer ${TAREA:+--tarea "$TAREA"}
+          if [ $? -ge 11 ]; then echo "::error::pausa dura o de emergencia: no se valida"; exit 1; fi
       - name: Usuario sin privilegios para el código entregado
         run: sudo useradd --create-home --shell /usr/sbin/nologin org-pruebas
       - name: Copia del repo de la tarea (solo lectura)

@@ -60,8 +60,8 @@ def aplicar(reg: Registro, accion: str, pulsacion: str) -> dict:
     if orden == "pausar":
         r = escribir("pausa.activada", ("pausa", f"tg-{pulsacion}"), f"tg:{pulsacion}",
                      {"nivel": arg, "origen": "telegram", "ambito": "general"})
-        texto = (f"⏸ Pausa {arg} registrada (pausa tg-{pulsacion}). Nada nuevo debería arrancar; "
-                 "quién la respeta llega en la fase 5.")
+        texto = (f"⏸ Pausa {arg} registrada (pausa tg-{pulsacion}). El planificador no arranca "
+                 "nada nuevo; lo que ya corre termina. Solo tú la retiras.")
         return {"texto": texto, "botones": _boton_siguiente(reg), "eventos": [r.id] * r.nuevo}
     if orden == "reanudar":
         activas = pausas_activas(reg)

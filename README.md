@@ -301,7 +301,8 @@ py -m org escribir tarea.valorada tarea:T-1 --papel direccion --identidad dir --
 - **Consolida** las tareas con la misma `huella` (solo la más antigua es candidata) y marca «a
   revisar» las que llevan más de 30 días en lista. Quita las que esperan una dependencia
   (de la tarea o `bloqueada_por` de su tarjeta; una desconocida frena), las que piden un recurso
-  ocupado, las que tocan los mismos ficheros que otra en curso y todo si hay una pausa activa.
+  ocupado, las que tocan los mismos ficheros que otra en curso y las que alcanza una pausa
+  activa (todas, si es general; S-1273).
 - **No arranca lo que acabará esperando a Javier** (`espera_javier`, `publica` o tarjeta con
   comprobación *decisión*) cuando ya le esperan 10 o más (02 §5.2 y §9 ter): lo bloqueado y lo
   entregado con decisión suya. Lo demás sigue.
@@ -331,6 +332,65 @@ py -m org escribir tarea.valorada tarea:T-1 --papel direccion --identidad dir --
 | D-37 | El freno por «espera a Javier» solo aplica pasado el tope (10) | Nunca arrancar lo que acabará esperándole | 02 §5.2 lo dice así; lo otro paralizaría las tareas con decisión de Javier |
 | D-38 | Reservar `tarea:<id>` antes de asignar y releer el estado | Fiarse del estado tras `traer` | El estado solo ve lo ya subido: la carrera de dos planificadores sin subir necesita la reserva |
 | D-39 | El planificador de GitHub solo asigna documentación y contenido | Todo tipo | Hoy no hay trabajador de GitHub; el piloto (P5-3) empieza por lo de menor riesgo |
+
+## Motor de eventos, latidos y pausa (S-1273, PAA2 P5-2)
+
+Diseño: `02-arquitectura.md` §8.2, §8.4, §9 y §9 ter. Todo sin modelo.
+
+```
+py -m org motor [--escribir] [--avisar]          # aplica las reglas (sin --escribir, solo dice qué haría)
+py -m org motor --utilidad                       # contador por regla: disparos, tareas creadas, cuántas sirvieron
+py -m org latido-proceso <nombre> --resultado ok|falla [--detalle …]
+py -m org vigilar [--escribir] [--avisar] [--md] # quién falta o ha fallado (politica/procesos.json)
+py -m org centinela [--avisar]                   # el segundo vigilante (PC): que el de GitHub siga latiendo
+py -m org pausa estado | comprobar [--tarea T|--app A|--tipo T|--proyecto P]   # salida 0/10/11/12
+py -m org pausa activar --nivel suave|dura|emergencia [--ambito app:silent-frog] --identidad … [--aplicar]
+py -m org pausa retirar <id>… | --todas --identidad … [--aplicar]
+py -m org pausa emergencia [--hacer]             # pone los workflows que publican de acuerdo con la pausa
+```
+
+- **Motor (`org/motor.py`).** Una tabla de 5 reglas, cada una con id, versión, dueño y los eventos
+  que la disparan. Corre sobre los eventos de las últimas 72 h; cada acción lleva
+  `correlacion` = el evento que la originó y deja un `regla.disparada` con el rastro.
+
+  | Regla | Cuando | Hace |
+  |---|---|---|
+  | `medida-visual` | se entrega algo de interfaz (o `toca_interfaz`) sin evidencia del laboratorio | propone la tarea `<tarea>-medida-<n>` |
+  | `tres-devoluciones` | una tarea va por su 3.ª devolución | la bloquea y avisa |
+  | `presupuesto` | un latido o punto de control pasa de `presupuesto.minutos` | la pausa y avisa |
+  | `integridad` | se abre una incidencia de origen `integridad` | pausa suave de su app (o general) y avisa |
+  | `latido-perdido` | un `proceso.alerta` | abre incidencia con huella `proceso:<x>:<falta\|falla>` |
+
+- **Contra los bucles:** cadena de 5 eslabones como mucho (siguiendo `correlacion`), una vez por
+  regla y entidad cada 24 h, 10 disparos por regla y día. Al tocar un tope, `regla.parada` y aviso;
+  solo Javier o dirección la reactivan (`regla.reactivada`). Tests: `test_motor.Bucles`.
+- **Latidos.** `proceso:<nombre>` guarda el último. Los procesos propios lo escriben al acabar
+  (bien o mal: el diario escribe «falla» si se cae); los de GitHub y del Programador de tareas los
+  copia el registro diario del PC (`gh run list`, `Get-ScheduledTaskInfo`), sin tocarlos.
+- **Dos vigilantes en dos sitios.** `latidos.yml` (GitHub, cada 6 h): motor + vigilante + su
+  propio latido. El registro diario del PC: copia latidos + centinela (que el de GitHub siga
+  latiendo) + emergencia. Una alerta por cada último latido visto: no repite cada 6 h.
+- **Pausa.** Niveles: suave (no arranca nada nuevo), dura (lo que corre guarda punto de control y
+  para: `org latido` sale con 4) y emergencia (además, `gh workflow disable` de lo que publica,
+  `politica/pausa.json`). Ámbitos: `general`, `app:<slug>`, `proyecto:<id>`, `tipo:<tipo>`,
+  `ejecucion:<tarea>`. La pide cualquiera (no el importador ni el revisor); solo Javier la retira.
+  La respetan el planificador (por ámbito), el latido del trabajador y el validador de GitHub.
+  Parar lo que corre es cooperativo: el trabajador se entera en su próximo `org latido` (que no
+  hace `traer`: una pausa puesta desde GitHub o Telegram llega cuando sincroniza); uno que no
+  late no se entera, y caduca a los 20 min. Si la subida final de `latidos.yml` falla, el
+  siguiente run puede repetir un aviso.
+- **Avisos:** siempre a `.indice/avisos.log`; con `--avisar`, por TSPBot (secretos en GitHub;
+  `scripts/tsp_aviso.py` del central en el PC).
+
+| N.º | Decisión (S-1273) | Descartada | Por qué |
+|---|---|---|---|
+| D-40 | «La misma entidad» de 02 §8.4 es la que la regla toca (su primera acción) | La que dispara | Con la que dispara, una segunda entrega legítima en 24 h pararía la regla de medida visual |
+| D-41 | Tope de 10 disparos por regla y día | Otro número | 02 §8.4 no lo fija; se ajusta con el contador de utilidad |
+| D-42 | Una regla poco útil no se apaga sola: el contador la muestra y decide Javier o dirección | Apagado automático por ratio | 05 §7 pide apagarla, pero sin historial no hay umbral fiable |
+| D-43 | Los latidos de GitHub y del Programador los copia el diario del PC | Que el vigilante de GitHub los lea | El token del workflow no ve los runs del repo central; y así no se toca ningún proceso existente |
+| D-44 | Margen de 50 h para lo que corre en el PC | 12 h | El PC se apaga el fin de semana; un margen corto avisaría cada lunes |
+| D-45 | Emergencia: desactivar workflows con `gh` desde el PC al activarla (`--aplicar`) o en el diario | Desde GitHub | Desactivar workflows de otros repos pide un token que hoy no existe (un secreto nuevo necesita su sí) |
+| D-46 | Una pausa con un ámbito que no se entiende para todo | Ignorarla | Mejor parar de más que de menos; el esquema ya rechaza los ámbitos mal escritos |
 
 ## Cabecera de un evento
 

@@ -356,7 +356,7 @@ class TestDiario(Base):
                 "--lion", str(self.dir / "no-hay-lion")]
 
     def test_diario(self):
-        code, out, err = self.org("diario", *self.comunes(), "--fecha", "2026-11-22")
+        code, out, err = self.org("diario", *self.comunes(), "--sin-avisar", "--fecha", "2026-11-22")
         self.assertEqual(code, 0, err)
         md = (self.raiz / "informes" / "2026-11-22.md").read_text(encoding="utf-8")
         for titulo in ("## 1. Fidelidad", "## 2. Anomalías", "## 4. Vigías",
@@ -373,9 +373,11 @@ class TestDiario(Base):
         self.assertIn("sin remoto", out)  # subir: commit local de eventos e informes
         en_git = self.git(self.raiz, "ls-tree", "-r", "--name-only", "HEAD").stdout.split()
         self.assertIn("informes/2026-11-22.md", en_git)
-        self.assertEqual(sum(p.startswith("eventos/") for p in en_git), 5)
+        # 5 importados + el latido del propio diario (S-1273)
+        self.assertEqual(sum(p.startswith("eventos/") for p in en_git), 6)
+        self.assertEqual(self.reg.ver("proceso", "registro-diario")["ultimo"]["resultado"], "ok")
         # el día siguiente, sin cambios: ningún evento nuevo y el informe se sube igual
-        code, out, _ = self.org("diario", *self.comunes(), "--fecha", "2026-11-23")
+        code, out, _ = self.org("diario", *self.comunes(), "--sin-avisar", "--fecha", "2026-11-23")
         self.assertEqual(code, 0)
         self.assertIn("0 evento(s)", out)
         self.assertIn("informes/2026-11-23.md",

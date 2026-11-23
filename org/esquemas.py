@@ -45,6 +45,9 @@ PAPELES = (
 # una transición del ciclo. «*» en `desde` = vale desde cualquier estado existente.
 ESTADO_EN_DATOS = "=datos.estado"
 CUALQUIERA = "*"
+# «+» en `desde` = si la entidad aún no existe, este evento la crea (S-1273: el latido de un
+# proceso y la cuenta de una regla no tienen un evento propio de alta).
+NUEVA = "+"
 
 ESTADOS_TAREA = (
     "propuesta", "aprobada", "lista", "en_curso", "en_pausa", "bloqueada", "caducada",
@@ -197,10 +200,12 @@ TIPOS: dict[str, Tipo] = {
     "tarea.asignada": _t("tarea", {"planificador"}, {"lista"}, "en_curso", {1: Version(
         obligatorios={"ejecutor": str},
         opcionales={"maquina": str, "rama": str, "modelo": str})}),
-    "tarea.pausada": _t("tarea", {"trabajador", "planificador", "javier"},
+    # S-1273: el motor pausa la ejecución que pasa de su presupuesto y bloquea la tarea devuelta
+    # tres veces (02 §8.4, §9 y §9 ter); por eso bloqueada vale también desde devuelta.
+    "tarea.pausada": _t("tarea", {"trabajador", "planificador", "javier", "motor"},
                         {"en_curso"}, "en_pausa", {1: _MOTIVO_OPC}),
-    "tarea.bloqueada": _t("tarea", {"trabajador", "planificador", "validador"},
-                          {"en_curso", "entregada"}, "bloqueada", {1: _MOTIVO}),
+    "tarea.bloqueada": _t("tarea", {"trabajador", "planificador", "validador", "motor"},
+                          {"en_curso", "entregada", "devuelta"}, "bloqueada", {1: _MOTIVO}),
     "tarea.caducada": _t("tarea", {"planificador"}, {"en_curso"}, "caducada", {1: _MOTIVO_OPC}),
     "tarea.entregada": _t("tarea", {"trabajador"}, {"en_curso"}, "entregada", {1: Version(
         obligatorios={"resumen": str},
@@ -261,12 +266,42 @@ TIPOS: dict[str, Tipo] = {
                                        opcionales={"gana": str})}),
 
     # --- Interruptor de pausa (02 §9, S-1268) --------------------------------------------
-    # Cada pausa es su propia entidad (pausa:<id>): se activa y se retira una vez. La
-    # organización está en pausa mientras quede alguna «activa». Quién la respeta: P5-2.
-    "pausa.activada": _t("pausa", {"javier"}, None, "activa", {1: Version(
+    # Cada pausa es su propia entidad (pausa:<id>): se activa y se retira una vez. Hay pausa
+    # mientras quede alguna «activa» cuyo ámbito alcance a lo que se mira (pausa.py, S-1273).
+    # Pedirla puede cualquiera (02 §9 bis); retirarla, solo Javier.
+    "pausa.activada": _t("pausa", set(PAPELES) - {"importador", "revisor"}, None, "activa",
+                         {1: Version(
         obligatorios={"nivel": ("suave", "dura", "emergencia"), "origen": str},
         opcionales={"ambito": str, "motivo": str})}),
     "pausa.retirada": _t("pausa", {"javier"}, {"activa"}, "retirada", {1: _MOTIVO_OPC}),
+
+    # --- Latidos de los procesos programados (02 §8.2; S-1273) ---------------------------
+    # Un proceso (proceso:<nombre> de politica/procesos.json) deja su latido al acabar, o se lo
+    # copia el registro diario desde GitHub o el Programador de tareas. El vigilante (papel
+    # motor) escribe la alerta cuando falta o falla; una sola por cada último latido visto.
+    "proceso.latido": _t("proceso", {"importador", "planificador", "motor", "validador",
+                                     "fabrica"}, {NUEVA, CUALQUIERA}, None, {1: Version(
+        obligatorios={"resultado": ("ok", "falla"), "ejecutado": str,
+                      "origen": ("propio", "github", "programador")},
+        opcionales={"detalle": str})}),
+    "proceso.alerta": _t("proceso", {"motor"}, {NUEVA, CUALQUIERA}, None, {1: Version(
+        obligatorios={"clase": ("falta", "falla"), "esperado_horas": int},
+        opcionales={"ultimo": str, "vigilante": str})}),
+
+    # --- Motor de eventos (02 §8.4; S-1273) ----------------------------------------------
+    # Una entidad por regla (regla:<id>). Cada disparo deja su rastro: de él salen el tope de
+    # cadena, el de entidad y día y el contador de utilidad. Una regla parada no dispara hasta
+    # que Javier (o la dirección) la reactiva.
+    "regla.disparada": _t("regla", {"motor"}, {NUEVA, "activa"}, None, {1: Version(
+        obligatorios={"version": int, "evento": str, "sobre": str, "eslabon": int,
+                      "acciones": ListaDe(Version(obligatorios={"tipo": str, "entidad": str}))})}),
+    "regla.parada": _t("regla", {"motor", "javier", "direccion"}, {NUEVA, "activa"}, "parada",
+                       {1: Version(obligatorios={"motivo": str},
+                                   opcionales={"limite": ("cadena", "entidad", "tope_dia",
+                                                          "utilidad", "a_mano"),
+                                               "evento": str})}),
+    "regla.reactivada": _t("regla", {"javier", "direccion"}, {"parada"}, "activa",
+                           {1: _MOTIVO}),
 
     # --- Migración por etapas (P4-3, S-1271) ----------------------------------------------
     # Una entidad por etapa (migracion:tablero-1, -2…). Una etapa se supera con un ciclo limpio:
@@ -352,8 +387,21 @@ def _regla_valoracion(ev):
         raise Rechazo("datos.fija.valor: de 1 a 100 (más alto, antes)")
 
 
+# Ámbito de una pausa (02 §9, parada parcial): toda la organización, una app, un proyecto, un
+# tipo de trabajo o una ejecución concreta (la tarea que corre).
+_RE_AMBITO = re.compile(r"^(general|app:[a-z0-9][a-z0-9-]{0,63}|proyecto:[A-Za-z0-9][A-Za-z0-9._-]{0,63}"
+                        r"|tipo:(" + "|".join(TIPOS_TRABAJO) + r")|ejecucion:[A-Za-z0-9][A-Za-z0-9._-]{0,63})$")
+
+
+def _regla_pausa(ev):
+    if "ambito" in ev["datos"] and not _RE_AMBITO.match(ev["datos"]["ambito"]):
+        raise Rechazo("datos.ambito: general, app:<slug>, proyecto:<id>, tipo:<tipo de trabajo> "
+                      "o ejecucion:<tarea>")
+
+
 REGLAS_EXTRA = {"decision.tomada": [_regla_decision_c], "tarea.valorada": [_regla_valoracion], "tarea.entregada": [_regla_informe],
-                "reserva.pedida": [_regla_reserva], "reserva.renovada": [_regla_reserva]}
+                "reserva.pedida": [_regla_reserva], "reserva.renovada": [_regla_reserva],
+                "pausa.activada": [_regla_pausa]}
 
 CABECERA = ("id", "tipo", "version_esquema", "fecha", "autor", "entidad", "correlacion",
             "clave_idempotencia", "datos")

@@ -8,14 +8,18 @@ from __future__ import annotations
 import copy
 from datetime import datetime, timedelta
 
-from .esquemas import CUALQUIERA, ESTADO_EN_DATOS, Conflicto, Tipo
+from .esquemas import CUALQUIERA, ESTADO_EN_DATOS, NUEVA, Conflicto, Tipo
 
 
 def aplicar(actual: dict | None, ev: dict, tipo: Tipo) -> dict:
     """Devuelve el estado nuevo de la entidad. `actual` es None si aún no existe."""
     ent_id = ev["entidad"]["id"]
     hasta = ev["datos"]["estado"] if tipo.hasta == ESTADO_EN_DATOS else tipo.hasta
-    if tipo.desde is None:
+    if actual is None and tipo.desde is not None and NUEVA in tipo.desde:
+        # Alta implícita (S-1273): sin copiar los datos, que son de este evento, no de la entidad.
+        nuevo = {"id": ent_id, "estado": hasta or "activa", "creada": ev["fecha"],
+                 "historial": []}
+    elif tipo.desde is None:
         if actual is not None:
             raise Conflicto(f"{ev['entidad']['tipo']} {ent_id} ya existe")
         nuevo = {"id": ent_id, "estado": hasta, "creada": ev["fecha"], "historial": []}
@@ -82,6 +86,10 @@ def aplicar(actual: dict | None, ev: dict, tipo: Tipo) -> dict:
             {"fecha": ev["fecha"], "evento": ev["id"], "autor": ev["autor"], **d})
     elif t == "migracion.discrepancia":  # P4-3: reinicia el ciclo de la etapa (puente.py)
         nuevo.setdefault("discrepancias", []).append({"fecha": ev["fecha"], **d})
+    elif t == "proceso.latido":  # S-1273: solo cuenta el último (el historial está en eventos)
+        nuevo["ultimo"] = {"fecha": ev["fecha"], "autor": ev["autor"]["identidad"], **d}
+    elif t == "proceso.alerta":
+        nuevo["alerta"] = {"fecha": ev["fecha"], **d}
     elif t == "evidencia.verificada":
         nuevo.setdefault("evidencias", []).append(
             {"fecha": ev["fecha"], "evento": ev["id"], "autor": ev["autor"], **d})
