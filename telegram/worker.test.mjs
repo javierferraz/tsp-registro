@@ -49,6 +49,21 @@ test("sin configurar: no se fía de nada", () => {
   assert.equal(d.despacho, null);
 });
 
+test("fetch: si GitHub no responde, avisa en el botón y no revienta", async () => {
+  const original = globalThis.fetch;
+  globalThis.fetch = async () => { throw new TypeError("red caída"); };
+  const log = console.log; console.log = () => {};
+  try {
+    const r = await worker.fetch(new Request("https://w.example/", { method: "POST",
+      headers: { "X-Telegram-Bot-Api-Secret-Token": ENV.WEBHOOK_SECRET },
+      body: JSON.stringify(boton("p:suave")) }), ENV);
+    assert.equal(r.status, 200);
+    assert.match((await r.json()).text, /No llegó a GitHub/);
+  } finally {
+    globalThis.fetch = original; console.log = log;
+  }
+});
+
 test("fetch: despacha con el token y responde a Telegram en el cuerpo", async () => {
   const llamadas = [];
   const original = globalThis.fetch;

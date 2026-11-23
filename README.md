@@ -105,7 +105,9 @@ Telegram ──POST──▶ Worker de Cloudflare ──repository_dispatch─�
   «Acción no válida.». En los tres casos no sale nada hacia GitHub. Contesta a Telegram en el
   cuerpo del webhook, así que no lleva el token del bot.
 - **Workflow** (`.github/workflows/telegram.yml`): `org telegram --accion … --pulsacion …
-  --enviar`, que escribe con papel `javier` e identidad `telegram`, y `org subir`. A mano
+  --subir --enviar`, que escribe con papel `javier` e identidad `telegram`, sube y solo entonces
+  avisa (si algo falla, avisa «No se registró»). Sin grupo de concurrencia, para que GitHub no
+  cancele pulsaciones seguidas. A mano
   (`workflow_dispatch`) manda el panel: estado de la pausa y su botón.
 - **Pausa:** cada una es una entidad `pausa:tg-<pulsación>` (`pausa.activada` → `activa`,
   `pausa.retirada` → `retirada`). Hay pausa mientras quede alguna activa; reanudar las retira

@@ -107,6 +107,17 @@ class Telegram(unittest.TestCase):
         with mock.patch.dict("os.environ", {}, clear=True), redirect_stderr(io.StringIO()):
             self.assertFalse(tg.enviar("hola", [("⏸ Pausar", "p:suave")]))
 
+    def test_si_falla_la_subida_no_dice_registrada(self):
+        enviados = []
+        with mock.patch.object(Registro, "subir", side_effect=Rechazo("push fallido")), \
+                mock.patch.object(tg, "enviar", lambda t, b: enviados.append(t) or True), \
+                redirect_stdout(io.StringIO()), redirect_stderr(io.StringIO()):
+            codigo = main(["--raiz", str(self.dir), "telegram", "--accion", "p:suave",
+                           "--pulsacion", "800", "--subir", "--enviar"])
+        self.assertEqual(codigo, 1)
+        self.assertEqual(len(enviados), 1)
+        self.assertIn("No se registró", enviados[0])
+
     def test_cli(self):
         out = io.StringIO()
         with redirect_stdout(out), redirect_stderr(io.StringIO()), \

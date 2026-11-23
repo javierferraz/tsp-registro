@@ -15,9 +15,8 @@ on:
 permissions:
   contents: write
 
-concurrency:
-  group: telegram
-  cancel-in-progress: false
+# Sin `concurrency`: GitHub solo guarda un run pendiente por grupo y cancelaría pulsaciones.
+# Cada evento es un fichero propio y `org subir` reintenta con pull --rebase.
 
 jobs:
   boton:
@@ -32,7 +31,7 @@ jobs:
         run: |
           git config user.name "tsp-registro telegram"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-      - name: Ejecutar la pulsación
+      - name: Ejecutar la pulsación, subirla y avisar (el aviso sale después de subir)
         if: github.event_name == 'repository_dispatch'
         env:
           # Por entorno, nunca interpolado en el script: el valor no se ejecuta.
@@ -40,13 +39,10 @@ jobs:
           PULSACION: ${{ github.event.client_payload.pulsacion }}
           TSPBOT_TOKEN: ${{ secrets.TSPBOT_TOKEN }}
           TSPBOT_CHAT_ID: ${{ secrets.TSPBOT_CHAT_ID }}
-        run: python -m org telegram --accion "$ACCION" --pulsacion "$PULSACION" --enviar
+        run: python -m org telegram --accion "$ACCION" --pulsacion "$PULSACION" --subir --enviar
       - name: Panel
         if: github.event_name == 'workflow_dispatch'
         env:
           TSPBOT_TOKEN: ${{ secrets.TSPBOT_TOKEN }}
           TSPBOT_CHAT_ID: ${{ secrets.TSPBOT_CHAT_ID }}
         run: python -m org telegram --panel --enviar
-      - name: Subir el evento
-        if: github.event_name == 'repository_dispatch'
-        run: python -m org subir
