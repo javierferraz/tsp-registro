@@ -275,7 +275,7 @@ class Registro:
     def _papel_sello(self) -> str | None:
         """Papel de la clave de ORG_SELLO según politica/firmantes (una vez por proceso)."""
         clave = sello.clave_local()
-        if getattr(self, "_sello_cache", (None,))[0] != clave:
+        if not hasattr(self, "_sello_cache") or self._sello_cache[0] != clave:
             self._sello_cache = (clave, sello.papel_de_clave(self.raiz, clave))
         return self._sello_cache[1]
 

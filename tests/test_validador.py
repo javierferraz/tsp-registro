@@ -528,6 +528,13 @@ class Sello(unittest.TestCase):
         self.assertTrue(any("firmado por «javier», no por el papel validador" in x["motivo"]
                             for x in self.reg.rechazados()))
 
+    def test_subir_sin_clave_local_lo_que_no_lleva_sello(self):
+        """El PC no tiene clave: un proceso nuevo que sube eventos sin sello no revienta
+        (fallaba con AttributeError en la primera llamada, S-1271)."""
+        self.reg.escribir("tarea.propuesta", ("tarea", "T-3"), "direccion", "dir", "p3",
+                          {"titulo": "z", "repo": "app"})
+        self.assertIn("subidos", Registro(self.raiz).subir())
+
     def test_subir_se_niega_sin_sello(self):
         self.a_mano("tarea.verificada", "validador", "w2")
         with self.assertRaisesRegex(SinSello, "sin su sello"):
