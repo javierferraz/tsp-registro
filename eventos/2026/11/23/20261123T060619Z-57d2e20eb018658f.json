@@ -1,0 +1,39 @@
+{
+ "id": "57d2e20eb018658f",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T06:06:19.828387Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1137"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1137:n1-c533830f45ccd40c",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 12,
+  "creada": "2026-11-05T06:30:12Z",
+  "actualizada": "2026-11-22T22:54:17Z",
+  "huella_texto": "669211e166403d54",
+  "notas": 18,
+  "app": "Roaring Lion",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "media",
+  "commits": [
+   "3d14b7794d74",
+   "28b783100052",
+   "28190a025f4e",
+   "ea898d066cae",
+   "39324c531b70",
+   "a7cc994636f5",
+   "7510df895f95",
+   "c4252af1b750"
+  ]
+ }
+}
