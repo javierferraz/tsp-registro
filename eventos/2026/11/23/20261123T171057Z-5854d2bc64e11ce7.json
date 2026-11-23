@@ -1,0 +1,19 @@
+{
+ "id": "5854d2bc64e11ce7",
+ "tipo": "tarea.bloqueada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T17:10:57.773230Z",
+ "autor": {
+  "papel": "validador",
+  "identidad": "validador-github"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-589"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "S-589:validador:2105e1048356:0:bloqueada",
+ "datos": {
+  "motivo": "sin commits: no hay nada que comprobar; la cierra Javier desde el navegador (o con su firma)"
+ }
+}
