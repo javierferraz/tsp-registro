@@ -1,0 +1,7 @@
+# Sello de papel (S-1270, README §Validador central y sello). Formato «allowed signers» de git.
+# Solo claves PÚBLICAS. Las privadas están en los secretos de GitHub ORG_SELLO_VALIDADOR y
+# ORG_SELLO_JAVIER y en ningún PC. Un trabajador nunca edita este fichero.
+validador namespaces="git" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFsRs85T4Qh7cjRaAYtWv8uammE3AqNcDVuS/v2j+CvS validador
+javier namespaces="git" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBVy0EYWKZU7W8gbTwgMZx7dVSY0/P06F7OgDDb9nFud javier
+# Corte: lo que entró en este commit o antes vale sin firma (activado el 2026-11-23).
+desde 3b078adc85baeeec88a2967f9f2d8f362d90c25a

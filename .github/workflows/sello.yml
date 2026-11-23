@@ -1,0 +1,64 @@
+name: Prueba del sello
+
+# S-1270. Comprueba que cada clave del sello (secretos ORG_SELLO_*) es la de su papel en
+# politica/firmantes y que un commit firmado con ella lo acepta sello.comprobar, la misma función
+# que usa el índice. Firma en un repo temporal: no escribe nada en el registro.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Firmar y verificar con cada papel
+        env:
+          ORG_SELLO_VALIDADOR: ${{ secrets.ORG_SELLO_VALIDADOR }}
+          ORG_SELLO_JAVIER: ${{ secrets.ORG_SELLO_JAVIER }}
+        run: |
+          python - <<'EOF'
+          import os, shutil, subprocess, sys, tempfile
+          from pathlib import Path
+          from org import sello
+
+          raiz = Path(".")
+          mal = 0
+          for papel in ("validador", "javier"):
+              valor = os.environ.get(f"ORG_SELLO_{papel.upper()}", "")
+              if not valor:
+                  print(f"{papel}: falta el secreto"); mal += 1; continue
+              tmp = Path(tempfile.mkdtemp())
+              clave = tmp / "clave"
+              clave.write_text(valor.strip() + "\n", encoding="utf-8")
+              clave.chmod(0o600)
+              de = sello.papel_de_clave(raiz, str(clave))
+              repo = tmp / "repo"
+              (repo / "politica").mkdir(parents=True)
+              shutil.copy(raiz / sello.RUTA_FIRMANTES, repo / sello.RUTA_FIRMANTES)
+              rel = "eventos/2026/11/23/prueba.json"
+              (repo / rel).parent.mkdir(parents=True)
+              (repo / rel).write_text("{}", encoding="utf-8")
+              g = lambda *a: subprocess.run(["git", "-C", str(repo), *a], check=True,
+                                            capture_output=True, text=True)
+              g("init", "-q", "-b", "main")
+              g("-c", "user.name=prueba", "-c", "user.email=prueba@prueba", "add", ".")
+              g("-c", "user.name=prueba", "-c", "user.email=prueba@prueba",
+                *sello.args_firma(str(clave)), "commit", "-q", "-m", "prueba")
+              senal, firmante, motivo = sello.comprobar(repo, [rel])[rel]
+              ok = de == papel and firmante == papel and motivo is None
+              mal += not ok
+              print(f"{papel}: clave de «{de}», firma de «{firmante}», {motivo or 'válida'}"
+                    f" -> {'OK' if ok else 'MAL'}")
+              shutil.rmtree(tmp)
+          sys.exit(1 if mal else 0)
+          EOF
