@@ -1,0 +1,40 @@
+{
+ "id": "97617a90856794a4",
+ "tipo": "tarea.verificada",
+ "version_esquema": 2,
+ "fecha": "2026-11-23T17:09:43.586930Z",
+ "autor": {
+  "papel": "validador",
+  "identidad": "validador-github"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1170"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "S-1170:validador:2105e1048356:0:verificada",
+ "datos": {
+  "politica": "validador/tablero@1",
+  "cabeza": "2105e104835619e58b74ab3d7e2f2e3791003846",
+  "comprobaciones": [
+   {
+    "nombre": "commits",
+    "resultado": "ok",
+    "detalle": "2 commit(s) ya en la rama principal 2105e1048356"
+   },
+   {
+    "nombre": "pruebas",
+    "resultado": "no_verificado",
+    "detalle": "modo tablero: pasaron al fusionar en la rama principal; el validador no las repite"
+   }
+  ],
+  "coste": {
+   "segundos": 25,
+   "runner": "Linux",
+   "run": "45224217700"
+  },
+  "no_verificado": [
+   "pruebas: modo tablero: pasaron al fusionar en la rama principal; el validador no las repite"
+  ]
+ }
+}
