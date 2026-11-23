@@ -1,0 +1,22 @@
+{
+ "id": "448fcfb6658189a3",
+ "tipo": "tarea.entregada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T22:11:41.640718Z",
+ "autor": {
+  "papel": "trabajador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1272"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1272:S-1272-note-4:0:tarea.entregada",
+ "datos": {
+  "resumen": "S-1272 a Por validar",
+  "commits": [
+   "8b83aca0b44e"
+  ]
+ }
+}
