@@ -172,6 +172,36 @@ def _salida(obj) -> None:
     print(json.dumps(obj, ensure_ascii=False, indent=1))
 
 
+def _puente(reg: Registro, a) -> int:
+    from . import puente as pt
+    conf = json.loads(Path(a.config).read_text(encoding="utf-8"))
+    tablero = json.loads(Path(a.tablero).read_text(encoding="utf-8"))
+    if not conf.get("activa", True) and not a.exportar:
+        _salida({"estado": "apagado"})
+        return 0
+    actividad = json.loads(Path(a.actividad).read_text(encoding="utf-8")) if a.actividad else {}
+    manifest = Path(a.config).resolve().parents[1] / "updates" / "manifest.json"
+    repo_de = pt.resolver(conf.get("apps", {}), json.loads(manifest.read_text(encoding="utf-8"))
+                          if manifest.is_file() else None)
+    escritores = list(conf.get("escritores", {}))
+    out = {}
+    if not a.ensayo and not pt.etapas(reg):
+        out["inicio"] = pt.avanzar(reg, conf["etapas"], escritores, actividad)
+    plan = pt.planear(reg, tablero, repo_de, pt.repos_gestionados(reg), exportar=a.exportar)
+    out["plan"] = plan
+    if not a.ensayo:
+        etapa = next((e for e in pt.etapas(reg) if e["estado"] == "en_ciclo"), None)
+        out["aplicado"] = pt.aplicar(reg, plan, etapa)
+        out["avance"] = pt.avanzar(reg, conf["etapas"], escritores, actividad)
+        if not a.sin_subir and (out["aplicado"]["escritos"] or "inicio" in out
+                                or out["avance"]["estado"] in ("superada", "iniciada")):
+            out["subida"] = reg.subir()
+    for e in plan["eventos"]:  # el JSON no lleva tuplas
+        e["entidad"] = list(e["entidad"])
+    _salida(out)
+    return 0
+
+
 def main(argv=None) -> int:
     for flujo in (sys.stdout, sys.stderr):
         try:
@@ -282,6 +312,17 @@ def main(argv=None) -> int:
     s.add_argument("--repo", default="javierferraz/tsp-registro")
     s.add_argument("--workflow", default="validador.yml")
 
+    # P4-3 (S-1271): el registro manda en los repos migrados; lo llama tablero/puente.py.
+    s = sub.add_parser("puente", help="tablero ⇄ registro: traduce movimientos, proyecta el "
+                                      "registro y lleva las etapas de la migración")
+    s.add_argument("--tablero", required=True, help="tablero/board.json")
+    s.add_argument("--config", required=True, help="tablero/migracion.json del repo central")
+    s.add_argument("--actividad", help="JSON {escritor: [fechas ISO]} de quién ha escrito")
+    s.add_argument("--exportar", action="store_true",
+                   help="vuelta atrás: solo proyecta el registro sobre el tablero")
+    s.add_argument("--ensayo", action="store_true", help="dice qué haría, sin escribir nada")
+    s.add_argument("--sin-subir", action="store_true")
+
     # Fase 2 (S-1265): importador, comparación diaria y cartera. Solo leen las fuentes.
     for nombre, ayuda in (
             ("importar", "copia en el registro el tablero, las tareas de Lion y los vigías"),
@@ -355,6 +396,8 @@ def main(argv=None) -> int:
             return _fase2(reg, a)
         elif a.orden in ("validar", "revisar", "gasto"):
             return _validador(reg, a)
+        elif a.orden == "puente":
+            return _puente(reg, a)
         else:
             return _fase4(reg, a)
     except Rechazo as ex:

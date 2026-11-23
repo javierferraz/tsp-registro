@@ -78,6 +78,8 @@ def aplicar(actual: dict | None, ev: dict, tipo: Tipo) -> dict:
     elif t == "decision.tomada":
         nuevo.setdefault("decisiones", []).append(
             {"fecha": ev["fecha"], "evento": ev["id"], "autor": ev["autor"], **d})
+    elif t == "migracion.discrepancia":  # P4-3: reinicia el ciclo de la etapa (puente.py)
+        nuevo.setdefault("discrepancias", []).append({"fecha": ev["fecha"], **d})
     elif t == "evidencia.verificada":
         nuevo.setdefault("evidencias", []).append(
             {"fecha": ev["fecha"], "evento": ev["id"], "autor": ev["autor"], **d})

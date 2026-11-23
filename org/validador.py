@@ -53,7 +53,8 @@ from .esquemas import Rechazo
 
 POLITICA_VERSION = 1
 MAX_DEVOLUCIONES = 3          # 02 §9 ter: devoluciones antes de bloquear
-TIPOS_VALIDABLES = ("codigo", "interfaz", "web")
+TIPOS_VALIDABLES = ("codigo", "interfaz", "web", "tablero")
+CENTRAL = "2606-thestromboliproject"  # donde vive tablero/board.json
 FUENTES = os.environ.get("ORG_FUENTES", "C:/xampp/htdocs")
 REMOTO = "https://github.com/javierferraz/{repo}.git"
 # Nada de esto llega a las pruebas: el código entregado se ejecuta y no tiene que ver secretos.
@@ -63,6 +64,9 @@ _RE_HASH = re.compile(r"^(?P<ruta>.+?)#sha256=(?P<hex>[0-9a-f]{64})$")
 
 def politica(tarea: dict) -> dict:
     tipo = tarea.get("tipo_trabajo") or "codigo"
+    if tipo == "tablero":  # P4-3: tareas que nacen de una tarjeta (puente.py)
+        return {"nombre": f"validador/tablero@{POLITICA_VERSION}", "tipo": tipo,
+                "revision": False, "laboratorio": False, "urls": []}
     interfaz = tipo == "interfaz" or bool(tarea.get("toca_interfaz"))
     publica = tipo == "web" or bool(tarea.get("publica"))
     return {"nombre": f"validador/{tipo}@{POLITICA_VERSION}", "tipo": tipo,
@@ -230,7 +234,59 @@ def _sha256(datos: bytes) -> str:
     return "sha256:" + hashlib.sha256(datos).hexdigest()
 
 
-def juzgar(t: dict, copia: Path, carpeta_evidencias: Path, abrir=_abrir_url) -> dict:
+def _juzgar_tablero(t: dict, copia: Path, res: dict, j: _Juicio, central: Path | None) -> dict:
+    """Modo tablero (P4-3, S-1271): la tarea es una tarjeta y su trabajo ya se fusionó (en el repo
+    central se fusiona antes de Por validar, PAA M8). Con commits: cada uno existe y está en la
+    rama principal; las pruebas pasaron al fusionar y no se repiten. Sin commits (decisiones,
+    gestiones): solo vale que Javier la haya pasado a Terminada en el navegador (sin firma)."""
+    base = _ref(copia, "main") or _ref(copia, "master")
+    if not base:
+        res["bloqueo"] = "no encuentro la rama principal del repo (main o master)"
+        return res
+    res["cabeza"] = base
+    commits = (t.get("entrega") or {}).get("commits") or []
+    if commits:
+        for c in commits:
+            sha = _rev(copia, c)
+            if not sha:
+                j.falla("commits", f"el commit {c} no existe en el repo")
+            elif not _ancestro(copia, sha, base):
+                j.falla("commits", f"{c} no está en la rama principal: falta fusionarlo")
+        if not j.fallos:
+            j.ok("commits", f"{len(commits)} commit(s) ya en la rama principal {base[:12]}")
+        j.sin_verificar("pruebas", "modo tablero: pasaron al fusionar en la rama principal; "
+                                   "el validador no las repite")
+        return res
+    origen = central or copia
+    rama = _ref(origen, "main") or _ref(origen, "master")
+    texto = _git(origen, "show", f"{rama}:tablero/board.json", check=False) if rama else None
+    if texto is None or texto.returncode:
+        res["bloqueo"] = "sin commits y sin acceso a tablero/board.json para ver quién la cerró"
+        return res
+    desde = max([t.get("creada", "")] + [h["fecha"] for h in t.get("historial", [])
+                                         if h.get("tipo") == "tarea.reabierta"]
+                + [(t.get("veredicto") or {}).get("fecha", "")])
+    hito = datetime.strptime(desde, "%Y-%m-%dT%H:%M:%S.%fZ").replace(tzinfo=timezone.utc)
+    for e in reversed(json.loads(texto.stdout).get("events") or []):
+        if (e.get("cardId") == t["id"] and e.get("type") == "card.transition"
+                and str(e.get("summary", "")).endswith("-> hecha")
+                and (e.get("actor") or {}).get("kind") == "human"):
+            try:
+                cuando = datetime.strptime(e["at"], "%Y-%m-%dT%H:%M:%SZ").replace(
+                    tzinfo=timezone.utc)
+            except (KeyError, ValueError):
+                continue
+            if cuando >= hito:
+                j.ok("cierre", f"sin commits: Javier la pasó a Terminada en el navegador "
+                               f"({e['at']}, sin firma)")
+                return res
+    res["bloqueo"] = ("sin commits: no hay nada que comprobar; la cierra Javier desde el "
+                      "navegador (o con su firma)")
+    return res
+
+
+def juzgar(t: dict, copia: Path, carpeta_evidencias: Path, abrir=_abrir_url,
+           central: Path | None = None) -> dict:
     """El juicio de una entrega sobre una copia limpia ya preparada. No escribe en el registro."""
     pol = politica(t)
     j = _Juicio()
@@ -240,6 +296,8 @@ def juzgar(t: dict, copia: Path, carpeta_evidencias: Path, abrir=_abrir_url) -> 
     if pol["tipo"] not in TIPOS_VALIDABLES:
         res["bloqueo"] = f"el validador aún no sabe validar trabajo de tipo «{pol['tipo']}»"
         return res
+    if pol["tipo"] == "tablero":
+        return _juzgar_tablero(t, copia, res, j, central)
     if "criterios" not in ent:
         j.falla("informe", "informe de entrega v1: el validador solo acepta el v2 "
                            "(criterios con evidencia, ficheros, commits)")
@@ -431,7 +489,12 @@ def decidir(reg, tarea_id: str, identidad: str, *, fuente: str | None = None,
         copia = tmp / "repo"
         try:
             copia_limpia(fuente_de(t["repo"], fuente), copia)
-            res = juzgar(t, copia, carpeta, abrir)
+            central = None
+            if (t.get("tipo_trabajo") == "tablero" and t["repo"] != CENTRAL
+                    and not (t.get("entrega") or {}).get("commits")):
+                central = tmp / "central"  # quién la cerró está en el tablero del central
+                copia_limpia(fuente_de(CENTRAL, None), central)
+            res = juzgar(t, copia, carpeta, abrir, central)
         except Rechazo as e:
             res = {"politica": politica(t)["nombre"], "juicio": _Juicio(), "cabeza": "",
                    "log": None, "bloqueo": f"no pude preparar la copia del repo: {e}"}
@@ -493,6 +556,12 @@ def registrar(reg, d: dict, identidad: str, *, log: Path | None = None, subir=Tr
     if veredicto == "verificada":
         r = reg.escribir("tarea.verificada", ("tarea", tarea_id), "validador", identidad,
                          f"{clave}:verificada", datos, version=2)
+        if d["politica"].startswith("validador/tablero@"):  # ya está en la rama principal
+            reg.escribir("tarea.integrada", ("tarea", tarea_id), "validador", identidad,
+                         f"{clave}:integrada",
+                         {"commit": d["cabeza"]} if d["cabeza"] != "-" else {})
+            r = reg.escribir("tarea.cerrada", ("tarea", tarea_id), "validador", identidad,
+                             f"{clave}:cerrada", {"motivo": "verificada en modo tablero"})
     elif veredicto == "devuelta":
         r = reg.escribir("tarea.devuelta", ("tarea", tarea_id), "validador", identidad,
                          f"{clave}:devuelta", datos, version=2)

@@ -245,6 +245,32 @@ no lo hace cumplir en un repo privado sin plan Team, así que un force-push podr
 historia. En local las pruebas corren como el usuario de Javier, sin aislamiento. Validar repos de
 apps privados desde GitHub necesita el token de lectura `ORG_LECTOR_REPOS`.
 
+## El registro manda: puente y migración por etapas (S-1271, PAA2 P4-3)
+
+`org puente` (lo llama `tablero/puente.py` del repo central) hace que, en los repos migrados, el
+estado de cada tarjeta lo mande el registro. El tablero sigue siendo la pantalla y guarda el texto
+(D-8): la tarea del registro se llama como la tarjeta (`titulo` = `S-NNN`) y es de tipo `tablero`.
+
+- **Tablero → registro.** Cada movimiento (nota de transición) se traduce, en orden y con quien
+  lo hizo, al camino legal más corto del ciclo con los papeles planificador, dirección y
+  trabajador. Empezar desde el navegador = `tarea.aprobada` del planificador «sin firma» (la
+  firmada sigue siendo el botón de Telegram). Salir de Terminada o Descartada = `tarea.reabierta`.
+- **Terminada la pone el validador.** Llevar a Terminada una tarea entregada (o, si es Javier,
+  desde cualquier columna) lanza `validador.yml`; la tarjeta espera en Por validar su veredicto.
+  En modo tablero (`validador/tablero@1`) el validador comprueba que los commits están en la rama
+  principal (no repite las pruebas: pasaron al fusionar) o, sin commits, que Javier la pasó a
+  Terminada en el navegador; si verifica, escribe también integrada y cerrada.
+- **Registro → tablero.** Si el registro va por delante (cerrada, devuelta, bloqueada), la
+  tarjeta se mueve a su columna con una nota. `--exportar` aplica solo esa proyección a todo: es
+  la vuelta atrás, y vale mientras dure la migración y dos semanas después de la última etapa.
+- **Discrepancia** = un movimiento que el registro no acepta (un agente que cierra sin Por
+  validar, una columna desconocida). La tarjeta vuelve a su sitio y se escribe
+  `migracion.discrepancia` en la etapa en curso.
+- **Etapas** (`migracion:tablero-N`, config en `tablero/migracion.json` del central): 1 repo
+  central, 2 Clever Cat y Silent Frog, 3 el resto. Una etapa se supera (`migracion.superada`)
+  con un ciclo limpio: todos los escritores de la config han escrito desde su inicio o desde la
+  última discrepancia. Entonces empieza sola la siguiente. `migracion.revertida` la apaga.
+
 ## Cabecera de un evento
 
 `id` (16 hex) · `tipo` · `version_esquema` · `fecha` (UTC, microsegundos) · `autor {papel,
@@ -306,6 +332,10 @@ Tarea: `propuesta → aprobada → lista → en_curso → entregada → verifica
 | D-14 | Cadencia esperada de los vigías: soporte 2 días, releases 5, contenidos, fichas y tablero 8 | Un plazo único | Cada vigía corre con su propio ritmo (diario, lunes y jueves, semanal) |
 | D-15 | Lista blanca por patrón: un campo de texto solo entra si parece un identificador corto (estado, app, etiqueta, carpeta, rama); el autor de un movimiento, solo `claude`, `javier` u `otro` | Confiar en que hoy los valores son benignos | Una rama de Lion ya llevaba prosa del agente (revisión en frío) |
 | D-16 | Propuestas → En curso sin Empezar se cuenta aparte como ruido conocido | Listarlo con las demás anomalías | PAA M6 y los prompts lanzados por Javier lo hacen legítimo; tapaba lo demás (270 de 426) |
+| D-17 | El puente escribe `tarea.*` con planificador, dirección y trabajador (S-1271) | Esperar al planificador de P5-1 | Javier: «no quiero aplazarla»; P5-1 lo sustituirá |
+| D-18 | Una propuesta en Pendiente sigue siendo propuesta | Pendiente = bloqueada siempre (D-12) | Pendiente es también «pregunta sobre una idea» (CLAUDE.md del central) |
+| D-19 | Validador en modo tablero sin repetir pruebas | Repetir los checks del central en GitHub | Ya pasaron al fusionar; los del central no corren en el runner tal cual |
+| D-20 | Etapa 2 = Clever Cat y Silent Frog | Otras dos apps | Las apps piloto de siempre (Aquiles, Iris), con pocas tarjetas abiertas |
 
 Pendiente de llevar a `02-arquitectura.md` cuando se toque (lo lleva la sesión que lo edite).
 

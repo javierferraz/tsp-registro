@@ -198,6 +198,10 @@ TIPOS: dict[str, Tipo] = {
                               obligatorios={}, opcionales={"commit": str, "release": str})}),
     "tarea.cerrada": _t("tarea", {"validador", "javier"}, {"integrada"}, "cerrada",
                         {1: _MOTIVO_OPC}),
+    # P4-3 (S-1271): una tarea cerrada o descartada que se vuelve a abrir (en el tablero, una
+    # tarjeta que sale de Terminada o Descartada) vuelve a empezar como propuesta.
+    "tarea.reabierta": _t("tarea", {"javier", "direccion", "planificador"},
+                          {"cerrada", "descartada"}, "propuesta", {1: _MOTIVO}),
 
     # --- Registros sobre una tarea que no cambian su estado ---------------------------
     "tarea.latido": _t("tarea", {"trabajador"}, {"en_curso"}, None,
@@ -244,6 +248,22 @@ TIPOS: dict[str, Tipo] = {
         obligatorios={"nivel": ("suave", "dura", "emergencia"), "origen": str},
         opcionales={"ambito": str, "motivo": str})}),
     "pausa.retirada": _t("pausa", {"javier"}, {"activa"}, "retirada", {1: _MOTIVO_OPC}),
+
+    # --- Migración por etapas (P4-3, S-1271) ----------------------------------------------
+    # Una entidad por etapa (migracion:tablero-1, -2…). Una etapa se supera con un ciclo limpio:
+    # todos los escritores han escrito desde su inicio (o desde la última discrepancia) sin
+    # ninguna discrepancia registro frente a tablero. La escribe el puente (puente.py).
+    "migracion.iniciada": _t("migracion", {"planificador", "javier"}, None, "en_ciclo",
+                             {1: Version(obligatorios={"etapa": int, "repos": ListaDe(str)})}),
+    "migracion.discrepancia": _t("migracion", {"planificador"}, {"en_ciclo"}, None,
+                                 {1: Version(obligatorios={"tarjeta": str, "de": str, "a": str,
+                                                           "clase": str},
+                                             opcionales={"escritor": str})}),
+    "migracion.superada": _t("migracion", {"planificador"}, {"en_ciclo"}, "superada",
+                             {1: Version(obligatorios={"escritores": ListaDe(str),
+                                                       "ciclo_desde": str})}),
+    "migracion.revertida": _t("migracion", {"javier", "planificador"},
+                              {"en_ciclo", "superada"}, "revertida", {1: _MOTIVO}),
 
     # --- Espejo de la fase 2 (S-1265): el registro observa, no decide ------------------
     # Sin texto libre: ni títulos, ni cuerpos, ni notas, ni prompts (pueden llevar datos

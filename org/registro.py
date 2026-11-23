@@ -216,8 +216,9 @@ class Registro:
     def escribir_lote(self, eventos: list[dict], papel: str, identidad: str,
                       ahora: datetime | None = None) -> list[Resultado | Rechazo]:
         """Varios eventos con una sola pasada por eventos/ (el importador escribe cientos).
-        Cada elemento: {tipo, entidad, clave, datos}. Un rechazo no para el lote: se devuelve
-        en su posición y los demás siguen."""
+        Cada elemento: {tipo, entidad, clave, datos} y, si hace falta, su propio `papel` y
+        `version` (el puente, S-1271). Un rechazo no para el lote: se devuelve en su posición y
+        los demás siguen."""
         db = self._conectar()
         try:
             db.execute("BEGIN IMMEDIATE")
@@ -225,8 +226,10 @@ class Registro:
             out: list[Resultado | Rechazo] = []
             for e in eventos:
                 try:
-                    out.append(self._escribir_en(db, e["tipo"], e["entidad"], papel, identidad,
-                                                 e["clave"], e.get("datos"), None, 1, ahora))
+                    out.append(self._escribir_en(db, e["tipo"], e["entidad"],
+                                                 e.get("papel", papel), identidad, e["clave"],
+                                                 e.get("datos"), None, e.get("version", 1),
+                                                 ahora))
                 except Rechazo as ex:
                     out.append(ex)
             db.execute("COMMIT")
