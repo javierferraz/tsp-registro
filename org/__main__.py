@@ -85,6 +85,38 @@ def _fase2(reg: Registro, a) -> int:
     return 1 if imp["rechazados"] else 0
 
 
+def _fase4(reg: Registro, a) -> int:
+    from . import recursos, trabajo
+
+    if a.orden in ("recursos", "volumen", "contrato"):
+        _salida(recursos.resumen(reg) if a.orden == "recursos" else
+                trabajo.volumen(reg) if a.orden == "volumen" else trabajo.contrato(reg, a.tarea))
+        return 0
+    if not a.identidad:
+        raise Rechazo("falta --identidad (o ORG_IDENTIDAD)")
+    subir = not a.sin_subir
+    if a.orden == "latido":
+        r = trabajo.latido(reg, a.tarea, a.identidad, a.ficheros, subir=subir)
+    elif a.orden == "punto-control":
+        r = trabajo.punto_control(reg, a.tarea, a.identidad, a.hecho, a.sigue, a.ficheros,
+                                  a.rama, a.commit, a.a_medias, subir=subir)
+    elif a.orden == "caducar":
+        r = trabajo.caducar(reg, a.identidad, a.minutos)
+        if r and subir:
+            r = {"caducadas": r, "subida": trabajo._subir(reg)}
+    elif a.orden == "reservar":
+        r = recursos.reservar(reg, a.recurso, a.identidad, a.papel, a.minutos, a.tarea,
+                              a.maquina, subir=subir)
+        _salida(r)
+        return 0 if r["ok"] else 3
+    elif a.orden == "liberar":
+        r = recursos.liberar(reg, a.reserva, a.identidad, a.papel, a.motivo, subir=subir)
+    else:  # renovar
+        r = recursos.renovar(reg, a.reserva, a.identidad, a.papel, a.minutos, subir=subir)
+    _salida(r)
+    return 0
+
+
 def _entidad(texto: str) -> tuple[str, str]:
     tipo, sep, ent_id = texto.partition(":")
     if not sep or not tipo or not ent_id:
@@ -139,6 +171,49 @@ def main(argv=None) -> int:
     t.add_argument("--papel")
     sub.add_parser("subir", help="commit de los eventos nuevos y push (pull --rebase si choca)")
     sub.add_parser("parte", help="genera estado/parte.html desde el registro, sin importar nada")
+
+    # Fase 4 (S-1269): contrato de trabajo ampliado y reserva de recursos entre máquinas.
+    def quien(s, papel):
+        s.add_argument("--papel", default=os.environ.get("ORG_PAPEL", papel))
+        s.add_argument("--identidad", default=os.environ.get("ORG_IDENTIDAD"))
+        s.add_argument("--sin-subir", action="store_true", help="no hace commit ni push")
+
+    s = sub.add_parser("latido", help="latido de una tarea en curso (agrupado: como mucho un "
+                                      "evento cada 10 min; lo que haya pendiente se sube)")
+    s.add_argument("tarea")
+    s.add_argument("--ficheros", nargs="*", default=[], help="ficheros tocados desde el último")
+    quien(s, "trabajador")
+    s = sub.add_parser("punto-control", help="qué está hecho, qué sigue y qué está a medias")
+    s.add_argument("tarea")
+    s.add_argument("--hecho", required=True)
+    s.add_argument("--sigue", required=True)
+    s.add_argument("--ficheros", nargs="*", default=[])
+    s.add_argument("--a-medias", nargs="*", default=[])
+    s.add_argument("--rama")
+    s.add_argument("--commit")
+    quien(s, "trabajador")
+    s = sub.add_parser("caducar", help="el planificador: tareas en curso sin latido → caducada")
+    s.add_argument("--minutos", type=int, help="sin latido desde hace N min (por defecto 20)")
+    quien(s, "planificador")
+    s = sub.add_parser("contrato", help="lo que recibe el trabajador (con el relevo, si lo hay)")
+    s.add_argument("tarea")
+    s = sub.add_parser("reservar", help="reserva un recurso; sale con 3 si no se consigue")
+    s.add_argument("recurso", help="p. ej. repo:silent-frog:main, manifest, ftp, firma")
+    s.add_argument("--minutos", type=int, default=30)
+    s.add_argument("--tarea")
+    s.add_argument("--maquina")
+    quien(s, "trabajador")
+    for nombre, ayuda in (("liberar", "suelta una reserva"),
+                          ("renovar", "alarga una reserva viva")):
+        s = sub.add_parser(nombre, help=ayuda)
+        s.add_argument("reserva", help="R-…")
+        if nombre == "renovar":
+            s.add_argument("--minutos", type=int, default=30)
+        else:
+            s.add_argument("--motivo")
+        quien(s, "trabajador")
+    sub.add_parser("recursos", help="quién tiene cada recurso ahora")
+    sub.add_parser("volumen", help="eventos de hoy frente al presupuesto de 500")
 
     # Fase 2 (S-1265): importador, comparación diaria y cartera. Solo leen las fuentes.
     for nombre, ayuda in (
@@ -196,6 +271,8 @@ def main(argv=None) -> int:
             print(generar(reg))
         elif a.orden in ("importar", "comparar", "cartera", "diario"):
             return _fase2(reg, a)
+        else:
+            return _fase4(reg, a)
     except Rechazo as ex:
         print(f"rechazado: {ex}", file=sys.stderr)
         return 1

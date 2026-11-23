@@ -88,6 +88,59 @@ lado del parte de Telegram, que no cambia**, hasta que Javier prefiera uno de lo
 | D-19 | Ventana fija de 24 h | «Desde tu última visita» | El parte no sabe cuándo lo abrió Javier; queda para la puerta (P3-2) |
 | D-20 | `estado/parte.html`, fuera de git | `informes/` en git | Se regenera entero cada día; en git solo sumaría ruido |
 
+## Contrato de trabajo ampliado y reserva de recursos (S-1269, PAA2 P4-1)
+
+Diseño: `02-arquitectura.md` §4, §5.1, §8.3 y §9 ter. **Aún no sustituye al tablero** ni a las
+carpetas de tarea de Lion: son las piezas que usarán el planificador (P5-1) y el validador (P4-2).
+
+```
+py -m org latido T-1 --identidad w1 [--ficheros a.py b.py]     # agrupado; sube si escribe
+py -m org punto-control T-1 --identidad w1 --hecho "…" --sigue "…" [--ficheros …] [--a-medias …] [--rama s1] [--commit abc]
+py -m org caducar --identidad plan [--minutos 20]               # el planificador
+py -m org contrato T-1                                          # lo que recibe el trabajador
+py -m org reservar manifest --identidad w1 [--minutos 30] [--tarea T-1]   # 0 = tuya, 3 = no
+py -m org liberar R-… --identidad w1  ·  py -m org renovar R-… --identidad w1 --minutos 30
+py -m org recursos  ·  py -m org volumen
+```
+
+- **Latido agrupado.** Se puede latir tan a menudo como se quiera: solo se escribe un evento si el
+  último de la tarea tiene 10 min o más (12 si el día ya pasa de 500 eventos) y, al escribirse,
+  se sube con todo lo pendiente. Entre medias, los ficheros tocados se acumulan en el índice local
+  y salen en el siguiente latido o punto de control. Medido en los tests: 7 tareas latiendo cada
+  5 min durante 14 h dejan 546 latidos (sin agrupar serían 1.176).
+- **Punto de control** (v2): qué está hecho, qué sigue, ficheros tocados y a medias, rama y
+  commit. Se escribe y se sube siempre.
+- **Relevo.** Sin latido en 20 min, `caducar` la marca `caducada`; el planificador la devuelve a
+  `lista` y la asigna a otro. `contrato` le da el último punto de control, la rama, los ficheros
+  tocados y sus reservas. La ejecución anterior queda en `ejecuciones_anteriores`.
+- **Informe de entrega** (`tarea.entregada` v2), sin campos libres: criterios con estado `ok`
+  (con evidencia), `falla` o `no_ejecutado` (con motivo), ficheros, commits, decisiones con el
+  mismo esquema que `decision.tomada` (sin clase C), lo descubierto de paso y el coste.
+  `contrato` lo describe en `informe_v2`.
+- **Reservas.** Una entidad `reserva` (R-…) por petición, con plazo (30 min por defecto, hasta 24 h)
+  que caduca solo; se renueva mientras está viva y una caducada no se resucita. **Gana la que
+  entró antes en la historia compartida**: se pide, se sube y se vuelve a leer; si hay otra viva
+  delante, se escribe la retirada. Si el índice ya dice que otro la tiene, sale «ocupado» sin
+  escribir nada.
+
+| N.º | Decisión (S-1269) | Descartada | Por qué |
+|---|---|---|---|
+| D-21 | «La más antigua» es la que entró antes en la historia compartida (orden de los commits tras subir); la fecha solo desempata | Comparar la `fecha` del evento | Con la fecha, quien sube primero con un reloj adelantado o con su petición más tarde se cree solo y empieza; la otra llega después con fecha anterior y también gana. El test `test_gana_la_que_entra_antes…` falla con ese criterio |
+| D-22 | Una entidad `reserva` por petición, con el recurso en los datos | Una entidad por recurso | El estado calculado ordena por fecha: decidiría el ganador al revés que la historia (D-21) |
+| D-23 | Caducidad por plazo propio de la reserva, con `renovar` | Atarla al latido de la tarea | `ftp`, `firma` o `manifest` también se piden fuera de una tarea; renovar es raro y cuesta un evento |
+| D-24 | Latido como evento cada 10 min por tarea (12 con el día por encima de 500) y subida al escribirse; el trabajador late cada 5 min o menos (`contrato` lo dice en `latir_cada_min`) | Un evento por latido y subida cada 10 min; 15 min saturado | Un latido por minuto de 5 trabajadores serían 7.200 eventos al día. Con 15 min y un trabajador que late cada 5, el latido escrito podía caer en el minuto 20, el de la caducidad (revisión en frío); con 12, como mucho en el 17. **El tope es blando**: un latido que no sale hace caducar la tarea, que es peor que pasarse; pasarse es la señal de 02 §3.1 ter (`org volumen`) |
+| D-25 | v2 de latido, punto de control y entrega; la v1 sigue admitida | Ampliar la v1 | `CLAUDE.md`: nunca se cambia el significado de una versión publicada |
+| D-26 | En v2, latido, punto de control y entrega solo valen del ejecutor asignado | Cualquier trabajador | Uno que vuelve tras caducar no puede pisar el relevo (02 §8.3: una sola ejecución viva) |
+| D-27 | El informe usa el esquema de `decision.tomada` para sus decisiones, sin clase C | Un esquema propio | 02 §4: un solo esquema de decisiones; la C solo la escribe Javier |
+
+Límites: la caducidad compara el plazo con el reloj de cada máquina (un desfase de minutos puede
+dar por viva o caducada una reserva en el borde, y dos máquinas creerse titulares durante ese
+desfase); `caducar` decide con lo que ha llegado al índice, así que un latido que no se pudo
+subir no cuenta; la protección del relevo (D-26) solo cubre los eventos v2 (los trabajadores
+nuevos usan v2, la v1 queda para lo ya escrito); sin red, `reservar` no confirma y se retira
+(«sin_confirmar»); las reservas por máquina y pantalla dependen de que todos los procesos usen
+`org`, no hay nada que impida usar el recurso sin reservarlo.
+
 ## Cabecera de un evento
 
 `id` (16 hex) · `tipo` · `version_esquema` · `fecha` (UTC, microsegundos) · `autor {papel,
@@ -106,9 +159,9 @@ identidad}` · `entidad {tipo, id}` · `correlacion` (id del evento que lo origi
 
 | Papel | Puede escribir |
 |---|---|
-| trabajador | latido, punto de control, entrega, pausa, bloqueo, decisión A/B, incidencia |
+| trabajador | latido, punto de control, entrega, pausa, bloqueo, decisión A/B, incidencia; pedir, renovar, liberar y retirar su reserva |
 | validador / laboratorio | evidencia verificada, verificada, devuelta, integrada (y cerrada, el validador) |
-| planificador | aprobada (M6), lista, asignada, caducada, pausa, bloqueo |
+| planificador | aprobada (M6), lista, asignada, caducada, pausa, bloqueo; reservas (también soltar la de otro) |
 | direccion / motor | propuesta de tarea (dirección también descarta); el motor, incidencias |
 | javier | objetivo, propuesta, aprobada, descartada, pausa, cerrada, decisión C |
 | fabrica | nada aún (ficha de release: P6-1) |

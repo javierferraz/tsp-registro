@@ -45,7 +45,9 @@ ESTADOS_TAREA = (
     "entregada", "devuelta", "verificada", "integrada", "cerrada", "descartada",
 )
 
-# Una especificación de campo es un tipo de Python o una tupla de valores admitidos.
+# Una especificación de campo es un tipo de Python, una tupla de valores admitidos, una
+# Version (objeto anidado con sus campos) o un ListaDe (lista cuyos elementos cumplen otra
+# especificación). Lo anidado entra con la v2 del contrato de trabajo (S-1269).
 Campos = dict
 
 
@@ -53,6 +55,11 @@ Campos = dict
 class Version:
     obligatorios: Campos
     opcionales: Campos = field(default_factory=dict)
+
+
+@dataclass(frozen=True)
+class ListaDe:
+    elemento: object
 
 
 @dataclass(frozen=True)
@@ -95,6 +102,33 @@ _INFORME_V1 = Version(  # el último informe de un vigía: solo cifras
 _MOTIVO = Version(obligatorios={"motivo": str})
 _MOTIVO_OPC = Version(obligatorios={}, opcionales={"motivo": str})
 
+# --- Contrato de trabajo ampliado (02 §4 y §8.3; S-1269) ------------------------------
+# Un solo esquema de decisión: el de decision.tomada, también dentro del informe de entrega.
+_DECISION = Version(
+    obligatorios={"clase": ("A", "B", "C"), "elegida": str, "motivo": str},
+    opcionales={"opciones": list, "descartada": str, "vetable": bool})
+_FICHEROS = ListaDe(str)
+_LATIDO_V2 = Version(obligatorios={}, opcionales={"ficheros": _FICHEROS})
+_PUNTO_CONTROL_V2 = Version(  # lo que necesita otro trabajador para seguir donde se cortó
+    obligatorios={"hecho": str, "sigue": str, "ficheros": _FICHEROS},
+    opcionales={"rama": str, "commit": str, "a_medias": _FICHEROS})
+_INFORME_V2 = Version(  # el informe de entrega, sin campos libres
+    obligatorios={
+        "resumen": str,
+        "criterios": ListaDe(Version(
+            obligatorios={"n": int, "estado": ("ok", "falla", "no_ejecutado")},
+            opcionales={"evidencia": str, "motivo": str})),
+        "ficheros": _FICHEROS,
+        "commits": ListaDe(str),
+        "decisiones": ListaDe(_DECISION),
+        "descubierto": ListaDe(str),
+        "coste": Version(obligatorios={"minutos": int},
+                         opcionales={"tokens": int, "turnos": int}),
+    },
+    opcionales={"rama": str})
+_RESERVA_V1 = Version(obligatorios={"recurso": str, "minutos": int},
+                      opcionales={"tarea": str, "maquina": str})
+
 TIPOS: dict[str, Tipo] = {
     # --- Objetivos -------------------------------------------------------------------
     "objetivo.creado": _t("objetivo", {"javier"}, None, "aprobado", {1: Version(
@@ -121,7 +155,7 @@ TIPOS: dict[str, Tipo] = {
     "tarea.caducada": _t("tarea", {"planificador"}, {"en_curso"}, "caducada", {1: _MOTIVO_OPC}),
     "tarea.entregada": _t("tarea", {"trabajador"}, {"en_curso"}, "entregada", {1: Version(
         obligatorios={"resumen": str},
-        opcionales={"rama": str, "commits": list, "evidencias": list})}),
+        opcionales={"rama": str, "commits": list, "evidencias": list}), 2: _INFORME_V2}),
     "tarea.verificada": _t("tarea", {"validador", "laboratorio"},
                            {"entregada"}, "verificada", {1: _MOTIVO_OPC}),
     "tarea.devuelta": _t("tarea", {"validador", "laboratorio"},
@@ -134,16 +168,13 @@ TIPOS: dict[str, Tipo] = {
 
     # --- Registros sobre una tarea que no cambian su estado ---------------------------
     "tarea.latido": _t("tarea", {"trabajador"}, {"en_curso"}, None,
-                       {1: Version(obligatorios={})}),
+                       {1: Version(obligatorios={}), 2: _LATIDO_V2}),
     "tarea.punto_control": _t("tarea", {"trabajador"}, {"en_curso"}, None,
                               {1: Version(obligatorios={"resumen": str},
-                                          opcionales={"ruta": str})}),
+                                          opcionales={"ruta": str}), 2: _PUNTO_CONTROL_V2}),
     "decision.tomada": _t("tarea", {"trabajador", "javier"},
-                          set(ESTADOS_TAREA) - {"cerrada", "descartada"}, None, {1: Version(
-                              obligatorios={"clase": ("A", "B", "C"), "elegida": str,
-                                            "motivo": str},
-                              opcionales={"opciones": list, "descartada": str,
-                                          "vetable": bool})}),
+                          set(ESTADOS_TAREA) - {"cerrada", "descartada"}, None,
+                          {1: _DECISION}),
     "evidencia.verificada": _t("tarea", {"validador", "laboratorio"},
                                {"entregada", "verificada", "integrada"}, None, {1: Version(
                                    obligatorios={"tipo": str, "ruta": str, "hash": str},
@@ -158,6 +189,19 @@ TIPOS: dict[str, Tipo] = {
                                                "descripcion": str},
                                  opcionales={"app": str, "version": str, "huella": str,
                                              "tareas": list})}),
+
+    # --- Reserva de recursos entre máquinas (02 §5.1; S-1269) --------------------------
+    # Una entidad por petición (R-…), no por recurso: el ganador lo decide el orden de la
+    # historia compartida (recursos.py), no el estado calculado.
+    "reserva.pedida": _t("reserva", {"trabajador", "planificador"}, None, "activa",
+                         {1: _RESERVA_V1}),
+    "reserva.renovada": _t("reserva", {"trabajador", "planificador"}, {"activa"}, None,
+                           {1: Version(obligatorios={"minutos": int})}),
+    "reserva.liberada": _t("reserva", {"trabajador", "planificador", "javier"}, {"activa"},
+                           "liberada", {1: _MOTIVO_OPC}),
+    "reserva.retirada": _t("reserva", {"trabajador", "planificador"}, {"activa"}, "retirada",
+                           {1: Version(obligatorios={"motivo": str},
+                                       opcionales={"gana": str})}),
 
     # --- Espejo de la fase 2 (S-1265): el registro observa, no decide ------------------
     # Sin texto libre: ni títulos, ni cuerpos, ni notas, ni prompts (pueden llevar datos
@@ -184,7 +228,37 @@ def _regla_decision_c(ev):
         raise Rechazo("una decisión de clase C solo la escribe el papel javier")
 
 
-REGLAS_EXTRA = {"decision.tomada": [_regla_decision_c]}
+def _regla_informe(ev):
+    """Informe v2: cada criterio dice cómo se sabe; lo no comprobado lleva su porqué."""
+    if ev["version_esquema"] != 2:
+        return
+    vistos = set()
+    for c in ev["datos"]["criterios"]:
+        if c["n"] in vistos:
+            raise Rechazo(f"datos.criterios: el criterio {c['n']} sale dos veces")
+        vistos.add(c["n"])
+        if c["estado"] == "ok" and not c.get("evidencia"):
+            raise Rechazo(f"datos.criterios: el {c['n']} está «ok» sin evidencia")
+        if c["estado"] != "ok" and not c.get("motivo"):
+            raise Rechazo(f"datos.criterios: el {c['n']} está «{c['estado']}» sin motivo")
+    if any(d["clase"] == "C" for d in ev["datos"]["decisiones"]):
+        raise Rechazo("datos.decisiones: una decisión de clase C no la toma un trabajador")
+
+
+_RE_RECURSO = re.compile(r"^[a-z0-9][a-z0-9._:/-]{0,99}$")
+MINUTOS_MAX_RESERVA = 24 * 60
+
+
+def _regla_reserva(ev):
+    d = ev["datos"]
+    if "recurso" in d and not _RE_RECURSO.match(d["recurso"]):
+        raise Rechazo("datos.recurso: minúsculas, cifras y . _ : / - (p. ej. repo:silent-frog:main)")
+    if not 1 <= d["minutos"] <= MINUTOS_MAX_RESERVA:
+        raise Rechazo(f"datos.minutos: de 1 a {MINUTOS_MAX_RESERVA}")
+
+
+REGLAS_EXTRA = {"decision.tomada": [_regla_decision_c], "tarea.entregada": [_regla_informe],
+                "reserva.pedida": [_regla_reserva], "reserva.renovada": [_regla_reserva]}
 
 CABECERA = ("id", "tipo", "version_esquema", "fecha", "autor", "entidad", "correlacion",
             "clave_idempotencia", "datos")
@@ -193,7 +267,28 @@ _RE_ENTIDAD = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$")
 _RE_FECHA = re.compile(r"^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{6}Z$")
 
 
-def _comprobar_campo(nombre, valor, spec):
+def _comprobar_campos(prefijo, datos, version: Version, donde: str):
+    for k, spec in version.obligatorios.items():
+        if k not in datos:
+            raise Rechazo(f"{prefijo}{k}: obligatorio en {donde}")
+    for k, v in datos.items():
+        spec = version.obligatorios.get(k, version.opcionales.get(k))
+        if spec is None:
+            raise Rechazo(f"{prefijo}{k}: campo no previsto en {donde}")
+        _comprobar_campo(f"{prefijo[len('datos.'):]}{k}", v, spec, donde)
+
+
+def _comprobar_campo(nombre, valor, spec, donde=""):
+    if isinstance(spec, Version):
+        if not isinstance(valor, dict):
+            raise Rechazo(f"datos.{nombre}: tiene que ser un objeto")
+        return _comprobar_campos(f"datos.{nombre}.", valor, spec, donde)
+    if isinstance(spec, ListaDe):
+        if not isinstance(valor, list):
+            raise Rechazo(f"datos.{nombre}: tiene que ser una lista")
+        for i, elem in enumerate(valor):
+            _comprobar_campo(f"{nombre}[{i}]", elem, spec.elemento, donde)
+        return
     if isinstance(spec, tuple):
         if valor not in spec:
             raise Rechazo(f"datos.{nombre}: «{valor}» no es uno de {list(spec)}")
@@ -256,18 +351,23 @@ def validar(ev: dict) -> Tipo:
     datos = ev["datos"]
     if not isinstance(datos, dict):
         raise Rechazo("datos: objeto")
-    for k, spec in version.obligatorios.items():
-        if k not in datos:
-            raise Rechazo(f"datos.{k}: obligatorio en {ev['tipo']}")
-        _comprobar_campo(k, datos[k], spec)
-    for k, v in datos.items():
-        spec = version.obligatorios.get(k, version.opcionales.get(k))
-        if spec is None:
-            raise Rechazo(f"datos.{k}: campo no previsto en {ev['tipo']} v{ev['version_esquema']}")
-        _comprobar_campo(k, v, spec)
+    _comprobar_campos("datos.", datos, version, f"{ev['tipo']} v{ev['version_esquema']}")
     for regla in REGLAS_EXTRA.get(ev["tipo"], ()):
         regla(ev)
     return tipo
+
+
+def describir(spec):
+    """Una especificación en JSON legible: para enseñar al trabajador qué tiene que devolver."""
+    if isinstance(spec, Version):
+        return {**{k: describir(v) for k, v in spec.obligatorios.items()},
+                **{f"{k}?": describir(v) for k, v in spec.opcionales.items()}}
+    if isinstance(spec, ListaDe):
+        return [describir(spec.elemento)]
+    if isinstance(spec, tuple):
+        return " | ".join(spec)
+    return {str: "texto", int: "entero", bool: "sí/no", list: "lista", dict: "objeto"}.get(
+        spec, str(spec))
 
 
 def huella(ev: dict) -> str:

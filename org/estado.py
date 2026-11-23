@@ -6,6 +6,7 @@ pasen por el mismo código y den lo mismo.
 from __future__ import annotations
 
 import copy
+from datetime import datetime, timedelta
 
 from .esquemas import CUALQUIERA, ESTADO_EN_DATOS, Conflicto, Tipo
 
@@ -39,16 +40,26 @@ def aplicar(actual: dict | None, ev: dict, tipo: Tipo) -> dict:
                                    "autor": ev["autor"], **_resumen(ev["datos"])})
 
     t, d = ev["tipo"], ev["datos"]
+    if ev["version_esquema"] >= 2 and t in _DEL_EJECUTOR:
+        ejecutor = (actual or {}).get("ejecucion", {}).get("ejecutor")
+        if ejecutor and ejecutor != ev["autor"]["identidad"]:
+            raise Conflicto(f"{t}: la tarea la lleva {ejecutor}, no "
+                            f"{ev['autor']['identidad']} (una sola ejecución viva, 02 §8.3)")
     if t == "tarea.asignada":
+        if "ejecucion" in nuevo:  # relevo: la ejecución anterior queda a la vista
+            nuevo.setdefault("ejecuciones_anteriores", []).append(
+                {**nuevo["ejecucion"], "fin": ev["fecha"]})
         nuevo["ejecucion"] = {"inicio": ev["fecha"], **d}
         nuevo["ultimo_latido"] = ev["fecha"]
     elif t == "tarea.latido":
         nuevo["ultimo_latido"] = ev["fecha"]
     elif t == "tarea.punto_control":
-        nuevo["punto_control"] = {"fecha": ev["fecha"], **d}
+        nuevo["punto_control"] = {"fecha": ev["fecha"], "autor": ev["autor"]["identidad"], **d}
         nuevo["ultimo_latido"] = ev["fecha"]
     elif t == "tarea.entregada":
         nuevo["entrega"] = {"fecha": ev["fecha"], **d}
+    elif t.startswith("reserva."):
+        _reserva(actual, nuevo, ev)
     elif t == "tarea.devuelta":
         nuevo["devoluciones"] = nuevo.get("devoluciones", 0) + 1
     elif t == "decision.tomada":
@@ -57,7 +68,34 @@ def aplicar(actual: dict | None, ev: dict, tipo: Tipo) -> dict:
     elif t == "evidencia.verificada":
         nuevo.setdefault("evidencias", []).append(
             {"fecha": ev["fecha"], "evento": ev["id"], "autor": ev["autor"], **d})
+    if t in _DEL_EJECUTOR and d.get("ficheros"):  # la lista de ficheros tocados, al día
+        nuevo["ficheros"] = sorted(set(nuevo.get("ficheros", [])) | set(d["ficheros"]))
     return nuevo
+
+
+# Con la v2 solo los escribe quien lleva la tarea: un trabajador que vuelve tras caducar no
+# pisa el relevo.
+_DEL_EJECUTOR = ("tarea.latido", "tarea.punto_control", "tarea.entregada")
+_FMT = "%Y-%m-%dT%H:%M:%S.%fZ"
+
+
+def caduca(fecha: str, minutos: int) -> str:
+    return (datetime.strptime(fecha, _FMT) + timedelta(minutes=minutos)).strftime(_FMT)
+
+
+def _reserva(actual, nuevo, ev) -> None:
+    t, quien = ev["tipo"], ev["autor"]
+    if t == "reserva.pedida":
+        nuevo.update(titular=quien["identidad"], evento=ev["id"],
+                     caduca=caduca(ev["fecha"], ev["datos"]["minutos"]))
+        return
+    if quien["papel"] == "trabajador" and quien["identidad"] != actual["titular"]:
+        raise Conflicto(f"{t}: la reserva es de {actual['titular']}, no de {quien['identidad']}")
+    if t == "reserva.renovada":
+        if ev["fecha"] > actual["caduca"]:  # caducada: otro puede tenerla ya; no se resucita
+            raise Conflicto(f"reserva.renovada: caducó el {actual['caduca']}")
+        nuevo.update(minutos=ev["datos"]["minutos"],
+                     caduca=caduca(ev["fecha"], ev["datos"]["minutos"]))
 
 
 def _resumen(datos: dict) -> dict:

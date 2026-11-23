@@ -32,6 +32,8 @@ CREATE TABLE IF NOT EXISTS entidades (
 CREATE TABLE IF NOT EXISTS rechazados (
   fichero TEXT PRIMARY KEY, clase TEXT NOT NULL, motivo TEXT NOT NULL, firma TEXT NOT NULL);
 CREATE TABLE IF NOT EXISTS meta (k TEXT PRIMARY KEY, v TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS latidos_pendientes (
+  tarea TEXT NOT NULL, fichero TEXT NOT NULL, PRIMARY KEY (tarea, fichero));
 """
 
 
@@ -258,7 +260,29 @@ class Registro:
         st = ruta.stat()
         return f"{st.st_size}:{st.st_mtime_ns}"
 
+    def _tx(self, fn):
+        """fn(db) dentro de una transacción con el índice al día: lo que lee y lo que escribe
+        (con _escribir_en) va junto. Si falla, el índice no cambia."""
+        db = self._conectar()
+        try:
+            db.execute("BEGIN IMMEDIATE")
+            self._sincronizar(db)
+            r = fn(db)
+            db.execute("COMMIT")
+            return r
+        except BaseException:
+            if db.in_transaction:
+                db.execute("ROLLBACK")
+            raise
+        finally:
+            db.close()
+
     # --- leer ---------------------------------------------------------------------------
+    def contar_eventos(self, desde: str) -> dict[str, int]:
+        """{tipo: n} de los eventos aceptados con fecha >= desde (AAAA-MM-DD o fecha completa)."""
+        return self._leer(lambda db: dict(db.execute(
+            "SELECT tipo, COUNT(*) FROM eventos WHERE fecha >= ? GROUP BY tipo", (desde,))))
+
     def _leer(self, fn):
         db = self._conectar()
         try:
@@ -326,15 +350,44 @@ class Registro:
         return self.volcar_estado()
 
     # --- git ----------------------------------------------------------------------------
+    def _git(self, *args, check=True, entrada=None):
+        r = subprocess.run(["git", "-C", str(self.raiz), *args], capture_output=True,
+                           text=True, encoding="utf-8", input=entrada)
+        if check and r.returncode:
+            raise Rechazo(f"git {' '.join(args)}: {(r.stderr or r.stdout).strip()}")
+        return r
+
+    def con_remoto(self) -> bool:
+        r = self._git("remote", check=False)
+        return r.returncode == 0 and bool(r.stdout.strip())
+
+    def traer(self) -> bool:
+        """pull --rebase si hay remoto, sin fallar: es solo para ver antes lo de otras máquinas.
+        False si no se pudo (sin remoto, sin red o con cambios que lo impiden)."""
+        return self.con_remoto() and self._git("pull", "-q", "--rebase", check=False).returncode == 0
+
+    def orden_historia(self, ficheros: list[str]) -> dict[str, int]:
+        """{fichero: posición del commit que lo añadió en la historia de HEAD}. Tras subir, HEAD
+        es la historia compartida: todas las máquinas ven el mismo orden. Lo que no está en
+        ningún commit no sale (va detrás de todo). Sin git, vacío."""
+        if not ficheros:
+            return {}
+        r = self._git("log", "--reverse", "--diff-filter=A", "--format=@%H", "--name-only",
+                      "HEAD", "--", *ficheros, check=False)
+        if r.returncode:
+            return {}
+        out, n = {}, -1
+        for linea in r.stdout.splitlines():
+            if linea.startswith("@"):
+                n += 1
+            elif linea.strip() and linea not in out:
+                out[linea.strip()] = n
+        return out
+
     def subir(self, reintentos: int = 2) -> str:
         """Commit de los eventos nuevos (solo esos ficheros) y de los informes diarios
         (`informes/`, generados por `org diario`), y push con pull --rebase si choca."""
-        def git(*args, check=True, entrada=None):
-            r = subprocess.run(["git", "-C", str(self.raiz), *args], capture_output=True,
-                               text=True, encoding="utf-8", input=entrada)
-            if check and r.returncode:
-                raise Rechazo(f"git {' '.join(args)}: {(r.stderr or r.stdout).strip()}")
-            return r
+        git = self._git
         lineas = git("status", "--porcelain", "--untracked-files=all", "--", "eventos",
                      "informes").stdout.splitlines()
         tocados = [l[3:] for l in lineas
