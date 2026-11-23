@@ -1,0 +1,17 @@
+{
+ "id": "cdbc23eec6d0982a",
+ "tipo": "pausa.retirada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T06:34:26.308623Z",
+ "autor": {
+  "papel": "javier",
+  "identidad": "telegram"
+ },
+ "entidad": {
+  "tipo": "pausa",
+  "id": "tg-prueba-p33-pausa"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tg:prueba-p33-reanudar:tg-prueba-p33-pausa",
+ "datos": {}
+}

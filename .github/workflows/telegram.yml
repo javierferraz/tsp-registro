@@ -1,0 +1,48 @@
+name: Telegram — botones que deciden
+
+# PAA2 P3-3 (S-1268). El Worker de Cloudflare (telegram/worker.mjs) ya ha comprobado el
+# secreto del webhook, que pulsa Javier y que la acción es de la lista cerrada; aquí se vuelve
+# a validar la acción (org telegram), se escribe el evento con papel javier, se sube y se avisa.
+# Nada de esto publica: publicar una tanda sigue pidiendo la sesión de GitHub de Javier.
+#
+# Secretos opcionales: TSPBOT_TOKEN y TSPBOT_CHAT_ID (sin ellos se registra igual, sin aviso).
+
+on:
+  repository_dispatch:
+    types: [telegram-boton]
+  workflow_dispatch:   # a mano: manda a Telegram el estado de la pausa con su botón
+
+permissions:
+  contents: write
+
+# Sin `concurrency`: GitHub solo guarda un run pendiente por grupo y cancelaría pulsaciones.
+# Cada evento es un fichero propio y `org subir` reintenta con pull --rebase.
+
+jobs:
+  boton:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Identidad de git
+        run: |
+          git config user.name "tsp-registro telegram"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Ejecutar la pulsación, subirla y avisar (el aviso sale después de subir)
+        if: github.event_name == 'repository_dispatch'
+        env:
+          # Por entorno, nunca interpolado en el script: el valor no se ejecuta.
+          ACCION: ${{ github.event.client_payload.accion }}
+          PULSACION: ${{ github.event.client_payload.pulsacion }}
+          TSPBOT_TOKEN: ${{ secrets.TSPBOT_TOKEN }}
+          TSPBOT_CHAT_ID: ${{ secrets.TSPBOT_CHAT_ID }}
+        run: python -m org telegram --accion "$ACCION" --pulsacion "$PULSACION" --subir --enviar
+      - name: Panel
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          TSPBOT_TOKEN: ${{ secrets.TSPBOT_TOKEN }}
+          TSPBOT_CHAT_ID: ${{ secrets.TSPBOT_CHAT_ID }}
+        run: python -m org telegram --panel --enviar

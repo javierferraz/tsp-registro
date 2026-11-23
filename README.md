@@ -88,6 +88,59 @@ lado del parte de Telegram, que no cambia**, hasta que Javier prefiera uno de lo
 | D-19 | Ventana fija de 24 h | «Desde tu última visita» | El parte no sabe cuándo lo abrió Javier; queda para la puerta (P3-2) |
 | D-20 | `estado/parte.html`, fuera de git | `informes/` en git | Se regenera entero cada día; en git solo sumaría ruido |
 
+## Botones de Telegram que deciden (S-1268, PAA2 P3-3)
+
+Un botón de TSPBot que se pulsa acaba como evento del registro. **Lista cerrada, sin texto
+libre:** pausar (`p:suave|dura|emergencia`), reanudar (`r`), aprobar o rechazar una tarea
+propuesta (`a:<id>`, `x:<id>`) y ver su detalle (`d:<id>`). **Nada publica**: publicar una tanda
+sigue pidiendo la sesión de GitHub de Javier.
+
+```
+Telegram ──POST──▶ Worker de Cloudflare ──repository_dispatch──▶ workflow telegram.yml ──▶ org telegram ──▶ evento + aviso
+               (secreto, quién pulsa, lista)                       (vuelve a validar la acción)
+```
+
+- **Worker** (`telegram/worker.mjs`): sin estado. Si el secreto del webhook no es el nuestro,
+  responde 401; si quien pulsa no es `JAVIER_ID`, «No autorizado.»; si la acción no es de la lista,
+  «Acción no válida.». En los tres casos no sale nada hacia GitHub. Contesta a Telegram en el
+  cuerpo del webhook, así que no lleva el token del bot.
+- **Workflow** (`.github/workflows/telegram.yml`): `org telegram --accion … --pulsacion …
+  --subir --enviar`, que escribe con papel `javier` e identidad `telegram`, sube y solo entonces
+  avisa (si algo falla, avisa «No se registró»). Sin grupo de concurrencia, para que GitHub no
+  cancele pulsaciones seguidas. A mano
+  (`workflow_dispatch`) manda el panel: estado de la pausa y su botón.
+- **Pausa:** cada una es una entidad `pausa:tg-<pulsación>` (`pausa.activada` → `activa`,
+  `pausa.retirada` → `retirada`). Hay pausa mientras quede alguna activa; reanudar las retira
+  todas. **Todavía nadie la respeta**: el planificador, los workflows y los hooks la leerán en P5-2.
+- Pruebas: `py -m unittest discover -s tests` y `node --test telegram/`.
+
+**Coste comprobado (2026-11-23):** Workers Free, 0 $, 100 000 peticiones al día y 10 ms de CPU
+por petición; al pasarse, error 1027, no cobro (páginas oficiales *pricing*, *limits* y
+*plans* de Cloudflare). No consta si el alta pide tarjeta. Cada pulsación gasta además un
+minuto de Actions de este repo privado (cupo mensual del plan de GitHub; no lo he comprobado).
+
+**Para encenderlo (lo hace Javier: credenciales y cuenta suyas):**
+
+1. Cuenta gratuita de Cloudflare y `npx wrangler login`.
+2. Token fino de GitHub solo para `javierferraz/tsp-registro`, permiso *Contents: read and
+   write* (el que pide `repository_dispatch` a un token fino, según la tabla de permisos; no
+   verificado).
+3. Desde `telegram/`: `npx wrangler deploy`, luego `npx wrangler secret put GITHUB_TOKEN` y
+   `npx wrangler secret put JAVIER_ID` (su id de usuario de Telegram, no el del canal).
+4. `py telegram/conectar_webhook.py <url del Worker>`: genera el secreto, lo guarda en el
+   Worker y conecta TSPBot sin mostrarlo. `--quitar` lo desconecta.
+5. Secretos `TSPBOT_TOKEN` y `TSPBOT_CHAT_ID` en este repo para los avisos de vuelta.
+6. Lanzar el workflow a mano: llega el panel con «⏸ Pausar».
+
+| N.º | Decisión (S-1268) | Descartada | Por qué |
+|---|---|---|---|
+| D-21 | Cloudflare Worker de intermediario | Cron de GitHub leyendo `getUpdates` | Sin servidor, pero con retrasos de cron y minutos gastados aunque no se pulse nada (a6 §9) |
+| D-22 | La identidad se comprueba en el Worker; el workflow solo revalida la acción | Repetir el id de Javier en GitHub | Solo el Worker ve la pulsación; a `repository_dispatch` solo llega quien tiene token de escritura |
+| D-23 | Una entidad por pausa | Una entidad `pausa:general` que se activa y retira | Un tipo que crea solo vale una vez (`desde` = nada); así no se toca el motor de estados y cada pausa queda con su historia |
+| D-24 | Aprobar y rechazar = `tarea.aprobada` / `tarea.descartada` | Un tipo nuevo de «decisión por botón» | Son las transiciones que ya tiene el papel javier; el ciclo se valida igual |
+| D-25 | Los intentos ajenos no se registran: solo una línea con el motivo en el log del Worker | Evento por intento rechazado | Un desconocido podría llenar el registro a pulsaciones |
+| D-26 | El panel solo ofrece pausa suave y reanudar | Botón de emergencia | Ningún nivel tiene efecto hasta P5-2; un botón de «emergencia» prometería lo que no hace |
+
 ## Contrato de trabajo ampliado y reserva de recursos (S-1269, PAA2 P4-1)
 
 Diseño: `02-arquitectura.md` §4, §5.1, §8.3 y §9 ter. **Aún no sustituye al tablero** ni a las
@@ -125,18 +178,18 @@ py -m org recursos  ·  py -m org volumen
 
 | N.º | Decisión (S-1269) | Descartada | Por qué |
 |---|---|---|---|
-| D-21 | «La más antigua» es la que entró antes en la historia compartida (orden de los commits tras subir); la fecha solo desempata | Comparar la `fecha` del evento | Con la fecha, quien sube primero con un reloj adelantado o con su petición más tarde se cree solo y empieza; la otra llega después con fecha anterior y también gana. El test `test_gana_la_que_entra_antes…` falla con ese criterio |
-| D-22 | Una entidad `reserva` por petición, con el recurso en los datos | Una entidad por recurso | El estado calculado ordena por fecha: decidiría el ganador al revés que la historia (D-21) |
-| D-23 | Caducidad por plazo propio de la reserva, con `renovar` | Atarla al latido de la tarea | `ftp`, `firma` o `manifest` también se piden fuera de una tarea; renovar es raro y cuesta un evento |
-| D-24 | Latido como evento cada 10 min por tarea (12 con el día por encima de 500) y subida al escribirse; el trabajador late cada 5 min o menos (`contrato` lo dice en `latir_cada_min`) | Un evento por latido y subida cada 10 min; 15 min saturado | Un latido por minuto de 5 trabajadores serían 7.200 eventos al día. Con 15 min y un trabajador que late cada 5, el latido escrito podía caer en el minuto 20, el de la caducidad (revisión en frío); con 12, como mucho en el 17. **El tope es blando**: un latido que no sale hace caducar la tarea, que es peor que pasarse; pasarse es la señal de 02 §3.1 ter (`org volumen`) |
-| D-25 | v2 de latido, punto de control y entrega; la v1 sigue admitida | Ampliar la v1 | `CLAUDE.md`: nunca se cambia el significado de una versión publicada |
-| D-26 | En v2, latido, punto de control y entrega solo valen del ejecutor asignado | Cualquier trabajador | Uno que vuelve tras caducar no puede pisar el relevo (02 §8.3: una sola ejecución viva) |
-| D-27 | El informe usa el esquema de `decision.tomada` para sus decisiones, sin clase C | Un esquema propio | 02 §4: un solo esquema de decisiones; la C solo la escribe Javier |
+| D-27 | «La más antigua» es la que entró antes en la historia compartida (orden de los commits tras subir); la fecha solo desempata | Comparar la `fecha` del evento | Con la fecha, quien sube primero con un reloj adelantado o con su petición más tarde se cree solo y empieza; la otra llega después con fecha anterior y también gana. El test `test_gana_la_que_entra_antes…` falla con ese criterio |
+| D-28 | Una entidad `reserva` por petición, con el recurso en los datos | Una entidad por recurso | El estado calculado ordena por fecha: decidiría el ganador al revés que la historia (D-27) |
+| D-29 | Caducidad por plazo propio de la reserva, con `renovar` | Atarla al latido de la tarea | `ftp`, `firma` o `manifest` también se piden fuera de una tarea; renovar es raro y cuesta un evento |
+| D-30 | Latido como evento cada 10 min por tarea (12 con el día por encima de 500) y subida al escribirse; el trabajador late cada 5 min o menos (`contrato` lo dice en `latir_cada_min`) | Un evento por latido y subida cada 10 min; 15 min saturado | Un latido por minuto de 5 trabajadores serían 7.200 eventos al día. Con 15 min y un trabajador que late cada 5, el latido escrito podía caer en el minuto 20, el de la caducidad (revisión en frío); con 12, como mucho en el 17. **El tope es blando**: un latido que no sale hace caducar la tarea, que es peor que pasarse; pasarse es la señal de 02 §3.1 ter (`org volumen`) |
+| D-31 | v2 de latido, punto de control y entrega; la v1 sigue admitida | Ampliar la v1 | `CLAUDE.md`: nunca se cambia el significado de una versión publicada |
+| D-32 | En v2, latido, punto de control y entrega solo valen del ejecutor asignado | Cualquier trabajador | Uno que vuelve tras caducar no puede pisar el relevo (02 §8.3: una sola ejecución viva) |
+| D-33 | El informe usa el esquema de `decision.tomada` para sus decisiones, sin clase C | Un esquema propio | 02 §4: un solo esquema de decisiones; la C solo la escribe Javier |
 
 Límites: la caducidad compara el plazo con el reloj de cada máquina (un desfase de minutos puede
 dar por viva o caducada una reserva en el borde, y dos máquinas creerse titulares durante ese
 desfase); `caducar` decide con lo que ha llegado al índice, así que un latido que no se pudo
-subir no cuenta; la protección del relevo (D-26) solo cubre los eventos v2 (los trabajadores
+subir no cuenta; la protección del relevo (D-32) solo cubre los eventos v2 (los trabajadores
 nuevos usan v2, la v1 queda para lo ya escrito); sin red, `reservar` no confirma y se retira
 («sin_confirmar»); las reservas por máquina y pantalla dependen de que todos los procesos usen
 `org`, no hay nada que impida usar el recurso sin reservarlo.

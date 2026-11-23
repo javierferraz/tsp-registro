@@ -110,7 +110,7 @@ class Latido(Contrato):
         """El presupuesto (02 §3.1 ter): 7 tareas latiendo cada 5 min durante 14 h. Sin agrupar
         serían 1.176 latidos; agrupados, 6 por hora y tarea (588), y en cuanto el día pasa de
         500 eventos, uno cada 12 min (cada 15 al latir cada 5): se queda en unos 570. El tope
-        es blando a propósito (README, D-24)."""
+        es blando a propósito (README, D-30)."""
         for i in range(7):
             self.en_curso(ejecutor=f"w{i}", tid=f"T-{i}")
         for m in range(5, 14 * 60 + 1, 5):

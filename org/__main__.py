@@ -171,6 +171,12 @@ def main(argv=None) -> int:
     t.add_argument("--papel")
     sub.add_parser("subir", help="commit de los eventos nuevos y push (pull --rebase si choca)")
     sub.add_parser("parte", help="genera estado/parte.html desde el registro, sin importar nada")
+    tg = sub.add_parser("telegram", help="ejecuta una pulsación de botón de Telegram (S-1268)")
+    tg.add_argument("--accion", help="callback_data del botón (lista cerrada)")
+    tg.add_argument("--pulsacion", help="id de la pulsación (callback_query.id): clave única")
+    tg.add_argument("--panel", action="store_true", help="solo el estado de la pausa y su botón")
+    tg.add_argument("--subir", action="store_true", help="org subir antes de avisar")
+    tg.add_argument("--enviar", action="store_true", help="manda la respuesta por TSPBot")
 
     # Fase 4 (S-1269): contrato de trabajo ampliado y reserva de recursos entre máquinas.
     def quien(s, papel):
@@ -269,6 +275,21 @@ def main(argv=None) -> int:
         elif a.orden == "parte":
             from .parte import generar
             print(generar(reg))
+        elif a.orden == "telegram":
+            from . import telegram as tg
+            if not a.panel and not (a.accion and a.pulsacion):
+                raise Rechazo("faltan --accion y --pulsacion (o --panel)")
+            try:
+                res = tg.panel(reg) if a.panel else tg.aplicar(reg, a.accion, a.pulsacion)
+                if a.subir and not a.panel:  # el aviso de «registrada» solo tras subir
+                    res["subida"] = reg.subir()
+            except Rechazo as ex:  # quien pulsó tiene que saber que no se registró
+                if a.enviar:
+                    tg.enviar(f"⚠ No se registró la pulsación: {ex}", [])
+                raise
+            if a.enviar:
+                res["enviado"] = tg.enviar(res["texto"], res["botones"])
+            _salida(res)
         elif a.orden in ("importar", "comparar", "cartera", "diario"):
             return _fase2(reg, a)
         else:

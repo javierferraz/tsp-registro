@@ -1,0 +1,21 @@
+{
+ "id": "820a5fca339e93de",
+ "tipo": "pausa.activada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T06:33:57.253109Z",
+ "autor": {
+  "papel": "javier",
+  "identidad": "telegram"
+ },
+ "entidad": {
+  "tipo": "pausa",
+  "id": "tg-prueba-p33-pausa"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tg:prueba-p33-pausa",
+ "datos": {
+  "nivel": "suave",
+  "origen": "telegram",
+  "ambito": "general"
+ }
+}
