@@ -147,6 +147,13 @@ class Traduccion(Base):
         self.assertEqual(self.estado("S-6"), "en_curso")
         self.assertIn("tarea.reabierta", self.tipos("S-6"))
 
+    def test_movimiento_que_el_puente_no_vio_lo_manda_el_tablero(self):
+        self.pasada(tarjeta("S-8", "curso"))  # alta desde una copia vieja del tablero
+        plan = self.pasada(tarjeta("S-8", "validar", commits=["abc"], notas=[
+            nota("S-8", 1, "curso", "validar", segundos=-3600)]))  # nota anterior al alta
+        self.assertEqual(plan["proyecciones"], [])
+        self.assertEqual(self.estado("S-8"), "entregada")
+
     def test_lo_que_no_esta_migrado_no_se_toca(self):
         plan = self.pasada(tarjeta("S-7", "curso", app="Clever Cat"))
         self.assertEqual(plan["eventos"], [])

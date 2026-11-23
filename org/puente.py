@@ -238,6 +238,16 @@ def planear(reg, tablero: dict, repo_de, gestionados: set[str], *, exportar=Fals
             hist = t.get("historial") or []
             ultimo = _fecha(hist[-1]["fecha"] if hist else t.get("creada"))
             pendientes = [] if exportar else [m for m in movs if ultimo and m["fecha"] > ultimo]
+            # Movimiento que el puente no vio (una nota más vieja que su último evento, o sin
+            # nota): si lo último del registro lo escribió el propio puente, el registro no va
+            # por delante y manda la columna del tablero. Si lo escribió otro (el validador),
+            # se proyecta.
+            autor = ((hist[-1].get("autor") or {}).get("identidad") if hist else IDENTIDAD)
+            if (not exportar and not pendientes and autor == IDENTIDAD
+                    and not compatible(col, estado)
+                    and not (col == TERMINADA and COMPRIMIDO[estado] == "entregada")):
+                pendientes = [{"id": f"sync{len(hist)}", "de": columna(estado), "a": col,
+                               "actor": movs[-1]["actor"] if movs else "tablero"}]
         despacho = False
         for i, m in enumerate(pendientes):
             destino = m["a"]
