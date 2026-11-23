@@ -1,0 +1,19 @@
+{
+ "id": "3d351e45b439788f",
+ "tipo": "tarea.lista",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T16:39:01.141272Z",
+ "autor": {
+  "papel": "planificador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1069"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1069:alta:1:tarea.lista",
+ "datos": {
+  "motivo": "tablero: propuesta -> curso (claude)"
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "id": "61d12b38b27b35c4",
+ "tipo": "tarea.lista",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T16:39:01.346753Z",
+ "autor": {
+  "papel": "planificador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1270"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1270:alta:1:tarea.lista",
+ "datos": {
+  "motivo": "tablero: propuesta -> validar (claude)"
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "id": "f904f817f45c8b30",
+ "tipo": "tarea.entregada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T16:39:01.074670Z",
+ "autor": {
+  "papel": "trabajador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-539"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-539:alta:3:tarea.entregada",
+ "datos": {
+  "resumen": "S-539 a Por validar"
+ }
+}

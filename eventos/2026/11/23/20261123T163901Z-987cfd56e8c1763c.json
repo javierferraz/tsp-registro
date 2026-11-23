@@ -1,0 +1,25 @@
+{
+ "id": "987cfd56e8c1763c",
+ "tipo": "tarea.entregada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T16:39:01.308466Z",
+ "autor": {
+  "papel": "trabajador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1263"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1263:alta:3:tarea.entregada",
+ "datos": {
+  "resumen": "S-1263 a Por validar",
+  "commits": [
+   "fcc56e5a1738",
+   "6b6fe2f23853",
+   "8b79e9196a28",
+   "d05d0de280c7"
+  ]
+ }
+}

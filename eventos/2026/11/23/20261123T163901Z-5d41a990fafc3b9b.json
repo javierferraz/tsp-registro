@@ -1,0 +1,19 @@
+{
+ "id": "5d41a990fafc3b9b",
+ "tipo": "tarea.asignada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T16:39:01.204590Z",
+ "autor": {
+  "papel": "planificador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1198"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1198:alta:2:tarea.asignada",
+ "datos": {
+  "ejecutor": "claude"
+ }
+}

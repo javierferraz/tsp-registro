@@ -1,0 +1,23 @@
+{
+ "id": "558d0d23e14e0ee1",
+ "tipo": "tarea.entregada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T16:39:01.218528Z",
+ "autor": {
+  "papel": "trabajador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1204"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1204:alta:3:tarea.entregada",
+ "datos": {
+  "resumen": "S-1204 a Por validar",
+  "commits": [
+   "7dd07f78b9a3",
+   "9bb365ea6d29"
+  ]
+ }
+}

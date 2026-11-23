@@ -1,0 +1,21 @@
+{
+ "id": "83207f9a0d1ac99d",
+ "tipo": "tarea.propuesta",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T16:39:01.062045Z",
+ "autor": {
+  "papel": "direccion",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-464"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-464:alta",
+ "datos": {
+  "titulo": "S-464",
+  "repo": "2606-thestromboliproject",
+  "tipo_trabajo": "tablero"
+ }
+}

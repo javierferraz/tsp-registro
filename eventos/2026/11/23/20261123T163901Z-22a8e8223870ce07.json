@@ -1,0 +1,21 @@
+{
+ "id": "22a8e8223870ce07",
+ "tipo": "tarea.propuesta",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T16:39:01.249135Z",
+ "autor": {
+  "papel": "direccion",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1234"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1234:alta",
+ "datos": {
+  "titulo": "S-1234",
+  "repo": "2606-thestromboliproject",
+  "tipo_trabajo": "tablero"
+ }
+}

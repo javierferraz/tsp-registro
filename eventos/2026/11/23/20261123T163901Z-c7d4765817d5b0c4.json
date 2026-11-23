@@ -1,0 +1,19 @@
+{
+ "id": "c7d4765817d5b0c4",
+ "tipo": "tarea.aprobada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T16:39:01.069272Z",
+ "autor": {
+  "papel": "planificador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-539"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-539:alta:0:tarea.aprobada",
+ "datos": {
+  "motivo": "tablero: propuesta -> validar (claude)"
+ }
+}

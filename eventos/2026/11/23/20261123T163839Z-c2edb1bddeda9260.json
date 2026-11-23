@@ -1,0 +1,22 @@
+{
+ "id": "c2edb1bddeda9260",
+ "tipo": "migracion.iniciada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T16:38:39.165591Z",
+ "autor": {
+  "papel": "planificador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "migracion",
+  "id": "tablero-1"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:iniciada:tablero-1",
+ "datos": {
+  "etapa": 1,
+  "repos": [
+   "2606-thestromboliproject"
+  ]
+ }
+}
