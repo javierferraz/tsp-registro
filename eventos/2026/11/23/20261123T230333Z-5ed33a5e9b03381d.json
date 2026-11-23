@@ -1,0 +1,22 @@
+{
+ "id": "5ed33a5e9b03381d",
+ "tipo": "tarea.entregada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T23:03:33.470593Z",
+ "autor": {
+  "papel": "trabajador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1298"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1298:S-1298-note-6:0:tarea.entregada",
+ "datos": {
+  "resumen": "S-1298 a Por validar",
+  "commits": [
+   "b6aa50636793"
+  ]
+ }
+}
