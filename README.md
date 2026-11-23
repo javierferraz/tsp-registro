@@ -256,7 +256,8 @@ estado de cada tarjeta lo mande el registro. El tablero sigue siendo la pantalla
   trabajador. Empezar desde el navegador = `tarea.aprobada` del planificador «sin firma» (la
   firmada sigue siendo el botón de Telegram). Salir de Terminada o Descartada = `tarea.reabierta`.
 - **Terminada la pone el validador.** Llevar a Terminada una tarea entregada (o, si es Javier,
-  desde cualquier columna) lanza `validador.yml`; la tarjeta espera en Por validar su veredicto.
+  desde cualquier columna) lanza `validador.yml`; la tarjeta se queda en Terminada y la tarea,
+  entregada, hasta el veredicto (si la devuelve o la bloquea, vuelve a su columna).
   En modo tablero (`validador/tablero@1`) el validador comprueba que los commits están en la rama
   principal (no repite las pruebas: pasaron al fusionar) o, sin commits, que Javier la pasó a
   Terminada en el navegador; si verifica, escribe también integrada y cerrada.

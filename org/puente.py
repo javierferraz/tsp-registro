@@ -9,7 +9,8 @@ copiarlo aquí), pero **el estado de las tarjetas de un repo migrado lo manda el
   Empezar desde el navegador cuenta como aprobación del planificador «sin firma» (la firmada es
   el botón de Telegram: decisión de Javier, 2026-11-23).
 - **Terminada no se escribe:** la pone el validador. Mover a Terminada una tarea entregada lanza
-  el validador (`despachos`) y la tarjeta espera en Por validar su veredicto.
+  el validador (`despachos`); la tarjeta se queda en Terminada y la tarea, entregada, hasta su
+  veredicto: si la cierra no se mueve nada, si la devuelve o la bloquea vuelve a su columna.
 - **Del registro al tablero (proyección).** Si el registro va por delante (el validador la cerró,
   la devolvió o la bloqueó), la tarjeta se mueve a la columna que le toca. La misma proyección,
   aplicada a todas las tarjetas, es la vuelta atrás (`exportar`).
@@ -273,8 +274,12 @@ def planear(reg, tablero: dict, repo_de, gestionados: set[str], *, exportar=Fals
                                 "clave": f"puente:{cid}:{m['id']}:{j}:{nombre}",
                                 "datos": _datos(nombre, cid, m["de"], destino, m["actor"], card)})
                 estado = hasta
-        if despacho and COMPRIMIDO[estado] == "entregada":
-            despachos.append(cid)
+        espera = (not exportar and col == TERMINADA and COMPRIMIDO[estado] == "entregada"
+                  and not (discrepancias and discrepancias[-1]["tarjeta"] == cid))
+        if (despacho or espera) and COMPRIMIDO[estado] == "entregada":
+            despachos.append(cid)  # cada pasada: el lado del tablero no relanza antes de tiempo
+        if espera:
+            continue  # en Terminada a la espera del validador; si devuelve o bloquea, se mueve
         if not compatible(col, estado):
             a = columna(estado, col)
             if discrepancias and discrepancias[-1]["tarjeta"] == cid:
@@ -293,14 +298,13 @@ def planear(reg, tablero: dict, repo_de, gestionados: set[str], *, exportar=Fals
 
 def _nota_registro(t: dict | None, estado: str) -> str:
     v = (t or {}).get("veredicto") or {}
+    motivo = v.get("motivo") or ((t or {}).get("historial") or [{}])[-1].get("motivo")
     if estado == "cerrada":
         return "Cerrada por el validador (el registro manda)."
-    if estado == "devuelta" and v.get("motivo"):
-        return f"Devuelta por el validador: {v['motivo'][:400]}"
-    if estado == "bloqueada":
-        ult = ((t or {}).get("historial") or [{}])[-1]
-        if ult.get("motivo"):
-            return f"Bloqueada en el registro: {ult['motivo'][:400]}"
+    if estado == "devuelta" and motivo:
+        return f"Devuelta por el validador: {motivo[:400]}"
+    if estado == "bloqueada" and motivo:
+        return f"Bloqueada en el registro: {motivo[:400]}"
     return f"El registro dice «{estado}»: la tarjeta va a su columna."
 
 

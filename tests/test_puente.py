@@ -160,9 +160,23 @@ class Terminada(Base):
             nota("S-10", 1, "validar", "hecha", "javier")]))
         self.assertEqual(plan["despachos"], ["S-10"])
         self.assertEqual(plan["discrepancias"], [])
-        self.assertEqual(plan["proyecciones"][0]["a"], "validar")
-        self.assertIn("validador", plan["proyecciones"][0]["nota"])
+        self.assertEqual(plan["proyecciones"], [])  # espera en Terminada al validador
         self.assertEqual(self.estado("S-10"), "entregada")
+        again = self.pasada(tarjeta("S-10", "hecha", notas=[
+            nota("S-10", 1, "validar", "hecha", "javier")]))
+        self.assertEqual((again["eventos"], again["despachos"]), ([], ["S-10"]))  # se relanza
+
+    def test_si_el_validador_devuelve_vuelve_a_en_curso(self):
+        self.pasada(tarjeta("S-13", "validar", commits=["abc"]))
+        c = tarjeta("S-13", "hecha", notas=[nota("S-13", 1, "validar", "hecha", "javier")])
+        self.pasada(c)
+        self.reg.escribir("tarea.devuelta", ("tarea", "S-13"), "validador", "validador-prueba",
+                          "S-13:dev", {"motivo": "falta fusionarlo"},
+                          ahora=datetime.now(timezone.utc) + timedelta(seconds=30))
+        plan = self.pasada(c)
+        self.assertEqual(plan["despachos"], [])
+        self.assertEqual(plan["proyecciones"][0]["a"], "curso")
+        self.assertIn("falta fusionarlo", plan["proyecciones"][0]["nota"])
 
     def test_javier_cierra_desde_en_curso_pasa_por_entregada(self):
         self.pasada(tarjeta("S-11", "curso"))
