@@ -431,6 +431,9 @@ def generar(reg, ahora: datetime | None = None, comprobado: datetime | None = No
     `central`: el repo central, de donde salen los recordatorios con fecha."""
     ahora = ahora or datetime.now(timezone.utc)
     informe, hora_informe = ultimo_informe(reg.raiz)
+    if comprobado is None:  # copias del tablero de durante el día (TSP parte al día, S-1298)
+        comprobado = _dt(reg._leer(lambda db: db.execute(
+            "SELECT MAX(fecha) FROM eventos WHERE entidad_tipo='tarjeta'").fetchone()[0]))
     central = Path(central or os.environ.get("ORG_CENTRAL")
                    or reg.raiz.parent / "2606-thestromboliproject")
     p = datos(reg.entidades("tarjeta"), reg.entidades("ejecucion"),

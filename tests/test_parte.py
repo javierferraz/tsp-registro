@@ -130,6 +130,23 @@ class Parte(unittest.TestCase):
         self.assertIn("la más reciente, 0 d", dec[0]["texto"])
         self.assertEqual([i for i, _ in dec[0]["enlaces"]], ["S-2", "S-1", "S-4"])
 
+    def test_la_cabecera_cuenta_las_copias_del_tablero_de_durante_el_dia(self):
+        import json
+        from org.importar import importar, leer_tablero
+        with tempfile.TemporaryDirectory() as d:
+            reg = Registro(d)
+            board = Path(d) / "board.json"
+            board.write_text(json.dumps({"cards": [{
+                "id": "S-1", "col": "propuesta", "title": "t", "body": "b", "notes": [],
+                "created": "2026-11-23T07:30:00Z", "updated": "2026-11-23T07:30:00Z",
+                "revision": 1}]}), encoding="utf-8")
+            importar(reg, leer_tablero(board), {}, {})
+            fecha = reg.eventos_de("tarjeta")[-1]["fecha"]
+            h = generar(reg, AHORA, central=d).read_text(encoding="utf-8")
+            esperado = datetime.fromisoformat(fecha.replace("Z", "+00:00")).astimezone()
+            self.assertIn(f"registro comprobado el {esperado:%d-%m %H:%M}", h)
+            self.assertIn("S-1", h)  # y la propuesta nueva sale arriba
+
     def test_recalcular_no_borra_el_parte(self):
         with tempfile.TemporaryDirectory() as d:
             reg = Registro(d)
