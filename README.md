@@ -315,6 +315,8 @@ Tarea: `propuesta → aprobada → lista → en_curso → entregada → verifica
 
 ## Decisiones tomadas (S-1264, revisables)
 
+D-1 a D-7 aprobadas por Javier (2026-11-23, formulario de decisiones: «Sí, todas»).
+
 | N.º | Decisión | Descartada | Por qué |
 |---|---|---|---|
 | D-1 | `estado/` y `.indice/` fuera de git | Commitear `estado/` | Dos escritores tocarían el mismo fichero (02 §3.1) |
