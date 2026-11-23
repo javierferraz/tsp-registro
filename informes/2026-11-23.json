@@ -556,13 +556,13 @@
   "tablero": {
    "por_columna": {
     "adelante": 10,
-    "curso": 6,
+    "curso": 5,
     "descartada": 45,
     "hecha": 962,
     "info": 3,
     "pedida": 6,
     "propuesta": 178,
-    "validar": 72
+    "validar": 73
    },
    "tarjetas": 1282
   },
@@ -606,10 +606,9 @@
  },
  "fecha": "2026-11-23",
  "importado": {
-  "eventos": 11,
+  "eventos": 1,
   "por_tipo": {
-   "tarjeta.cambiada": 10,
-   "tarjeta.importada": 1
+   "tarjeta.cambiada": 1
   },
   "rechazados": []
  }
