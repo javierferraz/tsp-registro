@@ -1,0 +1,26 @@
+{
+ "id": "b8996f76ba7f45e5",
+ "tipo": "tarea.entregada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T21:54:00.051386Z",
+ "autor": {
+  "papel": "trabajador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1275"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1275:S-1275-note-7:0:tarea.entregada",
+ "datos": {
+  "resumen": "S-1275 a Por validar",
+  "commits": [
+   "4fe374e2194b",
+   "4b38b55e40f4",
+   "b8f76a6967ae",
+   "8b67670147e4",
+   "b9e1af192ea2"
+  ]
+ }
+}
