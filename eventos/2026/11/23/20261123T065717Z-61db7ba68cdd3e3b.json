@@ -1,0 +1,17 @@
+{
+ "id": "61db7ba68cdd3e3b",
+ "tipo": "pausa.retirada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T06:57:17.995760Z",
+ "autor": {
+  "papel": "javier",
+  "identidad": "telegram"
+ },
+ "entidad": {
+  "tipo": "pausa",
+  "id": "tg-9122891710964680722"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tg:9122891710945004734:tg-9122891710964680722",
+ "datos": {}
+}
