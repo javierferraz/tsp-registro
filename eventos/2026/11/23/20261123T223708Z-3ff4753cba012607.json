@@ -1,0 +1,41 @@
+{
+ "id": "3ff4753cba012607",
+ "tipo": "tarea.devuelta",
+ "version_esquema": 2,
+ "fecha": "2026-11-23T22:37:08.362316Z",
+ "autor": {
+  "papel": "validador",
+  "identidad": "validador-github"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1267"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "S-1267:validador:5b7c8fa3cdb7:0:devuelta",
+ "datos": {
+  "politica": "validador/tablero@1",
+  "cabeza": "5b7c8fa3cdb716b1234d07f83701f52818143a3e",
+  "comprobaciones": [
+   {
+    "nombre": "commits",
+    "resultado": "falla",
+    "detalle": "el commit 3d14b7794d74 no existe en el repo"
+   },
+   {
+    "nombre": "pruebas",
+    "resultado": "no_verificado",
+    "detalle": "modo tablero: pasaron al fusionar en la rama principal; el validador no las repite"
+   }
+  ],
+  "coste": {
+   "segundos": 27,
+   "runner": "Linux",
+   "run": "45281081416"
+  },
+  "no_verificado": [
+   "pruebas: modo tablero: pasaron al fusionar en la rama principal; el validador no las repite"
+  ],
+  "motivo": "commits: el commit 3d14b7794d74 no existe en el repo"
+ }
+}
