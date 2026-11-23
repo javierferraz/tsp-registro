@@ -1,0 +1,21 @@
+{
+ "id": "ca901eade181891e",
+ "tipo": "pausa.activada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T06:57:00.824479Z",
+ "autor": {
+  "papel": "javier",
+  "identidad": "telegram"
+ },
+ "entidad": {
+  "tipo": "pausa",
+  "id": "tg-9122891711708532339"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tg:9122891711708532339",
+ "datos": {
+  "nivel": "suave",
+  "origen": "telegram",
+  "ambito": "general"
+ }
+}
