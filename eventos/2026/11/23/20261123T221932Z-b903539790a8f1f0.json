@@ -1,0 +1,19 @@
+{
+ "id": "b903539790a8f1f0",
+ "tipo": "tarea.aprobada",
+ "version_esquema": 1,
+ "fecha": "2026-11-23T22:19:32.994220Z",
+ "autor": {
+  "papel": "planificador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1273"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1273:S-1273-note-2:0:tarea.aprobada",
+ "datos": {
+  "motivo": "tablero: propuesta -> curso (claude)"
+ }
+}
