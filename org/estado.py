@@ -61,6 +61,8 @@ def aplicar(actual: dict | None, ev: dict, tipo: Tipo) -> dict:
     elif t == "tarea.punto_control":
         nuevo["punto_control"] = {"fecha": ev["fecha"], "autor": ev["autor"]["identidad"], **d}
         nuevo["ultimo_latido"] = ev["fecha"]
+    elif t == "tarea.valorada":  # S-1272: la última valoración manda; el historial está en eventos
+        nuevo["valoracion"] = {"fecha": ev["fecha"], "autor": ev["autor"], **d}
     elif t == "tarea.entregada":
         nuevo["entrega"] = {"fecha": ev["fecha"], **d}
         nuevo["entregada_por"] = ev["autor"]["identidad"]

@@ -162,6 +162,22 @@ _REVISION_V1 = Version(  # el veredicto de otra ejecución sobre una cabeza conc
     obligatorios={"veredicto": ("ok", "changes", "reject"), "cabeza": str},
     opcionales={"hallazgos": int, "ruta": str, "hash": str})
 
+# --- Valoración para el planificador (02 §5.0; S-1272) ---------------------------------
+# Siete notas de 1 a 5, cada una con su frase de motivo. La pone la dirección (con modelo) al
+# crear o revisar la tarea; el planificador, sin modelo, solo la lee.
+NOTAS = ("importancia", "urgencia", "riesgo", "esfuerzo", "coste", "probabilidad", "comprobable")
+# Clases que pasan siempre delante (02 §5.0): app que no abre o no instala, enlace de compra o
+# de descarga roto, fallo de integridad, fallo que varios clientes han reportado.
+CLASES_PRIORITARIAS = ("no_abre", "enlace_roto", "integridad", "queja_repetida")
+_NOTA = Version(obligatorios={"n": int, "motivo": str})
+_VALORACION_V1 = Version(
+    obligatorios={"notas": Version(obligatorios={k: _NOTA for k in NOTAS})},
+    opcionales={"clase": CLASES_PRIORITARIAS,
+                "huella": str,                 # misma app, mismo componente, mismo síntoma
+                "recursos": ListaDe(str),      # recursos con nombre que necesita (02 §5.1)
+                "espera_javier": bool,         # acabará esperando a Javier (02 §5.2)
+                "fija": Version(obligatorios={"valor": int, "motivo": str})})  # a mano
+
 TIPOS: dict[str, Tipo] = {
     # --- Objetivos -------------------------------------------------------------------
     "objetivo.creado": _t("objetivo", {"javier"}, None, "aprobado", {1: Version(
@@ -209,6 +225,9 @@ TIPOS: dict[str, Tipo] = {
     "tarea.punto_control": _t("tarea", {"trabajador"}, {"en_curso"}, None,
                               {1: Version(obligatorios={"resumen": str},
                                           opcionales={"ruta": str}), 2: _PUNTO_CONTROL_V2}),
+    "tarea.valorada": _t("tarea", {"direccion", "javier", "motor"},
+                         {"propuesta", "aprobada", "lista", "en_pausa", "bloqueada",
+                          "caducada", "devuelta"}, None, {1: _VALORACION_V1}),
     "decision.tomada": _t("tarea", {"trabajador", "javier"},
                           set(ESTADOS_TAREA) - {"cerrada", "descartada"}, None,
                           {1: _DECISION}),
@@ -319,7 +338,21 @@ def _regla_reserva(ev):
         raise Rechazo(f"datos.minutos: de 1 a {MINUTOS_MAX_RESERVA}")
 
 
-REGLAS_EXTRA = {"decision.tomada": [_regla_decision_c], "tarea.entregada": [_regla_informe],
+_RE_HUELLA = re.compile(r"^[a-z0-9][a-z0-9._:/-]{0,79}$")
+
+
+def _regla_valoracion(ev):
+    d = ev["datos"]
+    for k, nota in d["notas"].items():
+        if not 1 <= nota["n"] <= 5:
+            raise Rechazo(f"datos.notas.{k}.n: de 1 a 5")
+    if "huella" in d and not _RE_HUELLA.match(d["huella"]):
+        raise Rechazo("datos.huella: minúsculas, cifras y . _ : / - (p. ej. silent-frog:ajustes:texto-cortado)")
+    if "fija" in d and not 1 <= d["fija"]["valor"] <= 100:
+        raise Rechazo("datos.fija.valor: de 1 a 100 (más alto, antes)")
+
+
+REGLAS_EXTRA = {"decision.tomada": [_regla_decision_c], "tarea.valorada": [_regla_valoracion], "tarea.entregada": [_regla_informe],
                 "reserva.pedida": [_regla_reserva], "reserva.renovada": [_regla_reserva]}
 
 CABECERA = ("id", "tipo", "version_esquema", "fecha", "autor", "entidad", "correlacion",

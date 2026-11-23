@@ -346,6 +346,26 @@ def main(argv=None) -> int:
             s.add_argument("--sin-subir", action="store_true")
             s.add_argument("--fecha", help="fecha del informe (por defecto, hoy en UTC)")
 
+    # Fase 5 (S-1272): el planificador por reglas.
+    s = sub.add_parser("planificar", help="el planificador (sin modelo): orden y porqué; con "
+                                          "--escribir pasa a lista; con --asignar, asigna")
+    s.add_argument("--sitio", choices=("pc", "github"), default="pc")
+    s.add_argument("--capacidad", type=int, default=3,
+                   help="cuántas tareas puede arrancar ahora quien llama (memoria y cuota)")
+    s.add_argument("--max-en-curso", type=int, default=8)
+    s.add_argument("--tope-espera", type=int, default=10,
+                   help="tareas esperando a Javier que frenan lo que acabará esperándole")
+    s.add_argument("--escribir", action="store_true", help="caducadas y paso a «lista»")
+    s.add_argument("--asignar", action="store_true", help="reserva y asigna (implica --escribir)")
+    s.add_argument("--ejecutor", help="con --asignar: quién va a trabajarla (lion, github…)")
+    s.add_argument("--maquina")
+    s.add_argument("--md", action="store_true", help="el plan en español llano")
+    s.add_argument("--guardar", action="store_true",
+                   help="deja informes/planificador/AAAA-MM-DD-<sitio>.md y lo sube (simulación)")
+    s.add_argument("--sin-traer", action="store_true", help="no hace git pull antes de mirar")
+    s.add_argument("--sin-subir", action="store_true")
+    s.add_argument("--identidad", default=os.environ.get("ORG_IDENTIDAD"))
+
     a = p.parse_args(argv)
     reg = Registro(a.raiz)
     try:
@@ -398,6 +418,29 @@ def main(argv=None) -> int:
             return _validador(reg, a)
         elif a.orden == "puente":
             return _puente(reg, a)
+        elif a.orden == "planificar":
+            from . import planificador as pl
+            ident = a.identidad or f"{pl.IDENTIDAD}-{a.sitio}"
+            if not a.sin_traer:
+                reg.traer()
+            plan = pl.planificar(reg, capacidad=a.capacidad, max_en_curso=a.max_en_curso,
+                                 sitio=a.sitio, tope_espera=a.tope_espera, identidad=ident)
+            hecho = None
+            if a.escribir or a.asignar:
+                hecho = pl.ejecutar(reg, plan, identidad=ident, asignar=a.asignar,
+                                    ejecutor=a.ejecutor, maquina=a.maquina,
+                                    subir=not a.sin_subir)
+            if a.guardar:
+                carpeta = reg.raiz / "informes" / "planificador"
+                carpeta.mkdir(parents=True, exist_ok=True)
+                (carpeta / f"{plan['fecha'][:10]}-{a.sitio}.md").write_text(
+                    pl.informe_md(plan, hecho), encoding="utf-8", newline="\n")
+                if not a.sin_subir:
+                    reg.subir()
+            if a.md:
+                print(pl.informe_md(plan, hecho), end="")
+            else:
+                _salida({"plan": plan, "escrito": hecho})
         else:
             return _fase4(reg, a)
     except Rechazo as ex:

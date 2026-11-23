@@ -1,0 +1,57 @@
+name: Planificador por reglas
+
+# PAA2 P5-1 (S-1272). El planificador (org/planificador.py, sin modelo) decide qué tarea va
+# primero y cuáles no arrancan, y por qué. Corre en dos sitios: dentro de Roaring Lion cuando el
+# PC está encendido y aquí, en GitHub.
+#
+# Por defecto SIMULA (02 §6 y 07 §6: dos semanas decidiendo sin ejecutar): deja el plan en el
+# resumen del run y en informes/planificador/ para compararlo con lo que hizo Javier. No asigna
+# nada: en GitHub solo podrá asignar tareas de documentación y contenido (el piloto P5-3), y
+# ahora no hay ningún trabajador de GitHub que las recoja. Si `escribir` está activo, pasa a
+# «lista» las aprobadas y caduca las que un trabajador dejó de latir; no cambia ninguna columna
+# del tablero.
+#
+# Dos planificadores a la vez no se reparten la misma tarea: antes de asignar, reservan
+# `tarea:<id>` en el registro y gana la reserva que entró antes en la historia compartida.
+
+on:
+  workflow_dispatch:
+    inputs:
+      escribir:
+        description: "Pasar a lista y caducar de verdad (si no, solo simula)"
+        type: boolean
+        default: false
+      capacidad:
+        description: "Cuántas tareas podría arrancar ahora"
+        default: "3"
+  schedule:
+    - cron: "30 6 * * *"   # una vez al día: ~1 min de Actions; la simulación no necesita más
+
+permissions:
+  contents: write
+
+concurrency:
+  group: planificador
+  cancel-in-progress: false
+
+jobs:
+  planificar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Identidad de git
+        run: |
+          git config user.name "tsp-registro planificador"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Planificar
+        env:
+          ESCRIBIR: ${{ inputs.escribir && '--escribir' || '' }}
+          CAPACIDAD: ${{ inputs.capacidad || '3' }}
+        run: |
+          python -m org planificar --sitio github --capacidad "$CAPACIDAD" $ESCRIBIR \
+            --guardar --md --identidad planificador-github | tee "$RUNNER_TEMP/plan.md"
+          cat "$RUNNER_TEMP/plan.md" >> "$GITHUB_STEP_SUMMARY"

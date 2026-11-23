@@ -272,6 +272,65 @@ estado de cada tarjeta lo mande el registro. El tablero sigue siendo la pantalla
   con un ciclo limpio: todos los escritores de la config han escrito desde su inicio o desde la
   última discrepancia. Entonces empieza sola la siguiente. `migracion.revertida` la apaga.
 
+## El planificador por reglas (S-1272, PAA2 P5-1)
+
+Diseño: `02-arquitectura.md` §5, §5.0, §5.1, §5.2 y §9 ter. Programa **sin modelo** que decide qué
+tarea va primero y cuáles no arrancan, siempre con el porqué. Sustituye a cerrador, arrancador e
+integrador, que nadie lanzaba. **Por defecto solo mira**; no cambia nada hasta que se le pide.
+
+```
+py -m org planificar --md                                   # el plan, en español llano; no escribe
+py -m org planificar --escribir [--sitio pc|github]         # caduca las que no laten y pasa a «lista»
+py -m org planificar --asignar --ejecutor lion --maquina pc # reserva y asigna (pide un ejecutor real)
+py -m org planificar --guardar                              # informes/planificador/AAAA-MM-DD-<sitio>.md
+  opciones: --capacidad 3  --max-en-curso 8  --tope-espera 10  --sin-traer  --sin-subir
+py -m org escribir tarea.valorada tarea:T-1 --papel direccion --identidad dir --clave T-1:v1 --datos @valoracion.json
+```
+
+- **Valorar (la dirección, con modelo) y ordenar (el planificador, sin modelo).** La valoración es
+  un evento `tarea.valorada` con siete notas de 1 a 5, cada una con su motivo (importancia,
+  urgencia, riesgo, esfuerzo, coste, probabilidad, comprobable), y opcionalmente `clase`,
+  `huella`, `recursos`, `espera_javier` y `fija` (prioridad a mano, con motivo). Solo la escriben
+  dirección, Javier y el motor; la última manda. Sin valoración, el planificador usa notas por
+  defecto sacadas de la tarjeta del tablero (prioridad, etiquetas *fallo* y *seguridad*,
+  comprobación, tamaño) y lo dice: `sin_valorar`.
+- **Orden:** primero las clases que siempre pasan delante (`no_abre`, `enlace_roto`,
+  `integridad`, `queja_repetida`); dentro, la prioridad fijada a mano; después **valor entre
+  coste** = (importancia + urgencia + riesgo + probabilidad + comprobable) / (esfuerzo + coste);
+  desempate por antigüedad. Cada puesto trae su frase del porqué.
+- **Consolida** las tareas con la misma `huella` (solo la más antigua es candidata) y marca «a
+  revisar» las que llevan más de 30 días en lista. Quita las que esperan una dependencia
+  (de la tarea o `bloqueada_por` de su tarjeta; una desconocida frena), las que piden un recurso
+  ocupado, las que tocan los mismos ficheros que otra en curso y todo si hay una pausa activa.
+- **No arranca lo que acabará esperando a Javier** (`espera_javier`, `publica` o tarjeta con
+  comprobación *decisión*) cuando ya le esperan 10 o más (02 §5.2 y §9 ter): lo bloqueado y lo
+  entregado con decisión suya. Lo demás sigue.
+- **Topes medidos, no «100».** `--capacidad` la da quien llama (el PC, con su memoria y su cuota;
+  02 §5.2) y `--max-en-curso` es el límite del tablero (8). No hacer nada es un resultado válido.
+- **Dos sitios a la vez.** Antes de asignar, reserva `tarea:<id>` (`recursos.py`): gana la que
+  entró antes en la historia compartida, la otra la deja y sigue con la siguiente; y tras ganar
+  vuelve a comprobar que la tarea sigue en `lista`. La asignación lleva clave de idempotencia por
+  número de intento. Tests: `DosSitios` (mismo plan viejo en los dos, ninguna tarea dos veces y
+  sin rechazados) y la carrera de verdad con la fecha del perdedor anterior.
+- **Dónde corre.** El comando es el mismo en los dos sitios. GitHub: `planificador.yml` (a mano y
+  una vez al día, en simulación: deja el plan en `informes/planificador/`; solo asignaría
+  documentación y contenido). Roaring Lion: **aún no lo llama** (hay que cambiarlo en su repo).
+- **Qué no hace:** no aprueba tarjetas (M6, sigue siendo del arrancador y de Javier), no publica,
+  no valida ni cierra (eso es el validador), y no asigna a un ejecutor que no existe: sin
+  trabajador que lata, la tarea caducaría a los 20 minutos.
+- **Las que puso en curso el puente no caducan.** Una tarea cuya última asignación es de
+  `puente-tablero` (la tarjeta está En curso) no tiene trabajador que lata; caducarla movería la
+  tarjeta a Empezar. `org caducar` (P4-1) **no** tiene esa guarda: no lanzarlo a mano a todas.
+
+| N.º | Decisión (S-1272) | Descartada | Por qué |
+|---|---|---|---|
+| D-34 | `tarea.valorada` como evento propio (dirección, Javier, motor), con las siete notas y su motivo | Un `tarea.propuesta` v3 con las notas | La dirección revisa la valoración después de crear la tarea (02 §5.0) y la propuesta no se puede editar |
+| D-35 | Por defecto solo mira; `--escribir` y `--asignar` son explícitos | Escribir siempre | 07 §6: dos semanas decidiendo sin ejecutar; y asignar sin trabajador que lata caduca la tarea |
+| D-36 | Sin valoración, notas por defecto de la tarjeta, marcadas `sin_valorar` | No ordenar lo no valorado | Hoy ninguna tarea está valorada: sin esto el plan sale vacío; y lo marcado se ve |
+| D-37 | El freno por «espera a Javier» solo aplica pasado el tope (10) | Nunca arrancar lo que acabará esperándole | 02 §5.2 lo dice así; lo otro paralizaría las tareas con decisión de Javier |
+| D-38 | Reservar `tarea:<id>` antes de asignar y releer el estado | Fiarse del estado tras `traer` | El estado solo ve lo ya subido: la carrera de dos planificadores sin subir necesita la reserva |
+| D-39 | El planificador de GitHub solo asigna documentación y contenido | Todo tipo | Hoy no hay trabajador de GitHub; el piloto (P5-3) empieza por lo de menor riesgo |
+
 ## Cabecera de un evento
 
 `id` (16 hex) · `tipo` · `version_esquema` · `fecha` (UTC, microsegundos) · `autor {papel,
@@ -294,7 +353,7 @@ identidad}` · `entidad {tipo, id}` · `correlacion` (id del evento que lo origi
 | validador / laboratorio | evidencia verificada, verificada, devuelta, integrada (y cerrada, el validador); con sello (S-1270) |
 | revisor | revisión emitida (ok, changes o reject sobre una cabeza); nunca quien hizo la tarea |
 | planificador | aprobada (M6), lista, asignada, caducada, pausa, bloqueo; reservas (también soltar la de otro) |
-| direccion / motor | propuesta de tarea (dirección también descarta); el motor, incidencias |
+| direccion / motor | propuesta de tarea y su valoración (dirección también descarta); el motor, incidencias |
 | javier | objetivo, propuesta, aprobada, descartada, pausa, cerrada, decisión C |
 | fabrica | nada aún (ficha de release: P6-1) |
 
