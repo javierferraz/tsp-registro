@@ -1,0 +1,56 @@
+{
+ "id": "fa0ea1077e598b8e",
+ "tipo": "tarea.devuelta",
+ "version_esquema": 2,
+ "fecha": "2026-11-23T17:13:37.795037Z",
+ "autor": {
+  "papel": "validador",
+  "identidad": "validador-github"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1178"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "S-1178:validador:a7a12972ae67:0:devuelta",
+ "datos": {
+  "politica": "validador/tablero@1",
+  "cabeza": "a7a12972ae67471acd3fa7313b6959e009ebd962",
+  "comprobaciones": [
+   {
+    "nombre": "commits",
+    "resultado": "falla",
+    "detalle": "el commit 2dee26873925 no existe en el repo"
+   },
+   {
+    "nombre": "commits",
+    "resultado": "falla",
+    "detalle": "el commit 1dd32b9667ea no existe en el repo"
+   },
+   {
+    "nombre": "commits",
+    "resultado": "falla",
+    "detalle": "el commit 901f27147366 no existe en el repo"
+   },
+   {
+    "nombre": "commits",
+    "resultado": "falla",
+    "detalle": "el commit 4b7981f485e2 no existe en el repo"
+   },
+   {
+    "nombre": "pruebas",
+    "resultado": "no_verificado",
+    "detalle": "modo tablero: pasaron al fusionar en la rama principal; el validador no las repite"
+   }
+  ],
+  "coste": {
+   "segundos": 33,
+   "runner": "Linux",
+   "run": "45224921215"
+  },
+  "no_verificado": [
+   "pruebas: modo tablero: pasaron al fusionar en la rama principal; el validador no las repite"
+  ],
+  "motivo": "commits: el commit 2dee26873925 no existe en el repo; commits: el commit 1dd32b9667ea no existe en el repo; commits: el commit 901f27147366 no existe en el repo; commits: el commit 4b7981f485e2 no existe en el repo"
+ }
+}
