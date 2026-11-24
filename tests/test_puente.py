@@ -154,6 +154,25 @@ class Traduccion(Base):
         self.assertEqual(plan["proyecciones"], [])
         self.assertEqual(self.estado("S-8"), "entregada")
 
+    def test_tarjeta_que_cambia_a_un_repo_no_gestionado_retira_su_tarea(self):
+        # S-1267: una tarjeta sin app recibió el repo central; luego se le puso la app de otro
+        # repo. Su tarea del registro se retira (queda descartada) y no se vuelve a tocar.
+        self.pasada(tarjeta("S-9", "curso"))
+        self.assertEqual(self.estado("S-9"), "en_curso")
+        plan = self.pasada(tarjeta("S-9", "curso", app="Roaring Lion"))
+        self.assertEqual(plan["retiradas"], ["S-9"])
+        self.assertEqual(self.estado("S-9"), "descartada")
+        self.assertEqual(self.tipos("S-9")[-1], "tarea.retirada")
+        plan = self.pasada(tarjeta("S-9", "hecha", app="Roaring Lion"))  # no se reabre ni se repite
+        self.assertEqual((plan["retiradas"], plan["eventos"]), ([], []))
+        self.assertEqual(self.estado("S-9"), "descartada")
+
+    def test_retirar_no_toca_ni_una_tarea_ya_cerrada_ni_la_vuelta_atras(self):
+        self.pasada(tarjeta("S-10", "curso"))
+        plan = self.pasada(tarjeta("S-10", "curso", app="Roaring Lion"), exportar=True)
+        self.assertEqual(plan["retiradas"], [])
+        self.assertEqual(self.estado("S-10"), "en_curso")
+
     def test_lo_que_no_esta_migrado_no_se_toca(self):
         plan = self.pasada(tarjeta("S-7", "curso", app="Clever Cat"))
         self.assertEqual(plan["eventos"], [])

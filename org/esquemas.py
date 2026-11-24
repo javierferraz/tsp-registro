@@ -224,6 +224,13 @@ TIPOS: dict[str, Tipo] = {
     "tarea.reabierta": _t("tarea", {"javier", "direccion", "planificador"},
                           {"cerrada", "descartada"}, "propuesta", {1: _MOTIVO}),
 
+    # P4-3 (S-1271, caso S-1267): el puente retira la tarea de una tarjeta cuyo repo cambió a uno
+    # que el registro no gestiona. Nadie la cierra ni la valida: queda descartada con su motivo.
+    # No entra en los caminos del puente (puente._pasos lo excluye): solo se escribe a propósito.
+    "tarea.retirada": _t("tarea", {"planificador"},
+                         set(ESTADOS_TAREA) - {"cerrada", "descartada"}, "descartada",
+                         {1: _MOTIVO}),
+
     # --- Registros sobre una tarea que no cambian su estado ---------------------------
     "tarea.latido": _t("tarea", {"trabajador"}, {"en_curso"}, None,
                        {1: Version(obligatorios={}), 2: _LATIDO_V2}),

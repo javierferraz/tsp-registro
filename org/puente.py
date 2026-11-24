@@ -75,7 +75,8 @@ def _pasos():
         if t.entidad != "tarea" or t.desde is None or t.hasta is None or t.espejo:
             continue
         papel = next((p for p in PREFERENCIA if p in t.papeles), None)
-        if papel and nombre != "tarea.caducada":  # caducar es del planificador de verdad
+        # caducar es del planificador de verdad; retirar solo lo escribe `planear`, a propósito
+        if papel and nombre not in ("tarea.caducada", "tarea.retirada"):
             out.append((nombre, papel, t))
     return out
 
@@ -212,12 +213,23 @@ def planear(reg, tablero: dict, repo_de, gestionados: set[str], *, exportar=Fals
     `repo_de(card)` → nombre del repo de la tarjeta. `exportar=True` es la vuelta atrás: el
     registro manda sin mirar los movimientos del tablero (solo proyección)."""
     eventos, proyecciones, discrepancias, despachos, creadas = [], [], [], [], []
+    retiradas = []
     for card in tablero.get("cards", []):
         cid = card.get("id")
         if not isinstance(cid, str) or not cid.startswith("S-"):
             continue
         repo = repo_de(card)
         if not repo or not _gestionado(repo, gestionados):
+            # La tarjeta cambió de repo (p. ej. se le puso la app de otro) y su tarea del
+            # registro sigue abierta en el antiguo: se retira. Con la vuelta atrás no se toca.
+            t0 = None if exportar else reg.ver("tarea", cid)
+            if (t0 and t0.get("tipo_trabajo") == "tablero" and t0.get("repo") != repo
+                    and t0["estado"] not in ("cerrada", "descartada")):
+                eventos.append({"tipo": "tarea.retirada", "entidad": ("tarea", cid),
+                                "papel": "planificador", "clave": f"puente:{cid}:retirada:{repo}",
+                                "datos": {"motivo": f"la tarjeta pasó al repo {repo}, que el "
+                                                    f"registro no gestiona (antes {t0.get('repo')})"}})
+                retiradas.append(cid)
             continue
         col = card.get("col") or ""
         t = reg.ver("tarea", cid)
@@ -303,7 +315,7 @@ def planear(reg, tablero: dict, repo_de, gestionados: set[str], *, exportar=Fals
                 nota = _nota_registro(t, estado)
             proyecciones.append({"tarjeta": cid, "de": col, "a": a, "nota": nota})
     return {"eventos": eventos, "proyecciones": proyecciones, "discrepancias": discrepancias,
-            "despachos": despachos, "creadas": creadas}
+            "despachos": despachos, "creadas": creadas, "retiradas": retiradas}
 
 
 def _nota_registro(t: dict | None, estado: str) -> str:

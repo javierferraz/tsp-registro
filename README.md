@@ -267,6 +267,10 @@ estado de cada tarjeta lo mande el registro. El tablero sigue siendo la pantalla
 - **Discrepancia** = un movimiento que el registro no acepta (un agente que cierra sin Por
   validar, una columna desconocida). La tarjeta vuelve a su sitio y se escribe
   `migracion.discrepancia` en la etapa en curso.
+- **Tarjeta que cambia de repo.** Si la tarjeta pasa a un repo que el registro no gestiona (p. ej.
+  se le pone la app de otro repo) y su tarea sigue abierta en el antiguo, el puente la retira con
+  `tarea.retirada` (papel planificador, motivo escrito): queda `descartada` y no se vuelve a tocar.
+  No sale de los caminos del puente; con `--exportar` no se escribe. Caso S-1267 (2026-11-24).
 - **Etapas** (`migracion:tablero-N`, config en `tablero/migracion.json` del central): 1 repo
   central, 2 Clever Cat y Silent Frog, 3 el resto. Una etapa se supera (`migracion.superada`)
   con un ciclo limpio: todos los escritores de la config han escrito desde su inicio o desde la
