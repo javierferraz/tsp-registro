@@ -1,0 +1,24 @@
+{
+ "id": "f9c78417aac55c62",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T14:15:05.059486Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1069"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1069:n1-3c5007a0a6b9f5e2",
+ "datos": {
+  "estado": "curso",
+  "revision": 22,
+  "creada": "2026-11-01T13:39:29Z",
+  "actualizada": "2026-11-24T12:32:20Z",
+  "huella_texto": "9440faff30bfd0be",
+  "notas": 38
+ }
+}

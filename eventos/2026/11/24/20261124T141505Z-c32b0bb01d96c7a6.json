@@ -1,0 +1,42 @@
+{
+ "id": "c32b0bb01d96c7a6",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T14:15:05.065012Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1291"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1291:n1-e2dd47802200622b",
+ "datos": {
+  "estado": "validar",
+  "revision": 2,
+  "creada": "2026-11-23T16:59:07Z",
+  "actualizada": "2026-11-24T12:36:24Z",
+  "huella_texto": "7777ccdbdf6a30fa",
+  "notas": 3,
+  "app": "Bright Cardinal",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "media",
+  "check": "ojos",
+  "commits": [
+   "68c0b1463f2e",
+   "43e272d0f4cb"
+  ],
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "validar",
+    "fecha": "2026-11-24T12:36:24Z",
+    "por": "claude"
+   }
+  ]
+ }
+}
