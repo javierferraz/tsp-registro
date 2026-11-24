@@ -1,0 +1,22 @@
+{
+ "id": "53f293b8dfd46721",
+ "tipo": "proceso.latido",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T06:15:17.333318Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "proceso",
+  "id": "tsp-vigia-fichas"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "latido:tsp-vigia-fichas:45278371854",
+ "datos": {
+  "resultado": "ok",
+  "ejecutado": "2026-11-23T22:18:15.000000Z",
+  "origen": "github",
+  "detalle": "run 45278371854: success"
+ }
+}

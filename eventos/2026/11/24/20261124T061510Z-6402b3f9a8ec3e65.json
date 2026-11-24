@@ -1,0 +1,22 @@
+{
+ "id": "6402b3f9a8ec3e65",
+ "tipo": "proceso.latido",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T06:15:10.579352Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "proceso",
+  "id": "centinela-gemini"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "latido:centinela-gemini:2026-11-23T08:00:00.0000000Z",
+ "datos": {
+  "resultado": "ok",
+  "ejecutado": "2026-11-23T08:00:00.000000Z",
+  "origen": "programador",
+  "detalle": "resultado 0"
+ }
+}

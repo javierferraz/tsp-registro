@@ -1,0 +1,22 @@
+{
+ "id": "b5072051d70ac443",
+ "tipo": "proceso.latido",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T06:15:13.647058Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "proceso",
+  "id": "tsp-descargas"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "latido:tsp-descargas:45239626732",
+ "datos": {
+  "resultado": "ok",
+  "ejecutado": "2026-11-23T18:33:17.000000Z",
+  "origen": "github",
+  "detalle": "run 45239626732: success"
+ }
+}

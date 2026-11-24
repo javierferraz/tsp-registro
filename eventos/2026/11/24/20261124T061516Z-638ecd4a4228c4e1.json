@@ -1,0 +1,22 @@
+{
+ "id": "638ecd4a4228c4e1",
+ "tipo": "proceso.latido",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T06:15:16.084574Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "proceso",
+  "id": "tsp-vigia-contenidos"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "latido:tsp-vigia-contenidos:44767527608",
+ "datos": {
+  "resultado": "ok",
+  "ejecutado": "2026-11-20T15:51:51.000000Z",
+  "origen": "github",
+  "detalle": "run 44767527608: success"
+ }
+}
