@@ -1,0 +1,19 @@
+{
+ "id": "1299dafa54e14e01",
+ "tipo": "tarea.entregada",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T19:37:14.178643Z",
+ "autor": {
+  "papel": "trabajador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-707"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-707:S-707-note-11:2:tarea.entregada",
+ "datos": {
+  "resumen": "S-707 a Por validar"
+ }
+}
