@@ -338,6 +338,33 @@ class ValidadorTablero(unittest.TestCase):
         self.assertEqual(r["veredicto"], "devuelta")
         self.assertIn("falta fusionarlo", r["motivo"])
 
+    def test_commit_de_otro_repo_sin_cierre_de_javier_se_bloquea(self):
+        self.entregar(["3d14b7794d74"])                 # S-1267: un commit de Roaring Lion
+        r = self.validar()
+        self.assertEqual(r["veredicto"], "bloqueada", r)
+        self.assertIn("con commits de otro repo", r["bloqueo"])
+
+    def test_commit_de_otro_repo_cerrado_por_javier_se_verifica(self):
+        self.entregar(["3d14b7794d74"])
+        self.app.poner({"tablero/board.json": json.dumps({"events": [
+            {"type": "card.transition", "cardId": "S-50", "summary": "validar -> hecha",
+             "actor": {"kind": "human", "id": "javier"}, "at": iso(5)}]})})
+        self.app.commit("tablero")
+        r = self.validar()
+        self.assertEqual(r["veredicto"], "verificada", r)
+        self.assertIn("otro repo", " ".join(self.reg.ver("tarea", "S-50")["veredicto"]["no_verificado"]))
+
+    def test_repo_con_releases_vale_el_commit_en_su_rama(self):
+        git(self.app.dir, "tag", "v1.0.0")
+        git(self.app.dir, "checkout", "-q", "trabajo")
+        self.app.poner({"doc.md": "terminado, espera a la release\n"})
+        c = self.app.commit("Rama: terminada")
+        git(self.app.dir, "checkout", "-q", "main")
+        self.entregar([c])
+        r = self.validar()
+        self.assertEqual(r["veredicto"], "verificada", r["fallos"])
+        self.assertIn("próxima", " ".join(self.reg.ver("tarea", "S-50")["veredicto"]["no_verificado"]))
+
     def test_sin_commits_vale_el_cierre_de_javier_en_el_navegador(self):
         self.entregar()
         self.app.poner({"tablero/board.json": json.dumps({"events": [

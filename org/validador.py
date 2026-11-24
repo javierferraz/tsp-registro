@@ -107,7 +107,7 @@ def copia_limpia(fuente: str, destino: Path) -> None:
     destino.mkdir(parents=True)
     _git(destino, "init", "-q")
     _git(destino, "fetch", "-q", "--no-tags", fuente, "+refs/heads/*:refs/remotes/f/*",
-         "+refs/remotes/origin/*:refs/remotes/fr/*")
+         "+refs/remotes/origin/*:refs/remotes/fr/*", "+refs/tags/v*:refs/tags/v*")
 
 
 def _ref(cwd, nombre: str) -> str | None:
@@ -238,7 +238,11 @@ def _juzgar_tablero(t: dict, copia: Path, res: dict, j: _Juicio, central: Path |
     """Modo tablero (P4-3, S-1271): la tarea es una tarjeta y su trabajo ya se fusionó (en el repo
     central se fusiona antes de Por validar, PAA M8). Con commits: cada uno existe y está en la
     rama principal; las pruebas pasaron al fusionar y no se repiten. Sin commits (decisiones,
-    gestiones): solo vale que Javier la haya pasado a Terminada en el navegador (sin firma)."""
+    gestiones): solo vale que Javier la haya pasado a Terminada en el navegador (sin firma).
+    Un commit que no está en el repo es de otro (la tarjeta no lleva su app y el registro no
+    cambia el repo de una tarea): no se puede comprobar, así que cuenta como sin commits y vale el
+    cierre de Javier. En un repo con releases (tags v*) lo terminado espera en su rama subida
+    hasta la release (ramas-a-release), así que basta con que esté en una rama."""
     base = _ref(copia, "main") or _ref(copia, "master")
     if not base:
         res["bloqueo"] = "no encuentro la rama principal del repo (main o master)"
@@ -246,22 +250,37 @@ def _juzgar_tablero(t: dict, copia: Path, res: dict, j: _Juicio, central: Path |
     res["cabeza"] = base
     commits = (t.get("entrega") or {}).get("commits") or []
     if commits:
+        con_releases = bool(_git(copia, "tag", "-l", "v*", check=False).stdout.strip())
+        ajenos, en_rama = [], []
         for c in commits:
             sha = _rev(copia, c)
             if not sha:
-                j.falla("commits", f"el commit {c} no existe en el repo")
+                ajenos.append(c)
             elif not _ancestro(copia, sha, base):
-                j.falla("commits", f"{c} no está en la rama principal: falta fusionarlo")
-        if not j.fallos:
-            j.ok("commits", f"{len(commits)} commit(s) ya en la rama principal {base[:12]}")
-        j.sin_verificar("pruebas", "modo tablero: pasaron al fusionar en la rama principal; "
-                                   "el validador no las repite")
-        return res
+                if con_releases:
+                    en_rama.append(c)
+                else:
+                    j.falla("commits", f"{c} no está en la rama principal: falta fusionarlo")
+        propios = len(commits) - len(ajenos)
+        if propios and not j.fallos:
+            j.ok("commits", f"{propios - len(en_rama)} commit(s) ya en la rama principal "
+                            f"{base[:12]}" + (f"; {len(en_rama)} en su rama subida" if en_rama else ""))
+        if en_rama:
+            j.sin_verificar("release", f"{', '.join(en_rama)} en su rama: repo con releases, "
+                                       "entra en la próxima (ramas-a-release)")
+        if propios:
+            j.sin_verificar("pruebas", "modo tablero: pasaron al fusionar en la rama principal; "
+                                       "el validador no las repite")
+        if j.fallos or not ajenos:
+            return res
+        j.sin_verificar("commits", f"{', '.join(ajenos)} no está en {t.get('repo') or 'el repo'}: "
+                                   "es de otro repo y no lo compruebo")
+    sin = "sin commits" if not commits else "con commits de otro repo"
     origen = central or copia
     rama = _ref(origen, "main") or _ref(origen, "master")
     texto = _git(origen, "show", f"{rama}:tablero/board.json", check=False) if rama else None
     if texto is None or texto.returncode:
-        res["bloqueo"] = "sin commits y sin acceso a tablero/board.json para ver quién la cerró"
+        res["bloqueo"] = f"{sin} y sin acceso a tablero/board.json para ver quién la cerró"
         return res
     desde = max([t.get("creada", "")] + [h["fecha"] for h in t.get("historial", [])
                                          if h.get("tipo") == "tarea.reabierta"]
@@ -277,10 +296,10 @@ def _juzgar_tablero(t: dict, copia: Path, res: dict, j: _Juicio, central: Path |
             except (KeyError, ValueError):
                 continue
             if cuando >= hito:
-                j.ok("cierre", f"sin commits: Javier la pasó a Terminada en el navegador "
+                j.ok("cierre", f"{sin}: Javier la pasó a Terminada en el navegador "
                                f"({e['at']}, sin firma)")
                 return res
-    res["bloqueo"] = ("sin commits: no hay nada que comprobar; la cierra Javier desde el "
+    res["bloqueo"] = (f"{sin}: no hay nada que pueda comprobar; la cierra Javier desde el "
                       "navegador (o con su firma)")
     return res
 
