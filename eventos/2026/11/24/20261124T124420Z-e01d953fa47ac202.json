@@ -1,0 +1,22 @@
+{
+ "id": "e01d953fa47ac202",
+ "tipo": "tarea.entregada",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T12:44:20.326582Z",
+ "autor": {
+  "papel": "trabajador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1307"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1307:S-1307-note-5:0:tarea.entregada",
+ "datos": {
+  "resumen": "S-1307 a Por validar",
+  "commits": [
+   "4e6dc00288f4"
+  ]
+ }
+}
