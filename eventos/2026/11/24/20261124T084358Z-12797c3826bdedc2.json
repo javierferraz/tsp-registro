@@ -1,0 +1,29 @@
+{
+ "id": "12797c3826bdedc2",
+ "tipo": "ejecucion.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T08:43:58.306411Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "ejecucion",
+  "id": "T-2026-11-24-02"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "ejecucion.importada:T-2026-11-24-02",
+ "datos": {
+  "estado": "running",
+  "creada": "2026-11-24T06:17:50Z",
+  "actualizada": "2026-11-24T06:18:04Z",
+  "tarjeta": "S-1283",
+  "repo": "2606-thestromboliproject",
+  "tamano": "M",
+  "modelo": "sonnet",
+  "esfuerzo": "high",
+  "intentos": 1,
+  "minutos": 0,
+  "con_informe": false
+ }
+}

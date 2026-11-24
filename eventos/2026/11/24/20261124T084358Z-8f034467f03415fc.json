@@ -1,0 +1,26 @@
+{
+ "id": "8f034467f03415fc",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T08:43:58.290492Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1301"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1301",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-11-24T06:25:01Z",
+  "actualizada": "2026-11-24T06:25:01Z",
+  "huella_texto": "179822260ec2810e",
+  "notas": 1,
+  "app": "Clear Parrot",
+  "prioridad": "media"
+ }
+}
