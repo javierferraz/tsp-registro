@@ -1,0 +1,21 @@
+{
+ "id": "066f87a31e79f2c9",
+ "tipo": "tarea.propuesta",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T21:30:27.568822Z",
+ "autor": {
+  "papel": "direccion",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-957"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-957:alta",
+ "datos": {
+  "titulo": "S-957",
+  "repo": "2606-silent-frog",
+  "tipo_trabajo": "tablero"
+ }
+}

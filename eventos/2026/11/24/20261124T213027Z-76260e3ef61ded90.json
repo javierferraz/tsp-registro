@@ -1,0 +1,21 @@
+{
+ "id": "76260e3ef61ded90",
+ "tipo": "tarea.propuesta",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T21:30:27.556985Z",
+ "autor": {
+  "papel": "direccion",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-327"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-327:alta",
+ "datos": {
+  "titulo": "S-327",
+  "repo": "2606-clever-cat",
+  "tipo_trabajo": "tablero"
+ }
+}

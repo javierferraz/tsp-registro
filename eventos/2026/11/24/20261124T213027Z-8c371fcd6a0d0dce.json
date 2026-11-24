@@ -1,0 +1,21 @@
+{
+ "id": "8c371fcd6a0d0dce",
+ "tipo": "tarea.propuesta",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T21:30:27.566547Z",
+ "autor": {
+  "papel": "direccion",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-931"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-931:alta",
+ "datos": {
+  "titulo": "S-931",
+  "repo": "2606-clever-cat",
+  "tipo_trabajo": "tablero"
+ }
+}
