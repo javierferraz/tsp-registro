@@ -1,0 +1,23 @@
+{
+ "id": "5b583dbd8cd836b4",
+ "tipo": "migracion.iniciada",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T21:23:58.534471Z",
+ "autor": {
+  "papel": "planificador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "migracion",
+  "id": "tablero-2"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:iniciada:tablero-2",
+ "datos": {
+  "etapa": 2,
+  "repos": [
+   "2606-clever-cat",
+   "2606-silent-frog"
+  ]
+ }
+}

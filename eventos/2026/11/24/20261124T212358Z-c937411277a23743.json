@@ -1,0 +1,26 @@
+{
+ "id": "c937411277a23743",
+ "tipo": "migracion.superada",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T21:23:58.464885Z",
+ "autor": {
+  "papel": "planificador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "migracion",
+  "id": "tablero-1"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:superada:tablero-1",
+ "datos": {
+  "escritores": [
+   "linux",
+   "navegador",
+   "rosetta",
+   "vigia-contenidos",
+   "vigia-fichas"
+  ],
+  "ciclo_desde": "2026-11-23T16:38:39.165591Z"
+ }
+}
