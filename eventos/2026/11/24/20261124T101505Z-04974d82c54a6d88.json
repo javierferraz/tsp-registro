@@ -1,0 +1,29 @@
+{
+ "id": "04974d82c54a6d88",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T10:15:05.054303Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-666"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-666:n1-4d1ac5f7a66a39ca",
+ "datos": {
+  "estado": "adelante",
+  "revision": 13,
+  "creada": "2026-10-14T21:22:22Z",
+  "actualizada": "2026-11-24T09:35:49Z",
+  "huella_texto": "e09b9d8e540b78e6",
+  "notas": 22,
+  "app": "Clear Parrot",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "baja"
+ }
+}

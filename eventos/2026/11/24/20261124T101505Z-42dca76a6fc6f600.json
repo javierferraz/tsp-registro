@@ -1,0 +1,35 @@
+{
+ "id": "42dca76a6fc6f600",
+ "tipo": "ejecucion.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T10:15:05.108747Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "ejecucion",
+  "id": "T-2026-11-24-10"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "ejecucion.importada:T-2026-11-24-10",
+ "datos": {
+  "estado": "done",
+  "creada": "2026-11-24T09:22:23Z",
+  "actualizada": "2026-11-24T09:36:57Z",
+  "repo": "agentes-comun",
+  "tamano": "S",
+  "modelo": "sonnet",
+  "esfuerzo": "high",
+  "intentos": 1,
+  "minutos": 15,
+  "verificacion": "unverifiable",
+  "criterios": {
+   "pass": 6
+  },
+  "commits": 1,
+  "rama": "main",
+  "subida": true,
+  "con_informe": true
+ }
+}
