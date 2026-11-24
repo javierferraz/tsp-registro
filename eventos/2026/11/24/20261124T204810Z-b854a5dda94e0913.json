@@ -1,0 +1,19 @@
+{
+ "id": "b854a5dda94e0913",
+ "tipo": "tarea.asignada",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T20:48:10.748849Z",
+ "autor": {
+  "papel": "planificador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1314"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1314:alta:2:tarea.asignada",
+ "datos": {
+  "ejecutor": "tablero"
+ }
+}
