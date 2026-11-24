@@ -227,6 +227,15 @@ class EvidenciaFalsa(Base):
             {"n": 2, "estado": "ok", "evidencia": "check:pruebas"}])
         self.assertEqual(self.validar()["veredicto"], "verificada")
 
+    def test_evidencia_en_carpeta_con_punto_inicial(self):
+        # .claude/ y .github/ empiezan por punto: no se les puede quitar «./» a lo bruto.
+        self.tarea()
+        c = self.trabajo({"app.py": "print('buenas')\n", ".claude/skills/x/SKILL.md": "hola\n"})
+        self.entregar([c], ficheros=("app.py", ".claude/skills/x/SKILL.md"), criterios=[
+            {"n": 1, "estado": "ok", "evidencia": ".claude/skills/x/SKILL.md"},
+            {"n": 2, "estado": "ok", "evidencia": "check:pruebas"}])
+        self.assertEqual(self.validar()["veredicto"], "verificada")
+
     def test_dice_que_las_pruebas_pasan_y_fallan_al_repetirlas(self):
         self.tarea()
         c = self.trabajo({"app.py": "print('buenas')\n", "docs/prueba.txt": "todo verde\n",

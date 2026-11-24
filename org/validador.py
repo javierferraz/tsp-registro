@@ -437,7 +437,7 @@ def juzgar(t: dict, copia: Path, carpeta_evidencias: Path, abrir=_abrir_url,
             if not ruta or " " in ruta.strip() or not re.search(r"[\w-]\.\w+$|/", ruta):
                 j.falla(nombre, f"evidencia que una máquina no puede leer: «{ev[:80]}»")
                 continue
-            blob = _git(copia, "show", f"{cabeza}:{ruta.lstrip('./')}", check=False,
+            blob = _git(copia, "show", f"{cabeza}:{re.sub(r'^(\./)+', '', ruta)}", check=False,
                         binario=True)
             if blob.returncode:
                 j.falla(nombre, f"cita {ruta}, que no existe en la cabeza entregada")
