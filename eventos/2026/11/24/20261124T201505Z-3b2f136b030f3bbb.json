@@ -1,0 +1,29 @@
+{
+ "id": "3b2f136b030f3bbb",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T20:15:05.409552Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-657"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-657:n1-c57bacdfe34d00ba",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 10,
+  "creada": "2026-10-14T21:15:58Z",
+  "actualizada": "2026-11-24T18:56:06Z",
+  "huella_texto": "d8f705a46f87dd67",
+  "notas": 15,
+  "app": "Silent Frog",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "baja"
+ }
+}

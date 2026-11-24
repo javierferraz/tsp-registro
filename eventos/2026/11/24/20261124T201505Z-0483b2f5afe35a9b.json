@@ -1,0 +1,32 @@
+{
+ "id": "0483b2f5afe35a9b",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T20:15:05.423262Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-707"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-707:n1-e77bbb408298cbf0",
+ "datos": {
+  "estado": "hecha",
+  "revision": 25,
+  "creada": "2026-10-15T22:51:08Z",
+  "actualizada": "2026-11-24T19:25:25Z",
+  "huella_texto": "2ae9374745067563",
+  "notas": 11,
+  "movimientos": [
+   {
+    "de": "adelante",
+    "a": "hecha",
+    "fecha": "2026-11-24T19:25:25Z",
+    "por": "javier"
+   }
+  ]
+ }
+}

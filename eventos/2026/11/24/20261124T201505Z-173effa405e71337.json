@@ -1,0 +1,26 @@
+{
+ "id": "173effa405e71337",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T20:15:05.441812Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1313"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1313",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-11-24T18:52:30Z",
+  "actualizada": "2026-11-24T18:52:30Z",
+  "huella_texto": "5660e046a70d4b0b",
+  "notas": 1,
+  "app": "License Server",
+  "prioridad": "media"
+ }
+}
