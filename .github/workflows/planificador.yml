@@ -24,6 +24,8 @@ on:
       capacidad:
         description: "Cuántas tareas podría arrancar ahora"
         default: "3"
+  repository_dispatch:
+    types: [reloj-planificador]   # S-1311: el reloj del Worker de Cloudflare, puntual (simula, como el cron)
   schedule:
     - cron: "30 6 * * *"   # una vez al día: ~1 min de Actions; la simulación no necesita más
 

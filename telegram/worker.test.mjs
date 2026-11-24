@@ -1,7 +1,8 @@
 // Pruebas del Worker sin red: node --test telegram/
 import test from "node:test";
 import assert from "node:assert/strict";
-import worker, { decidir } from "./worker.mjs";
+import { readFileSync } from "node:fs";
+import worker, { decidir, RELOJ } from "./worker.mjs";
 
 const ENV = { WEBHOOK_SECRET: "s3creto_de-prueba", JAVIER_ID: "1000", REPO: "javierferraz/tsp-registro",
               GITHUB_TOKEN: "falso" };
@@ -86,6 +87,43 @@ test("fetch: despacha con el token y responde a Telegram en el cuerpo", async ()
     assert.equal(llamadas.length, 1, "ni el ajeno ni el secreto malo llegan a GitHub");
     r = await worker.fetch(new Request("https://w.example/"), ENV);
     assert.equal(r.status, 405);
+  } finally {
+    globalThis.fetch = original; console.log = log;
+  }
+});
+
+test("reloj: los horarios de wrangler.toml son justo los de RELOJ", () => {
+  const toml = readFileSync(new URL("./wrangler.toml", import.meta.url), "utf8");
+  const crons = JSON.parse(toml.match(/^crons\s*=\s*(\[.*\])\s*$/m)[1]);
+  assert.deepEqual([...crons].sort(), Object.keys(RELOJ).sort());
+});
+
+test("reloj: cada horario lanza su repository_dispatch", async () => {
+  const llamadas = [];
+  const original = globalThis.fetch;
+  globalThis.fetch = async (url, init) => { llamadas.push({ url, init }); return new Response(null, { status: 204 }); };
+  const log = console.log; console.log = () => {};
+  try {
+    await worker.scheduled({ cron: "20 */6 * * *" }, ENV);
+    await worker.scheduled({ cron: "30 6 * * *" }, ENV);
+    assert.deepEqual(llamadas.map((l) => JSON.parse(l.init.body).event_type), ["reloj-latidos", "reloj-planificador"]);
+    assert.equal(llamadas[0].url, "https://api.github.com/repos/javierferraz/tsp-registro/dispatches");
+    assert.equal(llamadas[0].init.headers.Authorization, "Bearer falso");
+    await assert.rejects(worker.scheduled({ cron: "0 0 * * *" }, ENV), /sin tipo/);
+    assert.equal(llamadas.length, 2, "un horario desconocido no despacha nada");
+  } finally {
+    globalThis.fetch = original; console.log = log;
+  }
+});
+
+test("reloj: si GitHub no acepta, la invocación sale fallida", async () => {
+  const original = globalThis.fetch;
+  const log = console.log; console.log = () => {};
+  try {
+    globalThis.fetch = async () => new Response("", { status: 403 });
+    await assert.rejects(worker.scheduled({ cron: "30 6 * * *" }, ENV), /403/);
+    globalThis.fetch = async () => { throw new TypeError("red caída"); };
+    await assert.rejects(worker.scheduled({ cron: "30 6 * * *" }, ENV), /respondió 0/);
   } finally {
     globalThis.fetch = original; console.log = log;
   }

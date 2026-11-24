@@ -10,9 +10,17 @@
 // Variables (secretos del Worker, nunca en el código): WEBHOOK_SECRET, JAVIER_ID,
 // GITHUB_TOKEN (fine-grained, solo javierferraz/tsp-registro, Contents: read and write).
 // REPO va en wrangler.toml.
+//
+// Reloj (S-1311): el cron de GitHub llega 8-12 h tarde o no llega. Cloudflare dispara puntual
+// los horarios de [triggers] en wrangler.toml (UTC) y cada uno lanza un repository_dispatch con
+// su tipo; latidos.yml y planificador.yml lo escuchan. Su cron propio queda de respaldo.
 
 export const ACCION = /^(?:p:(suave|dura|emergencia)|(r)|([axd]):([A-Za-z0-9][A-Za-z0-9._-]{0,40}))$/;
 const PULSACION = /^[A-Za-z0-9_-]{1,40}$/;
+export const RELOJ = {
+  "20 */6 * * *": "reloj-latidos",
+  "30 6 * * *": "reloj-planificador",
+};
 
 function iguales(a, b) {
   // comparación de tiempo constante para el secreto
@@ -55,6 +63,26 @@ export function decidir(secreto, update, env) {
   };
 }
 
+// POST /repos/{REPO}/dispatches; devuelve el estado HTTP (0 si la red está caída).
+async function despachar(env, cuerpo) {
+  try {
+    const r = await fetch(`https://api.github.com/repos/${env.REPO}/dispatches`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+        Accept: "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+        "User-Agent": "tsp-registro-telegram",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(cuerpo),
+    });
+    return r.status;
+  } catch {
+    return 0;
+  }
+}
+
 export default {
   async fetch(request, env) {
     if (request.method !== "POST") return new Response("", { status: 405 });
@@ -64,24 +92,9 @@ export default {
     // Registro mínimo en los logs del Worker: solo el motivo, nunca el identificador.
     console.log(`telegram: ${d.motivo}`);
     if (d.despacho) {
-      let r;
-      try {
-        r = await fetch(`https://api.github.com/repos/${env.REPO}/dispatches`, {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${env.GITHUB_TOKEN}`,
-            Accept: "application/vnd.github+json",
-            "X-GitHub-Api-Version": "2022-11-28",
-            "User-Agent": "tsp-registro-telegram",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(d.despacho),
-        });
-      } catch {
-        r = { status: 0 };  // red caída: mismo aviso, y el botón no se queda colgado
-      }
-      if (r.status !== 204) {
-        console.log(`telegram: GitHub respondió ${r.status}`);
+      const estado = await despachar(env, d.despacho);  // red caída: mismo aviso, el botón no se cuelga
+      if (estado !== 204) {
+        console.log(`telegram: GitHub respondió ${estado}`);
         d.respuesta.text = "No llegó a GitHub; prueba desde GitHub o al volver al PC.";
       }
     }
@@ -90,5 +103,14 @@ export default {
     return new Response(JSON.stringify(d.respuesta), {
       status: 200, headers: { "Content-Type": "application/json" },
     });
+  },
+
+  async scheduled(controller, env) {
+    const tipo = RELOJ[controller.cron];
+    if (!tipo) throw new Error(`reloj: horario sin tipo: ${controller.cron}`);
+    const estado = await despachar(env, { event_type: tipo, client_payload: { reloj: controller.cron } });
+    console.log(`reloj: ${tipo}: GitHub respondió ${estado}`);
+    // Si falla, la invocación sale como fallida en Cloudflare; el cron de GitHub hace de respaldo.
+    if (estado !== 204) throw new Error(`reloj: ${tipo}: GitHub respondió ${estado}`);
   },
 };

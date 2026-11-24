@@ -19,8 +19,10 @@ on:
         description: "Escribir disparos y alertas en el registro (si no, solo mira)"
         type: boolean
         default: true
+  repository_dispatch:
+    types: [reloj-latidos]   # S-1311: el reloj del Worker de Cloudflare, puntual
   schedule:
-    - cron: "20 */6 * * *"   # ~1 min de Actions cada vez
+    - cron: "20 */6 * * *"   # ~1 min de Actions cada vez; respaldo del reloj (GitHub llega 8-12 h tarde)
 
 permissions:
   contents: write
@@ -51,11 +53,11 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Motor de eventos
         env:
-          ESCRIBIR: ${{ (github.event_name == 'schedule' || inputs.escribir) && '--escribir --avisar' || '' }}
+          ESCRIBIR: ${{ (github.event_name == 'schedule' || github.event_name == 'repository_dispatch' || inputs.escribir) && '--escribir --avisar' || '' }}
         run: python -m org motor --identidad motor-github --sin-subir $ESCRIBIR | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Vigilante de latidos
         env:
-          ESCRIBIR: ${{ (github.event_name == 'schedule' || inputs.escribir) && '--escribir --avisar' || '' }}
+          ESCRIBIR: ${{ (github.event_name == 'schedule' || github.event_name == 'repository_dispatch' || inputs.escribir) && '--escribir --avisar' || '' }}
         run: |
           python -m org vigilar --sin-traer --sin-subir --md $ESCRIBIR | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Latido propio
