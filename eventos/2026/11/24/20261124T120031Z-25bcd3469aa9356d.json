@@ -1,0 +1,23 @@
+{
+ "id": "25bcd3469aa9356d",
+ "tipo": "tarea.entregada",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T12:00:31.124392Z",
+ "autor": {
+  "papel": "trabajador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1305"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1305:S-1305-note-2:0:tarea.entregada",
+ "datos": {
+  "resumen": "S-1305 a Por validar",
+  "commits": [
+   "d63526d8cf38",
+   "0c4321c1db33"
+  ]
+ }
+}
