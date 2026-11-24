@@ -1,0 +1,19 @@
+{
+ "id": "5bb2e0cf3ffe62c2",
+ "tipo": "tarea.aprobada",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T14:21:04.060234Z",
+ "autor": {
+  "papel": "planificador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1308"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1308:S-1308-note-2:0:tarea.aprobada",
+ "datos": {
+  "motivo": "tablero: propuesta -> curso (claude)"
+ }
+}
