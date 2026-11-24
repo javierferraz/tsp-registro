@@ -1,0 +1,19 @@
+{
+ "id": "70a12503f1dec98a",
+ "tipo": "tarea.cerrada",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T19:40:00.100467Z",
+ "autor": {
+  "papel": "validador",
+  "identidad": "validador-github"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-707"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "S-707:validador:ff2af855b8c4:0:cerrada",
+ "datos": {
+  "motivo": "verificada en modo tablero"
+ }
+}

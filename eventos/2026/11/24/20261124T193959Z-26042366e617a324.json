@@ -1,0 +1,32 @@
+{
+ "id": "26042366e617a324",
+ "tipo": "tarea.verificada",
+ "version_esquema": 2,
+ "fecha": "2026-11-24T19:39:59.953777Z",
+ "autor": {
+  "papel": "validador",
+  "identidad": "validador-github"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-707"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "S-707:validador:ff2af855b8c4:0:verificada",
+ "datos": {
+  "politica": "validador/tablero@1",
+  "cabeza": "ff2af855b8c4fc9d9cc1ebd6259806b7f7f6a5f5",
+  "comprobaciones": [
+   {
+    "nombre": "cierre",
+    "resultado": "ok",
+    "detalle": "sin commits: Javier la pasó a Terminada en el navegador (2026-11-24T19:25:25Z, sin firma)"
+   }
+  ],
+  "coste": {
+   "segundos": 23,
+   "runner": "Linux",
+   "run": "45472167094"
+  }
+ }
+}
