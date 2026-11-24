@@ -1,0 +1,48 @@
+{
+ "id": "61f3a15ba44d7b5a",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T16:15:04.847074Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1308"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1308:n1-c207d681a611505f",
+ "datos": {
+  "estado": "curso",
+  "revision": 4,
+  "creada": "2026-11-24T12:32:07Z",
+  "actualizada": "2026-11-24T15:12:19Z",
+  "huella_texto": "acb90a5620c9dbb9",
+  "notas": 7,
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "alta",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "curso",
+    "fecha": "2026-11-24T14:19:09Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "info",
+    "fecha": "2026-11-24T14:28:15Z",
+    "por": "claude"
+   },
+   {
+    "de": "info",
+    "a": "curso",
+    "fecha": "2026-11-24T15:12:19Z",
+    "por": "claude"
+   }
+  ]
+ }
+}
