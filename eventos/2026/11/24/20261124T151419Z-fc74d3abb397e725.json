@@ -1,0 +1,19 @@
+{
+ "id": "fc74d3abb397e725",
+ "tipo": "tarea.lista",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T15:14:19.434332Z",
+ "autor": {
+  "papel": "planificador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1308"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1308:S-1308-note-6:0:tarea.lista",
+ "datos": {
+  "motivo": "tablero: info -> curso (claude)"
+ }
+}
