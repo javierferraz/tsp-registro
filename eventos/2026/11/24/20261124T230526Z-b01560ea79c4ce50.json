@@ -1,0 +1,19 @@
+{
+ "id": "b01560ea79c4ce50",
+ "tipo": "tarea.lista",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T23:05:26.024577Z",
+ "autor": {
+  "papel": "planificador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1276"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1276:S-1276-note-12:0:tarea.lista",
+ "datos": {
+  "motivo": "tablero: info -> hecha (javier)"
+ }
+}
