@@ -1,0 +1,19 @@
+{
+ "id": "5916cf86eb05ba20",
+ "tipo": "tarea.bloqueada",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T20:34:47.573617Z",
+ "autor": {
+  "papel": "validador",
+  "identidad": "validador-github"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1276"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "S-1276:validador:ff2af855b8c4:0:bloqueada",
+ "datos": {
+  "motivo": "con commits de otro repo: no hay nada que pueda comprobar; la cierra Javier desde el navegador (o con su firma)"
+ }
+}
