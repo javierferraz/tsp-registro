@@ -7,3 +7,7 @@ workers_dev = true
 
 [vars]
 REPO = "javierferraz/tsp-registro"
+
+# Reloj (S-1311): horarios en UTC, iguales a las claves de RELOJ en worker.mjs (un test lo comprueba).
+[triggers]
+crons = ["20 */6 * * *", "30 6 * * *"]

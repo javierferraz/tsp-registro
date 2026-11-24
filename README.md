@@ -370,6 +370,14 @@ py -m org pausa emergencia [--hacer]             # pone los workflows que public
 - **Dos vigilantes en dos sitios.** `latidos.yml` (GitHub, cada 6 h): motor + vigilante + su
   propio latido. El registro diario del PC: copia latidos + centinela (que el de GitHub siga
   latiendo) + emergencia. Una alerta por cada último latido visto: no repite cada 6 h.
+- **Reloj puntual (S-1311).** El cron de GitHub de esta cuenta llega 8-12 h tarde o no llega
+  (S-1274). El Worker de Telegram lo suple: sus Cron Triggers (`[triggers]` de
+  `telegram/wrangler.toml`, en UTC, iguales a `RELOJ` de `worker.mjs`) lanzan un
+  `repository_dispatch` `reloj-latidos` cada 6 h y `reloj-planificador` a las 6:30; los dos
+  workflows lo escuchan (latidos escribe y avisa, el planificador simula, como con el cron). El
+  cron de GitHub queda de respaldo: un run repetido no duplica disparos ni avisos, y gasta
+  ~1 min de Actions. Si GitHub no acepta el despacho, la invocación sale fallida en Cloudflare.
+  Se enciende con `npx wrangler deploy` desde `telegram/` (mismo token, sin secretos nuevos).
 - **Pausa.** Niveles: suave (no arranca nada nuevo), dura (lo que corre guarda punto de control y
   para: `org latido` sale con 4) y emergencia (además, `gh workflow disable` de lo que publica,
   `politica/pausa.json`). Ámbitos: `general`, `app:<slug>`, `proyecto:<id>`, `tipo:<tipo>`,
