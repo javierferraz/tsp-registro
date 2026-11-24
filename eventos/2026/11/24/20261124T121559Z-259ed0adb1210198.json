@@ -1,0 +1,49 @@
+{
+ "id": "259ed0adb1210198",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T12:15:59.896045Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1283"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1283:n3-c5428c6a2be77670",
+ "datos": {
+  "estado": "validar",
+  "revision": 6,
+  "creada": "2026-11-22T21:53:17Z",
+  "actualizada": "2026-11-24T11:58:33Z",
+  "huella_texto": "1e1794563076441b",
+  "notas": 11,
+  "app": "Clear Parrot",
+  "etiquetas": [
+   "fallo"
+  ],
+  "prioridad": "media",
+  "check": "maquina",
+  "commits": [
+   "510a405faf84",
+   "e140026b54c1",
+   "b3c20215d1b6"
+  ],
+  "movimientos": [
+   {
+    "de": "validar",
+    "a": "curso",
+    "fecha": "2026-11-24T11:32:23Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-24T11:58:33Z",
+    "por": "claude"
+   }
+  ]
+ }
+}
