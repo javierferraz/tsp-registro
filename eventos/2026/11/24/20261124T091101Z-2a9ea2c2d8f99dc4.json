@@ -1,0 +1,19 @@
+{
+ "id": "2a9ea2c2d8f99dc4",
+ "tipo": "tarea.lista",
+ "version_esquema": 1,
+ "fecha": "2026-11-24T09:11:01.227648Z",
+ "autor": {
+  "papel": "planificador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1305"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1305:alta:1:tarea.lista",
+ "datos": {
+  "motivo": "tablero: propuesta -> curso (tablero)"
+ }
+}
