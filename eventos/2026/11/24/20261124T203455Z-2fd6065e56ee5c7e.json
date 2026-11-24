@@ -1,0 +1,51 @@
+{
+ "id": "2fd6065e56ee5c7e",
+ "tipo": "tarea.devuelta",
+ "version_esquema": 2,
+ "fecha": "2026-11-24T20:34:55.639154Z",
+ "autor": {
+  "papel": "validador",
+  "identidad": "validador-github"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1274"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "S-1274:validador:ff2af855b8c4:0:devuelta",
+ "datos": {
+  "politica": "validador/tablero@1",
+  "cabeza": "ff2af855b8c4fc9d9cc1ebd6259806b7f7f6a5f5",
+  "comprobaciones": [
+   {
+    "nombre": "commits",
+    "resultado": "falla",
+    "detalle": "4433862bf8b2 no está en la rama principal: falta fusionarlo"
+   },
+   {
+    "nombre": "commits",
+    "resultado": "falla",
+    "detalle": "a7cf990eeb58 no está en la rama principal: falta fusionarlo"
+   },
+   {
+    "nombre": "commits",
+    "resultado": "falla",
+    "detalle": "aae515874b93 no está en la rama principal: falta fusionarlo"
+   },
+   {
+    "nombre": "pruebas",
+    "resultado": "no_verificado",
+    "detalle": "modo tablero: pasaron al fusionar en la rama principal; el validador no las repite"
+   }
+  ],
+  "coste": {
+   "segundos": 17,
+   "runner": "Linux",
+   "run": "45481938097"
+  },
+  "no_verificado": [
+   "pruebas: modo tablero: pasaron al fusionar en la rama principal; el validador no las repite"
+  ],
+  "motivo": "commits: 4433862bf8b2 no está en la rama principal: falta fusionarlo; commits: a7cf990eeb58 no está en la rama principal: falta fusionarlo; commits: aae515874b93 no está en la rama principal: falta fusionarlo"
+ }
+}
