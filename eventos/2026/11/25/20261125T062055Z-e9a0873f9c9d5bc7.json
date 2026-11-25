@@ -1,0 +1,28 @@
+{
+ "id": "e9a0873f9c9d5bc7",
+ "tipo": "regla.disparada",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T06:20:55.851774Z",
+ "autor": {
+  "papel": "motor",
+  "identidad": "motor-github"
+ },
+ "entidad": {
+  "tipo": "regla",
+  "id": "latido-perdido"
+ },
+ "correlacion": "165421d80066322b",
+ "clave_idempotencia": "motor:latido-perdido:165421d80066322b",
+ "datos": {
+  "version": 1,
+  "evento": "165421d80066322b",
+  "sobre": "incidencia:latido-planificador-165421d8",
+  "eslabon": 2,
+  "acciones": [
+   {
+    "tipo": "incidencia.abierta",
+    "entidad": "incidencia:latido-planificador-165421d8"
+   }
+  ]
+ }
+}
