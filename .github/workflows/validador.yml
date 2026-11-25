@@ -134,9 +134,22 @@ jobs:
           fi
           V="$RUNNER_TEMP/validacion"
           LOG=$(python -c "import json, os, sys; d = json.load(open(sys.argv[1], encoding='utf-8')); print(os.path.basename(d.get('log', '')))" "$V/decision.json")
+          # «devuelta» sale con 1 a propósito (org/__main__.py), pero es un veredicto escrito con éxito,
+          # no un fallo del job: no debe llegar como correo rojo. Rechazos (también código 1: la tarea
+          # cambió, falta el sello...) y «bloqueada» (3) siguen en rojo: aquí el 1 solo se perdona si
+          # la salida es la decisión ya escrita y dice «devuelta».
+          set +e
           if [ -n "$LOG" ]; then
-            python -m org validar --registrar "$V/decision.json" --log "$V/$LOG"
+            python -m org validar --registrar "$V/decision.json" --log "$V/$LOG" > "$RUNNER_TEMP/registro.json"
           else
-            python -m org validar --registrar "$V/decision.json"
+            python -m org validar --registrar "$V/decision.json" > "$RUNNER_TEMP/registro.json"
+          fi
+          RC=$?
+          set -e
+          cat "$RUNNER_TEMP/registro.json"
+          if [ "$RC" -eq 1 ] && python -c "import json, sys; sys.exit(0 if json.load(open(sys.argv[1], encoding='utf-8')).get('veredicto') == 'devuelta' else 1)" "$RUNNER_TEMP/registro.json" 2>/dev/null; then
+            echo "::notice::Tarea devuelta: veredicto registrado (no es un fallo del job)"
+            RC=0
           fi
           rm -f "$RUNNER_TEMP/sello"
+          exit $RC
