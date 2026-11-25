@@ -1,0 +1,26 @@
+{
+ "id": "b38da40bf9a9b781",
+ "tipo": "tarea.entregada",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T00:01:07.390242Z",
+ "autor": {
+  "papel": "trabajador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1308"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1308:S-1308-note-14:0:tarea.entregada",
+ "datos": {
+  "resumen": "S-1308 a Por validar",
+  "commits": [
+   "2375f1868c92",
+   "642eeb7df68f",
+   "8315496b5178",
+   "de3d11e26197",
+   "3d9ae799204d"
+  ]
+ }
+}
