@@ -1,0 +1,36 @@
+{
+ "id": "14ef876a827a0707",
+ "tipo": "ejecucion.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T14:15:07.050152Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "ejecucion",
+  "id": "T-2026-11-25-02"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "ejecucion.cambiada:T-2026-11-25-02:n2-f7c7445a6cb09ec4",
+ "datos": {
+  "estado": "done",
+  "creada": "2026-11-25T01:00:23Z",
+  "actualizada": "2026-11-25T10:30:41Z",
+  "tarjeta": "S-1308",
+  "repo": "2606-quiet-panda",
+  "tamano": "L",
+  "modelo": "opus",
+  "esfuerzo": "xhigh",
+  "intentos": 1,
+  "minutos": 570,
+  "verificacion": "unverifiable",
+  "criterios": {
+   "pass": 6
+  },
+  "commits": 17,
+  "rama": "s1320",
+  "subida": true,
+  "con_informe": true
+ }
+}
