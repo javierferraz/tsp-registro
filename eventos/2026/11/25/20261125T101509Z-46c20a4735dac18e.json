@@ -1,0 +1,29 @@
+{
+ "id": "46c20a4735dac18e",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T10:15:09.589992Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1321"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1321",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 2,
+  "creada": "2026-11-25T08:15:46Z",
+  "actualizada": "2026-11-25T08:50:58Z",
+  "huella_texto": "4f1921c233975dd1",
+  "notas": 2,
+  "app": "Quiet Panda",
+  "etiquetas": [
+   "desarrollo"
+  ],
+  "prioridad": "media"
+ }
+}
