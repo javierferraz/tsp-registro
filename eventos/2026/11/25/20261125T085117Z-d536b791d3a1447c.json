@@ -1,0 +1,22 @@
+{
+ "id": "d536b791d3a1447c",
+ "tipo": "proceso.alerta",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T08:51:17.574885Z",
+ "autor": {
+  "papel": "motor",
+  "identidad": "vigilante-github"
+ },
+ "entidad": {
+  "tipo": "proceso",
+  "id": "tsp-vigia-releases"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "alerta:tsp-vigia-releases:falla:2026-11-24T15:33:30.000000Z",
+ "datos": {
+  "clase": "falla",
+  "esperado_horas": 48,
+  "vigilante": "vigilante-github",
+  "ultimo": "2026-11-24T15:33:30.000000Z"
+ }
+}

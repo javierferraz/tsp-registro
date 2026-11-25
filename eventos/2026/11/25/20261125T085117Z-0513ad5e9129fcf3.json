@@ -1,0 +1,22 @@
+{
+ "id": "0513ad5e9129fcf3",
+ "tipo": "proceso.alerta",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T08:51:17.574885Z",
+ "autor": {
+  "papel": "motor",
+  "identidad": "vigilante-github"
+ },
+ "entidad": {
+  "tipo": "proceso",
+  "id": "tsp-vigilante-ensayo"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "alerta:tsp-vigilante-ensayo:falla:2026-11-24T18:21:53.000000Z",
+ "datos": {
+  "clase": "falla",
+  "esperado_horas": 48,
+  "vigilante": "vigilante-github",
+  "ultimo": "2026-11-24T18:21:53.000000Z"
+ }
+}

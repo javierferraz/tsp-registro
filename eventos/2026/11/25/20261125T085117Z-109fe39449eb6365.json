@@ -1,0 +1,22 @@
+{
+ "id": "109fe39449eb6365",
+ "tipo": "proceso.alerta",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T08:51:17.574885Z",
+ "autor": {
+  "papel": "motor",
+  "identidad": "vigilante-github"
+ },
+ "entidad": {
+  "tipo": "proceso",
+  "id": "tsp-descargas"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "alerta:tsp-descargas:falla:2026-11-24T18:01:24.000000Z",
+ "datos": {
+  "clase": "falla",
+  "esperado_horas": 48,
+  "vigilante": "vigilante-github",
+  "ultimo": "2026-11-24T18:01:24.000000Z"
+ }
+}
