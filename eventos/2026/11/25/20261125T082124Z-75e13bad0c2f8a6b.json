@@ -1,0 +1,56 @@
+{
+ "id": "75e13bad0c2f8a6b",
+ "tipo": "tarea.devuelta",
+ "version_esquema": 2,
+ "fecha": "2026-11-25T08:21:24.422053Z",
+ "autor": {
+  "papel": "validador",
+  "identidad": "validador-github"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1274"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "S-1274:validador:dfcc74f45ab7:1:devuelta",
+ "datos": {
+  "politica": "validador/tablero@1",
+  "cabeza": "dfcc74f45ab7bf90fb8f915db7aa0407c4dc5447",
+  "comprobaciones": [
+   {
+    "nombre": "commits",
+    "resultado": "falla",
+    "detalle": "4433862bf8b2 no está en la rama principal: falta fusionarlo"
+   },
+   {
+    "nombre": "commits",
+    "resultado": "falla",
+    "detalle": "a7cf990eeb58 no está en la rama principal: falta fusionarlo"
+   },
+   {
+    "nombre": "commits",
+    "resultado": "falla",
+    "detalle": "aae515874b93 no está en la rama principal: falta fusionarlo"
+   },
+   {
+    "nombre": "commits",
+    "resultado": "falla",
+    "detalle": "62fe5e5ab9e9 no está en la rama principal: falta fusionarlo"
+   },
+   {
+    "nombre": "pruebas",
+    "resultado": "no_verificado",
+    "detalle": "modo tablero: pasaron al fusionar en la rama principal; el validador no las repite"
+   }
+  ],
+  "coste": {
+   "segundos": 17,
+   "runner": "Linux",
+   "run": "45575293326"
+  },
+  "no_verificado": [
+   "pruebas: modo tablero: pasaron al fusionar en la rama principal; el validador no las repite"
+  ],
+  "motivo": "commits: 4433862bf8b2 no está en la rama principal: falta fusionarlo; commits: a7cf990eeb58 no está en la rama principal: falta fusionarlo; commits: aae515874b93 no está en la rama principal: falta fusionarlo; commits: 62fe5e5ab9e9 no está en la rama principal: falta fusionarlo"
+ }
+}
