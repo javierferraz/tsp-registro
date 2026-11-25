@@ -1,0 +1,28 @@
+{
+ "id": "7729fdad346082fd",
+ "tipo": "regla.disparada",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T12:20:58.359972Z",
+ "autor": {
+  "papel": "motor",
+  "identidad": "motor-github"
+ },
+ "entidad": {
+  "tipo": "regla",
+  "id": "latido-perdido"
+ },
+ "correlacion": "d9fd8f4368ad4f95",
+ "clave_idempotencia": "motor:latido-perdido:d9fd8f4368ad4f95",
+ "datos": {
+  "version": 1,
+  "evento": "d9fd8f4368ad4f95",
+  "sobre": "incidencia:latido-tsp-vigia-soporte-d9fd8f43",
+  "eslabon": 2,
+  "acciones": [
+   {
+    "tipo": "incidencia.abierta",
+    "entidad": "incidencia:latido-tsp-vigia-soporte-d9fd8f43"
+   }
+  ]
+ }
+}

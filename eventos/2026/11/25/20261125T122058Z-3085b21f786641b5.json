@@ -1,0 +1,22 @@
+{
+ "id": "3085b21f786641b5",
+ "tipo": "incidencia.abierta",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T12:20:58.359968Z",
+ "autor": {
+  "papel": "motor",
+  "identidad": "motor-github"
+ },
+ "entidad": {
+  "tipo": "incidencia",
+  "id": "latido-tsp-descargas-109fe394"
+ },
+ "correlacion": "109fe39449eb6365",
+ "clave_idempotencia": "motor:latido-perdido:109fe39449eb6365:0",
+ "datos": {
+  "origen": "latido",
+  "gravedad": "media",
+  "descripcion": "El proceso tsp-descargas ha fallado (último latido: 2026-11-24T18:01:24.000000Z; se espera cada 48 h).",
+  "huella": "proceso:tsp-descargas:falla"
+ }
+}

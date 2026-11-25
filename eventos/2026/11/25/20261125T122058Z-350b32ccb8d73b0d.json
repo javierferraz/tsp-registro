@@ -1,0 +1,22 @@
+{
+ "id": "350b32ccb8d73b0d",
+ "tipo": "incidencia.abierta",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T12:20:58.359968Z",
+ "autor": {
+  "papel": "motor",
+  "identidad": "motor-github"
+ },
+ "entidad": {
+  "tipo": "incidencia",
+  "id": "latido-tsp-vigia-releases-d536b791"
+ },
+ "correlacion": "d536b791d3a1447c",
+ "clave_idempotencia": "motor:latido-perdido:d536b791d3a1447c:0",
+ "datos": {
+  "origen": "latido",
+  "gravedad": "media",
+  "descripcion": "El proceso tsp-vigia-releases ha fallado (último latido: 2026-11-24T15:33:30.000000Z; se espera cada 48 h).",
+  "huella": "proceso:tsp-vigia-releases:falla"
+ }
+}

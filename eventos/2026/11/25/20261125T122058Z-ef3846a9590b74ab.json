@@ -1,0 +1,22 @@
+{
+ "id": "ef3846a9590b74ab",
+ "tipo": "incidencia.abierta",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T12:20:58.359968Z",
+ "autor": {
+  "papel": "motor",
+  "identidad": "motor-github"
+ },
+ "entidad": {
+  "tipo": "incidencia",
+  "id": "latido-tsp-vigilante-ensayo-0513ad5e"
+ },
+ "correlacion": "0513ad5e9129fcf3",
+ "clave_idempotencia": "motor:latido-perdido:0513ad5e9129fcf3:0",
+ "datos": {
+  "origen": "latido",
+  "gravedad": "media",
+  "descripcion": "El proceso tsp-vigilante-ensayo ha fallado (último latido: 2026-11-24T18:21:53.000000Z; se espera cada 48 h).",
+  "huella": "proceso:tsp-vigilante-ensayo:falla"
+ }
+}

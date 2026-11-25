@@ -1,0 +1,22 @@
+{
+ "id": "8a543079c9242dea",
+ "tipo": "incidencia.abierta",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T12:20:58.359968Z",
+ "autor": {
+  "papel": "motor",
+  "identidad": "motor-github"
+ },
+ "entidad": {
+  "tipo": "incidencia",
+  "id": "latido-tsp-parte-diario-35e25eb3"
+ },
+ "correlacion": "35e25eb30f9a343e",
+ "clave_idempotencia": "motor:latido-perdido:35e25eb30f9a343e:0",
+ "datos": {
+  "origen": "latido",
+  "gravedad": "media",
+  "descripcion": "El proceso tsp-parte-diario ha fallado (último latido: 2026-11-24T19:31:38.000000Z; se espera cada 48 h).",
+  "huella": "proceso:tsp-parte-diario:falla"
+ }
+}

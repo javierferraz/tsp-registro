@@ -1,0 +1,22 @@
+{
+ "id": "4374d4903661e91e",
+ "tipo": "incidencia.abierta",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T12:20:58.359968Z",
+ "autor": {
+  "papel": "motor",
+  "identidad": "motor-github"
+ },
+ "entidad": {
+  "tipo": "incidencia",
+  "id": "latido-tsp-vigia-soporte-d9fd8f43"
+ },
+ "correlacion": "d9fd8f4368ad4f95",
+ "clave_idempotencia": "motor:latido-perdido:d9fd8f4368ad4f95:0",
+ "datos": {
+  "origen": "latido",
+  "gravedad": "media",
+  "descripcion": "El proceso tsp-vigia-soporte ha fallado (último latido: 2026-11-24T19:06:15.000000Z; se espera cada 48 h).",
+  "huella": "proceso:tsp-vigia-soporte:falla"
+ }
+}

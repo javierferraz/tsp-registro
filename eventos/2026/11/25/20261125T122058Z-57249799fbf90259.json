@@ -1,0 +1,28 @@
+{
+ "id": "57249799fbf90259",
+ "tipo": "regla.disparada",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T12:20:58.359969Z",
+ "autor": {
+  "papel": "motor",
+  "identidad": "motor-github"
+ },
+ "entidad": {
+  "tipo": "regla",
+  "id": "latido-perdido"
+ },
+ "correlacion": "109fe39449eb6365",
+ "clave_idempotencia": "motor:latido-perdido:109fe39449eb6365",
+ "datos": {
+  "version": 1,
+  "evento": "109fe39449eb6365",
+  "sobre": "incidencia:latido-tsp-descargas-109fe394",
+  "eslabon": 2,
+  "acciones": [
+   {
+    "tipo": "incidencia.abierta",
+    "entidad": "incidencia:latido-tsp-descargas-109fe394"
+   }
+  ]
+ }
+}
