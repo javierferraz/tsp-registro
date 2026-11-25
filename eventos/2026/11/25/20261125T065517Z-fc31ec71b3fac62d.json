@@ -1,0 +1,22 @@
+{
+ "id": "fc31ec71b3fac62d",
+ "tipo": "proceso.latido",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T06:55:17.623247Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "proceso",
+  "id": "planificador"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "latido:planificador:45561137124",
+ "datos": {
+  "resultado": "ok",
+  "ejecutado": "2026-11-25T06:30:42.000000Z",
+  "origen": "github",
+  "detalle": "run 45561137124: success"
+ }
+}

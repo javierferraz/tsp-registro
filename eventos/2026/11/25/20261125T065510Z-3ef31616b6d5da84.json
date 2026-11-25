@@ -1,0 +1,31 @@
+{
+ "id": "3ef31616b6d5da84",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T06:55:10.673843Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1307"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1307:n1-132886ada4ee37b1",
+ "datos": {
+  "estado": "validar",
+  "revision": 4,
+  "creada": "2026-11-24T12:31:51Z",
+  "actualizada": "2026-11-25T02:03:50Z",
+  "huella_texto": "8ea6ba9cd3e326f4",
+  "notas": 7,
+  "etiquetas": [
+   "release"
+  ],
+  "check": "ojos",
+  "commits": [
+   "4e6dc00288f4"
+  ]
+ }
+}

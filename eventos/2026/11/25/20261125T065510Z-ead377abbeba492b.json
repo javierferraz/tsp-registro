@@ -1,0 +1,25 @@
+{
+ "id": "ead377abbeba492b",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T06:55:10.709346Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1320"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1320",
+ "datos": {
+  "estado": "curso",
+  "revision": 1,
+  "creada": "2026-11-25T01:05:31Z",
+  "actualizada": "2026-11-25T01:05:31Z",
+  "huella_texto": "e3a42f0b88bc9948",
+  "notas": 1,
+  "app": "Quiet Panda"
+ }
+}

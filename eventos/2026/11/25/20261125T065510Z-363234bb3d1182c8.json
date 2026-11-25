@@ -1,0 +1,31 @@
+{
+ "id": "363234bb3d1182c8",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T06:55:10.696983Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1317"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1317",
+ "datos": {
+  "estado": "validar",
+  "revision": 3,
+  "creada": "2026-11-24T23:01:16Z",
+  "actualizada": "2026-11-25T02:03:50Z",
+  "huella_texto": "c95a5f73ab93d0d1",
+  "notas": 4,
+  "app": "Neat Bluejay",
+  "check": "ojos",
+  "commits": [
+   "a09c6a26222b",
+   "a5648b0d3075",
+   "1a77aa1667f7"
+  ]
+ }
+}

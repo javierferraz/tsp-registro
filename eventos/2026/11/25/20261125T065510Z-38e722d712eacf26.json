@@ -1,0 +1,38 @@
+{
+ "id": "38e722d712eacf26",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T06:55:10.612484Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-665"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-665:n1-c8201470aa851b08",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 11,
+  "creada": "2026-10-14T21:22:09Z",
+  "actualizada": "2026-11-24T23:00:53Z",
+  "huella_texto": "62c24d386a44fb75",
+  "notas": 18,
+  "app": "Neat Bluejay",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "baja",
+  "commits": [
+   "a09c6a26222b",
+   "39e5d68da2dd",
+   "e6a41980251b",
+   "e1f10a7b5158",
+   "fe9d9dd258d1",
+   "47cf5026271c",
+   "6c9412a7b924"
+  ]
+ }
+}

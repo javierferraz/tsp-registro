@@ -1,0 +1,29 @@
+{
+ "id": "e687dabb7e3c667c",
+ "tipo": "ejecucion.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T06:55:10.729333Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "ejecucion",
+  "id": "T-2026-11-25-02"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "ejecucion.importada:T-2026-11-25-02",
+ "datos": {
+  "estado": "running",
+  "creada": "2026-11-25T01:00:23Z",
+  "actualizada": "2026-11-25T01:00:23Z",
+  "tarjeta": "S-1308",
+  "repo": "2606-quiet-panda",
+  "tamano": "L",
+  "modelo": "opus",
+  "esfuerzo": "xhigh",
+  "intentos": 1,
+  "minutos": 0,
+  "con_informe": false
+ }
+}

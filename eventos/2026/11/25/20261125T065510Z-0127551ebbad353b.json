@@ -1,0 +1,29 @@
+{
+ "id": "0127551ebbad353b",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T06:55:10.639773Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1190"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1190:n1-0e5e5a0290c74769",
+ "datos": {
+  "estado": "adelante",
+  "revision": 2,
+  "creada": "2026-11-13T13:15:55Z",
+  "actualizada": "2026-11-25T00:55:42Z",
+  "huella_texto": "13ac552673621929",
+  "notas": 4,
+  "app": "Site",
+  "etiquetas": [
+   "site"
+  ],
+  "prioridad": "media"
+ }
+}

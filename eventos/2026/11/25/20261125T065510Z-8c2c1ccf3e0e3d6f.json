@@ -1,0 +1,35 @@
+{
+ "id": "8c2c1ccf3e0e3d6f",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T06:55:10.633482Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1044"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1044:n2-ab89699da98b11fc",
+ "datos": {
+  "estado": "validar",
+  "revision": 9,
+  "creada": "2026-10-28T21:53:28Z",
+  "actualizada": "2026-11-25T02:03:50Z",
+  "huella_texto": "cfc66c43b435efca",
+  "notas": 15,
+  "app": "Smart Greenjay",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "media",
+  "check": "ojos",
+  "commits": [
+   "ea3214edb570",
+   "88277fb17cd0",
+   "7b4014b8cba9"
+  ]
+ }
+}

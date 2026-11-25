@@ -1,0 +1,22 @@
+{
+ "id": "84223c9466a2ced0",
+ "tipo": "proceso.latido",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T06:55:27.039751Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "proceso",
+  "id": "tsp-vigilante-ensayo"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "latido:tsp-vigilante-ensayo:45458721709",
+ "datos": {
+  "resultado": "falla",
+  "ejecutado": "2026-11-24T18:21:53.000000Z",
+  "origen": "github",
+  "detalle": "run 45458721709: failure"
+ }
+}

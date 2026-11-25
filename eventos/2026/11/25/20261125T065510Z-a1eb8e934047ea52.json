@@ -1,0 +1,28 @@
+{
+ "id": "a1eb8e934047ea52",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T06:55:10.653325Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1277"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1277:n1-21cc0073d6ad34e9",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 2,
+  "creada": "2026-11-22T20:10:40Z",
+  "actualizada": "2026-11-25T00:55:39Z",
+  "huella_texto": "aca044befecbfbd2",
+  "notas": 3,
+  "etiquetas": [
+   "desarrollo"
+  ],
+  "prioridad": "media"
+ }
+}
