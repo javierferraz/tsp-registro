@@ -1,0 +1,25 @@
+{
+ "id": "96647b867e58d8da",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T20:15:47.337932Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1325"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1325",
+ "datos": {
+  "estado": "curso",
+  "revision": 1,
+  "creada": "2026-11-25T19:58:37Z",
+  "actualizada": "2026-11-25T19:58:37Z",
+  "huella_texto": "cced9ddfdbdd5364",
+  "notas": 1,
+  "app": "Quiet Panda"
+ }
+}

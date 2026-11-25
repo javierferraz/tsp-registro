@@ -1,0 +1,32 @@
+{
+ "id": "c6ec0c6e27045829",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T20:15:47.311252Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1324"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1324:n1-57c5c1cc9a8c6841",
+ "datos": {
+  "estado": "validar",
+  "revision": 4,
+  "creada": "2026-11-25T16:53:25Z",
+  "actualizada": "2026-11-25T20:02:49Z",
+  "huella_texto": "2ca99f301a62c7d2",
+  "notas": 6,
+  "app": "Quiet Panda",
+  "etiquetas": [
+   "desarrollo"
+  ],
+  "check": "ojos",
+  "commits": [
+   "8137b820dbf3"
+  ]
+ }
+}
