@@ -1,0 +1,21 @@
+{
+ "id": "165421d80066322b",
+ "tipo": "proceso.alerta",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T00:21:01.459817Z",
+ "autor": {
+  "papel": "motor",
+  "identidad": "vigilante-github"
+ },
+ "entidad": {
+  "tipo": "proceso",
+  "id": "planificador"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "alerta:planificador:falta:nunca",
+ "datos": {
+  "clase": "falta",
+  "esperado_horas": 48,
+  "vigilante": "vigilante-github"
+ }
+}
