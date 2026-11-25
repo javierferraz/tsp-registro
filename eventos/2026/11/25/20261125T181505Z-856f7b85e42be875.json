@@ -1,0 +1,36 @@
+{
+ "id": "856f7b85e42be875",
+ "tipo": "ejecucion.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-25T18:15:05.488385Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "ejecucion",
+  "id": "T-2026-11-25-08"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "ejecucion.cambiada:T-2026-11-25-08:n1-f4193b349c66221e",
+ "datos": {
+  "estado": "blocked",
+  "creada": "2026-11-25T14:58:43Z",
+  "actualizada": "2026-11-25T16:32:35Z",
+  "repo": "2607-claude-statusline-jf",
+  "tamano": "S",
+  "modelo": "sonnet",
+  "esfuerzo": "high",
+  "intentos": 1,
+  "minutos": 94,
+  "criterios": {
+   "pass": 3,
+   "fail": 1,
+   "not_run": 1
+  },
+  "commits": 1,
+  "rama": "docs/cronos-diagnostico-sesion",
+  "subida": true,
+  "con_informe": true
+ }
+}
