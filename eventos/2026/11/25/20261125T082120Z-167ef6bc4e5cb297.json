@@ -1,0 +1,51 @@
+{
+ "id": "167ef6bc4e5cb297",
+ "tipo": "tarea.verificada",
+ "version_esquema": 2,
+ "fecha": "2026-11-25T08:21:20.815192Z",
+ "autor": {
+  "papel": "validador",
+  "identidad": "validador-github"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1276"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "S-1276:validador:dfcc74f45ab7:0:verificada",
+ "datos": {
+  "politica": "validador/tablero@1",
+  "cabeza": "dfcc74f45ab7bf90fb8f915db7aa0407c4dc5447",
+  "comprobaciones": [
+   {
+    "nombre": "commits",
+    "resultado": "ok",
+    "detalle": "5 commit(s) ya en la rama principal dfcc74f45ab7"
+   },
+   {
+    "nombre": "pruebas",
+    "resultado": "no_verificado",
+    "detalle": "modo tablero: pasaron al fusionar en la rama principal; el validador no las repite"
+   },
+   {
+    "nombre": "commits",
+    "resultado": "no_verificado",
+    "detalle": "e140026b54c1 no está en 2606-thestromboliproject: es de otro repo y no lo compruebo"
+   },
+   {
+    "nombre": "cierre",
+    "resultado": "ok",
+    "detalle": "con commits de otro repo: Javier la pasó a Terminada en el navegador (2026-11-24T22:30:39Z, sin firma)"
+   }
+  ],
+  "coste": {
+   "segundos": 22,
+   "runner": "Linux",
+   "run": "45575298984"
+  },
+  "no_verificado": [
+   "pruebas: modo tablero: pasaron al fusionar en la rama principal; el validador no las repite",
+   "commits: e140026b54c1 no está en 2606-thestromboliproject: es de otro repo y no lo compruebo"
+  ]
+ }
+}
