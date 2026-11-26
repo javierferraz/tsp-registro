@@ -1,0 +1,36 @@
+{
+ "id": "7415c5bb85df71f6",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-26T10:45:22.653048Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1229"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1229:n1-176e69054d5e79af",
+ "datos": {
+  "estado": "descartada",
+  "revision": 3,
+  "creada": "2026-11-17T21:40:08Z",
+  "actualizada": "2026-11-26T10:44:26Z",
+  "huella_texto": "276a5ea32cf618f5",
+  "notas": 4,
+  "etiquetas": [
+   "seguridad"
+  ],
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "descartada",
+    "fecha": "2026-11-26T10:44:26Z",
+    "por": "claude"
+   }
+  ]
+ }
+}
