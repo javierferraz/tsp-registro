@@ -1,0 +1,37 @@
+{
+ "id": "27a6539eb1f295e9",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-26T12:45:07.515572Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1326"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1326:n1-9fb7239d9e678124",
+ "datos": {
+  "estado": "adelante",
+  "revision": 9,
+  "creada": "2026-11-26T06:54:01Z",
+  "actualizada": "2026-11-26T12:41:11Z",
+  "huella_texto": "026b8092b7c98f34",
+  "notas": 9,
+  "app": "License Server",
+  "etiquetas": [
+   "desarrollo"
+  ],
+  "prioridad": "media",
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "adelante",
+    "fecha": "2026-11-26T11:28:59Z",
+    "por": "javier"
+   }
+  ]
+ }
+}
