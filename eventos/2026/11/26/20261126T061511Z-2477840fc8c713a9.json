@@ -1,0 +1,22 @@
+{
+ "id": "2477840fc8c713a9",
+ "tipo": "proceso.latido",
+ "version_esquema": 1,
+ "fecha": "2026-11-26T06:15:11.206962Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "proceso",
+  "id": "cerrador-nocturno"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "latido:cerrador-nocturno:2026-11-26T02:00:01.0000000Z",
+ "datos": {
+  "resultado": "ok",
+  "ejecutado": "2026-11-26T02:00:01.000000Z",
+  "origen": "programador",
+  "detalle": "resultado 0"
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "id": "b262cba071d7e167",
+ "tipo": "proceso.latido",
+ "version_esquema": 1,
+ "fecha": "2026-11-26T06:15:15.488750Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "proceso",
+  "id": "tsp-parte-diario"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "latido:tsp-parte-diario:45677427997",
+ "datos": {
+  "resultado": "ok",
+  "ejecutado": "2026-11-25T18:39:46.000000Z",
+  "origen": "github",
+  "detalle": "run 45677427997: success"
+ }
+}
