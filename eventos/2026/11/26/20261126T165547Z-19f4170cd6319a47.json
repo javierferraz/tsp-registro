@@ -1,0 +1,35 @@
+{
+ "id": "19f4170cd6319a47",
+ "tipo": "ejecucion.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-26T16:55:47.839314Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "ejecucion",
+  "id": "T-2026-11-26-06"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "ejecucion.cambiada:T-2026-11-26-06:n1-3648daa23dd41d51",
+ "datos": {
+  "estado": "done",
+  "creada": "2026-11-26T14:34:38Z",
+  "actualizada": "2026-11-26T14:51:10Z",
+  "repo": "0_General",
+  "tamano": "S",
+  "modelo": "sonnet",
+  "esfuerzo": "high",
+  "intentos": 1,
+  "minutos": 17,
+  "verificacion": "unverifiable",
+  "criterios": {
+   "pass": 5
+  },
+  "commits": 0,
+  "rama": "main",
+  "subida": false,
+  "con_informe": true
+ }
+}

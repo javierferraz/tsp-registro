@@ -1,0 +1,35 @@
+{
+ "id": "b1bc2d852077bfbe",
+ "tipo": "ejecucion.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-26T16:55:47.830992Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "ejecucion",
+  "id": "T-2026-11-26-02"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "ejecucion.cambiada:T-2026-11-26-02:n2-71bd6ca51f0665dc",
+ "datos": {
+  "estado": "done",
+  "creada": "2026-11-26T06:27:42Z",
+  "actualizada": "2026-11-26T06:43:56Z",
+  "repo": "palantir-monitor-app",
+  "tamano": "S",
+  "modelo": "sonnet",
+  "esfuerzo": "high",
+  "intentos": 1,
+  "minutos": 16,
+  "verificacion": "unverifiable",
+  "criterios": {
+   "pass": 11
+  },
+  "commits": 2,
+  "rama": "main",
+  "subida": false,
+  "con_informe": true
+ }
+}

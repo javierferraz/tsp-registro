@@ -1,0 +1,36 @@
+{
+ "id": "4e45cb46251d81cd",
+ "tipo": "ejecucion.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-26T16:55:47.842549Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "ejecucion",
+  "id": "T-2026-11-26-07"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "ejecucion.cambiada:T-2026-11-26-07:n1-44b06a03847ecd3a",
+ "datos": {
+  "estado": "done",
+  "creada": "2026-11-26T14:44:04Z",
+  "actualizada": "2026-11-26T15:32:46Z",
+  "tarjeta": "S-835",
+  "repo": "2610-roaring-lion",
+  "tamano": "S",
+  "modelo": "sonnet",
+  "esfuerzo": "high",
+  "intentos": 1,
+  "minutos": 49,
+  "verificacion": "pass",
+  "criterios": {
+   "pass": 5
+  },
+  "commits": 1,
+  "rama": "t2026112607",
+  "subida": true,
+  "con_informe": true
+ }
+}
