@@ -1,0 +1,27 @@
+{
+ "id": "b873c6519b2779e7",
+ "tipo": "informe.importado",
+ "version_esquema": 1,
+ "fecha": "2026-11-26T18:45:10.704436Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "informe",
+  "id": "soporte-2026-11-26"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "informe.importado:soporte-2026-11-26",
+ "datos": {
+  "vigia": "soporte",
+  "fecha": "2026-11-26",
+  "ruta": "docs/soporte/ultimo.json",
+  "sha256": "44f60726a67275a61081bbc80535784d3e91df1f1d37f718054a29433148b4d9",
+  "cifras": {
+   "correos": 0,
+   "aplazados": 0,
+   "con_error": false
+  }
+ }
+}
