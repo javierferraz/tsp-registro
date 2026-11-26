@@ -1,0 +1,26 @@
+{
+ "id": "19102daaf3c638c4",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-26T08:45:10.332251Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1313"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1313:n1-50397a0d6d8a676b",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 3,
+  "creada": "2026-11-24T18:52:30Z",
+  "actualizada": "2026-11-26T06:54:16Z",
+  "huella_texto": "5660e046a70d4b0b",
+  "notas": 5,
+  "app": "License Server",
+  "prioridad": "media"
+ }
+}
