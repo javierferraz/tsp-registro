@@ -1,0 +1,35 @@
+{
+ "id": "d5717453e48003fc",
+ "tipo": "ejecucion.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-26T14:45:08.486626Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "ejecucion",
+  "id": "T-2026-11-25-12"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "ejecucion.cambiada:T-2026-11-25-12:n2-dfe82b0f0836c647",
+ "datos": {
+  "estado": "done",
+  "creada": "2026-11-25T17:33:41Z",
+  "actualizada": "2026-11-25T20:12:44Z",
+  "repo": "la-naranja-mecanica",
+  "tamano": "M",
+  "modelo": "sonnet",
+  "esfuerzo": "high",
+  "intentos": 1,
+  "minutos": 159,
+  "verificacion": "unverifiable",
+  "criterios": {
+   "pass": 5
+  },
+  "commits": 3,
+  "rama": "main",
+  "subida": true,
+  "con_informe": true
+ }
+}

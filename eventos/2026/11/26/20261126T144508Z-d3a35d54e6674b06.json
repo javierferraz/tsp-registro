@@ -1,0 +1,29 @@
+{
+ "id": "d3a35d54e6674b06",
+ "tipo": "ejecucion.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-26T14:45:08.550773Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "ejecucion",
+  "id": "T-2026-11-26-07"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "ejecucion.importada:T-2026-11-26-07",
+ "datos": {
+  "estado": "queued",
+  "creada": "2026-11-26T14:44:04Z",
+  "actualizada": "2026-11-26T14:44:04Z",
+  "tarjeta": "S-835",
+  "repo": "2610-roaring-lion",
+  "tamano": "S",
+  "modelo": "sonnet",
+  "esfuerzo": "high",
+  "intentos": 0,
+  "minutos": 0,
+  "con_informe": false
+ }
+}
