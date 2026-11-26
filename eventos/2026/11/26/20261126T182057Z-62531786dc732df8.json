@@ -1,0 +1,22 @@
+{
+ "id": "62531786dc732df8",
+ "tipo": "proceso.latido",
+ "version_esquema": 1,
+ "fecha": "2026-11-26T18:20:57.206374Z",
+ "autor": {
+  "papel": "motor",
+  "identidad": "vigilante-github"
+ },
+ "entidad": {
+  "tipo": "proceso",
+  "id": "vigilante-github"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "latido:vigilante-github:20261126T182057206374",
+ "datos": {
+  "resultado": "ok",
+  "ejecutado": "2026-11-26T18:20:57.206374Z",
+  "origen": "propio",
+  "detalle": "run 45875174663"
+ }
+}
