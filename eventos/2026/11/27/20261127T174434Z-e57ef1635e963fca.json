@@ -1,0 +1,32 @@
+{
+ "id": "e57ef1635e963fca",
+ "tipo": "informe.importado",
+ "version_esquema": 1,
+ "fecha": "2026-11-27T17:44:34.684837Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "informe",
+  "id": "contenidos-2026-11-27"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "informe.importado:contenidos-2026-11-27",
+ "datos": {
+  "vigia": "contenidos",
+  "fecha": "2026-11-27",
+  "ruta": "docs/web/vigia-contenidos/ultimo.json",
+  "sha256": "5b022087b10d7068fd33f89670e5e473f69e90ab8e817312c4ec70b662343c9f",
+  "cifras": {
+   "seo_fallos": 0,
+   "seo_avisos": 7,
+   "paginas_revisadas": 48,
+   "paginas_sin_visitas": 4,
+   "descargas_semana": 3,
+   "pageviews": 122,
+   "visitors": 34,
+   "visits": 57
+  }
+ }
+}
