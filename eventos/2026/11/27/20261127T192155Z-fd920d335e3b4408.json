@@ -1,0 +1,23 @@
+{
+ "id": "fd920d335e3b4408",
+ "tipo": "tarea.entregada",
+ "version_esquema": 1,
+ "fecha": "2026-11-27T19:21:55.902922Z",
+ "autor": {
+  "papel": "trabajador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1335"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1335:S-1335-note-2:0:tarea.entregada",
+ "datos": {
+  "resumen": "S-1335 a Por validar",
+  "commits": [
+   "cd4bec0a6ae1",
+   "61fcee980db2"
+  ]
+ }
+}
