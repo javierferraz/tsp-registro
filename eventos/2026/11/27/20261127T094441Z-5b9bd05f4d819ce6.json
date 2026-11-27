@@ -1,0 +1,28 @@
+{
+ "id": "5b9bd05f4d819ce6",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-27T09:44:41.407737Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1330"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1330",
+ "datos": {
+  "estado": "curso",
+  "revision": 1,
+  "creada": "2026-11-27T08:58:28Z",
+  "actualizada": "2026-11-27T08:58:28Z",
+  "huella_texto": "7b9741899a6d2208",
+  "notas": 1,
+  "app": "Vivid Butterfly",
+  "etiquetas": [
+   "app"
+  ]
+ }
+}

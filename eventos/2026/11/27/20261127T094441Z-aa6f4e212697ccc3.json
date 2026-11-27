@@ -1,0 +1,28 @@
+{
+ "id": "aa6f4e212697ccc3",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-27T09:44:41.405207Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1329"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1329",
+ "datos": {
+  "estado": "curso",
+  "revision": 1,
+  "creada": "2026-11-27T08:58:09Z",
+  "actualizada": "2026-11-27T08:58:09Z",
+  "huella_texto": "197afaabd2bf3458",
+  "notas": 1,
+  "app": "Sharp Crab",
+  "etiquetas": [
+   "app"
+  ]
+ }
+}

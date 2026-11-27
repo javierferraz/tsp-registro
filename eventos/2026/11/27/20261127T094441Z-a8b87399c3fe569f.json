@@ -1,0 +1,39 @@
+{
+ "id": "a8b87399c3fe569f",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-27T09:44:41.402560Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1328"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1328",
+ "datos": {
+  "estado": "validar",
+  "revision": 2,
+  "creada": "2026-11-27T07:17:52Z",
+  "actualizada": "2026-11-27T09:02:22Z",
+  "huella_texto": "81547a3600225ef0",
+  "notas": 7,
+  "app": "Watchful Elephant",
+  "check": "ojos",
+  "commits": [
+   "b10514f2d9e5",
+   "a1002cf80a08",
+   "7cc0a5c3bc76"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-27T09:02:22Z",
+    "por": "claude"
+   }
+  ]
+ }
+}
