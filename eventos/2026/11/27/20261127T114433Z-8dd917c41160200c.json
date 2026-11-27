@@ -1,0 +1,26 @@
+{
+ "id": "8dd917c41160200c",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-27T11:44:33.570654Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1332"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1332",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-11-27T11:37:31Z",
+  "actualizada": "2026-11-27T11:37:31Z",
+  "huella_texto": "df642521273f2541",
+  "notas": 1,
+  "app": "Clever Cat",
+  "prioridad": "media"
+ }
+}
