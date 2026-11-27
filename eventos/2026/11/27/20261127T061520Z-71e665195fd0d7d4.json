@@ -1,0 +1,22 @@
+{
+ "id": "71e665195fd0d7d4",
+ "tipo": "proceso.latido",
+ "version_esquema": 1,
+ "fecha": "2026-11-27T06:15:20.724971Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "proceso",
+  "id": "tsp-vigia-releases"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "latido:tsp-vigia-releases:45842028534",
+ "datos": {
+  "resultado": "ok",
+  "ejecutado": "2026-11-26T14:44:26.000000Z",
+  "origen": "github",
+  "detalle": "run 45842028534: success"
+ }
+}

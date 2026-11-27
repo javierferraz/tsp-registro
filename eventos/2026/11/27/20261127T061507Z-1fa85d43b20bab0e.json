@@ -1,0 +1,34 @@
+{
+ "id": "1fa85d43b20bab0e",
+ "tipo": "ejecucion.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-27T06:15:07.739567Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "ejecucion",
+  "id": "T-2026-11-26-12"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "ejecucion.cambiada:T-2026-11-26-12:n1-1354a616ae49eafd",
+ "datos": {
+  "estado": "blocked",
+  "creada": "2026-11-26T19:36:22Z",
+  "actualizada": "2026-11-26T20:54:42Z",
+  "repo": "2610-roaring-lion",
+  "tamano": "M",
+  "modelo": "opus",
+  "esfuerzo": "high",
+  "intentos": 1,
+  "minutos": 78,
+  "criterios": {
+   "not_run": 3,
+   "pass": 3
+  },
+  "commits": 1,
+  "subida": true,
+  "con_informe": true
+ }
+}
