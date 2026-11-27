@@ -1,0 +1,35 @@
+{
+ "id": "d8d7536ff7c6f041",
+ "tipo": "ejecucion.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-27T19:44:33.363165Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "ejecucion",
+  "id": "T-2026-11-27-04"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "ejecucion.cambiada:T-2026-11-27-04:n2-3b90d2cf3a6549ea",
+ "datos": {
+  "estado": "blocked",
+  "creada": "2026-11-27T08:54:17Z",
+  "actualizada": "2026-11-27T15:22:10Z",
+  "tarjeta": "S-1320",
+  "repo": "2606-vivid-butterfly",
+  "tamano": "L",
+  "modelo": "claude-opus-5-5",
+  "esfuerzo": "high",
+  "intentos": 1,
+  "minutos": 388,
+  "criterios": {
+   "pass": 6
+  },
+  "commits": 6,
+  "rama": "s1330",
+  "subida": true,
+  "con_informe": true
+ }
+}
