@@ -1,0 +1,25 @@
+{
+ "id": "ce754ecc37816ba0",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-27T23:46:47.626055Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1336"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1336",
+ "datos": {
+  "estado": "curso",
+  "revision": 1,
+  "creada": "2026-11-27T23:44:31Z",
+  "actualizada": "2026-11-27T23:44:31Z",
+  "huella_texto": "efeb11c6c505c406",
+  "notas": 1,
+  "app": "Handy Raccoon"
+ }
+}
