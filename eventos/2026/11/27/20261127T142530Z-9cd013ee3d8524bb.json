@@ -1,0 +1,19 @@
+{
+ "id": "9cd013ee3d8524bb",
+ "tipo": "tarea.bloqueada",
+ "version_esquema": 1,
+ "fecha": "2026-11-27T14:25:30.278063Z",
+ "autor": {
+  "papel": "planificador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1331"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1331:S-1331-note-9:0:tarea.bloqueada",
+ "datos": {
+  "motivo": "tablero: validar -> curso (claude)"
+ }
+}
