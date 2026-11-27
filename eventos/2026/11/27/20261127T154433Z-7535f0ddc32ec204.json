@@ -1,0 +1,25 @@
+{
+ "id": "7535f0ddc32ec204",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-27T15:44:33.468303Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1335"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1335",
+ "datos": {
+  "estado": "curso",
+  "revision": 1,
+  "creada": "2026-11-27T15:03:11Z",
+  "actualizada": "2026-11-27T15:03:11Z",
+  "huella_texto": "93363ddeb75819e9",
+  "notas": 1,
+  "app": "Site"
+ }
+}

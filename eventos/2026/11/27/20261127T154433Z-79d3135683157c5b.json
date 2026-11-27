@@ -1,0 +1,29 @@
+{
+ "id": "79d3135683157c5b",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-27T15:44:33.427371Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1250"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1250:n1-5be66edf37f42ea7",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 2,
+  "creada": "2026-11-22T10:53:59Z",
+  "actualizada": "2026-11-27T15:22:49Z",
+  "huella_texto": "c26c7e7fd055b692",
+  "notas": 5,
+  "app": "Sharp Crab",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "media"
+ }
+}

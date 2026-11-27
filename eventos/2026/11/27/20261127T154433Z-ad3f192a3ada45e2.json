@@ -1,0 +1,35 @@
+{
+ "id": "ad3f192a3ada45e2",
+ "tipo": "ejecucion.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-27T15:44:33.478398Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "ejecucion",
+  "id": "T-2026-11-27-05"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "ejecucion.cambiada:T-2026-11-27-05:n1-92909f05ab4db95f",
+ "datos": {
+  "estado": "blocked",
+  "creada": "2026-11-27T08:54:26Z",
+  "actualizada": "2026-11-27T15:27:16Z",
+  "tarjeta": "S-1320",
+  "repo": "2606-sharp-crab",
+  "tamano": "L",
+  "modelo": "claude-opus-5-5",
+  "esfuerzo": "high",
+  "intentos": 1,
+  "minutos": 393,
+  "criterios": {
+   "pass": 6
+  },
+  "commits": 22,
+  "rama": "s1329",
+  "subida": true,
+  "con_informe": true
+ }
+}

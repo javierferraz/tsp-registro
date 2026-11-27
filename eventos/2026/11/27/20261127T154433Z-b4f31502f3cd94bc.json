@@ -1,0 +1,62 @@
+{
+ "id": "b4f31502f3cd94bc",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-27T15:44:33.458355Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1331"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1331:n2-d9be307469bde71d",
+ "datos": {
+  "estado": "validar",
+  "revision": 11,
+  "creada": "2026-11-27T08:59:34Z",
+  "actualizada": "2026-11-27T14:53:39Z",
+  "huella_texto": "cd482efd56724261",
+  "notas": 20,
+  "app": "Site",
+  "check": "maquina",
+  "commits": [
+   "2847434aa0f2",
+   "61fc8ab1fe02",
+   "8509f3ab9921",
+   "7c42629efac8",
+   "1bd98d256a1d",
+   "dd281feab17d",
+   "4ecc37475a4f",
+   "27479ef3b60c"
+  ],
+  "movimientos": [
+   {
+    "de": "validar",
+    "a": "curso",
+    "fecha": "2026-11-27T14:29:50Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-27T14:36:17Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "curso",
+    "fecha": "2026-11-27T14:52:31Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-27T14:53:39Z",
+    "por": "claude"
+   }
+  ]
+ }
+}
