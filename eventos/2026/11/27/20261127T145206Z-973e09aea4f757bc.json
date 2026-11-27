@@ -1,0 +1,29 @@
+{
+ "id": "973e09aea4f757bc",
+ "tipo": "tarea.entregada",
+ "version_esquema": 1,
+ "fecha": "2026-11-27T14:52:06.271294Z",
+ "autor": {
+  "papel": "trabajador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1331"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1331:S-1331-note-15:0:tarea.entregada",
+ "datos": {
+  "resumen": "S-1331 a Por validar",
+  "commits": [
+   "2847434aa0f2",
+   "61fc8ab1fe02",
+   "8509f3ab9921",
+   "7c42629efac8",
+   "1bd98d256a1d",
+   "dd281feab17d",
+   "4ecc37475a4f",
+   "27479ef3b60c"
+  ]
+ }
+}
