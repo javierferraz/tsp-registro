@@ -1,0 +1,30 @@
+{
+ "id": "4a1947ee07987043",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-27T21:44:30.625910Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1335"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1335:n2-bcce2edfd0c5b662",
+ "datos": {
+  "estado": "validar",
+  "revision": 4,
+  "creada": "2026-11-27T15:03:11Z",
+  "actualizada": "2026-11-27T20:54:29Z",
+  "huella_texto": "93363ddeb75819e9",
+  "notas": 7,
+  "app": "Site",
+  "check": "decision",
+  "commits": [
+   "cd4bec0a6ae1",
+   "61fcee980db2"
+  ]
+ }
+}
