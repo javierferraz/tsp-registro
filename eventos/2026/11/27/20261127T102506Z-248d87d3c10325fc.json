@@ -1,0 +1,23 @@
+{
+ "id": "248d87d3c10325fc",
+ "tipo": "tarea.entregada",
+ "version_esquema": 1,
+ "fecha": "2026-11-27T10:25:06.671827Z",
+ "autor": {
+  "papel": "trabajador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1331"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1331:alta:3:tarea.entregada",
+ "datos": {
+  "resumen": "S-1331 a Por validar",
+  "commits": [
+   "2847434aa0f2",
+   "61fc8ab1fe02"
+  ]
+ }
+}
