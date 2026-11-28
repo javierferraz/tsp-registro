@@ -1,0 +1,22 @@
+{
+ "id": "4746f6a825aec90b",
+ "tipo": "tarea.entregada",
+ "version_esquema": 1,
+ "fecha": "2026-11-28T18:46:01.196313Z",
+ "autor": {
+  "papel": "trabajador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1348"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1348:S-1348-note-2:0:tarea.entregada",
+ "datos": {
+  "resumen": "S-1348 a Por validar",
+  "commits": [
+   "17d58b1bec37"
+  ]
+ }
+}
