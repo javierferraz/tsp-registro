@@ -1,0 +1,70 @@
+{
+ "id": "466e43e4b95b8fc4",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-28T14:15:05.649324Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1345"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1345:n1-e9f61b8e9ca18bfd",
+ "datos": {
+  "estado": "validar",
+  "revision": 6,
+  "creada": "2026-11-28T11:55:54Z",
+  "actualizada": "2026-11-28T13:29:27Z",
+  "huella_texto": "259b92582ae2d417",
+  "notas": 11,
+  "app": "Tidy Koala",
+  "etiquetas": [
+   "site"
+  ],
+  "check": "ojos",
+  "commits": [
+   "cf95d6fd76b2",
+   "e9332355e728",
+   "0d176b8949ee",
+   "08f1d5eb1c61",
+   "cc127d279ed2",
+   "968f19a31296",
+   "52794b2492c3"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-28T13:14:28Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "curso",
+    "fecha": "2026-11-28T13:22:39Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-28T13:24:13Z",
+    "por": "claude"
+   },
+   {
+    "de": "validar",
+    "a": "curso",
+    "fecha": "2026-11-28T13:28:15Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-28T13:29:27Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

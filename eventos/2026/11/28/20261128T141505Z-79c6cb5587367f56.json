@@ -1,0 +1,28 @@
+{
+ "id": "79c6cb5587367f56",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-28T14:15:05.624734Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1319"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1319:n1-6af8b1e3f04d9f7c",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 2,
+  "creada": "2026-11-25T00:55:23Z",
+  "actualizada": "2026-11-28T13:07:54Z",
+  "huella_texto": "0849902d0bf29e6a",
+  "notas": 2,
+  "etiquetas": [
+   "site"
+  ],
+  "prioridad": "alta"
+ }
+}

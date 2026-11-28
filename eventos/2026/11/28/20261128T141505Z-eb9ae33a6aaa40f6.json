@@ -1,0 +1,41 @@
+{
+ "id": "eb9ae33a6aaa40f6",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-28T14:15:05.645745Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1343"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1343:n1-8ad85481e84fa9de",
+ "datos": {
+  "estado": "validar",
+  "revision": 2,
+  "creada": "2026-11-28T11:55:47Z",
+  "actualizada": "2026-11-28T13:14:23Z",
+  "huella_texto": "4bdf7aae0a9843e6",
+  "notas": 3,
+  "app": "Orderly Owl",
+  "etiquetas": [
+   "site"
+  ],
+  "check": "ojos",
+  "commits": [
+   "cf95d6fd76b2",
+   "e9332355e728"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-28T13:14:23Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

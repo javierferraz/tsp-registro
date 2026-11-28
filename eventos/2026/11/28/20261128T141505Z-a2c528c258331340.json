@@ -1,0 +1,53 @@
+{
+ "id": "a2c528c258331340",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-28T14:15:05.642543Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1340"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1340:n1-18328ee705b9929b",
+ "datos": {
+  "estado": "validar",
+  "revision": 4,
+  "creada": "2026-11-28T10:48:31Z",
+  "actualizada": "2026-11-28T13:59:22Z",
+  "huella_texto": "b47ed06bb43922a1",
+  "notas": 6,
+  "app": "Crafty Fox",
+  "prioridad": "media",
+  "check": "maquina",
+  "commits": [
+   "56707d618d92",
+   "49ee2a4f185a",
+   "4b0444fce4cf",
+   "e2057af88af2"
+  ],
+  "movimientos": [
+   {
+    "de": "propuesta",
+    "a": "adelante",
+    "fecha": "2026-11-28T13:34:07Z",
+    "por": "javier"
+   },
+   {
+    "de": "adelante",
+    "a": "curso",
+    "fecha": "2026-11-28T13:34:09Z",
+    "por": "claude"
+   },
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-28T13:59:22Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

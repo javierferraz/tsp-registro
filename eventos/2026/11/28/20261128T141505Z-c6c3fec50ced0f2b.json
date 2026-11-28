@@ -1,0 +1,49 @@
+{
+ "id": "c6c3fec50ced0f2b",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-28T14:15:05.634963Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1330"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1330:n9-e2b96d8635f59f80",
+ "datos": {
+  "estado": "validar",
+  "revision": 10,
+  "creada": "2026-11-27T08:58:28Z",
+  "actualizada": "2026-11-28T13:16:40Z",
+  "huella_texto": "7b9741899a6d2208",
+  "notas": 22,
+  "app": "Vivid Butterfly",
+  "etiquetas": [
+   "app"
+  ],
+  "check": "ojos",
+  "commits": [
+   "996e7bede4e5",
+   "ac81dac093e8",
+   "1e39ed384b18",
+   "b15c595f31a1",
+   "23477c648add",
+   "8a48e96d15b8",
+   "c75e02b68e6e",
+   "103e472ed3ca",
+   "2a095d07f684",
+   "667fb711d9ca",
+   "840083c3af18",
+   "193c0d187b6c",
+   "2a603fc65b68",
+   "af58cba29d6c",
+   "9e3ce792e235",
+   "de233e512557",
+   "a52be796d289",
+   "05c63f93d789"
+  ]
+ }
+}

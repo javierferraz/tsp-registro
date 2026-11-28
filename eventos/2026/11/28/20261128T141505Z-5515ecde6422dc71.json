@@ -1,0 +1,29 @@
+{
+ "id": "5515ecde6422dc71",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-28T14:15:05.653409Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1347"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1347",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-11-28T13:07:39Z",
+  "actualizada": "2026-11-28T13:07:39Z",
+  "huella_texto": "a6c52a0359a3036b",
+  "notas": 1,
+  "app": "Tidy Koala",
+  "etiquetas": [
+   "site"
+  ],
+  "prioridad": "alta"
+ }
+}
