@@ -1,0 +1,19 @@
+{
+ "id": "ead515e2845856a1",
+ "tipo": "tarea.aprobada",
+ "version_esquema": 1,
+ "fecha": "2026-11-28T12:05:00.981465Z",
+ "autor": {
+  "papel": "planificador",
+  "identidad": "puente-tablero"
+ },
+ "entidad": {
+  "tipo": "tarea",
+  "id": "S-1342"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "puente:S-1342:alta:0:tarea.aprobada",
+ "datos": {
+  "motivo": "tablero: propuesta -> validar (claude)"
+ }
+}
