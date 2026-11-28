@@ -1,0 +1,33 @@
+{
+ "id": "2d2552055e957bf8",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-28T18:20:05.092876Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1329"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1329:n4-5516597e2a9ab233",
+ "datos": {
+  "estado": "validar",
+  "revision": 5,
+  "creada": "2026-11-27T08:58:09Z",
+  "actualizada": "2026-11-28T18:05:04Z",
+  "huella_texto": "197afaabd2bf3458",
+  "notas": 11,
+  "app": "Sharp Crab",
+  "etiquetas": [
+   "app"
+  ],
+  "check": "maquina",
+  "commits": [
+   "d82d98f42de9",
+   "8c64bc9a703f"
+  ]
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "id": "f2be6e99f04f6f9a",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-28T18:20:05.109102Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1347"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1347:n1-17478b66519c7e74",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 2,
+  "creada": "2026-11-28T13:07:39Z",
+  "actualizada": "2026-11-28T17:32:52Z",
+  "huella_texto": "a6c52a0359a3036b",
+  "notas": 2,
+  "app": "Tidy Koala",
+  "etiquetas": [
+   "site"
+  ],
+  "prioridad": "alta"
+ }
+}
