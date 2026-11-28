@@ -1,0 +1,26 @@
+{
+ "id": "3a0a8947ddb8b961",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-28T12:15:29.885105Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1339"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1339",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 1,
+  "creada": "2026-11-28T10:48:28Z",
+  "actualizada": "2026-11-28T10:48:28Z",
+  "huella_texto": "cbc18c1719d350f1",
+  "notas": 0,
+  "app": "Quiet Panda",
+  "prioridad": "media"
+ }
+}

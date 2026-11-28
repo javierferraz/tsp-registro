@@ -1,0 +1,28 @@
+{
+ "id": "65be33390395b40a",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-28T12:15:29.932635Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1344"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1344",
+ "datos": {
+  "estado": "curso",
+  "revision": 1,
+  "creada": "2026-11-28T11:55:51Z",
+  "actualizada": "2026-11-28T11:55:51Z",
+  "huella_texto": "b5cafedde673566a",
+  "notas": 1,
+  "app": "Agile Ant",
+  "etiquetas": [
+   "site"
+  ]
+ }
+}

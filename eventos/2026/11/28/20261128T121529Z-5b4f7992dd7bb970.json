@@ -1,0 +1,28 @@
+{
+ "id": "5b4f7992dd7bb970",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-28T12:15:29.938095Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1345"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1345",
+ "datos": {
+  "estado": "curso",
+  "revision": 1,
+  "creada": "2026-11-28T11:55:54Z",
+  "actualizada": "2026-11-28T11:55:54Z",
+  "huella_texto": "259b92582ae2d417",
+  "notas": 1,
+  "app": "Tidy Koala",
+  "etiquetas": [
+   "site"
+  ]
+ }
+}

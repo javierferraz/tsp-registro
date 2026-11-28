@@ -1,0 +1,28 @@
+{
+ "id": "72e97971cab2f1c5",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-28T12:15:29.924964Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1343"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1343",
+ "datos": {
+  "estado": "curso",
+  "revision": 1,
+  "creada": "2026-11-28T11:55:47Z",
+  "actualizada": "2026-11-28T11:55:47Z",
+  "huella_texto": "4bdf7aae0a9843e6",
+  "notas": 1,
+  "app": "Orderly Owl",
+  "etiquetas": [
+   "site"
+  ]
+ }
+}
