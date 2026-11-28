@@ -1,0 +1,29 @@
+{
+ "id": "d39258ce9f941ff1",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-28T10:15:27.861839Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1252"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1252:n2-6c875c2eaea4c1f2",
+ "datos": {
+  "estado": "propuesta",
+  "revision": 3,
+  "creada": "2026-11-22T10:54:18Z",
+  "actualizada": "2026-11-28T10:02:49Z",
+  "huella_texto": "793715fd04c82419",
+  "notas": 5,
+  "app": "Vivid Butterfly",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "media"
+ }
+}

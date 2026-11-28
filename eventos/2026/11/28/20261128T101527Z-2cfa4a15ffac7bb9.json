@@ -1,0 +1,43 @@
+{
+ "id": "2cfa4a15ffac7bb9",
+ "tipo": "tarjeta.importada",
+ "version_esquema": 1,
+ "fecha": "2026-11-28T10:15:27.907428Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1337"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.importada:S-1337",
+ "datos": {
+  "estado": "validar",
+  "revision": 2,
+  "creada": "2026-11-28T09:56:22Z",
+  "actualizada": "2026-11-28T10:14:13Z",
+  "huella_texto": "a6f944a5534c8e52",
+  "notas": 3,
+  "app": "Vivid Butterfly",
+  "etiquetas": [
+   "fallo"
+  ],
+  "check": "ojos",
+  "commits": [
+   "f99cc4e2985a",
+   "e70ecf2e14cf",
+   "e15b16df3908",
+   "379b40a704cc"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-28T10:14:13Z",
+    "por": "claude"
+   }
+  ]
+ }
+}

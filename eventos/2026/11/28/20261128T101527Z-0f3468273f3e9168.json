@@ -1,0 +1,41 @@
+{
+ "id": "0f3468273f3e9168",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-28T10:15:27.840169Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-658"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-658:n1-15cd0da9b761b052",
+ "datos": {
+  "estado": "adelante",
+  "revision": 13,
+  "creada": "2026-10-14T21:15:59Z",
+  "actualizada": "2026-11-28T09:55:15Z",
+  "huella_texto": "23cc1abe87682e83",
+  "notas": 22,
+  "app": "Sneaky Spider",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "baja",
+  "commits": [
+   "d966d470558d",
+   "2330f447da2f",
+   "08ee773f7b18",
+   "b99bd1ee7929",
+   "b890c76116a9",
+   "ed4f2414d134",
+   "72f05d579e7f",
+   "8aa39ec8e1be",
+   "02575fdd5c02",
+   "63bd853bca01"
+  ]
+ }
+}
