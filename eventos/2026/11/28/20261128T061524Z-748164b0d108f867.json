@@ -1,0 +1,22 @@
+{
+ "id": "748164b0d108f867",
+ "tipo": "proceso.latido",
+ "version_esquema": 1,
+ "fecha": "2026-11-28T06:15:24.828978Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "proceso",
+  "id": "registro-diario"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "latido:registro-diario:20261128T061524828978",
+ "datos": {
+  "resultado": "ok",
+  "ejecutado": "2026-11-28T06:15:24.828978Z",
+  "origen": "propio",
+  "detalle": "8 evento(s), 0 rechazado(s)"
+ }
+}

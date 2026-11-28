@@ -1,0 +1,33 @@
+{
+ "id": "db1f897f50475a3c",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-28T06:15:08.137902Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1249"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1249:n2-090a3de023a2af9a",
+ "datos": {
+  "estado": "validar",
+  "revision": 3,
+  "creada": "2026-11-22T10:53:52Z",
+  "actualizada": "2026-11-28T02:00:39Z",
+  "huella_texto": "c463e4de5b2dcfe6",
+  "notas": 4,
+  "app": "Quiet Panda",
+  "etiquetas": [
+   "release"
+  ],
+  "prioridad": "media",
+  "check": "ojos",
+  "commits": [
+   "1ee6c9f184bc"
+  ]
+ }
+}

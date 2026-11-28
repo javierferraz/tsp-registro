@@ -1,0 +1,37 @@
+{
+ "id": "5bf96e94f3b72ae5",
+ "tipo": "tarjeta.cambiada",
+ "version_esquema": 1,
+ "fecha": "2026-11-28T06:15:08.169236Z",
+ "autor": {
+  "papel": "importador",
+  "identidad": "importador-pc"
+ },
+ "entidad": {
+  "tipo": "tarjeta",
+  "id": "S-1336"
+ },
+ "correlacion": null,
+ "clave_idempotencia": "tarjeta.cambiada:S-1336:n1-5b850ee3bd118010",
+ "datos": {
+  "estado": "validar",
+  "revision": 3,
+  "creada": "2026-11-27T23:44:31Z",
+  "actualizada": "2026-11-28T02:00:39Z",
+  "huella_texto": "efeb11c6c505c406",
+  "notas": 4,
+  "app": "Handy Raccoon",
+  "check": "ojos",
+  "commits": [
+   "b7f3d28aeeac"
+  ],
+  "movimientos": [
+   {
+    "de": "curso",
+    "a": "validar",
+    "fecha": "2026-11-27T23:55:57Z",
+    "por": "claude"
+   }
+  ]
+ }
+}
